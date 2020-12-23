@@ -5,6 +5,8 @@ import {
   Grid,
   Toolbar,
   Typography,
+  Divider,
+  Button,
 } from "@material-ui/core";
 import React from "react";
 import ProjectCard, { IProjectCardProps } from "../components/ProjectCard";
@@ -14,7 +16,11 @@ function NavBar() {
     <AppBar position="sticky">
       <Container maxWidth="lg">
         <Toolbar>
-          <Typography variant="h4">chrisvouga.dev</Typography>
+          <Typography variant="h5">chrisvouga.dev</Typography>
+          <Box flex={1} />
+          <Box color="text.primary">
+            <Button>Projects</Button>
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
@@ -39,8 +45,10 @@ const PROJECT_CARD_PROPS: IProjectCardProps[] = [
 
 function Projects() {
   return (
-    <Box>
-      <Typography variant="h4">Projects</Typography>
+    <React.Fragment>
+      <Typography variant="h4" gutterBottom>
+        Projects
+      </Typography>
       <Grid container spacing={1}>
         {PROJECT_CARD_PROPS.map((props) => (
           <Grid key={props.liveSiteURL} item xs>
@@ -48,7 +56,20 @@ function Projects() {
           </Grid>
         ))}
       </Grid>
-    </Box>
+    </React.Fragment>
+  );
+}
+
+function Banner() {
+  return (
+    <React.Fragment>
+      <Typography variant="h3" align="center">
+        Chris Vouga
+      </Typography>
+      <Typography variant="h5" align="center">
+        Developer
+      </Typography>
+    </React.Fragment>
   );
 }
 
@@ -63,7 +84,13 @@ export default function Index() {
           width={500}
           height={500}
         /> */}
-        <Projects />
+        <Box paddingY={1}>
+          <Banner />
+        </Box>
+        <Divider />
+        <Box paddingY={1}>
+          <Projects />
+        </Box>
       </Container>
     </React.Fragment>
   );
