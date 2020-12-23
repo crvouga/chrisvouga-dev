@@ -15,7 +15,7 @@ interface IProjectCardProps {
   description: string;
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {},
 }));
 
