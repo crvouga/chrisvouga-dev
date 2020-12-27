@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 function ProjectCardButton(props: ButtonProps) {
-  return <Button size="large" {...props} />;
+  return <Button variant="outlined" size="large" {...props} />;
 }
 
 export default function ProjectCard(props: IProjectCardProps) {

@@ -36,7 +36,7 @@ function Projects({
       </Typography>
       <Grid container spacing={1}>
         {projectCardProps.map((props) => (
-          <Grid key={props.liveSiteURL} item xs>
+          <Grid key={props.liveSiteURL} item xs sm={6}>
             <ProjectCard {...props} />
           </Grid>
         ))}
@@ -60,6 +60,16 @@ const PROJECT_CARD_PROPS = [
     title: "Connect Four",
     liveSiteURL: "https://connect-four-in-a-row.web.app/",
     sourceCodeURL: "https://github.com/crvouga/connect-four",
+  },
+  {
+    title: "Simon Says",
+    liveSiteURL: "https://simon-says-game.web.app/",
+    sourceCodeURL: "https://github.com/crvouga/simon-says",
+  },
+  {
+    title: "Match Three",
+    liveSiteURL: "https://match-three-game.web.app/",
+    sourceCodeURL: "https://github.com/crvouga/match-three",
   },
 ];
 
