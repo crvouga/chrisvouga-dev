@@ -1,5 +1,4 @@
 import { AppProps } from "next/dist/next-server/lib/router/router";
-import Head from "next/Head"; // note: https://github.com/mui-org/material-ui/issues/16962
 import React from "react";
 import ThemeProvider from "../src/components/ThemeProvider";
 
@@ -16,12 +15,6 @@ export default function App(props: AppProps) {
 
   return (
     <React.Fragment>
-      <Head>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
-      </Head>
       <ThemeProvider>
         <Component {...pageProps} />
       </ThemeProvider>

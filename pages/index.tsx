@@ -5,22 +5,44 @@ import {
   Grid,
   Toolbar,
   Typography,
+  Button,
 } from "@material-ui/core";
 import { GetStaticProps } from "next";
 import React from "react";
 import ProjectCard, { IProjectCardProps } from "../src/components/ProjectCard";
 import writeScreenshot from "../src/services/screenshot";
 import { urlToFilename } from "../src/services/url-filename";
+import { ThemeTypeToggleButton } from "../src/components/ThemeProvider";
 
 function NavBar() {
   return (
     <AppBar position="sticky">
       <Container maxWidth="lg">
-        <Toolbar>
-          <Typography variant="h5">chris vouga</Typography>
-        </Toolbar>
+        <Toolbar></Toolbar>
       </Container>
     </AppBar>
+  );
+}
+
+function Hero() {
+  return (
+    <Box paddingY={2}>
+      <Box paddingY={2}>
+        <Typography variant="h1">Chris Vouga</Typography>
+        <Typography variant="h2" color="textSecondary">
+          Web Developer
+        </Typography>
+      </Box>
+      <Box paddingY={2}>
+        <Typography variant="h6">
+          I am a software developer based in the Phoenix Valley. My main area of
+          focus is in developing web applications.
+        </Typography>
+      </Box>
+      <Button size="large" variant="outlined" color="primary">
+        Contact Me
+      </Button>
+    </Box>
   );
 }
 
@@ -32,7 +54,7 @@ function Projects({
   return (
     <React.Fragment>
       <Typography variant="h4" gutterBottom>
-        Projects
+        Some Things I've Built
       </Typography>
       <Grid container spacing={1}>
         {projectCardProps.map((props) => (
@@ -114,6 +136,9 @@ export default function Index(props: IIndexProps) {
     <React.Fragment>
       <NavBar />
       <Container maxWidth="md">
+        <Box paddingY={2}>
+          <Hero />
+        </Box>
         <Box paddingY={2}>
           <Projects projectCardProps={projectCardProps} />
         </Box>
