@@ -47,7 +47,7 @@ function Hero() {
           focus is in developing web applications.
         </Typography>
       </Box>
-      <Button size="large" variant="outlined" color="primary">
+      <Button size="large" variant="outlined" color="secondary">
         Get In Touch
       </Button>
     </Box>

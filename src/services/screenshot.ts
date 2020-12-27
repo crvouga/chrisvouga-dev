@@ -1,4 +1,5 @@
-import puppeteer from "puppeteer";
+// import puppeteer from "puppeteer";
+import chromium from "chrome-aws-lambda";
 
 export const encodeUrl = (url: string) => Buffer.from(url).toString("base64");
 
@@ -23,7 +24,7 @@ export const writeScreenshot = async ({
   path: string;
   url: string;
 }) => {
-  const browser = await puppeteer.launch();
+  const browser = await chromium.puppeteer.launch();
 
   const page = await browser.newPage();
 
