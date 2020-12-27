@@ -104,12 +104,14 @@ const PROJECT_CARD_PROPS = [
 ];
 
 export const getStaticProps: GetStaticProps = async () => {
-  for (const { liveSiteURL } of PROJECT_CARD_PROPS) {
-    await writeScreenshot({
-      url: liveSiteURL,
-      timeout: 2000,
-      path: urlToImagePath(liveSiteURL),
-    });
+  if (proccess.NODE_ENV !== "production") {
+    for (const { liveSiteURL } of PROJECT_CARD_PROPS) {
+      await writeScreenshot({
+        url: liveSiteURL,
+        timeout: 2000,
+        path: urlToImagePath(liveSiteURL),
+      });
+    }
   }
 
   const projectCardProps: IProjectCardProps[] = PROJECT_CARD_PROPS.map(
