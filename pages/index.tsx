@@ -1,18 +1,17 @@
 import {
   AppBar,
   Box,
+  Button,
   Container,
   Grid,
   Toolbar,
   Typography,
-  Button,
 } from "@material-ui/core";
 import { GetStaticProps } from "next";
 import React from "react";
 import ProjectCard, { IProjectCardProps } from "../src/components/ProjectCard";
 import writeScreenshot from "../src/services/screenshot";
 import { urlToFilename } from "../src/services/url-filename";
-import { ThemeTypeToggleButton } from "../src/components/ThemeProvider";
 
 function NavBar() {
   return (
@@ -40,7 +39,7 @@ function Hero() {
         </Typography>
       </Box>
       <Button size="large" variant="outlined" color="primary">
-        Contact Me
+        Get In Touch
       </Button>
     </Box>
   );
