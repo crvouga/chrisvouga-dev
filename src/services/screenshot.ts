@@ -1,5 +1,4 @@
 import puppeteer from "puppeteer";
-// import chromium from "chrome-aws-lambda";
 
 export const encodeUrl = (url: string) => Buffer.from(url).toString("base64");
 

@@ -64,7 +64,7 @@ function Projects({
       <Typography variant="h4" gutterBottom>
         Some Things I've Built
       </Typography>
-      <Grid container spacing={1}>
+      <Grid container spacing={2}>
         {projectCardProps.map((props) => (
           <Grid key={props.liveSiteURL} item xs sm={6}>
             <ProjectCard {...props} />
@@ -103,8 +103,20 @@ const PROJECT_CARD_PROPS = [
   },
 ];
 
+const getNodeEnv = (): "production" | "test" | "development" => {
+  const nodeEnv = process.env.NODE_ENV;
+  if (
+    nodeEnv === "development" ||
+    nodeEnv === "production" ||
+    nodeEnv === "test"
+  ) {
+    return nodeEnv;
+  }
+  return "development";
+};
+
 export const getStaticProps: GetStaticProps = async () => {
-  if (proccess.NODE_ENV !== "production") {
+  if (getNodeEnv() === "development") {
     for (const { liveSiteURL } of PROJECT_CARD_PROPS) {
       await writeScreenshot({
         url: liveSiteURL,
