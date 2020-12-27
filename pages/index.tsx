@@ -101,15 +101,13 @@ const urlToImageSrc = ({ liveSiteURL }: { liveSiteURL: string }) =>
   `/${urlToFilename(liveSiteURL)}.png`;
 
 export const getStaticProps: GetStaticProps = async () => {
-  await Promise.all(
-    PROJECT_CARD_PROPS.map(async ({ liveSiteURL }) => {
-      await writeScreenshot({
-        url: liveSiteURL,
-        timeout: 2000,
-        path: urlToImagePath({ liveSiteURL }),
-      });
-    })
-  );
+  for (const { liveSiteURL } of PROJECT_CARD_PROPS) {
+    await writeScreenshot({
+      url: liveSiteURL,
+      timeout: 2000,
+      path: urlToImagePath({ liveSiteURL }),
+    });
+  }
 
   const projectCardProps: IProjectCardProps[] = PROJECT_CARD_PROPS.map(
     ({ liveSiteURL, sourceCodeURL, title }) => {
