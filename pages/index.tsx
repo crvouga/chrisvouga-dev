@@ -6,33 +6,43 @@ import {
   Grid,
   Toolbar,
   Typography,
+  Divider,
+  useTheme,
 } from "@material-ui/core";
 import { GetStaticProps } from "next";
 import React from "react";
 import ProjectCard, { IProjectCardProps } from "../src/components/ProjectCard";
-import writeScreenshot from "../src/services/screenshot";
-import { urlToFilename } from "../src/services/url-filename";
+import {
+  urlToImagePath,
+  urlToImageSrc,
+  writeScreenshot,
+} from "../src/services/screenshot";
+import { ThemeTypeToggleButton } from "../src/components/ThemeProvider";
 
 function NavBar() {
   return (
-    <AppBar position="sticky">
+    <AppBar position="sticky" color="transparent" elevation={0}>
       <Container maxWidth="lg">
-        <Toolbar></Toolbar>
+        <Toolbar>
+          <Box flex={1} />
+          <ThemeTypeToggleButton />
+        </Toolbar>
       </Container>
     </AppBar>
   );
 }
 
 function Hero() {
+  const theme = useTheme();
   return (
-    <Box paddingY={2}>
-      <Box paddingY={2}>
-        <Typography variant="h1">Chris Vouga</Typography>
-        <Typography variant="h2" color="textSecondary">
-          Web Developer
+    <Box>
+      <Box paddingY={2} fontWeight="bold">
+        <Typography variant="h1">Chris Vouga.</Typography>
+        <Typography variant="h1" color="textSecondary">
+          I build things for the web.
         </Typography>
       </Box>
-      <Box paddingY={2}>
+      <Box paddingY={2} maxWidth={theme.breakpoints.values.sm}>
         <Typography variant="h6">
           I am a software developer based in the Phoenix Valley. My main area of
           focus is in developing web applications.
@@ -94,18 +104,12 @@ const PROJECT_CARD_PROPS = [
   },
 ];
 
-const urlToImagePath = ({ liveSiteURL }: { liveSiteURL: string }) =>
-  `public/${urlToFilename(liveSiteURL)}.png`;
-
-const urlToImageSrc = ({ liveSiteURL }: { liveSiteURL: string }) =>
-  `/${urlToFilename(liveSiteURL)}.png`;
-
 export const getStaticProps: GetStaticProps = async () => {
   for (const { liveSiteURL } of PROJECT_CARD_PROPS) {
     await writeScreenshot({
       url: liveSiteURL,
       timeout: 2000,
-      path: urlToImagePath({ liveSiteURL }),
+      path: urlToImagePath(liveSiteURL),
     });
   }
 
@@ -115,7 +119,7 @@ export const getStaticProps: GetStaticProps = async () => {
         liveSiteURL,
         sourceCodeURL,
         title,
-        src: urlToImageSrc({ liveSiteURL }),
+        src: urlToImageSrc(liveSiteURL),
       };
     }
   );
@@ -132,12 +136,14 @@ export default function Index(props: IIndexProps) {
   return (
     <React.Fragment>
       <NavBar />
-      <Container maxWidth="md">
-        <Box paddingY={2}>
-          <Hero />
-        </Box>
-        <Box paddingY={2}>
-          <Projects projectCardProps={projectCardProps} />
+      <Container maxWidth="lg">
+        <Box paddingX={6}>
+          <Box paddingY={12}>
+            <Hero />
+          </Box>
+          <Box paddingY={12}>
+            <Projects projectCardProps={projectCardProps} />
+          </Box>
         </Box>
       </Container>
     </React.Fragment>

@@ -1,12 +1,20 @@
 import puppeteer from "puppeteer";
 
+export const encodeUrl = (url: string) => Buffer.from(url).toString("base64");
+
+export const decodeUrl = (base64: string) =>
+  Buffer.from(base64, "base64").toString("ascii");
+
+export const urlToImagePath = (url: string) => `public/${encodeUrl(url)}.png`;
+export const urlToImageSrc = (url: string) => `/${encodeUrl(url)}.png`;
+
 const wait = (timeout: number) => {
   return new Promise((resolve) => {
     setTimeout(resolve, timeout);
   });
 };
 
-export default async function writeScreenshot({
+export const writeScreenshot = async ({
   path,
   url,
   timeout,
@@ -14,7 +22,7 @@ export default async function writeScreenshot({
   timeout: number;
   path: string;
   url: string;
-}) {
+}) => {
   const browser = await puppeteer.launch();
 
   const page = await browser.newPage();
@@ -26,4 +34,4 @@ export default async function writeScreenshot({
   await page.screenshot({ path });
 
   await browser.close();
-}
+};

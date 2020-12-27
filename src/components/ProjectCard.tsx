@@ -44,7 +44,7 @@ export default function ProjectCard(props: IProjectCardProps) {
   };
 
   return (
-    <Card>
+    <Card variant="outlined">
       <CardHeader title={title} />
 
       <CardActionArea onClick={openLiveSite}>
