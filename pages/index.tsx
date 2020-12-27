@@ -5,52 +5,37 @@ import {
   Grid,
   Toolbar,
   Typography,
-  Divider,
-  Button,
 } from "@material-ui/core";
+import { GetStaticProps } from "next";
 import React from "react";
-import ProjectCard, { IProjectCardProps } from "../components/ProjectCard";
+import ProjectCard, { IProjectCardProps } from "../src/components/ProjectCard";
+import writeScreenshot from "../src/services/screenshot";
+import { urlToFilename } from "../src/services/url-filename";
 
 function NavBar() {
   return (
     <AppBar position="sticky">
       <Container maxWidth="lg">
         <Toolbar>
-          <Typography variant="h5">chrisvouga.dev</Typography>
-          <Box flex={1} />
-          <Box color="text.primary">
-            <Button>Projects</Button>
-          </Box>
+          <Typography variant="h5">chris vouga</Typography>
         </Toolbar>
       </Container>
     </AppBar>
   );
 }
 
-const PROJECT_CARD_PROPS: IProjectCardProps[] = [
-  {
-    title: "Pickflix",
-    description: "A movie explore and record app to help users pick flixs",
-    liveSiteURL: "https://www.pickflix.io/",
-    sourceCodeURL: "https://github.com/crvouga/pickflix",
-  },
-  {
-    title: "Connect Four",
-    description:
-      "An implementation of the classic game Connect Four. Features include: an AI to play against, and online multiplayer",
-    liveSiteURL: "https://connect-four-in-a-row.web.app/",
-    sourceCodeURL: "https://github.com/crvouga/connect-four",
-  },
-];
-
-function Projects() {
+function Projects({
+  projectCardProps,
+}: {
+  projectCardProps: IProjectCardProps[];
+}) {
   return (
     <React.Fragment>
       <Typography variant="h4" gutterBottom>
         Projects
       </Typography>
       <Grid container spacing={1}>
-        {PROJECT_CARD_PROPS.map((props) => (
+        {projectCardProps.map((props) => (
           <Grid key={props.liveSiteURL} item xs>
             <ProjectCard {...props} />
           </Grid>
@@ -60,36 +45,67 @@ function Projects() {
   );
 }
 
-function Banner() {
-  return (
-    <React.Fragment>
-      <Typography variant="h3" align="center">
-        Chris Vouga
-      </Typography>
-      <Typography variant="h5" align="center">
-        Developer
-      </Typography>
-    </React.Fragment>
-  );
+interface IIndexProps {
+  number: number;
+  projectCardProps: IProjectCardProps[];
 }
 
-export default function Index() {
+const PROJECT_CARD_PROPS = [
+  {
+    title: "Pickflix",
+    liveSiteURL: "https://www.pickflix.io/",
+    sourceCodeURL: "https://github.com/crvouga/pickflix",
+  },
+  {
+    title: "Connect Four",
+    liveSiteURL: "https://connect-four-in-a-row.web.app/",
+    sourceCodeURL: "https://github.com/crvouga/connect-four",
+  },
+];
+
+const urlToImagePath = ({ liveSiteURL }: { liveSiteURL: string }) =>
+  `public/${urlToFilename(liveSiteURL)}.png`;
+
+const urlToImageSrc = ({ liveSiteURL }: { liveSiteURL: string }) =>
+  `/${urlToFilename(liveSiteURL)}.png`;
+
+export const getStaticProps: GetStaticProps = async () => {
+  await Promise.all(
+    PROJECT_CARD_PROPS.map(async ({ liveSiteURL }) => {
+      await writeScreenshot({
+        url: liveSiteURL,
+        timeout: 2000,
+        path: urlToImagePath({ liveSiteURL }),
+      });
+    })
+  );
+
+  const projectCardProps: IProjectCardProps[] = PROJECT_CARD_PROPS.map(
+    ({ liveSiteURL, sourceCodeURL, title }) => {
+      return {
+        liveSiteURL,
+        sourceCodeURL,
+        title,
+        src: urlToImageSrc({ liveSiteURL }),
+      };
+    }
+  );
+
+  return {
+    props: {
+      projectCardProps,
+    },
+  };
+};
+
+export default function Index(props: IIndexProps) {
+  const { projectCardProps } = props;
   return (
     <React.Fragment>
       <NavBar />
       <Container maxWidth="md">
-        {/* <Image
-          src="/../example.png"
-          alt="Picture of the author"
-          width={500}
-          height={500}
-        /> */}
-        <Box paddingY={1}>
-          <Banner />
-        </Box>
-        <Divider />
-        <Box paddingY={1}>
-          <Projects />
+        <Box paddingY={2}>
+          <Projects projectCardProps={projectCardProps} />
         </Box>
       </Container>
     </React.Fragment>

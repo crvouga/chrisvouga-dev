@@ -4,24 +4,25 @@ import {
   Card,
   CardActions,
   CardHeader,
+  CardMedia,
   makeStyles,
+  CardActionArea,
 } from "@material-ui/core";
 import CodeIcon from "@material-ui/icons/Code";
 import WebIcon from "@material-ui/icons/Web";
 import React from "react";
 
 export interface IProjectCardProps {
+  src: string;
   title: string;
-  description: string;
   liveSiteURL: string;
   sourceCodeURL: string;
 }
 
 const useStyles = makeStyles(() => ({
-  root: {},
   media: {
-    width: "100%",
-    height: "240px",
+    height: 0,
+    paddingTop: "75%",
   },
 }));
 
@@ -30,7 +31,8 @@ function ProjectCardButton(props: ButtonProps) {
 }
 
 export default function ProjectCard(props: IProjectCardProps) {
-  const { title, description, sourceCodeURL, liveSiteURL } = props;
+  const { src, title, sourceCodeURL, liveSiteURL } = props;
+
   const classes = useStyles();
 
   const openLiveSite = () => {
@@ -42,8 +44,12 @@ export default function ProjectCard(props: IProjectCardProps) {
   };
 
   return (
-    <Card classes={{ root: classes.root }}>
-      <CardHeader title={title} subheader={description} />
+    <Card>
+      <CardHeader title={title} />
+
+      <CardActionArea onClick={openLiveSite}>
+        <CardMedia className={classes.media} image={src} />
+      </CardActionArea>
 
       <CardActions>
         <ProjectCardButton startIcon={<CodeIcon />} onClick={openSourceCode}>

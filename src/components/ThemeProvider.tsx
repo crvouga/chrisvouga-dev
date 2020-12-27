@@ -4,7 +4,7 @@ import { PropsWithChildren } from "react";
 
 const theme = createMuiTheme({
   palette: {
-    type: "dark",
+    type: "light",
   },
 });
 
