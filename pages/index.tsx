@@ -6,18 +6,17 @@ import {
   Grid,
   Toolbar,
   Typography,
-  Divider,
   useTheme,
 } from "@material-ui/core";
 import { GetStaticProps } from "next";
 import React from "react";
 import ProjectCard, { IProjectCardProps } from "../src/components/ProjectCard";
+import { ThemeTypeToggleButton } from "../src/components/ThemeProvider";
 import {
   urlToImagePath,
   urlToImageSrc,
   writeScreenshot,
 } from "../src/services/screenshot";
-import { ThemeTypeToggleButton } from "../src/components/ThemeProvider";
 
 function NavBar() {
   return (
