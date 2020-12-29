@@ -2,8 +2,6 @@ import { writeScreenshot, urlToImagePath } from "./screenshot";
 import projects from "../../content/projects.json";
 
 const generateProjectScreenshots = async () => {
-  const nextProjects = [];
-
   await Promise.all(
     projects.map(async ({ liveSiteURL }) => {
       await writeScreenshot({
