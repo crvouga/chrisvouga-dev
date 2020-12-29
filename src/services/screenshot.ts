@@ -6,6 +6,7 @@ export const decodeUrl = (base64: string) =>
   Buffer.from(base64, "base64").toString("ascii");
 
 export const urlToImagePath = (url: string) => `public/${encodeUrl(url)}.png`;
+
 export const urlToImageSrc = (url: string) => `/${encodeUrl(url)}.png`;
 
 const wait = (timeout: number) => {

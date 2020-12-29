@@ -1,141 +1,22 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  Grid,
-  Toolbar,
-  Typography,
-  useTheme,
-} from "@material-ui/core";
+import { Box, Container } from "@material-ui/core";
 import { GetStaticProps } from "next";
 import React from "react";
-import ProjectCard, { IProjectCardProps } from "../src/components/ProjectCard";
-import { ThemeTypeToggleButton } from "../src/components/ThemeProvider";
-import {
-  urlToImagePath,
-  urlToImageSrc,
-  writeScreenshot,
-} from "../src/services/screenshot";
-
-function NavBar() {
-  return (
-    <AppBar position="sticky" color="transparent" elevation={0}>
-      <Container maxWidth="lg">
-        <Toolbar>
-          <Box flex={1} />
-          <ThemeTypeToggleButton />
-        </Toolbar>
-      </Container>
-    </AppBar>
-  );
-}
-
-function Hero() {
-  const theme = useTheme();
-  return (
-    <Box>
-      <Box paddingY={2} fontWeight="bold">
-        <Typography variant="h1">Chris Vouga.</Typography>
-        <Typography variant="h1" color="textSecondary">
-          I build things for the web.
-        </Typography>
-      </Box>
-      <Box paddingY={2} maxWidth={theme.breakpoints.values.sm}>
-        <Typography variant="h6">
-          I am a software developer based in the Phoenix Valley. My main area of
-          focus is in developing web applications.
-        </Typography>
-      </Box>
-      <Button size="large" variant="outlined" color="secondary">
-        Get In Touch
-      </Button>
-    </Box>
-  );
-}
-
-function Projects({
-  projectCardProps,
-}: {
-  projectCardProps: IProjectCardProps[];
-}) {
-  return (
-    <React.Fragment>
-      <Typography variant="h4" gutterBottom>
-        Some Things I've Built
-      </Typography>
-      <Grid container spacing={2}>
-        {projectCardProps.map((props) => (
-          <Grid key={props.liveSiteURL} item xs sm={6}>
-            <ProjectCard {...props} />
-          </Grid>
-        ))}
-      </Grid>
-    </React.Fragment>
-  );
-}
+import projects from "../content/projects.json";
+import { NavBar } from "../src/components/NavBar";
+import { IProjectCardProps } from "../src/components/project-card";
+import { Hero } from "../src/components/sections/Hero";
+import { Projects } from "../src/components/sections/Projects";
+import { urlToImageSrc } from "../src/services/screenshot";
 
 interface IIndexProps {
-  number: number;
   projectCardProps: IProjectCardProps[];
 }
 
-const PROJECT_CARD_PROPS = [
-  {
-    title: "Pickflix",
-    liveSiteURL: "https://www.pickflix.io/",
-    sourceCodeURL: "https://github.com/crvouga/pickflix",
-  },
-  {
-    title: "Connect Four",
-    liveSiteURL: "https://connect-four-in-a-row.web.app/",
-    sourceCodeURL: "https://github.com/crvouga/connect-four",
-  },
-  {
-    title: "Simon Says",
-    liveSiteURL: "https://simon-says-game.web.app/",
-    sourceCodeURL: "https://github.com/crvouga/simon-says",
-  },
-  {
-    title: "Match Three",
-    liveSiteURL: "https://match-three-game.web.app/",
-    sourceCodeURL: "https://github.com/crvouga/match-three",
-  },
-];
-
-const getNodeEnv = (): "production" | "test" | "development" => {
-  const nodeEnv = process.env.NODE_ENV;
-  if (
-    nodeEnv === "development" ||
-    nodeEnv === "production" ||
-    nodeEnv === "test"
-  ) {
-    return nodeEnv;
-  }
-  return "development";
-};
-
 export const getStaticProps: GetStaticProps = async () => {
-  if (getNodeEnv() === "development") {
-    for (const { liveSiteURL } of PROJECT_CARD_PROPS) {
-      await writeScreenshot({
-        url: liveSiteURL,
-        timeout: 2000,
-        path: urlToImagePath(liveSiteURL),
-      });
-    }
-  }
-
-  const projectCardProps: IProjectCardProps[] = PROJECT_CARD_PROPS.map(
-    ({ liveSiteURL, sourceCodeURL, title }) => {
-      return {
-        liveSiteURL,
-        sourceCodeURL,
-        title,
-        src: urlToImageSrc(liveSiteURL),
-      };
-    }
-  );
+  const projectCardProps: IProjectCardProps[] = projects.map((props) => ({
+    ...props,
+    src: urlToImageSrc(props.liveSiteURL),
+  }));
 
   return {
     props: {
