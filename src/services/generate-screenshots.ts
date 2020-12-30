@@ -6,7 +6,7 @@ const generateProjectScreenshots = async () => {
     projects.map(async ({ liveSiteURL }) => {
       await writeScreenshot({
         url: liveSiteURL,
-        timeout: 5000,
+        timeout: 10000,
         path: urlToImagePath(liveSiteURL),
       });
     })
