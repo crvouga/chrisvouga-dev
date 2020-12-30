@@ -31,13 +31,11 @@ export default function Index(props: IIndexProps) {
     <React.Fragment>
       <NavBar />
       <Container maxWidth="lg">
-        <Box paddingX={6}>
-          <Box paddingY={12}>
-            <Hero />
-          </Box>
-          <Box paddingY={12}>
-            <Projects projectCardProps={projectCardProps} />
-          </Box>
+        <Box paddingY={12}>
+          <Hero />
+        </Box>
+        <Box paddingY={12}>
+          <Projects projectCardProps={projectCardProps} />
         </Box>
       </Container>
     </React.Fragment>
