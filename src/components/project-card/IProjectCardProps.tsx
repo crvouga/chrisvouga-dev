@@ -3,4 +3,6 @@ export interface IProjectCardProps {
   title: string;
   liveSiteURL: string;
   sourceCodeURL: string;
+  topics: string[];
+  description: string;
 }

@@ -1,5 +1,6 @@
 import { Button, ButtonProps } from "@material-ui/core";
-import CodeIcon from "@material-ui/icons/Code";
+// import CodeIcon from "@material-ui/icons/Code";
+import GitHubIcon from "@material-ui/icons/GitHub";
 import WebIcon from "@material-ui/icons/Web";
 import React from "react";
 
@@ -16,7 +17,7 @@ export const SourceCodeButton = ({ sourceCodeURL }: ISourceCodeButtonProps) => {
     <Button
       variant="text"
       size="large"
-      startIcon={<CodeIcon />}
+      startIcon={<GitHubIcon />}
       onClick={handleClick}
     >
       Source Code

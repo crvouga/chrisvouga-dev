@@ -1,22 +1,14 @@
 [
   {
-    "title": "Pickflix",
-    "liveSiteURL": "https://www.pickflix.io/",
-    "sourceCodeURL": "https://github.com/crvouga/pickflix"
+    "repositoryName": "pickflix"
   },
   {
-    "title": "Connect Four",
-    "liveSiteURL": "https://connect-four-in-a-row.web.app/",
-    "sourceCodeURL": "https://github.com/crvouga/connect-four"
+    "repositoryName": "connect-four"
   },
   {
-    "title": "Simon Says",
-    "liveSiteURL": "https://simon-says-game.web.app/",
-    "sourceCodeURL": "https://github.com/crvouga/simon-says"
+    "repositoryName": "match-three"
   },
   {
-    "title": "Match Three",
-    "liveSiteURL": "https://match-three-game.web.app/",
-    "sourceCodeURL": "https://github.com/crvouga/match-three"
+    "repositoryName": "simon-says"
   }
 ]

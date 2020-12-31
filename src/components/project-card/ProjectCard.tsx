@@ -2,13 +2,16 @@ import {
   Card,
   CardActionArea,
   CardActions,
+  CardContent,
   CardHeader,
   CardMedia,
   makeStyles,
+  Typography,
 } from "@material-ui/core";
 import React from "react";
 import { IProjectCardProps } from "./IProjectCardProps";
 import { LiveSiteButton, SourceCodeButton } from "./ProjectCardButton";
+import { ProjectCardTopics } from "./ProjectCardTopics";
 
 const useStyles = makeStyles(() => ({
   media: {
@@ -18,7 +21,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const ProjectCard = (props: IProjectCardProps) => {
-  const { src, title, liveSiteURL, sourceCodeURL } = props;
+  const { src, title, description, liveSiteURL, sourceCodeURL, topics } = props;
 
   const classes = useStyles();
 
@@ -33,6 +36,13 @@ export const ProjectCard = (props: IProjectCardProps) => {
       <CardActionArea onClick={openLiveSite}>
         <CardMedia className={classes.media} image={src} />
       </CardActionArea>
+
+      <CardContent>
+        <Typography variant="body1" color="textSecondary" gutterBottom>
+          {description}
+        </Typography>
+        <ProjectCardTopics topics={topics} />
+      </CardContent>
 
       <CardActions>
         <SourceCodeButton sourceCodeURL={sourceCodeURL} />
