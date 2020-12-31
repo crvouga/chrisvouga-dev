@@ -18,7 +18,7 @@ const castThemeType = (themeType: any): ThemeType => {
 export const useThemeState = () => {
   const THEME_TYPE_KEY = "theme-type";
 
-  const [themeType, setThemeType] = useState<ThemeType>("light");
+  const [themeType, setThemeType] = useState<ThemeType>("dark");
 
   const setThemeTypePersisted = (mode: ThemeType) => {
     localStorage.setItem(THEME_TYPE_KEY, mode);
