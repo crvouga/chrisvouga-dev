@@ -1,4 +1,4 @@
-import { Box, Chip, withStyles } from "@material-ui/core";
+import { Box, Chip, withStyles, Avatar, capitalize } from "@material-ui/core";
 import React from "react";
 
 const ProjectCardTopicChip = withStyles(() => ({
@@ -6,6 +6,24 @@ const ProjectCardTopicChip = withStyles(() => ({
     fontWeight: "bold",
   },
 }))(Chip);
+
+//source: https://svgporn.com/
+const topicToImageSrc: { [key: string]: string } = {
+  typescript: "https://cdn.svgporn.com/logos/typescript-icon.svg",
+  heroku: "https://cdn.svgporn.com/logos/heroku-icon.svg",
+  jest: "https://cdn.svgporn.com/logos/jest.svg",
+  "redux-saga": "https://cdn.svgporn.com/logos/redux-saga.svg",
+  ramda: "https://cdn.svgporn.com/logos/ramda.svg",
+  redis: "https://cdn.svgporn.com/logos/redis.svg",
+  react: "https://cdn.svgporn.com/logos/react.svg",
+  firebase: "https://cdn.svgporn.com/logos/firebase.svg",
+  postgres: "https://cdn.svgporn.com/logos/postgresql.svg",
+  "material-ui": "https://cdn.svgporn.com/logos/material-ui.svg",
+  nextjs: "https://cdn.svgporn.com/logos/nextjs.svg",
+};
+
+const topicToLabel = (topic: string) =>
+  topic.split("-").map(capitalize).join(" ");
 
 export const ProjectCardTopics = ({ topics }: { topics: string[] }) => {
   return (
@@ -17,7 +35,14 @@ export const ProjectCardTopics = ({ topics }: { topics: string[] }) => {
     >
       {topics.sort().map((topic) => (
         <Box key={topic} paddingRight={1 / 2} paddingBottom={1 / 2}>
-          <ProjectCardTopicChip label={topic} />
+          <ProjectCardTopicChip
+            avatar={
+              topic in topicToImageSrc ? (
+                <Avatar src={topicToImageSrc[topic]} variant="rounded" />
+              ) : undefined
+            }
+            label={topicToLabel(topic)}
+          />
         </Box>
       ))}
     </Box>

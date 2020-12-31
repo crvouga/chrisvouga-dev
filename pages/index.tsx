@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps = async () => {
       sourceCodeURL: castURL(response.data.html_url),
       title: repositoryNameToTitle(project.repositoryName),
       src: urlToImageSrc(liveSiteURL),
-      topics: (responseTopics.data.names || []).map(repositoryNameToTitle),
+      topics: responseTopics.data.names || [],
     });
   }
 
