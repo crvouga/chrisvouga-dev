@@ -20,6 +20,8 @@ const topicToImageSrc: { [key: string]: string } = {
   postgres: "https://cdn.svgporn.com/logos/postgresql.svg",
   "material-ui": "https://cdn.svgporn.com/logos/material-ui.svg",
   nextjs: "https://cdn.svgporn.com/logos/nextjs.svg",
+  "socket-io": "https://cdn.svgporn.com/logos/socket.io.svg",
+  express: "https://cdn.svgporn.com/logos/express.svg",
 };
 
 const topicToLabel = (topic: string) =>
