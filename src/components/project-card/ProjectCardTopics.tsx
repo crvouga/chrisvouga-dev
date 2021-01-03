@@ -40,7 +40,7 @@ export const ProjectCardTopics = ({ topics }: { topics: string[] }) => {
           <ProjectCardTopicChip
             avatar={
               topic in topicToImageSrc ? (
-                <Avatar src={topicToImageSrc[topic]} variant="rounded" />
+                <Avatar src={topicToImageSrc[topic]} variant="square" />
               ) : undefined
             }
             label={topicToLabel(topic)}

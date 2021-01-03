@@ -1,6 +1,6 @@
-import projects from "../../content/projects.json";
+import content from "../../content/content.json";
 import { githubAPI } from "./github";
-import { writeScreenshot, urlToImagePath } from "./screenshot";
+import { urlToImagePath, writeScreenshot } from "./screenshot";
 
 const generateScreenshot = async (project: { repositoryName: string }) => {
   const response = await githubAPI.repos.get({
@@ -18,7 +18,7 @@ const generateScreenshot = async (project: { repositoryName: string }) => {
 };
 
 const generateProjectScreenshots = async () => {
-  await Promise.all(projects.map(generateScreenshot));
+  await Promise.all(content.projects.map(generateScreenshot));
 };
 
 generateProjectScreenshots();

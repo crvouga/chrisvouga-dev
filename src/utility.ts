@@ -9,3 +9,10 @@ export const getNodeEnv = (): "production" | "test" | "development" => {
   }
   return "development";
 };
+
+export type Url = string & { type: "Url" };
+
+export const castUrl = (url: any): Url => {
+  new URL(url);
+  return url as Url;
+};

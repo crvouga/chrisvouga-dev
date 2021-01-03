@@ -1,0 +1,30 @@
+{
+  "projects": [
+    {
+      "repositoryName": "pickflix"
+    },
+    {
+      "repositoryName": "connect-four"
+    },
+    {
+      "repositoryName": "match-three"
+    },
+    {
+      "repositoryName": "personal-website"
+    },
+    {
+      "repositoryName": "simon-says"
+    }
+  ],
+  "education": {
+    "schoolLogoSrc": "https://brandguide.asu.edu/sites/default/files/styles/panopoly_image_original/public/asu_arizona_state_university_logo_vert_rgb_maroongold.png?itok=F5IzfqZv",
+    "schoolName": "Arizona State University",
+    "degreeName": "Bachelor of Science - BS, Mathematics and Statistics"
+  },
+  "github": {
+    "username": "crvouga"
+  },
+  "linken": {
+    "username": "christopher-vouga-161302203"
+  }
+}

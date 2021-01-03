@@ -3,9 +3,9 @@ import React from "react";
 import { IProjectCardProps, ProjectCard } from "../project-card";
 
 export const Projects = ({
-  projectCardProps,
+  projectCardsProps,
 }: {
-  projectCardProps: IProjectCardProps[];
+  projectCardsProps: IProjectCardProps[];
 }) => {
   return (
     <React.Fragment>
@@ -13,7 +13,7 @@ export const Projects = ({
         Some Things I've Built
       </Typography>
       <Grid container spacing={2}>
-        {projectCardProps.map((props) => (
+        {projectCardsProps.map((props) => (
           <Grid key={props.liveSiteURL} item xs sm={6} md={4}>
             <ProjectCard {...props} />
           </Grid>

@@ -1,17 +1,14 @@
 import { Box, Container } from "@material-ui/core";
 import { GetStaticProps } from "next";
 import React from "react";
-import projects from "../content/projects.json";
+import content from "../content/content.json";
 import { NavBar } from "../src/components/NavBar";
 import { IProjectCardProps } from "../src/components/project-card";
 import { Hero } from "../src/components/sections/Hero";
 import { Projects } from "../src/components/sections/Projects";
 import { urlToImageSrc } from "../src/services/screenshot";
 import { githubAPI } from "../src/services/github";
-
-interface IIndexProps {
-  projectCardProps: IProjectCardProps[];
-}
+import { AboutMe } from "../src/components/sections/AboutMe";
 
 const capitalizeFirstLetter = (string: string) =>
   string.charAt(0).toUpperCase() + string.slice(1);
@@ -19,45 +16,48 @@ const capitalizeFirstLetter = (string: string) =>
 const repositoryNameToTitle = (repositoryName: string) =>
   repositoryName.split("-").map(capitalizeFirstLetter).join(" ");
 
-const castURL = (url: any) => {
-  new URL(url);
-  return url;
-};
+const getProjectCardsProps = async () => {
+  const projectCardsProps: IProjectCardProps[] = [];
 
-export const getStaticProps: GetStaticProps = async () => {
-  const projectCardProps: IProjectCardProps[] = [];
-
-  for (const project of projects) {
+  for (const project of content.projects) {
     const response = await githubAPI.repos.get({
-      owner: "crvouga",
+      owner: content.github.username,
       repo: project.repositoryName,
     });
+
     const responseTopics = await githubAPI.repos.getAllTopics({
-      owner: "crvouga",
+      owner: content.github.username,
       repo: project.repositoryName,
     });
 
-    const liveSiteURL = castURL(response.data.homepage);
+    const liveSiteURL = castUrl(response.data.homepage);
 
-    projectCardProps.push({
+    projectCardsProps.push({
       liveSiteURL,
       description: response.data.description || "",
-      sourceCodeURL: castURL(response.data.html_url),
+      sourceCodeURL: castUrl(response.data.html_url),
       title: repositoryNameToTitle(project.repositoryName),
       src: urlToImageSrc(liveSiteURL),
       topics: responseTopics.data.names || [],
     });
   }
 
+  return projectCardsProps;
+};
+
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      projectCardProps,
+      projectCardsProps: await getProjectCardsProps(),
     },
   };
 };
+interface IIndexProps {
+  projectCardsProps: IProjectCardProps[];
+}
 
 export default function Index(props: IIndexProps) {
-  const { projectCardProps } = props;
+  const { projectCardsProps } = props;
   return (
     <React.Fragment>
       <NavBar />
@@ -66,7 +66,10 @@ export default function Index(props: IIndexProps) {
           <Hero />
         </Box>
         <Box paddingY={12}>
-          <Projects projectCardProps={projectCardProps} />
+          <Projects projectCardsProps={projectCardsProps} />
+        </Box>
+        <Box paddingY={12}>
+          <AboutMe />
         </Box>
       </Container>
     </React.Fragment>

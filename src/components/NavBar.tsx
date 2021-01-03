@@ -1,6 +1,5 @@
 import { AppBar, Box, Button, Container, Toolbar } from "@material-ui/core";
 import React from "react";
-import { ThemeTypeToggleButton } from "./ThemeProvider";
 
 export const NavBar = () => {
   return (
@@ -9,7 +8,6 @@ export const NavBar = () => {
         <Container maxWidth="lg">
           <Toolbar>
             <Box flex={1} />
-            <ThemeTypeToggleButton />
             <Button variant="outlined" color="secondary" size="large">
               Resume
             </Button>

@@ -75,9 +75,9 @@ export function ThemeTypeToggleButton() {
 
 export default function ThemeProvider(props: IThemeProviderProps) {
   const { children } = props;
-  const { themeType } = useThemeState();
+
   return (
-    <MuiThemeProvider theme={createTheme(themeType)}>
+    <MuiThemeProvider theme={createTheme("dark")}>
       <CssBaseline />
       {children}
     </MuiThemeProvider>
