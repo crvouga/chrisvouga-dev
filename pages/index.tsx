@@ -1,27 +1,25 @@
-import { Box, Container } from "@material-ui/core";
+import { Box, capitalize, Container } from "@material-ui/core";
 import { GetStaticProps } from "next";
 import React from "react";
 import content from "../content/content.json";
 import { NavBar } from "../src/components/NavBar";
 import { IProjectCardProps } from "../src/components/project-card";
+import { AboutMe } from "../src/components/sections/AboutMe";
 import { Hero } from "../src/components/sections/Hero";
 import { Projects } from "../src/components/sections/Projects";
-import { urlToImageSrc } from "../src/services/screenshot";
 import { githubAPI } from "../src/services/github";
-import { AboutMe } from "../src/components/sections/AboutMe";
-
-const capitalizeFirstLetter = (string: string) =>
-  string.charAt(0).toUpperCase() + string.slice(1);
+import { urlToImageSrc } from "../src/services/screenshot";
+import { castUrl } from "../src/utility";
 
 const repositoryNameToTitle = (repositoryName: string) =>
-  repositoryName.split("-").map(capitalizeFirstLetter).join(" ");
+  repositoryName.split("-").map(capitalize).join(" ");
 
 const getProjectCardsProps = async () => {
   const projectCardsProps: IProjectCardProps[] = [];
 
   for (const project of content.projects) {
     const response = await githubAPI.repos.get({
-      owner: content.github.username,
+      owner: project.ownerName,
       repo: project.repositoryName,
     });
 

@@ -1,11 +1,17 @@
 import content from "../../content/content.json";
-import { githubAPI } from "./github";
-import { urlToImagePath, writeScreenshot } from "./screenshot";
+import { githubAPI } from "../services/github";
+import { urlToImagePath, writeScreenshot } from "../services/screenshot";
 
-const generateScreenshot = async (project: { repositoryName: string }) => {
+const generateScreenshot = async ({
+  ownerName,
+  repositoryName,
+}: {
+  ownerName: string;
+  repositoryName: string;
+}) => {
   const response = await githubAPI.repos.get({
-    owner: "crvouga",
-    repo: project.repositoryName,
+    owner: ownerName,
+    repo: repositoryName,
   });
 
   const liveSiteURL = response.data.homepage || "";

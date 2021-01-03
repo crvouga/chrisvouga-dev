@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "generate-screenshots": "ts-node src/services/generate-screenshots.ts"
+    "generate-screenshots": "ts-node src/scripts/generate-screenshots.ts"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.2",

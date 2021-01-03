@@ -1,18 +1,23 @@
 {
   "projects": [
     {
+      "ownerName": "crvouga",
       "repositoryName": "pickflix"
     },
     {
+      "ownerName": "crvouga",
       "repositoryName": "connect-four"
     },
     {
+      "ownerName": "crvouga",
       "repositoryName": "match-three"
     },
     {
+      "ownerName": "crvouga",
       "repositoryName": "personal-website"
     },
     {
+      "ownerName": "crvouga",
       "repositoryName": "simon-says"
     }
   ],
