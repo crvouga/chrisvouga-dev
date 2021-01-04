@@ -1,23 +1,9 @@
-import {
-  Box,
-  Button,
-  IconButton,
-  makeStyles,
-  Typography,
-  useTheme,
-} from "@material-ui/core";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import { Box, Button, Typography, useTheme } from "@material-ui/core";
 import React from "react";
-
-const useStyles = makeStyles(() => ({
-  large: {
-    fontSize: "2em",
-  },
-}));
+import content from "../../../content/content.json";
+import { SocialMediaIconButton } from "../SocialMedia";
 
 export const Hero = () => {
-  const classes = useStyles();
   const theme = useTheme();
 
   return (
@@ -36,12 +22,12 @@ export const Hero = () => {
       </Box>
 
       <Box display="flex" paddingY={2}>
-        <IconButton>
-          <LinkedInIcon className={classes.large} />
-        </IconButton>
-        <IconButton>
-          <GitHubIcon className={classes.large} />
-        </IconButton>
+        {content.socialMedia.map((socialMedia) => (
+          <SocialMediaIconButton
+            name={socialMedia.name}
+            url={socialMedia.url}
+          />
+        ))}
       </Box>
 
       <Button size="large" variant="outlined" color="secondary">

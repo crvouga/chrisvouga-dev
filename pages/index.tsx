@@ -24,18 +24,18 @@ const getProjectCardsProps = async () => {
     });
 
     const responseTopics = await githubAPI.repos.getAllTopics({
-      owner: content.github.username,
+      owner: project.ownerName,
       repo: project.repositoryName,
     });
 
-    const liveSiteURL = castUrl(response.data.homepage);
+    const liveSiteUrl = castUrl(response.data.homepage);
 
     projectCardsProps.push({
-      liveSiteURL,
+      liveSiteUrl,
       description: response.data.description || "",
-      sourceCodeURL: castUrl(response.data.html_url),
+      sourceCodeUrl: castUrl(response.data.html_url),
       title: repositoryNameToTitle(project.repositoryName),
-      src: urlToImageSrc(liveSiteURL),
+      src: urlToImageSrc(liveSiteUrl),
       topics: responseTopics.data.names || [],
     });
   }

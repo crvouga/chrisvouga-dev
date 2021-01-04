@@ -14,7 +14,7 @@ export const Projects = ({
       </Typography>
       <Grid container spacing={2}>
         {projectCardsProps.map((props) => (
-          <Grid key={props.liveSiteURL} item xs sm={6} md={4}>
+          <Grid key={props.liveSiteUrl} item xs sm={6} md={4}>
             <ProjectCard {...props} />
           </Grid>
         ))}

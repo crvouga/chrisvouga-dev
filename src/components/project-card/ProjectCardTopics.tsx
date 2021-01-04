@@ -1,5 +1,6 @@
 import { Box, Chip, withStyles, Avatar, capitalize } from "@material-ui/core";
 import React from "react";
+import { goTo } from "../../utility";
 
 const ProjectCardTopicChip = withStyles(() => ({
   label: {
@@ -27,6 +28,8 @@ const topicToImageSrc: { [key: string]: string } = {
 const topicToLabel = (topic: string) =>
   topic.split("-").map(capitalize).join(" ");
 
+const topicToUrl = (topic: string) => `https://github.com/topics/${topic}`;
+
 export const ProjectCardTopics = ({ topics }: { topics: string[] }) => {
   return (
     <Box
@@ -38,12 +41,14 @@ export const ProjectCardTopics = ({ topics }: { topics: string[] }) => {
       {topics.sort().map((topic) => (
         <Box key={topic} paddingRight={1 / 2} paddingBottom={1 / 2}>
           <ProjectCardTopicChip
+            clickable
             avatar={
               topic in topicToImageSrc ? (
                 <Avatar src={topicToImageSrc[topic]} variant="square" />
               ) : undefined
             }
             label={topicToLabel(topic)}
+            onClick={() => goTo(topicToUrl(topic))}
           />
         </Box>
       ))}

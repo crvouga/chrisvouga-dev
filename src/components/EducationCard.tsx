@@ -1,18 +1,16 @@
 import {
   Card,
-  CardContent,
-  Typography,
+  CardActionArea,
+  CardHeader,
   CardMedia,
   makeStyles,
-  CardActionArea,
 } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
-  root: {
-    display: "flex",
-  },
+  root: {},
   media: {
-    width: "240px",
+    paddingTop: `${(9 / 16) * 100}%`,
+    height: 0,
     backgroundColor: "#fff",
   },
 }));
@@ -21,19 +19,22 @@ interface IEducationCardProps {
   schoolLogoSrc: string;
   schoolName: string;
   degreeName: string;
+  schoolUrl: string;
 }
 
 export const EducationCard = (props: IEducationCardProps) => {
-  const { schoolLogoSrc, schoolName, degreeName } = props;
+  const { schoolUrl, schoolLogoSrc, schoolName, degreeName } = props;
   const classes = useStyles();
+
+  const handleClick = () => {
+    window.location.href = schoolUrl;
+  };
+
   return (
-    <CardActionArea>
+    <CardActionArea onClick={handleClick}>
       <Card className={classes.root}>
+        <CardHeader title={schoolName} subheader={degreeName} />
         <CardMedia className={classes.media} image={schoolLogoSrc} />
-        <CardContent>
-          <Typography variant="h6">{schoolName}</Typography>
-          <Typography variant="subtitle1">{degreeName}</Typography>
-        </CardContent>
       </Card>
     </CardActionArea>
   );

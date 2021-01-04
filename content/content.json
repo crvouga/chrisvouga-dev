@@ -24,12 +24,22 @@
   "education": {
     "schoolLogoSrc": "https://brandguide.asu.edu/sites/default/files/styles/panopoly_image_original/public/asu_arizona_state_university_logo_vert_rgb_maroongold.png?itok=F5IzfqZv",
     "schoolName": "Arizona State University",
-    "degreeName": "Bachelor of Science - BS, Mathematics and Statistics"
+    "degreeName": "Bachelor of Science - BS, Mathematics and Statistics",
+    "schoolUrl": "https://www.asu.edu/"
   },
-  "github": {
-    "username": "crvouga"
-  },
-  "linken": {
-    "username": "christopher-vouga-161302203"
-  }
+
+  "socialMedia": [
+    {
+      "name": "Github",
+      "url": "https://github.com/crvouga"
+    },
+    {
+      "name": "Linkedin",
+      "url": "https://www.linkedin.com/in/chris-vouga/"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/ChrisVouga"
+    }
+  ]
 }

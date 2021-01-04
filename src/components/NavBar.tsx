@@ -8,28 +8,19 @@ import {
 } from "@material-ui/core";
 import React from "react";
 
-// const useStyles = makeStyles((theme) => ({
-//   appBar: {
-//     backgroudnColor:
-//   }
-// }));
-
 export const NavBar = () => {
-  // const classes = useStyles()
   return (
-    <AppBar position="sticky" color="default" elevation={0}>
-      <Box bgcolor="default">
-        <Container maxWidth="lg">
-          <Toolbar>
-            <Avatar src={"/personal-logo.svg"} />
+    <AppBar position="sticky" color="default">
+      <Container maxWidth="lg">
+        <Toolbar>
+          <Avatar src={"/personal-logo-dark.svg"} />
 
-            <Box flex={1} />
-            <Button variant="outlined" color="secondary" size="large">
-              Resume
-            </Button>
-          </Toolbar>
-        </Container>
-      </Box>
+          <Box flex={1} />
+          <Button variant="outlined" color="secondary" size="large">
+            Resume
+          </Button>
+        </Toolbar>
+      </Container>
     </AppBar>
   );
 };

@@ -1,8 +1,8 @@
 export interface IProjectCardProps {
   src: string;
   title: string;
-  liveSiteURL: string;
-  sourceCodeURL: string;
+  liveSiteUrl: string;
+  sourceCodeUrl: string;
   topics: string[];
   description: string;
 }

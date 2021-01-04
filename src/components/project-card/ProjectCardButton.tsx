@@ -1,45 +1,34 @@
-import { Button, ButtonProps } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 // import CodeIcon from "@material-ui/icons/Code";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import WebIcon from "@material-ui/icons/Web";
 import React from "react";
+import { goTo } from "../../utility";
 
-interface ISourceCodeButtonProps extends ButtonProps {
-  sourceCodeURL: string;
-}
-
-export const SourceCodeButton = ({ sourceCodeURL }: ISourceCodeButtonProps) => {
-  const handleClick = () => {
-    window.open(sourceCodeURL);
-  };
-
+export const SourceCodeButton = ({
+  sourceCodeUrl,
+}: {
+  sourceCodeUrl: string;
+}) => {
   return (
     <Button
       variant="text"
       size="large"
       startIcon={<GitHubIcon />}
-      onClick={handleClick}
+      onClick={() => goTo(sourceCodeUrl)}
     >
       Source Code
     </Button>
   );
 };
 
-interface ILiveSiteButtonProps extends ButtonProps {
-  liveSiteURL: string;
-}
-
-export const LiveSiteButton = ({ liveSiteURL }: ILiveSiteButtonProps) => {
-  const handleClick = () => {
-    window.open(liveSiteURL);
-  };
-
+export const LiveSiteButton = ({ liveSiteUrl }: { liveSiteUrl: string }) => {
   return (
     <Button
       variant="text"
       size="large"
       startIcon={<WebIcon />}
-      onClick={handleClick}
+      onClick={() => goTo(liveSiteUrl)}
     >
       Live Site
     </Button>
