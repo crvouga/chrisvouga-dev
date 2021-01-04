@@ -1,22 +1,13 @@
-import { Box, Grid, Typography, useTheme } from "@material-ui/core";
+import { Box, Grid, Typography, useTheme, Container } from "@material-ui/core";
 import React from "react";
 import content from "../../../content/content.json";
 import { SocialMediaIconButton } from "../SocialMedia";
-import { Terminal } from "../Terminal";
-
-// const useStyles = makeStyles((theme) => ({
-//   logo: {
-//     width: "100%",
-//     maxWidth: theme.breakpoints.values.xs,
-//   },
-// }));
 
 export const Hero = () => {
-  // const classes = useStyles();
   const theme = useTheme();
 
   return (
-    <Grid container direction="row" alignItems="center">
+    <Grid container direction="row" justify="center" alignItems="center">
       <Grid item md={6}>
         <Box paddingY={2} fontWeight="bold">
           <Typography variant="h2">Chris Vouga.</Typography>
@@ -41,8 +32,11 @@ export const Hero = () => {
         </Box>
       </Grid>
 
-      <Terminal />
-      {/* <img width="100%" src="personal-logo-dark.svg" /> */}
+      <Grid item md={6}>
+        <Container maxWidth="xs">
+          <img width="100%" src="personal-logo-dark.svg" />
+        </Container>
+      </Grid>
     </Grid>
   );
 };
