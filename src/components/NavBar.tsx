@@ -1,19 +1,30 @@
 import {
   AppBar,
+  Avatar,
   Box,
   Button,
   Container,
+  makeStyles,
   Toolbar,
-  Avatar,
+  Typography,
 } from "@material-ui/core";
 import React from "react";
 
+const useStyles = makeStyles((theme) => ({
+  appBar: {},
+  avatar: {
+    marginRight: theme.spacing(1),
+  },
+}));
+
 export const NavBar = () => {
+  const classes = useStyles();
   return (
-    <AppBar position="sticky" color="default">
+    <AppBar className={classes.appBar} position="sticky" color="default">
       <Container maxWidth="lg">
         <Toolbar>
-          <Avatar src={"/personal-logo-dark.svg"} />
+          <Avatar className={classes.avatar} src={"/personal-logo-dark.svg"} />
+          <Typography variant="h6">Chris Vouga</Typography>
 
           <Box flex={1} />
           <Button variant="outlined" color="secondary" size="large">

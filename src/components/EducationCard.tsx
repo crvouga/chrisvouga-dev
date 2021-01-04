@@ -1,9 +1,11 @@
 import {
   Card,
   CardActionArea,
+  CardContent,
   CardHeader,
   CardMedia,
   makeStyles,
+  Typography,
 } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
@@ -33,8 +35,11 @@ export const EducationCard = (props: IEducationCardProps) => {
   return (
     <CardActionArea onClick={handleClick}>
       <Card className={classes.root}>
-        <CardHeader title={schoolName} subheader={degreeName} />
+        <CardHeader title="Education" subheader={degreeName} />
         <CardMedia className={classes.media} image={schoolLogoSrc} />
+        <CardContent>
+          <Typography variant="h5">{schoolName}</Typography>
+        </CardContent>
       </Card>
     </CardActionArea>
   );

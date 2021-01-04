@@ -22,7 +22,7 @@
     }
   ],
   "education": {
-    "schoolLogoSrc": "https://brandguide.asu.edu/sites/default/files/styles/panopoly_image_original/public/asu_arizona_state_university_logo_vert_rgb_maroongold.png?itok=F5IzfqZv",
+    "schoolLogoSrc": "asu-logo.png",
     "schoolName": "Arizona State University",
     "degreeName": "Bachelor of Science - BS, Mathematics and Statistics",
     "schoolUrl": "https://www.asu.edu/"
