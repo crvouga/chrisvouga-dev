@@ -1,25 +1,23 @@
-import React from "react";
-
 declare module "react-animated-term" {
   interface IReactAnimatedTerminalLines {
-    text: string;
+    text?: string;
     cmd?: boolean;
     repeat?: boolean;
-    repeatCount?: 5;
+    repeatCount?: number;
     frames?: {
-      text: string;
-      delay: number;
+      text?: string;
+      delay?: number;
     }[];
   }
 
   interface IReactAnimatedTerminalProps {
-    lines: IReactAnimatedTerminalLines[];
-    interval: number;
-    white: boolean;
-    height: number;
+    lines?: IReactAnimatedTerminalLines[];
+    interval?: number;
+    white?: boolean;
+    height?: number;
   }
 
   export default function ReactAnimatedTerminal(
     props: IReactAnimatedTerminalProps
-  ): React.ReactNode;
+  ): any;
 }

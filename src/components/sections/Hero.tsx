@@ -2,6 +2,7 @@ import { Box, Grid, Typography, useTheme } from "@material-ui/core";
 import React from "react";
 import content from "../../../content/content.json";
 import { SocialMediaIconButton } from "../SocialMedia";
+import { Terminal } from "../Terminal";
 
 // const useStyles = makeStyles((theme) => ({
 //   logo: {
@@ -39,9 +40,9 @@ export const Hero = () => {
           ))}
         </Box>
       </Grid>
-      <Grid item md={6} alignItems="center" justify="center">
-        <img width="100%" src="personal-logo-dark.svg" />
-      </Grid>
+
+      <Terminal />
+      {/* <img width="100%" src="personal-logo-dark.svg" /> */}
     </Grid>
   );
 };
