@@ -35,10 +35,13 @@ export const EducationCard = (props: IEducationCardProps) => {
   return (
     <CardActionArea onClick={handleClick}>
       <Card className={classes.root}>
-        <CardHeader title="Education" subheader={degreeName} />
+        <CardHeader title="Education" />
         <CardMedia className={classes.media} image={schoolLogoSrc} />
         <CardContent>
-          <Typography variant="h5">{schoolName}</Typography>
+          <Typography variant="h5">{degreeName}</Typography>
+          <Typography variant="h6" color="textSecondary">
+            {schoolName}
+          </Typography>
         </CardContent>
       </Card>
     </CardActionArea>

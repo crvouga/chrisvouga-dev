@@ -1,10 +1,11 @@
-import { Box, capitalize, Container } from "@material-ui/core";
+import { Box, capitalize, Container, Divider } from "@material-ui/core";
 import { GetStaticProps } from "next";
 import React from "react";
 import content from "../content/content.json";
 import { NavBar } from "../src/components/NavBar";
 import { IProjectCardProps } from "../src/components/project-card";
-import { AboutMe } from "../src/components/sections/AboutMe";
+import { About } from "../src/components/sections/About";
+import { Contact } from "../src/components/sections/Contact";
 import { Hero } from "../src/components/sections/Hero";
 import { Projects } from "../src/components/sections/Projects";
 import { githubAPI } from "../src/services/github";
@@ -63,11 +64,16 @@ export default function Index(props: IIndexProps) {
         <Box paddingY={6}>
           <Hero />
         </Box>
+        <Divider />
         <Box paddingY={6}>
           <Projects projectCardsProps={projectCardsProps} />
         </Box>
+        <Divider />
         <Box paddingY={6}>
-          <AboutMe />
+          <About />
+        </Box>
+        <Box paddingY={6}>
+          <Contact />
         </Box>
       </Container>
     </React.Fragment>
