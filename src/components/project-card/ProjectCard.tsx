@@ -28,7 +28,7 @@ export const ProjectCard = (props: IProjectCardProps) => {
   const classes = useStyles();
 
   return (
-    <Card variant="outlined">
+    <Card>
       <CardHeader title={title} />
 
       <CardActionArea onClick={() => goTo(liveSiteUrl)}>

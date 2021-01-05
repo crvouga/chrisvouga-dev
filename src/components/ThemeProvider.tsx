@@ -54,7 +54,11 @@ const createTheme = (themeType: ThemeType) => {
             // default: "#232323",
           },
         },
-        typography: {},
+        props: {
+          MuiCard: {
+            variant: "outlined",
+          },
+        },
       });
 
     case "light":
