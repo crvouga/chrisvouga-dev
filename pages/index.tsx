@@ -67,7 +67,7 @@ export default function Index(props: IIndexProps) {
     <React.Fragment>
       <NavBar />
       <Container maxWidth="lg">
-        <Box paddingX={6} paddingY={12}>
+        <Box paddingY={12}>
           <Hero />
         </Box>
         <Divider />
