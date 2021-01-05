@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { goTo } from "../../utility";
-import { ChipTopic } from "../project-card/TopicChip";
+import { ChipTopic } from "../project-card/ChipTopic";
 
 const useStyles = makeStyles(() => ({
   cardImageContainer: {
