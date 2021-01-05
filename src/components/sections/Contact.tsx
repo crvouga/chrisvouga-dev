@@ -7,8 +7,6 @@ import {
   Typography,
 } from "@material-ui/core";
 import React from "react";
-import content from "../../../content/content.json";
-import { SocialMediaIconButton } from "../SocialMedia";
 
 export const Contact = () => {
   return (

@@ -6,7 +6,6 @@ import {
   Container,
   makeStyles,
   Toolbar,
-  Typography,
 } from "@material-ui/core";
 import React from "react";
 
