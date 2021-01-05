@@ -29,18 +29,18 @@ export const EducationCard = () => {
 
   return (
     <Card>
-      <CardHeader title="Education" />
-      <Divider />
       <CardMedia classes={classesCardMedia} image="/asu-logo.png" />
       <Divider />
       <CardContent>
+        <Typography variant="h5" gutterBottom>
+          Education
+        </Typography>
         <Typography variant="body1">
-          I achieved a Bachelor of Science in Mathematics and Statistics degree
+          I achieved a Bachelor of Science degree in Mathematics and Statistics
           from <Link href={ASU_URL}>Arizona State Univeristy</Link> in the
-          spring of 2020. I believe my education has sharped my problem
-          solving/analytical skills, and provided me with the skills and
-          confindence to tackle hard problems that deal with abstact concepts
-          and critical thinking.
+          spring of 2020. My education has sharped my problem solving/analytical
+          skills, and provided me with the ability and confidence to tackle hard
+          problems that deal with abstact concepts and critical thinking.
         </Typography>
       </CardContent>
     </Card>
@@ -52,9 +52,6 @@ export const SummaryCard = () => {
 
   return (
     <Card>
-      <CardHeader title="About Me" />
-      <Divider />
-
       <Box position="relative" width="100%" paddingTop={`${(9 / 16) * 100}%`}>
         <img
           style={{
@@ -72,6 +69,9 @@ export const SummaryCard = () => {
       <Divider />
 
       <CardContent>
+        <Typography variant="h5" gutterBottom>
+          Summary
+        </Typography>
         <Typography variant="body1">
           Howdy, my name is Chris Vouga. I'm a software engineer based in the
           Phoenix Valley. My main area of focus is in web development. Being a
@@ -87,8 +87,6 @@ export const SummaryCard = () => {
 export const SkillsCard = () => {
   return (
     <Card>
-      <CardHeader title="Technology" />
-      <Divider />
       <Box position="relative" width="100%" paddingTop={`${(9 / 16) * 100}%`}>
         <img
           style={{
@@ -105,13 +103,19 @@ export const SkillsCard = () => {
       </Box>
       <Divider />
       <CardContent>
+        <Typography variant="h5" gutterBottom>
+          Technology
+        </Typography>
         <Typography component="div" variant="body1">
           Currently, the tech stack I enjoy most using and have the most
           experience with is:{" "}
           <ChipTopic variant="outlined" size="small" topic="typescript" />,{" "}
           <ChipTopic variant="outlined" size="small" topic="react" />,{" "}
           <ChipTopic variant="outlined" size="small" topic="postgres" />, and{" "}
-          <ChipTopic variant="outlined" size="small" topic="nodejs" />.
+          <ChipTopic variant="outlined" size="small" topic="nodejs" />. The
+          philsophy I live by is to learn and adopt technology on a need-to-nerd
+          basis. So focus on tech that gets the job done right rather than the
+          hot new tech.
         </Typography>
       </CardContent>
     </Card>
@@ -121,9 +125,9 @@ export const SkillsCard = () => {
 export const About = () => {
   return (
     <React.Fragment>
-      {/* <Typography variant="h4" gutterBottom>
-        About Me
-      </Typography> */}
+      <Typography variant="h4" gutterBottom>
+        A Little About Me
+      </Typography>
 
       <Grid container spacing={2}>
         <Grid item md={4}>
