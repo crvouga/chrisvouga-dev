@@ -36,8 +36,6 @@ const getProjectCardsProps = async () => {
       githubRepositoryParams
     );
 
-    console.log({ responseLanguages: responseLanguages.data });
-
     projectCardsProps.push({
       languages: responseLanguages.data,
       liveSiteUrl,
@@ -69,7 +67,7 @@ export default function Index(props: IIndexProps) {
     <React.Fragment>
       <NavBar />
       <Container maxWidth="lg">
-        <Box paddingY={6}>
+        <Box paddingX={6} paddingY={12}>
           <Hero />
         </Box>
         <Divider />
