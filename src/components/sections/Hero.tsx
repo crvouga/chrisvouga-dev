@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, useTheme, Container } from "@material-ui/core";
+import { Box, Container, Grid, Typography, useTheme } from "@material-ui/core";
 import React from "react";
 import content from "../../../content/content.json";
 import { SocialMediaIconButton } from "../SocialMedia";

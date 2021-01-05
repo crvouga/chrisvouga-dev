@@ -11,6 +11,7 @@ import { Projects } from "../src/components/sections/Projects";
 import { githubAPI } from "../src/services/github";
 import { urlToImageSrc } from "../src/services/screenshot";
 import { castUrl } from "../src/utility";
+import { Footer } from "../src/components/sections/Footer";
 
 const repositoryNameToTitle = (repositoryName: string) =>
   repositoryName.split("-").map(capitalize).join(" ");
@@ -72,8 +73,13 @@ export default function Index(props: IIndexProps) {
         <Box paddingY={6}>
           <About />
         </Box>
+        <Divider />
         <Box paddingY={6}>
           <Contact />
+        </Box>
+        <Divider />
+        <Box paddingY={6}>
+          <Footer />
         </Box>
       </Container>
     </React.Fragment>

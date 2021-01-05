@@ -2,7 +2,7 @@ import { Grid, Typography } from "@material-ui/core";
 import React from "react";
 import content from "../../../content/content.json";
 import { EducationCard } from "../EducationCard";
-import { SkillsCard } from "../SkillsCard";
+import { SummaryCard } from "../SummaryCard";
 
 export const About = () => {
   return (
@@ -13,11 +13,9 @@ export const About = () => {
 
       <Grid container spacing={2}>
         <Grid item md={4}>
-          <SkillsCard />
+          <SummaryCard />
         </Grid>
-        <Grid item md={4}>
-          <SkillsCard />
-        </Grid>
+        <Grid item md={4}></Grid>
         <Grid item md={4}>
           <EducationCard {...content.education} />
         </Grid>

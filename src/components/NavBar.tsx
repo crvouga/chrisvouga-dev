@@ -24,9 +24,13 @@ export const NavBar = () => {
       <Container maxWidth="lg">
         <Toolbar>
           <Avatar className={classes.avatar} src={"/personal-logo-dark.svg"} />
-          <Typography variant="h6">Chris Vouga</Typography>
 
           <Box flex={1} />
+          <Box marginRight={1}>
+            <Button>Projects</Button>
+            <Button>About</Button>
+            <Button>Contact</Button>
+          </Box>
           <Button variant="outlined" color="secondary" size="large">
             Resume
           </Button>
