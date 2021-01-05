@@ -11,11 +11,11 @@ export const Hero = () => {
       <Box paddingY={2} fontWeight="bold">
         <Typography variant="h2">Chris Vouga.</Typography>
         <Typography variant="h2" color="textSecondary">
-          I build things for the web.
+          Software Engineer for the Web.
         </Typography>
       </Box>
       <Box paddingY={2} maxWidth={theme.breakpoints.values.sm}>
-        <Typography variant="h6">
+        <Typography variant="overline">
           I am a software developer based in the Phoenix Valley. My main area of
           focus is in developing web applications.
         </Typography>

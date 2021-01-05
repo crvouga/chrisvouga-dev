@@ -1,35 +1,61 @@
 import {
+  Avatar,
+  Box,
   Card,
   CardContent,
-  CardHeader,
-  CardMedia,
+  Chip,
+  Divider,
   Grid,
-  Link,
   makeStyles,
   Typography,
-  Box,
-  Divider,
 } from "@material-ui/core";
 import React from "react";
+import { goTo } from "../../utility";
 import { ChipTopic } from "../project-card/TopicChip";
 
-const useStylesCardMedia = makeStyles(() => ({
-  root: {
-    paddingTop: `${(9 / 16) * 100}%`,
+const useStyles = makeStyles(() => ({
+  cardImageContainer: {
+    position: "relative",
+    width: "100%",
+    paddingTop: `${(1 / 2.35) * 100}%`,
   },
-  media: {
+  cardImage: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
     objectFit: "contain",
+    objectPosition: "center",
   },
 }));
 
+const CardImage = ({ src }: { src: string }) => {
+  const classes = useStyles();
+  return (
+    <div className={classes.cardImageContainer}>
+      <img className={classes.cardImage} src={src} />
+    </div>
+  );
+};
+
 const ASU_URL = "https://www.asu.edu/";
-
 export const EducationCard = () => {
-  const classesCardMedia = useStylesCardMedia();
-
+  const asuChip = (
+    <Box display="inline" p={1 / 2}>
+      <Chip
+        avatar={<Avatar src="/asu-logo.png" />}
+        clickable
+        size="small"
+        variant="outlined"
+        onClick={() => goTo(ASU_URL)}
+        label="Arizona State Univeristy"
+      />
+    </Box>
+  );
   return (
     <Card>
-      <CardMedia classes={classesCardMedia} image="/asu-logo.png" />
+      <CardImage src="/college.svg" />
       <Divider />
       <CardContent>
         <Typography variant="h5" gutterBottom>
@@ -37,10 +63,10 @@ export const EducationCard = () => {
         </Typography>
         <Typography variant="body1">
           I achieved a Bachelor of Science degree in Mathematics and Statistics
-          from <Link href={ASU_URL}>Arizona State Univeristy</Link> in the
-          spring of 2020. My education has sharped my problem solving/analytical
-          skills, and provided me with the ability and confidence to tackle hard
-          problems that deal with abstact concepts and critical thinking.
+          from {asuChip} in the spring of 2020. My education has sharped my
+          problem solving/analytical skills, and provided me with the ability
+          and confidence to tackle hard problems that deal with abstact concepts
+          and critical thinking.
         </Typography>
       </CardContent>
     </Card>
@@ -48,32 +74,16 @@ export const EducationCard = () => {
 };
 
 export const SummaryCard = () => {
-  // const classesCardMedia = useStylesCardMedia();
-
   return (
     <Card>
-      <Box position="relative" width="100%" paddingTop={`${(9 / 16) * 100}%`}>
-        <img
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "contain",
-            objectPosition: "center",
-          }}
-          src="/personal-logo-dark.svg"
-        />
-      </Box>
+      <CardImage src="/personal-logo-dark.svg" />
       <Divider />
-
       <CardContent>
         <Typography variant="h5" gutterBottom>
           Summary
         </Typography>
         <Typography variant="body1">
-          Howdy, my name is Chris Vouga. I'm a software engineer based in the
+          Howdy. My name is Chris Vouga. I'm a software engineer based in the
           Phoenix Valley. My main area of focus is in web development. Being a
           Math major, I've always enjoyed learning about the theory in software
           engineering like functional programming, type systems, and software
@@ -85,22 +95,17 @@ export const SummaryCard = () => {
 };
 
 export const SkillsCard = () => {
+  const techStack = ["typescript", "react", "postgres", "nodejs"].map(
+    (topic) => (
+      <Box display="inline" key={topic} p={1 / 2}>
+        <ChipTopic topic={topic} variant="outlined" size="small" />
+      </Box>
+    )
+  );
+
   return (
     <Card>
-      <Box position="relative" width="100%" paddingTop={`${(9 / 16) * 100}%`}>
-        <img
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "contain",
-            objectPosition: "center",
-          }}
-          src="/code.png"
-        />
-      </Box>
+      <CardImage src="/code.png" />
       <Divider />
       <CardContent>
         <Typography variant="h5" gutterBottom>
@@ -108,14 +113,10 @@ export const SkillsCard = () => {
         </Typography>
         <Typography component="div" variant="body1">
           Currently, the tech stack I enjoy most using and have the most
-          experience with is:{" "}
-          <ChipTopic variant="outlined" size="small" topic="typescript" />,{" "}
-          <ChipTopic variant="outlined" size="small" topic="react" />,{" "}
-          <ChipTopic variant="outlined" size="small" topic="postgres" />, and{" "}
-          <ChipTopic variant="outlined" size="small" topic="nodejs" />. The
-          philsophy I live by is to learn and adopt technology on a need-to-nerd
-          basis. So focus on tech that gets the job done right rather than the
-          hot new tech.
+          experience with is: {techStack}. The philsophy I live by is to learn
+          and adopt technology on a need-to-nerd basis. So focus on tech that
+          gets the job done right rather than tech thats gets the job done
+          fashionability.
         </Typography>
       </CardContent>
     </Card>
