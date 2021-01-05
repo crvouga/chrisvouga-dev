@@ -51,15 +51,19 @@ const createTheme = (themeType: ThemeType) => {
             main: "#42a5f5",
           },
           background: {
-            default: "#232323",
+            // default: "#232323",
           },
         },
+        typography: {},
       });
 
     case "light":
       return createMuiTheme({
         palette: {
           type: "light",
+          background: {
+            paper: "#dedede",
+          },
         },
       });
   }

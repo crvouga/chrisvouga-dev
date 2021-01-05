@@ -7,6 +7,7 @@ import {
   CardMedia,
   makeStyles,
   Typography,
+  Box,
 } from "@material-ui/core";
 import React from "react";
 import { goTo } from "../../utility";
@@ -35,9 +36,11 @@ export const ProjectCard = (props: IProjectCardProps) => {
       </CardActionArea>
 
       <CardContent>
-        <Typography variant="body1" color="textSecondary" gutterBottom>
-          {description}
-        </Typography>
+        <Box paddingBottom={2}>
+          <Typography variant="body1" color="textPrimary">
+            {description}
+          </Typography>
+        </Box>
         <ProjectCardTopics topics={topics} />
       </CardContent>
 
