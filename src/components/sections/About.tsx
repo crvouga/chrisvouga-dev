@@ -87,7 +87,7 @@ export const SummaryCard = () => {
 export const SkillsCard = () => {
   return (
     <Card>
-      <CardHeader title="Technolgy" />
+      <CardHeader title="Technology" />
       <Divider />
       <Box position="relative" width="100%" paddingTop={`${(9 / 16) * 100}%`}>
         <img
