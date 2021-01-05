@@ -6,8 +6,15 @@ import {
   Container,
   makeStyles,
   Toolbar,
+  Hidden,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
 } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
+import MenuOpenIcon from "@material-ui/icons/MenuOpen";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {},
@@ -15,26 +22,53 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
   },
 }));
-
 export const NavBar = () => {
   const classes = useStyles();
-  return (
-    <AppBar className={classes.appBar} position="sticky" color="default">
-      <Container maxWidth="lg">
-        <Toolbar>
-          <Avatar className={classes.avatar} src={"/personal-logo-dark.svg"} />
 
-          <Box flex={1} />
-          <Box marginRight={1}>
-            <Button>Projects</Button>
-            <Button>About</Button>
-            <Button>Contact</Button>
-          </Box>
-          <Button variant="outlined" color="secondary" size="large">
-            Resume
-          </Button>
-        </Toolbar>
-      </Container>
-    </AppBar>
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  return (
+    <React.Fragment>
+      <AppBar className={classes.appBar} position="sticky" color="default">
+        <Container maxWidth="lg">
+          <Toolbar>
+            <Avatar
+              className={classes.avatar}
+              src={"/personal-logo-dark.svg"}
+            />
+
+            <Box flex={1} />
+
+            <Hidden xsDown>
+              <Box marginRight={1}>
+                <Button>Projects</Button>
+                <Button>About</Button>
+                <Button>Contact</Button>
+                <Button>Resume</Button>
+              </Box>
+            </Hidden>
+            <Hidden smUp>
+              <IconButton onClick={() => setIsDrawerOpen(true)}>
+                <MenuOpenIcon />
+              </IconButton>
+            </Hidden>
+          </Toolbar>
+        </Container>
+      </AppBar>
+      <Drawer
+        keepMounted
+        anchor="right"
+        open={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+      >
+        <List>
+          {["Projects", "About", "Contact"].map((section) => (
+            <ListItem key={section} button>
+              <ListItemText primary={section} />
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+    </React.Fragment>
   );
 };

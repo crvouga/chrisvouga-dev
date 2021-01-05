@@ -9,6 +9,7 @@ export const Footer = () => {
       <Box display="flex" paddingY={2}>
         {content.socialMedia.map((socialMedia) => (
           <SocialMediaIconButton
+            key={socialMedia.url}
             name={socialMedia.name}
             url={socialMedia.url}
           />

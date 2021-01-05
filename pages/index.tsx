@@ -20,19 +20,26 @@ const getProjectCardsProps = async () => {
   const projectCardsProps: IProjectCardProps[] = [];
 
   for (const project of content.projects) {
-    const response = await githubAPI.repos.get({
+    const githubRepositoryParams = {
       owner: project.ownerName,
       repo: project.repositoryName,
-    });
+    };
+    const response = await githubAPI.repos.get(githubRepositoryParams);
 
-    const responseTopics = await githubAPI.repos.getAllTopics({
-      owner: project.ownerName,
-      repo: project.repositoryName,
-    });
+    const responseTopics = await githubAPI.repos.getAllTopics(
+      githubRepositoryParams
+    );
 
     const liveSiteUrl = castUrl(response.data.homepage);
 
+    const responseLanguages = await githubAPI.repos.listLanguages(
+      githubRepositoryParams
+    );
+
+    console.log({ responseLanguages: responseLanguages.data });
+
     projectCardsProps.push({
+      languages: responseLanguages.data,
       liveSiteUrl,
       description: response.data.description || "",
       sourceCodeUrl: castUrl(response.data.html_url),

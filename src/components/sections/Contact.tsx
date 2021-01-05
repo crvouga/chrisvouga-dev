@@ -19,18 +19,12 @@ export const Contact = () => {
           <Paper>
             <Box p={1} display="flex" flexDirection="column">
               <Box p={1}>
-                <TextField
-                  variant="outlined"
-                  fullWidth
-                  color="secondary"
-                  label="Name"
-                />
+                <TextField variant="outlined" fullWidth label="Name" />
               </Box>
               <Box p={1}>
                 <TextField
                   variant="outlined"
                   fullWidth
-                  color="secondary"
                   label="Email"
                   type="email"
                 />
@@ -39,7 +33,6 @@ export const Contact = () => {
                 <TextField
                   variant="outlined"
                   fullWidth
-                  color="secondary"
                   multiline
                   rows={6}
                   label={"Your Message"}
@@ -47,7 +40,12 @@ export const Contact = () => {
               </Box>
               <Box display="flex" flexDirection="row" p={1}>
                 <Box flex={1} />
-                <Button size="large" variant="contained">
+                <Button
+                  size="large"
+                  style={{ color: "#fff" }}
+                  variant="contained"
+                  color="primary"
+                >
                   Submit
                 </Button>
               </Box>

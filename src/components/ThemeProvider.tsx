@@ -47,6 +47,9 @@ const createTheme = (themeType: ThemeType) => {
       return createMuiTheme({
         palette: {
           type: "dark",
+          primary: {
+            main: "#42a5f5",
+          },
           background: {
             default: "#232323",
           },

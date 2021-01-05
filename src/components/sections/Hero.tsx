@@ -1,4 +1,11 @@
-import { Box, Container, Grid, Typography, useTheme } from "@material-ui/core";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  useTheme,
+  Hidden,
+} from "@material-ui/core";
 import React from "react";
 import content from "../../../content/content.json";
 import { SocialMediaIconButton } from "../SocialMedia";
@@ -25,6 +32,7 @@ export const Hero = () => {
         <Box display="flex" paddingY={2}>
           {content.socialMedia.map((socialMedia) => (
             <SocialMediaIconButton
+              key={socialMedia.url}
               name={socialMedia.name}
               url={socialMedia.url}
             />
@@ -32,11 +40,13 @@ export const Hero = () => {
         </Box>
       </Grid>
 
-      <Grid item md={6}>
-        <Container maxWidth="xs">
-          <img width="100%" src="personal-logo-dark.svg" />
-        </Container>
-      </Grid>
+      <Hidden smDown>
+        <Grid item md={6}>
+          <Container maxWidth="xs">
+            <img width="100%" src="personal-logo-dark.svg" />
+          </Container>
+        </Grid>
+      </Hidden>
     </Grid>
   );
 };
