@@ -76,20 +76,28 @@ export default function Index(props: IIndexProps) {
         >
           <Hero />
         </Box>
+
         <Divider />
-        <Box paddingY={6}>
-          <Projects projectCardsProps={projectCardsProps} />
-        </Box>
-        <Divider />
-        <Box paddingY={6}>
+
+        <Box marginY={6}>
           <About />
         </Box>
+
         <Divider />
-        <Box paddingY={6}>
+
+        <Box marginY={6}>
+          <Projects projectCardsProps={projectCardsProps} />
+        </Box>
+
+        <Divider />
+
+        <Box marginY={6}>
           <Contact />
         </Box>
+
         <Divider />
-        <Box paddingY={6}>
+
+        <Box marginY={6}>
           <Footer />
         </Box>
       </Container>
