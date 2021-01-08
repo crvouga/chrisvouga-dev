@@ -8,6 +8,7 @@ import {
   Theme,
 } from "@material-ui/core";
 import React from "react";
+import clsx from "clsx";
 
 const themeToFill = (theme: Theme) =>
   theme.palette.background.default
@@ -46,6 +47,12 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "75px",
   },
+
+  heading: {
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "3em",
+    },
+  },
 }));
 
 //SOURCE: https://stackoverflow.com/questions/17202548/wavy-shape-with-css
@@ -65,13 +72,16 @@ export const Hero = () => {
             >
               Hello, my name is
             </Typography>
-            <Typography variant="h2" className={classes.typography}>
+            <Typography
+              variant="h2"
+              className={clsx(classes.heading, classes.typography)}
+            >
               Chris Vouga.
             </Typography>
             <Typography
               variant="h2"
               color="textSecondary"
-              className={classes.typography}
+              className={clsx(classes.heading, classes.typography)}
               gutterBottom
             >
               I build things for the web.
