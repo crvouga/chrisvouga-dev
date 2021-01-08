@@ -128,7 +128,7 @@ export const About = () => {
   return (
     <Section>
       <Typography variant="h4" gutterBottom>
-        A Little Bit About Me
+        <Box fontWeight="bold">A Little Bit About Me</Box>
       </Typography>
 
       <Grid container spacing={2}>

@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@material-ui/core";
+import { Box, Grid, Typography } from "@material-ui/core";
 import React from "react";
 import { IProjectCardProps, ProjectCard } from "../project-card";
 import { Section } from "../section";
@@ -11,7 +11,7 @@ export const Projects = ({
   return (
     <Section>
       <Typography variant="h4" gutterBottom>
-        Some of the Things I've Built
+        <Box fontWeight="bold">Some of the Things I've Built</Box>
       </Typography>
       <Grid container spacing={2}>
         {projectCardsProps.map((props) => (
