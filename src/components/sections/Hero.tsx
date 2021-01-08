@@ -1,13 +1,5 @@
-import {
-  Box,
-  makeStyles,
-  Typography,
-  useTheme,
-  Container,
-} from "@material-ui/core";
+import { Box, Container, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
-import content from "../../../content/content.json";
-import { SocialMediaIconButton } from "../SocialMedia";
 
 const useStyles = makeStyles((theme) => ({
   bold: {

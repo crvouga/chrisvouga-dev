@@ -15,7 +15,6 @@ import {
 } from "@material-ui/core";
 import MenuOpenIcon from "@material-ui/icons/MenuOpen";
 import React, { useState } from "react";
-import { usePersonalLogoSrc } from "../theme";
 
 const useStyles = makeStyles((theme) => ({
   gutter: {
@@ -35,8 +34,6 @@ export const NavBar = () => {
   const classes = useStyles();
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const personalLogoSrc = usePersonalLogoSrc();
 
   return (
     <React.Fragment>
