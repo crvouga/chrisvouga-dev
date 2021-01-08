@@ -55,7 +55,7 @@ export const EducationCard = () => {
   );
   return (
     <Card>
-      <CardImage src="/college.svg" />
+      <CardImage src="/diploma.svg" />
       <Divider />
       <CardContent>
         <Typography variant="h5" gutterBottom>
@@ -105,7 +105,7 @@ export const SkillsCard = () => {
 
   return (
     <Card>
-      <CardImage src="/code.png" />
+      <CardImage src="/code.svg" />
       <Divider />
       <CardContent>
         <Typography variant="h5" gutterBottom>
