@@ -131,13 +131,13 @@ export const About = () => {
       </Typography>
 
       <Grid container spacing={2}>
-        <Grid item md={4}>
+        <Grid item sm={4}>
           <SummaryCard />
         </Grid>
-        <Grid item md={4}>
+        <Grid item sm={4}>
           <SkillsCard />
         </Grid>
-        <Grid item md={4}>
+        <Grid item sm={4}>
           <EducationCard />
         </Grid>
       </Grid>
