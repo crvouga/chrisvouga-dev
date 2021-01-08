@@ -1,5 +1,9 @@
 import { CssBaseline, IconButton } from "@material-ui/core";
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import {
+  createMuiTheme,
+  MuiThemeProvider,
+  useTheme,
+} from "@material-ui/core/styles";
 import { PropsWithChildren, useEffect, useState } from "react";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import Brightness2Icon from "@material-ui/icons/Brightness2";
@@ -41,6 +45,16 @@ export const useThemeState = () => {
   };
 };
 
+export const usePersonalLogoSrc = () => {
+  const theme = useTheme();
+  switch (theme.palette.type) {
+    case "dark":
+      return "/personal-logo-dark.svg";
+    default:
+      return "/personal-logo-light.svg";
+  }
+};
+
 const createTheme = (themeType: ThemeType) => {
   switch (themeType) {
     case "dark":
@@ -65,9 +79,6 @@ const createTheme = (themeType: ThemeType) => {
       return createMuiTheme({
         palette: {
           type: "light",
-          background: {
-            paper: "#dedede",
-          },
         },
       });
   }
@@ -88,7 +99,7 @@ export default function ThemeProvider(props: IThemeProviderProps) {
   const { children } = props;
 
   return (
-    <MuiThemeProvider theme={createTheme("dark")}>
+    <MuiThemeProvider theme={createTheme("light")}>
       <CssBaseline />
       {children}
     </MuiThemeProvider>

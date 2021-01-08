@@ -12,6 +12,7 @@ import {
 import React from "react";
 import { goTo } from "../../utility";
 import { ChipTopic } from "../project-card/ChipTopic";
+import { usePersonalLogoSrc } from "../ThemeProvider";
 
 const useStyles = makeStyles(() => ({
   cardImageContainer: {
@@ -74,9 +75,11 @@ export const EducationCard = () => {
 };
 
 export const SummaryCard = () => {
+  const personalLogoSrc = usePersonalLogoSrc();
+
   return (
     <Card>
-      <CardImage src="/personal-logo-dark.svg" />
+      <CardImage src={personalLogoSrc} />
       <Divider />
       <CardContent>
         <Typography variant="h5" gutterBottom>

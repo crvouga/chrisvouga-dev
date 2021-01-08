@@ -4,17 +4,18 @@ import {
   Box,
   Button,
   Container,
-  makeStyles,
-  Toolbar,
+  Drawer,
   Hidden,
   IconButton,
-  Drawer,
   List,
   ListItem,
   ListItemText,
+  makeStyles,
+  Toolbar,
 } from "@material-ui/core";
-import React, { useState } from "react";
 import MenuOpenIcon from "@material-ui/icons/MenuOpen";
+import React, { useState } from "react";
+import { usePersonalLogoSrc } from "./ThemeProvider";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {},
@@ -27,15 +28,14 @@ export const NavBar = () => {
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
+  const personalLogoSrc = usePersonalLogoSrc();
+
   return (
     <React.Fragment>
       <AppBar className={classes.appBar} position="sticky" color="default">
         <Container maxWidth="lg">
           <Toolbar>
-            <Avatar
-              className={classes.avatar}
-              src={"/personal-logo-dark.svg"}
-            />
+            <Avatar className={classes.avatar} src={personalLogoSrc} />
 
             <Box flex={1} />
 
