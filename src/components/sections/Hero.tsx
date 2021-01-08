@@ -10,6 +10,7 @@ import {
 import clsx from "clsx";
 import React from "react";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
+import { Section } from "../section";
 const themeToFill = (theme: Theme) =>
   theme.palette.background.default
     //why? "#" is a reserved character in a url
@@ -25,7 +26,13 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     color: "#fff",
   },
-  root: {
+  wave: {
+    zIndex: -1,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "80vh",
     background: `
       url("${createBackgroundUrl(theme)}")
       no-repeat bottom,
@@ -65,8 +72,9 @@ export const Hero = () => {
   const classes = useStyles();
 
   return (
-    <Box className={classes.root}>
-      <Container maxWidth="lg" className={classes.content}>
+    <React.Fragment>
+      <Box className={classes.wave} />
+      <Section>
         <Grid container direction="row" alignItems="center">
           <Grid item sm={6}>
             <Typography
@@ -108,7 +116,7 @@ export const Hero = () => {
         </Grid>
 
         <Box className={classes.gutter} />
-      </Container>
-    </Box>
+      </Section>
+    </React.Fragment>
   );
 };
