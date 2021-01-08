@@ -61,7 +61,7 @@ export const EducationCard = () => {
         <Typography variant="h5" gutterBottom>
           Education
         </Typography>
-        <Typography variant="body1">
+        <Typography component="div" variant="body1">
           I achieved a Bachelor of Science degree in Mathematics and Statistics
           from {asuChip} in the spring of 2020. My education has sharped my
           problem solving/analytical skills, and provided me with the ability
