@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import React from "react";
-
+import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 const themeToFill = (theme: Theme) =>
   theme.palette.background.default
     //why? "#" is a reserved character in a url
@@ -94,6 +94,7 @@ export const Hero = () => {
               size="large"
               className={classes.callToAction}
               variant="outlined"
+              startIcon={<ArrowDownwardIcon />}
             >
               Check out work
             </Button>
