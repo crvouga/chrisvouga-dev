@@ -13,6 +13,7 @@ import React from "react";
 import { usePersonalLogoSrc } from "../../theme";
 import { goTo } from "../../utility";
 import { ChipTopic } from "../project-card/ChipTopic";
+import { Section } from "../section";
 
 const useStyles = makeStyles(() => ({
   cardImageContainer: {
@@ -128,7 +129,7 @@ export const SkillsCard = () => {
 
 export const About = () => {
   return (
-    <React.Fragment>
+    <Section>
       <Typography variant="h4" gutterBottom>
         A Little About Me
       </Typography>
@@ -144,6 +145,6 @@ export const About = () => {
           <EducationCard />
         </Grid>
       </Grid>
-    </React.Fragment>
+    </Section>
   );
 };

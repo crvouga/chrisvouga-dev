@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import React from "react";
+import { Section } from "../section";
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 export const Contact = () => {
   const classes = useStyles();
   return (
-    <React.Fragment>
+    <Section>
       <Typography align="center" variant="h4">
         Contact Me
       </Typography>
@@ -81,6 +82,6 @@ export const Contact = () => {
           </Box>
         </Paper>
       </form>
-    </React.Fragment>
+    </Section>
   );
 };

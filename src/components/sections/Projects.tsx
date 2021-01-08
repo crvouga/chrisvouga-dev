@@ -1,6 +1,7 @@
 import { Grid, Typography } from "@material-ui/core";
 import React from "react";
 import { IProjectCardProps, ProjectCard } from "../project-card";
+import { Section } from "../section";
 
 export const Projects = ({
   projectCardsProps,
@@ -8,7 +9,7 @@ export const Projects = ({
   projectCardsProps: IProjectCardProps[];
 }) => {
   return (
-    <React.Fragment>
+    <Section>
       <Typography variant="h4" gutterBottom>
         Some of the Things I've Built
       </Typography>
@@ -19,6 +20,6 @@ export const Projects = ({
           </Grid>
         ))}
       </Grid>
-    </React.Fragment>
+    </Section>
   );
 };
