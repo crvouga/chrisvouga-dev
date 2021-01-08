@@ -32,7 +32,7 @@ export const Contact = () => {
   return (
     <Section>
       <Typography align="center" variant="h4">
-        <Box fontWeight="bold">Contact Me</Box>
+        <Box fontWeight="bold">Get In Touch</Box>
       </Typography>
 
       <Typography
