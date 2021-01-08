@@ -3,6 +3,7 @@ import {
   createMuiTheme,
   MuiThemeProvider,
   useTheme,
+  ThemeOptions,
 } from "@material-ui/core/styles";
 import { PropsWithChildren, useEffect, useState } from "react";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
@@ -55,10 +56,22 @@ export const usePersonalLogoSrc = () => {
   }
 };
 
+const themeOptions: ThemeOptions = {
+  typography: {
+    fontFamily: ["Inter", "sans-serif"].join(","),
+  },
+  props: {
+    MuiCard: {
+      variant: "outlined",
+    },
+  },
+};
+
 const createTheme = (themeType: ThemeType) => {
   switch (themeType) {
     case "dark":
       return createMuiTheme({
+        ...themeOptions,
         palette: {
           type: "dark",
           primary: {
@@ -68,15 +81,11 @@ const createTheme = (themeType: ThemeType) => {
             // default: "#232323",
           },
         },
-        props: {
-          MuiCard: {
-            variant: "outlined",
-          },
-        },
       });
 
     case "light":
       return createMuiTheme({
+        ...themeOptions,
         palette: {
           type: "light",
         },
