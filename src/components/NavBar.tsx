@@ -38,24 +38,24 @@ export const NavBar = () => {
   return (
     <React.Fragment>
       <AppBar elevation={0}>
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" disableGutters>
           <Toolbar>
-            <Avatar src={"/personal-logo-dark.svg"} />
-
-            <Box flex={1} />
+            {/* <Avatar src={"/personal-logo-dark.svg"} /> */}
 
             <Hidden xsDown>
-              <Box marginRight={1}>
-                <Button className={classes.button}>Projects</Button>
-                <Button className={classes.button}>About</Button>
-                <Button className={classes.button}>Contact</Button>
-                <Button variant="outlined" className={classes.button}>
-                  Resume
-                </Button>
-              </Box>
+              <Button className={classes.button}>Projects</Button>
+              <Button className={classes.button}>About</Button>
+              <Button className={classes.button}>Contact</Button>
+              <Box flex={1} />
+              <Button variant="outlined" className={classes.button}>
+                Resume
+              </Button>
             </Hidden>
             <Hidden smUp>
-              <IconButton onClick={() => setIsDrawerOpen(true)}>
+              <IconButton
+                onClick={() => setIsDrawerOpen(true)}
+                style={{ color: "white" }}
+              >
                 <MenuOpenIcon />
               </IconButton>
             </Hidden>
