@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
         ${theme.palette.secondary.main}, 99%,
         ${theme.palette.background.default} 99%
       )`,
+    [theme.breakpoints.down("xs")]: {
+      paddingBottom: theme.spacing(4),
+    },
   },
 
   callToAction: {
