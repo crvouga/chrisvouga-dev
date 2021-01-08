@@ -10,9 +10,9 @@ import {
   Typography,
 } from "@material-ui/core";
 import React from "react";
+import { usePersonalLogoSrc } from "../../theme";
 import { goTo } from "../../utility";
 import { ChipTopic } from "../project-card/ChipTopic";
-import { usePersonalLogoSrc } from "../ThemeProvider";
 
 const useStyles = makeStyles(() => ({
   cardImageContainer: {

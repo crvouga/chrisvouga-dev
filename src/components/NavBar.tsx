@@ -15,7 +15,7 @@ import {
 } from "@material-ui/core";
 import MenuOpenIcon from "@material-ui/icons/MenuOpen";
 import React, { useState } from "react";
-import { usePersonalLogoSrc } from "./ThemeProvider";
+import { usePersonalLogoSrc } from "../theme";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {},
