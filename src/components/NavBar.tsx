@@ -18,9 +18,13 @@ import React, { useState } from "react";
 import { usePersonalLogoSrc } from "../theme";
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {},
   avatar: {
+    backgroundColor: theme.palette.background.default,
     marginRight: theme.spacing(1),
+  },
+  button: {
+    fontWeight: "bold",
+    color: "#fff",
   },
 }));
 export const NavBar = () => {
@@ -32,7 +36,7 @@ export const NavBar = () => {
 
   return (
     <React.Fragment>
-      <AppBar className={classes.appBar} position="sticky" color="default">
+      <AppBar>
         <Container maxWidth="lg">
           <Toolbar>
             <Avatar className={classes.avatar} src={personalLogoSrc} />
@@ -41,10 +45,12 @@ export const NavBar = () => {
 
             <Hidden xsDown>
               <Box marginRight={1}>
-                <Button>Projects</Button>
-                <Button>About</Button>
-                <Button>Contact</Button>
-                <Button>Resume</Button>
+                <Button className={classes.button}>Projects</Button>
+                <Button className={classes.button}>About</Button>
+                <Button className={classes.button}>Contact</Button>
+                <Button variant="outlined" className={classes.button}>
+                  Resume
+                </Button>
               </Box>
             </Hidden>
             <Hidden smUp>
