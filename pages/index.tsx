@@ -1,4 +1,4 @@
-import { capitalize, Container } from "@material-ui/core";
+import { capitalize, Divider } from "@material-ui/core";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
@@ -69,19 +69,26 @@ export default function Index(props: IIndexProps) {
       <Head>
         <title>Chris Vouga</title>
       </Head>
+
       <NavBar />
 
       <Hero />
 
-      <Container maxWidth="lg">
-        <About />
+      <Divider />
 
-        <Projects projectCardsProps={projectCardsProps} />
+      <About />
 
-        <Contact />
+      <Divider />
 
-        <Footer />
-      </Container>
+      <Projects projectCardsProps={projectCardsProps} />
+
+      <Divider />
+
+      <Contact />
+
+      <Divider />
+
+      <Footer />
     </React.Fragment>
   );
 }

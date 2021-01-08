@@ -3,8 +3,8 @@ import {
   Box,
   Card,
   CardContent,
+  CardHeader,
   Chip,
-  Divider,
   Grid,
   makeStyles,
   Typography,
@@ -57,12 +57,11 @@ export const EducationCard = () => {
   );
   return (
     <Card>
+      <CardHeader title="Education" />
+
       <CardImage src="/diploma.svg" />
-      <Divider />
+
       <CardContent>
-        <Typography variant="h5" gutterBottom>
-          Education
-        </Typography>
         <Typography component="div" variant="body1">
           I achieved a Bachelor of Science degree in Mathematics and Statistics
           from {asuChip} in the spring of 2020. My education has sharped my
@@ -80,12 +79,11 @@ export const SummaryCard = () => {
 
   return (
     <Card>
+      <CardHeader title="Summary" />
+
       <CardImage src={personalLogoSrc} />
-      <Divider />
+
       <CardContent>
-        <Typography variant="h5" gutterBottom>
-          Summary
-        </Typography>
         <Typography variant="body1">
           Howdy. My name is Chris Vouga. I'm a software engineer based in the
           Phoenix Valley. My main area of focus is in web development. Being a
@@ -109,12 +107,11 @@ export const SkillsCard = () => {
 
   return (
     <Card>
+      <CardHeader title="Technology" />
+
       <CardImage src="/code.svg" />
-      <Divider />
+
       <CardContent>
-        <Typography variant="h5" gutterBottom>
-          Technology
-        </Typography>
         <Typography component="div" variant="body1">
           Currently, the tech stack I enjoy most using and have the most
           experience with is: {techStack}. The philsophy I live by is to learn

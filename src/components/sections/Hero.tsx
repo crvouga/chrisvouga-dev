@@ -4,11 +4,11 @@ import {
   Container,
   Grid,
   makeStyles,
-  Typography,
   Theme,
+  Typography,
 } from "@material-ui/core";
-import React from "react";
 import clsx from "clsx";
+import React from "react";
 
 const themeToFill = (theme: Theme) =>
   theme.palette.background.default
@@ -55,13 +55,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-//SOURCE: https://stackoverflow.com/questions/17202548/wavy-shape-with-css
-
 export const Hero = () => {
   const classes = useStyles();
 
   return (
-    <section className={classes.root}>
+    <Box className={classes.root}>
       <Container maxWidth="lg">
         <Grid container direction="row" alignItems="center">
           <Grid item sm={6}>
@@ -101,8 +99,9 @@ export const Hero = () => {
             </Container>
           </Grid>
         </Grid>
+
+        <Box className={classes.gutter} />
       </Container>
-      <Box className={classes.gutter} />
-    </section>
+    </Box>
   );
 };
