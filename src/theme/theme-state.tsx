@@ -9,14 +9,16 @@ export const useThemeState = () => {
 
   const [themeType, setThemeType] = useState<ThemeType>("dark");
 
-  const setThemeTypePersisted = (mode: ThemeType) => {
-    localStorage.setItem(THEME_TYPE_KEY, mode);
-    setThemeType(mode);
+  const setThemeTypePersisted = (themeType: ThemeType) => {
+    localStorage.setItem(THEME_TYPE_KEY, themeType);
+    setThemeType(themeType);
   };
 
   useEffect(() => {
-    const mode = castThemeType(localStorage.getItem(THEME_TYPE_KEY) || "light");
-    setThemeType(mode);
+    const themeType = castThemeType(
+      localStorage.getItem(THEME_TYPE_KEY) || "light"
+    );
+    setThemeType(themeType);
   }, []);
 
   const toggleThemeType = () => {
