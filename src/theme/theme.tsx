@@ -24,7 +24,8 @@ const themeOptions: ThemeOptions = {
   },
   props: {
     MuiCard: {
-      variant: "outlined",
+      // variant: "outlined",
+      elevation: 4,
     },
   },
 };
