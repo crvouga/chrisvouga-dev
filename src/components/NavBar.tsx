@@ -20,7 +20,6 @@ import { usePersonalLogoSrc } from "../theme";
 const useStyles = makeStyles((theme) => ({
   gutter: {
     ...theme.mixins.toolbar,
-    margin: theme.spacing(2),
   },
   avatar: {
     backgroundColor: theme.palette.background.default,
@@ -41,10 +40,10 @@ export const NavBar = () => {
 
   return (
     <React.Fragment>
-      <AppBar>
+      <AppBar elevation={0}>
         <Container maxWidth="lg">
           <Toolbar>
-            <Avatar className={classes.avatar} src={personalLogoSrc} />
+            <Avatar src={"/personal-logo-dark.svg"} />
 
             <Box flex={1} />
 

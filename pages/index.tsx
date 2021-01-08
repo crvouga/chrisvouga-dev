@@ -1,18 +1,18 @@
-import { Box, capitalize, Container, Divider } from "@material-ui/core";
+import { capitalize, Container } from "@material-ui/core";
 import { GetStaticProps } from "next";
+import Head from "next/head";
 import React from "react";
 import content from "../content/content.json";
 import { NavBar } from "../src/components/NavBar";
 import { IProjectCardProps } from "../src/components/project-card";
 import { About } from "../src/components/sections/About";
 import { Contact } from "../src/components/sections/Contact";
+import { Footer } from "../src/components/sections/Footer";
 import { Hero } from "../src/components/sections/Hero";
 import { Projects } from "../src/components/sections/Projects";
 import { githubAPI } from "../src/services/github";
 import { urlToImageSrc } from "../src/services/screenshot";
 import { castUrl } from "../src/utility";
-import { Footer } from "../src/components/sections/Footer";
-import Head from "next/head";
 
 const repositoryNameToTitle = (repositoryName: string) =>
   repositoryName.split("-").map(capitalize).join(" ");
@@ -70,40 +70,17 @@ export default function Index(props: IIndexProps) {
         <title>Chris Vouga</title>
       </Head>
       <NavBar />
+
+      <Hero />
+
       <Container maxWidth="lg">
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          height="80vh"
-          marginY={6}
-        >
-          <Hero />
-        </Box>
+        <About />
 
-        <Divider />
+        <Projects projectCardsProps={projectCardsProps} />
 
-        <Box marginY={6}>
-          <About />
-        </Box>
+        <Contact />
 
-        <Divider />
-
-        <Box marginY={6}>
-          <Projects projectCardsProps={projectCardsProps} />
-        </Box>
-
-        <Divider />
-
-        <Box marginY={6}>
-          <Contact />
-        </Box>
-
-        <Divider />
-
-        <Box marginY={6}>
-          <Footer />
-        </Box>
+        <Footer />
       </Container>
     </React.Fragment>
   );
