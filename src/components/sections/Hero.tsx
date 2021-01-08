@@ -47,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "75px",
   },
+  content: {
+    height: "75vh",
+  },
 
   heading: {
     [theme.breakpoints.down("xs")]: {
@@ -60,7 +63,7 @@ export const Hero = () => {
 
   return (
     <Box className={classes.root}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className={classes.content}>
         <Grid container direction="row" alignItems="center">
           <Grid item sm={6}>
             <Typography
