@@ -63,11 +63,11 @@ export const EducationCard = () => {
 
       <CardContent>
         <Typography component="div" variant="body1">
-          I achieved a Bachelor of Science degree in Mathematics and Statistics
-          from {asuChip} in the spring of 2020. My education has sharped my
-          problem solving/analytical skills, and provided me with the ability
-          and confidence to tackle hard problems that deal with abstact concepts
-          and critical thinking.
+          I have achieved a Bachelor of Science degree in Mathematics and
+          Statistics from {asuChip}. My education has sharped my problem
+          solving/analytical skills, and provided me with the ability and
+          confidence to tackle hard problems that deal with abstact concepts and
+          critical thinking.
         </Typography>
       </CardContent>
     </Card>
@@ -87,9 +87,9 @@ export const SummaryCard = () => {
         <Typography variant="body1">
           Howdy. My name is Chris Vouga. I'm a software engineer based in the
           Phoenix Valley. My main area of focus is in web development. Being a
-          Math major, I've always enjoyed learning about the theory in software
-          engineering like functional programming, type systems, and software
-          architecture.
+          Math major, I've always enjoyed learning about the theory behind
+          software engineering like functional programming, type systems, and
+          software architecture.
         </Typography>
       </CardContent>
     </Card>
