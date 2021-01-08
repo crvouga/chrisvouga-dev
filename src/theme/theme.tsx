@@ -1,4 +1,5 @@
 import { createMuiTheme, ThemeOptions } from "@material-ui/core/styles";
+import { mergeDeepRight } from "ramda";
 
 export type ThemeType = "light" | "dark";
 
@@ -10,6 +11,14 @@ export const castThemeType = (themeType: any): ThemeType => {
 };
 
 const themeOptions: ThemeOptions = {
+  palette: {
+    primary: {
+      main: "#02A6F2",
+    },
+    secondary: {
+      main: "#53C1A2",
+    },
+  },
   typography: {
     fontFamily: ["Inter", "sans-serif"].join(","),
   },
@@ -20,28 +29,24 @@ const themeOptions: ThemeOptions = {
   },
 };
 
-export const createTheme = (themeType: ThemeType) => {
-  switch (themeType) {
-    case "dark":
-      return createMuiTheme({
-        ...themeOptions,
-        palette: {
-          type: "dark",
-          primary: {
-            main: "#42a5f5",
-          },
-          background: {
-            // default: "#232323",
-          },
-        },
-      });
+const themeTypeToThemeOptions: { [themeType in ThemeType]: ThemeOptions } = {
+  light: {
+    palette: {
+      type: "light",
+    },
+  },
+  dark: {
+    palette: {
+      type: "dark",
+    },
+  },
+};
 
-    case "light":
-      return createMuiTheme({
-        ...themeOptions,
-        palette: {
-          type: "light",
-        },
-      });
-  }
+export const createTheme = (themeType: ThemeType) => {
+  return createMuiTheme(
+    mergeDeepRight<ThemeOptions, any>(
+      themeOptions,
+      themeTypeToThemeOptions[themeType]
+    )
+  );
 };

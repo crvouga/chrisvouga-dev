@@ -18,6 +18,10 @@ import React, { useState } from "react";
 import { usePersonalLogoSrc } from "../theme";
 
 const useStyles = makeStyles((theme) => ({
+  gutter: {
+    ...theme.mixins.toolbar,
+    margin: theme.spacing(2),
+  },
   avatar: {
     backgroundColor: theme.palette.background.default,
     marginRight: theme.spacing(1),
@@ -25,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     fontWeight: "bold",
     color: "#fff",
+    marginRight: theme.spacing(1),
   },
 }));
 export const NavBar = () => {
@@ -61,6 +66,9 @@ export const NavBar = () => {
           </Toolbar>
         </Container>
       </AppBar>
+
+      <Box className={classes.gutter} />
+
       <Drawer
         keepMounted
         anchor="right"
