@@ -12,6 +12,7 @@ import { githubAPI } from "../src/services/github";
 import { urlToImageSrc } from "../src/services/screenshot";
 import { castUrl } from "../src/utility";
 import { Footer } from "../src/components/sections/Footer";
+import Head from "next/head";
 
 const repositoryNameToTitle = (repositoryName: string) =>
   repositoryName.split("-").map(capitalize).join(" ");
@@ -65,6 +66,9 @@ export default function Index(props: IIndexProps) {
   const { projectCardsProps } = props;
   return (
     <React.Fragment>
+      <Head>
+        <title>Chris Vouga</title>
+      </Head>
       <NavBar />
       <Container maxWidth="lg">
         <Box
