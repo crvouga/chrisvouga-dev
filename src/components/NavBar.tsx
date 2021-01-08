@@ -1,4 +1,5 @@
 import {
+  Avatar,
   AppBar,
   Box,
   Button,
@@ -29,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
   },
 }));
+
 export const NavBar = () => {
   const classes = useStyles();
 
@@ -39,13 +41,13 @@ export const NavBar = () => {
       <AppBar elevation={0}>
         <Container maxWidth="lg" disableGutters>
           <Toolbar>
-            {/* <Avatar src={"/personal-logo-dark.svg"} /> */}
-
+            <Avatar src={"/personal-logo-dark.svg"} />
+            <Box flex={1} />
             <Hidden xsDown>
-              <Button className={classes.button}>Projects</Button>
               <Button className={classes.button}>About</Button>
+              <Button className={classes.button}>Work</Button>
               <Button className={classes.button}>Contact</Button>
-              <Box flex={1} />
+
               <Button variant="outlined" className={classes.button}>
                 Resume
               </Button>
