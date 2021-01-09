@@ -1,6 +1,8 @@
 import content from "../content/content.json";
 import { githubAPI } from "../src/services/github";
-import { urlToImagePath, writeScreenshot } from "../src/services/screenshot";
+
+import { writeScreenshot } from "./screenshot";
+import { encodeUrl } from "../src/utility";
 
 const generateScreenshot = async ({
   ownerName,
@@ -17,10 +19,12 @@ const generateScreenshot = async ({
   const liveSiteURL = response.data.homepage;
 
   if (liveSiteURL) {
+    const filePath = `public/${encodeUrl(liveSiteURL)}.png`;
+
     await writeScreenshot({
       url: liveSiteURL,
       timeout: 10000,
-      path: urlToImagePath(liveSiteURL),
+      path: filePath,
     });
   }
 };

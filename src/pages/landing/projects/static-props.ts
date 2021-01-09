@@ -1,9 +1,9 @@
 import { capitalize } from "@material-ui/core";
 import content from "../../../../content/content.json";
 import { githubAPI } from "../../../services/github";
-import { urlToImageSrc } from "../../../services/screenshot";
-import { castUrl } from "../../../utility";
+
 import { IProjectCardProps } from "./project-card";
+import { castUrl, encodeUrl } from "../../../utility";
 
 const repositoryNameToTitle = (repositoryName: string) =>
   repositoryName.split("-").map(capitalize).join(" ");
@@ -28,13 +28,15 @@ const getProjectCardStaticProps = async ({
 
   const liveSiteUrl = castUrl(response.data.homepage);
 
+  const src = `/${encodeUrl(liveSiteUrl)}.png`;
+
   return {
     languages: responseLanguages.data,
     liveSiteUrl,
     description: response.data.description || "",
     sourceCodeUrl: castUrl(response.data.html_url),
     title: repositoryNameToTitle(repositoryName),
-    src: urlToImageSrc(liveSiteUrl),
+    src,
     topics: responseTopics.data.names || [],
   };
 };
