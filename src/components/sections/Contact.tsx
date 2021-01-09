@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 export const Contact = () => {
   const classes = useStyles();
   return (
-    <Section>
+    <Section id="contact">
       <Typography align="center" variant="h4">
         <Box fontWeight="bold">Get In Touch</Box>
       </Typography>

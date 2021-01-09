@@ -1,35 +1,55 @@
 import {
-  Avatar,
   AppBar,
+  Avatar,
   Box,
   Button,
   Container,
   Drawer,
   Hidden,
   IconButton,
-  List,
-  ListItem,
-  ListItemText,
   makeStyles,
   Toolbar,
 } from "@material-ui/core";
 import MenuOpenIcon from "@material-ui/icons/MenuOpen";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   gutter: {
     ...theme.mixins.toolbar,
   },
-  avatar: {
-    backgroundColor: theme.palette.background.default,
-    marginRight: theme.spacing(1),
+  logo: {
+    cursor: "pointer",
   },
+
   button: {
     fontWeight: "bold",
     color: "#fff",
     marginRight: theme.spacing(1),
   },
 }));
+
+const Links = () => {
+  const classes = useStyles();
+
+  return (
+    <Box>
+      <Link href="/#about">
+        <Button className={classes.button}>About</Button>
+      </Link>
+      <Link href="/#projects">
+        <Button className={classes.button}>Work</Button>
+      </Link>
+      <Link href="/#contact">
+        <Button className={classes.button}>Contact</Button>
+      </Link>
+
+      <Button variant="outlined" className={classes.button}>
+        Resume
+      </Button>
+    </Box>
+  );
+};
 
 export const NavBar = () => {
   const classes = useStyles();
@@ -41,16 +61,15 @@ export const NavBar = () => {
       <AppBar elevation={0}>
         <Container maxWidth="lg" disableGutters>
           <Toolbar>
-            <Avatar src={"/personal-logo-dark.svg"} />
+            <Link href="/">
+              <Avatar
+                className={classes.logo}
+                src={"/personal-logo-dark.svg"}
+              />
+            </Link>
             <Box flex={1} />
             <Hidden xsDown>
-              <Button className={classes.button}>About</Button>
-              <Button className={classes.button}>Work</Button>
-              <Button className={classes.button}>Contact</Button>
-
-              <Button variant="outlined" className={classes.button}>
-                Resume
-              </Button>
+              <Links />
             </Hidden>
             <Hidden smUp>
               <IconButton
@@ -72,13 +91,7 @@ export const NavBar = () => {
         open={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
       >
-        <List>
-          {["Projects", "About", "Contact"].map((section) => (
-            <ListItem key={section} button>
-              <ListItemText primary={section} />
-            </ListItem>
-          ))}
-        </List>
+        <Links />
       </Drawer>
     </React.Fragment>
   );

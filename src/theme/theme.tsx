@@ -28,6 +28,15 @@ const themeOptions: ThemeOptions = {
       elevation: 4,
     },
   },
+  overrides: {
+    MuiCssBaseline: {
+      "@global": {
+        html: {
+          scrollBehavior: "smooth",
+        },
+      },
+    },
+  },
 };
 
 const themeTypeToThemeOptions: { [themeType in ThemeType]: ThemeOptions } = {

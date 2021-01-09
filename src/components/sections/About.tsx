@@ -126,7 +126,7 @@ export const SkillsCard = () => {
 
 export const About = () => {
   return (
-    <Section>
+    <Section id="about">
       <Typography variant="h4" gutterBottom>
         <Box fontWeight="bold">A Little Bit About Me</Box>
       </Typography>

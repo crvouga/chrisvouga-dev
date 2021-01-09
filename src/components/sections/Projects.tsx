@@ -9,7 +9,7 @@ export const Projects = ({
   projectCardsProps: IProjectCardProps[];
 }) => {
   return (
-    <Section>
+    <Section id="projects">
       <Typography variant="h4" gutterBottom>
         <Box fontWeight="bold">Some of the Things I've Built</Box>
       </Typography>

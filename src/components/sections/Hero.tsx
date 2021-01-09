@@ -11,6 +11,7 @@ import clsx from "clsx";
 import React from "react";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import { Section } from "../section";
+import Link from "next/link";
 const themeToFill = (theme: Theme) =>
   theme.palette.background.default
     //why? "#" is a reserved character in a url
@@ -63,7 +64,7 @@ export const Hero = () => {
   const classes = useStyles();
 
   return (
-    <Box className={classes.root}>
+    <Box className={classes.root} id="hero">
       <Section className={classes.section}>
         <Grid container direction="row" alignItems="center">
           <Grid item md={6}>
@@ -88,14 +89,16 @@ export const Hero = () => {
             >
               I build things for the web.
             </Typography>
-            <Button
-              size="large"
-              className={classes.callToAction}
-              variant="outlined"
-              startIcon={<ArrowDownwardIcon />}
-            >
-              Check out work
-            </Button>
+            <Link href="/#projects">
+              <Button
+                size="large"
+                className={classes.callToAction}
+                variant="outlined"
+                startIcon={<ArrowDownwardIcon />}
+              >
+                Check out work
+              </Button>
+            </Link>
           </Grid>
 
           <Grid item md={6}>
