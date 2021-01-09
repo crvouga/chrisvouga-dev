@@ -3,7 +3,7 @@ import React from "react";
 import ThemeProvider from "../src/theme/theme-provider";
 import Head from "next/head";
 
-export default function App(props: AppProps) {
+const App = (props: AppProps) => {
   const { Component, pageProps } = props;
 
   React.useEffect(() => {
@@ -25,4 +25,6 @@ export default function App(props: AppProps) {
       </ThemeProvider>
     </React.Fragment>
   );
-}
+};
+
+export default App;
