@@ -1,14 +1,14 @@
 import {
   IconButton,
+  IconButtonProps,
+  Link,
   makeStyles,
   SvgIconProps,
-  IconButtonProps,
 } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import React from "react";
-import { goTo } from "../utility";
 
 const useStyles = makeStyles(() => ({
   large: {
@@ -47,8 +47,10 @@ export const SocialMediaIconButton = ({
   const classes = useStyles();
 
   return (
-    <IconButton onClick={() => goTo(url)} {...props}>
-      <SocialMediaIcon className={classes.large} name={name} />
-    </IconButton>
+    <Link href={url}>
+      <IconButton {...props}>
+        <SocialMediaIcon className={classes.large} name={name} />
+      </IconButton>
+    </Link>
   );
 };
