@@ -1,24 +1,24 @@
 import { GetStaticProps } from "next";
 import React from "react";
-import { HomePage } from "../src/pages/home";
+import { LandingPage } from "../src/pages/landing";
 import {
-  getHomePageStaticProps,
-  HomePageStaticPropsProvider,
-  IHomePageStaticProps,
-} from "../src/pages/home/static-props";
+  getLandingPageStaticProps,
+  LandingPageStaticPropsProvider,
+  ILandingPageStaticProps,
+} from "../src/pages/landing/static-props";
 
-export const getStaticProps: GetStaticProps<IHomePageStaticProps> = async () => {
-  const props = await getHomePageStaticProps();
+export const getStaticProps: GetStaticProps<ILandingPageStaticProps> = async () => {
+  const props = await getLandingPageStaticProps();
   return {
     props,
   };
 };
 
-const Index = (props: IHomePageStaticProps) => {
+const Index = (props: ILandingPageStaticProps) => {
   return (
-    <HomePageStaticPropsProvider props={props}>
-      <HomePage />
-    </HomePageStaticPropsProvider>
+    <LandingPageStaticPropsProvider props={props}>
+      <LandingPage />
+    </LandingPageStaticPropsProvider>
   );
 };
 

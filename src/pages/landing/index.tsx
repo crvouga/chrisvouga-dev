@@ -7,7 +7,7 @@ import { Hero } from "./hero";
 import { NavigationBar } from "./navigation";
 import { Projects } from "./projects";
 
-export const HomePage = () => {
+export const LandingPage = () => {
   return (
     <Box>
       <NavigationBar />

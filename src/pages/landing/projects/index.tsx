@@ -1,11 +1,11 @@
 import { Box, Grid, Typography } from "@material-ui/core";
 import React from "react";
 import { Section } from "../../../components/section";
-import { useHomePageStaticProps } from "../static-props";
+import { useLandingPageStaticProps } from "../static-props";
 import { ProjectCard } from "./project-card";
 
 export const Projects = () => {
-  const { projectCardsProps } = useHomePageStaticProps();
+  const { projectCardsProps } = useLandingPageStaticProps();
 
   return (
     <Section id="projects">
