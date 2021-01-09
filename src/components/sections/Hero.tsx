@@ -26,13 +26,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     color: "#fff",
   },
-  wave: {
-    zIndex: -1,
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "80vh",
+  root: {
     background: `
       url("${createBackgroundUrl(theme)}")
       no-repeat bottom,
@@ -42,9 +36,6 @@ const useStyles = makeStyles((theme) => ({
         ${theme.palette.secondary.main}, 99%,
         ${theme.palette.background.default} 99%
       )`,
-    [theme.breakpoints.down("xs")]: {
-      paddingBottom: theme.spacing(4),
-    },
   },
 
   callToAction: {
@@ -57,8 +48,8 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "75px",
   },
-  content: {
-    height: "75vh",
+  section: {
+    paddingBottom: theme.spacing(12),
   },
 
   heading: {
@@ -72,11 +63,10 @@ export const Hero = () => {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
-      <Box className={classes.wave} />
-      <Section>
+    <Box className={classes.root}>
+      <Section className={classes.section}>
         <Grid container direction="row" alignItems="center">
-          <Grid item sm={6}>
+          <Grid item md={6}>
             <Typography
               color="primary"
               className={classes.typography}
@@ -108,15 +98,13 @@ export const Hero = () => {
             </Button>
           </Grid>
 
-          <Grid item sm={6}>
+          <Grid item md={6}>
             <Container maxWidth="xs">
               <img width="100%" height="100%" src="/hero.svg" />
             </Container>
           </Grid>
         </Grid>
-
-        <Box className={classes.gutter} />
       </Section>
-    </React.Fragment>
+    </Box>
   );
 };
