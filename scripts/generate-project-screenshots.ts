@@ -1,6 +1,6 @@
-import content from "../../content/content.json";
-import { githubAPI } from "../services/github";
-import { urlToImagePath, writeScreenshot } from "../services/screenshot";
+import content from "../content/content.json";
+import { githubAPI } from "../src/services/github";
+import { urlToImagePath, writeScreenshot } from "../src/services/screenshot";
 
 const generateScreenshot = async ({
   ownerName,
