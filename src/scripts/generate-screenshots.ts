@@ -14,13 +14,15 @@ const generateScreenshot = async ({
     repo: repositoryName,
   });
 
-  const liveSiteURL = response.data.homepage || "";
+  const liveSiteURL = response.data.homepage;
 
-  await writeScreenshot({
-    url: liveSiteURL,
-    timeout: 10000,
-    path: urlToImagePath(liveSiteURL),
-  });
+  if (liveSiteURL) {
+    await writeScreenshot({
+      url: liveSiteURL,
+      timeout: 10000,
+      path: urlToImagePath(liveSiteURL),
+    });
+  }
 };
 
 const generateProjectScreenshots = async () => {

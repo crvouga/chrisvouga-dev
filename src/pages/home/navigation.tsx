@@ -51,7 +51,7 @@ const Links = () => {
   );
 };
 
-export const NavBar = () => {
+export const NavigationBar = () => {
   const classes = useStyles();
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);

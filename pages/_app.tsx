@@ -18,6 +18,7 @@ export default function App(props: AppProps) {
     <React.Fragment>
       <Head>
         <link rel="icon" type="image/png" href="/personal-logo.png" />
+        <title>Chris Vouga</title>
       </Head>
       <ThemeProvider>
         <Component {...pageProps} />

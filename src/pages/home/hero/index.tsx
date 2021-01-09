@@ -7,11 +7,12 @@ import {
   Theme,
   Typography,
 } from "@material-ui/core";
-import clsx from "clsx";
-import React from "react";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
-import { Section } from "../section";
+import clsx from "clsx";
 import Link from "next/link";
+import React from "react";
+import { Section } from "../../../components/section";
+
 const themeToFill = (theme: Theme) =>
   theme.palette.background.default
     //why? "#" is a reserved character in a url

@@ -1,13 +1,12 @@
 import { Box, Grid, Typography } from "@material-ui/core";
 import React from "react";
-import { IProjectCardProps, ProjectCard } from "../project-card";
-import { Section } from "../section";
+import { Section } from "../../../components/section";
+import { useHomePageStaticProps } from "../static-props";
+import { ProjectCard } from "./project-card";
 
-export const Projects = ({
-  projectCardsProps,
-}: {
-  projectCardsProps: IProjectCardProps[];
-}) => {
+export const Projects = () => {
+  const { projectCardsProps } = useHomePageStaticProps();
+
   return (
     <Section id="projects">
       <Typography variant="h4" gutterBottom>

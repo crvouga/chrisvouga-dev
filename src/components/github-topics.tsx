@@ -1,12 +1,13 @@
 import {
   Avatar,
+  Box,
   capitalize,
   Chip,
   ChipProps,
+  Link,
   makeStyles,
 } from "@material-ui/core";
 import React from "react";
-import { goTo } from "../../utility";
 
 const useStylesChip = makeStyles(() => ({
   label: {
@@ -37,7 +38,7 @@ const topicToLabel = (topic: string) =>
 
 const topicToUrl = (topic: string) => `https://github.com/topics/${topic}`;
 
-export const ChipTopic = ({
+export const GithubTopicChip = ({
   topic,
   ...props
 }: { topic: string } & ChipProps) => {
@@ -49,13 +50,31 @@ export const ChipTopic = ({
     ) : undefined;
 
   return (
-    <Chip
-      classes={classesChip}
-      clickable
-      avatar={avatar}
-      label={topicToLabel(topic)}
-      onClick={() => goTo(topicToUrl(topic))}
-      {...props}
-    />
+    <Link href={topicToUrl(topic)}>
+      <Chip
+        classes={classesChip}
+        clickable
+        avatar={avatar}
+        label={topicToLabel(topic)}
+        {...props}
+      />
+    </Link>
+  );
+};
+
+export const GithubTopicChipGroup = ({ topics }: { topics: string[] }) => {
+  return (
+    <Box
+      display="flex"
+      flexDirection="row"
+      alignContent="center"
+      flexWrap="wrap"
+    >
+      {topics.sort().map((topic) => (
+        <Box key={topic} paddingRight={1 / 2} paddingBottom={1 / 2}>
+          <GithubTopicChip topic={topic} />
+        </Box>
+      ))}
+    </Box>
   );
 };

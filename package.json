@@ -18,10 +18,7 @@
     "puppeteer": "^5.5.0",
     "ramda": "^0.27.1",
     "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "terminal-in-react": "^4.3.1",
-    "terminal-in-react-node-eval-plugin": "^2.0.0",
-    "terminal-in-react-pseudo-file-system-plugin": "^3.0.0"
+    "react-dom": "17.0.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.14",
