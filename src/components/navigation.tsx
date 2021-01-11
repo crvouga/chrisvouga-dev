@@ -13,6 +13,7 @@ import {
 import MenuOpenIcon from "@material-ui/icons/MenuOpen";
 import Link from "next/link";
 import React, { useState } from "react";
+import { ElevationScroll } from "./elevation-scroll";
 
 const useStyles = makeStyles((theme) => ({
   gutter: {
@@ -58,30 +59,32 @@ export const NavigationBar = () => {
 
   return (
     <React.Fragment>
-      <AppBar elevation={0}>
-        <Container maxWidth="lg" disableGutters>
-          <Toolbar>
-            <Link href="/">
-              <Avatar
-                className={classes.logo}
-                src={"/personal-logo-dark.svg"}
-              />
-            </Link>
-            <Box flex={1} />
-            <Hidden xsDown>
-              <Links />
-            </Hidden>
-            <Hidden smUp>
-              <IconButton
-                onClick={() => setIsDrawerOpen(true)}
-                style={{ color: "white" }}
-              >
-                <MenuOpenIcon />
-              </IconButton>
-            </Hidden>
-          </Toolbar>
-        </Container>
-      </AppBar>
+      <ElevationScroll>
+        <AppBar>
+          <Container maxWidth="lg" disableGutters>
+            <Toolbar>
+              <Link href="/">
+                <Avatar
+                  className={classes.logo}
+                  src={"/personal-logo-dark.svg"}
+                />
+              </Link>
+              <Box flex={1} />
+              <Hidden xsDown>
+                <Links />
+              </Hidden>
+              <Hidden smUp>
+                <IconButton
+                  onClick={() => setIsDrawerOpen(true)}
+                  style={{ color: "white" }}
+                >
+                  <MenuOpenIcon />
+                </IconButton>
+              </Hidden>
+            </Toolbar>
+          </Container>
+        </AppBar>
+      </ElevationScroll>
 
       <Box className={classes.gutter} />
 
