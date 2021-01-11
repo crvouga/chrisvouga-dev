@@ -31,6 +31,7 @@ const topicToImageSrc: { [key: string]: string } = {
   "socket-io": "https://cdn.svgporn.com/logos/socket.io.svg",
   express: "https://cdn.svgporn.com/logos/express.svg",
   nodejs: "https://cdn.svgporn.com/logos/nodejs-icon.svg",
+  puppeteer: "https://cdn.svgporn.com/logos/puppeteer.svg",
 };
 
 const topicToLabel = (topic: string) =>
