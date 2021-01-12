@@ -29,8 +29,9 @@ const themeOptions: ThemeOptions = {
       color: "inherit",
       underline: "none",
     },
+
     MuiCard: {
-      elevation: 4,
+      elevation: 6,
     },
   },
   overrides: {

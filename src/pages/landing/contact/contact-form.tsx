@@ -1,4 +1,11 @@
-import { Box, Button, makeStyles, Paper, TextField } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  makeStyles,
+  Paper,
+  TextField,
+  Card,
+} from "@material-ui/core";
 import React from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +30,7 @@ export const ContactForm = () => {
   const classes = useStyles();
   return (
     <form>
-      <Paper elevation={4} className={classes.form}>
+      <Card className={classes.form}>
         <TextField
           className={classes.textField}
           variant="outlined"
@@ -58,7 +65,7 @@ export const ContactForm = () => {
             Submit
           </Button>
         </Box>
-      </Paper>
+      </Card>
     </form>
   );
 };
