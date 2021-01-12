@@ -63,9 +63,11 @@ export const NavigationBar = () => {
           <Container maxWidth="lg" disableGutters>
             <Toolbar>
               <Link href="/">
-                <ButtonBase color="primary">
-                  <Avatar src="/personal-logo-dark.svg" />
-                </ButtonBase>
+                <Box color="#fff">
+                  <ButtonBase color="inherit">
+                    <Avatar src="/personal-logo-dark.svg" />
+                  </ButtonBase>
+                </Box>
               </Link>
 
               <Box flex={1} />
