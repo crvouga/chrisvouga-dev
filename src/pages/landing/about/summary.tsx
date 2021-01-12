@@ -1,13 +1,13 @@
-import { Card, CardContent, CardHeader, Typography } from "@material-ui/core";
+import { CardContent, CardHeader, Typography } from "@material-ui/core";
 import React from "react";
 import { usePersonalLogoSrc } from "../../../theme";
-import { CardImage } from "./card-image";
+import { AboutCard, CardImage } from "./card";
 
 export const SummaryCard = () => {
   const personalLogoSrc = usePersonalLogoSrc();
 
   return (
-    <Card>
+    <AboutCard>
       <CardHeader title="Summary" />
 
       <CardImage src={personalLogoSrc} />
@@ -21,6 +21,6 @@ export const SummaryCard = () => {
           software architecture.
         </Typography>
       </CardContent>
-    </Card>
+    </AboutCard>
   );
 };

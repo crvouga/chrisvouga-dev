@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, withStyles, Card } from "@material-ui/core";
 import React from "react";
 
 const useStyles = makeStyles(() => ({
@@ -26,3 +26,9 @@ export const CardImage = ({ src }: { src: string }) => {
     </div>
   );
 };
+
+export const AboutCard = withStyles(() => ({
+  root: {
+    height: "100%",
+  },
+}))(Card);

@@ -1,13 +1,7 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  Typography,
-} from "@material-ui/core";
+import { Box, CardContent, CardHeader, Typography } from "@material-ui/core";
 import React from "react";
 import { GithubTopicChip } from "../../../components/github-topics";
-import { CardImage } from "./card-image";
+import { AboutCard, CardImage } from "./card";
 
 export const SkillsCard = () => {
   const techStack = ["typescript", "react", "postgres", "nodejs"].map(
@@ -19,7 +13,7 @@ export const SkillsCard = () => {
   );
 
   return (
-    <Card>
+    <AboutCard>
       <CardHeader title="Technology" />
 
       <CardImage src="/code.svg" />
@@ -33,6 +27,6 @@ export const SkillsCard = () => {
           fashionability.
         </Typography>
       </CardContent>
-    </Card>
+    </AboutCard>
   );
 };

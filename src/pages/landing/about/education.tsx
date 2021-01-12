@@ -1,7 +1,6 @@
 import {
   Avatar,
   Box,
-  Card,
   CardContent,
   CardHeader,
   Chip,
@@ -9,7 +8,7 @@ import {
 } from "@material-ui/core";
 import Link from "next/link";
 import React from "react";
-import { CardImage } from "./card-image";
+import { AboutCard, CardImage } from "./card";
 
 const ASU_URL = "https://www.asu.edu/";
 export const EducationCard = () => {
@@ -28,7 +27,7 @@ export const EducationCard = () => {
   );
 
   return (
-    <Card>
+    <AboutCard>
       <CardHeader title="Education" />
 
       <CardImage src="/diploma.svg" />
@@ -42,6 +41,6 @@ export const EducationCard = () => {
           critical thinking.
         </Typography>
       </CardContent>
-    </Card>
+    </AboutCard>
   );
 };
