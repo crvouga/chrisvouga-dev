@@ -1,7 +1,7 @@
 import { Box, ButtonBase, Typography } from "@material-ui/core";
 import React from "react";
 import content from "../../../../content/content.json";
-import { Section } from "../../../components/section";
+import { Section } from "../section";
 import { SocialMediaIconButton } from "../../../components/social-media";
 
 export const Footer = () => {

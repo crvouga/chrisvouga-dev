@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@material-ui/core";
 import React from "react";
-import { Section } from "../../../components/section";
+import { Section } from "../section";
 import { useLandingPageStaticProps } from "../static-props";
 import { ProjectCard } from "./project-card";
 

@@ -1,6 +1,6 @@
 import { Box, Typography } from "@material-ui/core";
 import React from "react";
-import { Section } from "../../../components/section";
+import { Section } from "../section";
 import { ContactForm } from "./contact-form";
 
 export const Contact = () => {

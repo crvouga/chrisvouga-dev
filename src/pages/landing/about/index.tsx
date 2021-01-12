@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@material-ui/core";
 import React from "react";
-import { Section } from "../../../components/section";
+import { Section } from "../section";
 import { EducationCard } from "./education";
 import { SkillsCard } from "./skills";
 import { SummaryCard } from "./summary";

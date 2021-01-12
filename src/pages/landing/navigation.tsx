@@ -18,7 +18,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
 import Link from "next/link";
 import React, { useState } from "react";
-import { ElevationScroll } from "./elevation-scroll";
+import { ElevationScroll } from "../../components/elevation-scroll";
 import { SECTION_ORDER, SECTION_TO_URL, SECTION_TO_NAME } from "./section";
 
 const useStyles = makeStyles((theme) => ({
