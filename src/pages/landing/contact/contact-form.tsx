@@ -32,7 +32,7 @@ export const ContactForm = () => {
     <form>
       <Card className={classes.form}>
         <Grid container spacing={1}>
-          <Grid item xs>
+          <Grid item xs={12} sm={6}>
             <TextField
               className={classes.textField}
               variant="outlined"
@@ -41,7 +41,7 @@ export const ContactForm = () => {
             />
           </Grid>
 
-          <Grid item xs>
+          <Grid item xs={12} sm={6}>
             <TextField
               className={classes.textField}
               variant="outlined"
