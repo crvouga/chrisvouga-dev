@@ -30,7 +30,7 @@ export const Section = ({
 }: React.PropsWithChildren<BoxProps>) => {
   return (
     <Container maxWidth="lg">
-      <Box component="section" paddingY={6} {...props}>
+      <Box component="section" paddingY={10} {...props}>
         {children}
       </Box>
     </Container>
