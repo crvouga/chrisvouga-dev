@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import SendIcon from "@material-ui/icons/Send";
+
 const useStyles = makeStyles((theme) => ({
   form: {
     display: "flex",
@@ -28,8 +29,13 @@ const useStyles = makeStyles((theme) => ({
 
 export const ContactForm = () => {
   const classes = useStyles();
+
+  const handleSubmit = () => {
+    console.log("submit");
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <Card className={classes.form}>
         <Grid container spacing={1}>
           <Grid item xs={12} sm={6}>
@@ -63,6 +69,7 @@ export const ContactForm = () => {
 
         <Box display="flex" flexDirection="row-reverse" p={1}>
           <Button
+            type="submit"
             className={classes.submitButton}
             size="large"
             variant="contained"
