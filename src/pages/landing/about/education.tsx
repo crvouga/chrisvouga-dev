@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import Link from "next/link";
 import React from "react";
-import { AboutCard, CardImage } from "./card";
+import { AboutCard, AboutCardImage } from "./card";
 
 const ASU_URL = "https://www.asu.edu/";
 export const EducationCard = () => {
@@ -30,7 +30,7 @@ export const EducationCard = () => {
     <AboutCard>
       <CardHeader title="Education" />
 
-      <CardImage src="/diploma.svg" />
+      <AboutCardImage src="/diploma.svg" />
 
       <CardContent>
         <Typography component="div" variant="body1" color="textSecondary">

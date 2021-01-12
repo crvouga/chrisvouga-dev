@@ -1,7 +1,7 @@
 import { Box, CardContent, CardHeader, Typography } from "@material-ui/core";
 import React from "react";
 import { GithubTopicChip } from "../../../components/github-topics";
-import { AboutCard, CardImage } from "./card";
+import { AboutCard, AboutCardImage } from "./card";
 
 export const SkillsCard = () => {
   const techStack = ["typescript", "react", "postgres", "nodejs"].map(
@@ -16,7 +16,7 @@ export const SkillsCard = () => {
     <AboutCard>
       <CardHeader title="Technology" />
 
-      <CardImage src="/code.svg" />
+      <AboutCardImage src="/code.svg" />
 
       <CardContent>
         <Typography component="div" variant="body1" color="textSecondary">

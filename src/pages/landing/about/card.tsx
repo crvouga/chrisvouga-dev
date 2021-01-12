@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const CardImage = ({ src }: { src: string }) => {
+export const AboutCardImage = ({ src }: { src: string }) => {
   const classes = useStyles();
   return (
     <div className={classes.cardImageContainer}>
