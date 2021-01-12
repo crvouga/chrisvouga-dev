@@ -23,8 +23,12 @@ const themeOptions: ThemeOptions = {
     fontFamily: ["Inter", "sans-serif"].join(","),
   },
   props: {
+    MuiLink: {
+      variant: "inherit",
+      color: "inherit",
+      underline: "none",
+    },
     MuiCard: {
-      // variant: "outlined",
       elevation: 4,
     },
   },
