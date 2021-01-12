@@ -1,6 +1,13 @@
-import { Box, Button, Card, makeStyles, TextField } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  Card,
+  makeStyles,
+  TextField,
+  Grid,
+} from "@material-ui/core";
 import React from "react";
-
+import SendIcon from "@material-ui/icons/Send";
 const useStyles = makeStyles((theme) => ({
   form: {
     display: "flex",
@@ -14,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   submitButton: {
-    color: theme.palette.text.primary,
+    color: "#fff",
     fontWeight: "bold",
   },
 }));
@@ -24,20 +31,26 @@ export const ContactForm = () => {
   return (
     <form>
       <Card className={classes.form}>
-        <TextField
-          className={classes.textField}
-          variant="outlined"
-          fullWidth
-          label="Name"
-        />
+        <Grid container spacing={1}>
+          <Grid item xs>
+            <TextField
+              className={classes.textField}
+              variant="outlined"
+              fullWidth
+              label="Name"
+            />
+          </Grid>
 
-        <TextField
-          className={classes.textField}
-          variant="outlined"
-          fullWidth
-          label="Email"
-          type="email"
-        />
+          <Grid item xs>
+            <TextField
+              className={classes.textField}
+              variant="outlined"
+              fullWidth
+              label="Email"
+              type="email"
+            />
+          </Grid>
+        </Grid>
 
         <TextField
           className={classes.textField}
@@ -54,8 +67,9 @@ export const ContactForm = () => {
             size="large"
             variant="contained"
             color="primary"
+            endIcon={<SendIcon />}
           >
-            Submit
+            Send
           </Button>
         </Box>
       </Card>
