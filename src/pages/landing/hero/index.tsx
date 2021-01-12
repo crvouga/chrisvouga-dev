@@ -8,7 +8,6 @@ import {
   Typography,
 } from "@material-ui/core";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
-import clsx from "clsx";
 import Link from "next/link";
 import React from "react";
 
@@ -23,10 +22,6 @@ const createBackgroundUrl = (theme: Theme) =>
   )}' /></svg>`;
 
 const useStyles = makeStyles((theme) => ({
-  typography: {
-    fontWeight: "bold",
-    color: "#fff",
-  },
   root: {
     background: `
       url("${createBackgroundUrl(theme)}")
@@ -69,26 +64,25 @@ export const Hero = () => {
       <Container maxWidth="lg" className={classes.section}>
         <Grid container direction="row" alignItems="center">
           <Grid item md={6}>
-            <Typography
-              color="primary"
-              className={classes.typography}
-              variant="h6"
-            >
-              Hello, my name is
+            <Typography variant="h6">
+              <Box color="#fff" fontWeight="bold">
+                Hello, my name is
+              </Box>
             </Typography>
-            <Typography
-              variant="h2"
-              className={clsx(classes.heading, classes.typography)}
-            >
-              Chris Vouga.
+            <Typography variant="h2" className={classes.heading}>
+              <Box fontWeight="bold" color="#fff">
+                Chris Vouga.
+              </Box>
             </Typography>
             <Typography
               variant="h2"
               color="textSecondary"
-              className={clsx(classes.heading, classes.typography)}
+              className={classes.heading}
               gutterBottom
             >
-              I build things for the web.
+              <Box color="#fff" fontWeight="bold">
+                I build things for the web.
+              </Box>
             </Typography>
             <Link href="/#projects">
               <Button

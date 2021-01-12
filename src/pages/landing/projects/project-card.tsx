@@ -81,7 +81,7 @@ export const ProjectCard = (props: IProjectCardProps) => {
 
       <CardContent>
         <Box paddingBottom={2}>
-          <Typography variant="body1" color="textPrimary">
+          <Typography variant="body1" color="textSecondary">
             {description}
           </Typography>
         </Box>

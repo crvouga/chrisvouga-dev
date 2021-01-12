@@ -25,7 +25,7 @@ export const SkillsCard = () => {
       <CardImage src="/code.svg" />
 
       <CardContent>
-        <Typography component="div" variant="body1">
+        <Typography component="div" variant="body1" color="textSecondary">
           Currently, the tech stack I enjoy most using and have the most
           experience with is: {techStack}. The philsophy I live by is to learn
           and adopt technology on a need-to-nerd basis. So focus on tech that

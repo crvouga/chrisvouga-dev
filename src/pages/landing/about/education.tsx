@@ -34,7 +34,7 @@ export const EducationCard = () => {
       <CardImage src="/diploma.svg" />
 
       <CardContent>
-        <Typography component="div" variant="body1">
+        <Typography component="div" variant="body1" color="textSecondary">
           I have achieved a Bachelor of Science degree in Mathematics and
           Statistics from {asuChip}. My education has sharped my problem
           solving/analytical skills, and provided me with the ability and
