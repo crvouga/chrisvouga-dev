@@ -18,9 +18,8 @@ export const Contact = () => {
       >
         Feel free to shoot me a message!
       </Typography>
-      <Container maxWidth="sm">
-        <ContactForm />
-      </Container>
+
+      <ContactForm />
     </Section>
   );
 };
