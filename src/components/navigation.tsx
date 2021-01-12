@@ -19,6 +19,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Link from "next/link";
 import React, { useState } from "react";
 import { ElevationScroll } from "./elevation-scroll";
+import { SECTION_ORDER, SECTION_TO_URL, SECTION_TO_NAME } from "./section";
 
 const useStyles = makeStyles((theme) => ({
   gutter: {
@@ -30,26 +31,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
   },
 }));
-
-interface INavigationLinkButtonProps {
-  label: string;
-  href: string;
-}
-
-const NAVIGATION_LINKS: INavigationLinkButtonProps[] = [
-  {
-    label: "About",
-    href: "/#about",
-  },
-  {
-    label: "Work",
-    href: "/#projects",
-  },
-  {
-    label: "Contact",
-    href: "/#contact",
-  },
-];
 
 export const NavigationBar = () => {
   const classes = useStyles();
@@ -73,10 +54,12 @@ export const NavigationBar = () => {
               <Box flex={1} />
 
               <Hidden xsDown>
-                {NAVIGATION_LINKS.map(({ href, label }) => (
-                  <Box marginRight={1} key={href}>
-                    <Link href={href}>
-                      <Button className={classes.button}>{label}</Button>
+                {SECTION_ORDER.map((section) => (
+                  <Box marginRight={1} key={SECTION_TO_URL[section]}>
+                    <Link href={SECTION_TO_URL[section]}>
+                      <Button className={classes.button}>
+                        {SECTION_TO_NAME[section]}
+                      </Button>
                     </Link>
                   </Box>
                 ))}
@@ -120,8 +103,11 @@ export const NavigationBar = () => {
         </Toolbar>
         <Box display="flex" flexDirection="column" width="66vw" height="100vh">
           <List>
-            {NAVIGATION_LINKS.map(({ href, label }) => (
-              <Link href={href} key={href}>
+            {SECTION_ORDER.map((section) => (
+              <Link
+                href={SECTION_TO_URL[section]}
+                key={SECTION_TO_URL[section]}
+              >
                 <ListItem
                   button
                   divider
@@ -130,7 +116,7 @@ export const NavigationBar = () => {
                   }}
                 >
                   <ListItemText
-                    primary={label}
+                    primary={SECTION_TO_NAME[section]}
                     primaryTypographyProps={{ variant: "button" }}
                   />
                 </ListItem>

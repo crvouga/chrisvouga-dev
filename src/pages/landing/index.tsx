@@ -6,6 +6,7 @@ import { Footer } from "./footer";
 import { Hero } from "./hero";
 import { NavigationBar } from "../../components/navigation";
 import { Projects } from "./projects";
+import { SECTION_ORDER, Sections } from "../../components/section";
 
 export const LandingPage = () => {
   return (
@@ -14,19 +15,16 @@ export const LandingPage = () => {
 
       <Hero />
 
-      <Divider />
-
-      <About />
-
-      <Divider />
-
-      <Projects />
-
-      <Divider />
-
-      <Contact />
-
-      <Divider />
+      {SECTION_ORDER.map((section) => {
+        switch (section) {
+          case Sections.About:
+            return <About />;
+          case Sections.Contact:
+            return <Contact />;
+          case Sections.Projects:
+            return <Projects />;
+        }
+      })}
 
       <Footer />
     </Box>

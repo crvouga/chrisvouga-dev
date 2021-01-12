@@ -1,5 +1,7 @@
 import { Box, BoxProps, Container } from "@material-ui/core";
-
+import InfoIcon from "@material-ui/icons/Info";
+import SendIcon from "@material-ui/icons/Send";
+import WebIcon from "@material-ui/icons/Web";
 export enum Sections {
   About = "About",
   Projects = "Projects",
@@ -20,9 +22,20 @@ export const SECTION_TO_NAME: { [section in Sections]: string } = {
 
 export const SECTION_ORDER = [
   Sections.About,
-  Sections.Contact,
   Sections.Projects,
+  Sections.Contact,
 ];
+
+export const SectionIcon = ({ section }: { section: Sections }) => {
+  switch (section) {
+    case Sections.About:
+      return <InfoIcon />;
+    case Sections.Contact:
+      return <SendIcon />;
+    case Sections.Projects:
+      return <WebIcon />;
+  }
+};
 
 export const Section = ({
   children,
