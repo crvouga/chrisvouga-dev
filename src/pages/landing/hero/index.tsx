@@ -11,7 +11,6 @@ import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import clsx from "clsx";
 import Link from "next/link";
 import React from "react";
-import { Section } from "../../../components/section";
 
 const themeToFill = (theme: Theme) =>
   theme.palette.background.default
@@ -51,12 +50,13 @@ const useStyles = makeStyles((theme) => ({
     height: "75px",
   },
   section: {
+    paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(12),
   },
 
   heading: {
     [theme.breakpoints.down("xs")]: {
-      fontSize: "3em",
+      fontSize: "3.2em",
     },
   },
 }));
@@ -66,7 +66,7 @@ export const Hero = () => {
 
   return (
     <Box className={classes.root} id="hero">
-      <Section className={classes.section}>
+      <Container maxWidth="lg" className={classes.section}>
         <Grid container direction="row" alignItems="center">
           <Grid item md={6}>
             <Typography
@@ -108,7 +108,7 @@ export const Hero = () => {
             </Container>
           </Grid>
         </Grid>
-      </Section>
+      </Container>
     </Box>
   );
 };
