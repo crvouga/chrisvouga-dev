@@ -35,7 +35,14 @@ const useStyles = makeStyles(() => ({
     height: 0,
     paddingTop: "75%",
   },
-  link: {},
+  card: {
+    display: "flex",
+    flexDirection: "column",
+    height: "100%",
+  },
+  content: {
+    flex: 1,
+  },
 }));
 
 const SourceCodeButton = ({ sourceCodeUrl }: { sourceCodeUrl: string }) => {
@@ -64,8 +71,8 @@ export const ProjectCard = (props: IProjectCardProps) => {
   const classes = useStyles();
 
   return (
-    <Card>
-      <Link className={classes.link} href={liveSiteUrl}>
+    <Card className={classes.card}>
+      <Link href={liveSiteUrl}>
         <CardHeader
           title={title}
           action={
@@ -79,7 +86,7 @@ export const ProjectCard = (props: IProjectCardProps) => {
         </CardActionArea>
       </Link>
 
-      <CardContent>
+      <CardContent className={classes.content}>
         <Box paddingBottom={2}>
           <Typography variant="body1" color="textSecondary">
             {description}
