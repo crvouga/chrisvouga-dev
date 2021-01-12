@@ -3,13 +3,16 @@ import {
   Avatar,
   Box,
   Button,
+  ButtonBase,
   Container,
   Drawer,
   Hidden,
   IconButton,
+  List,
+  ListItem,
+  ListItemText,
   makeStyles,
   Toolbar,
-  ButtonBase,
 } from "@material-ui/core";
 import MenuOpenIcon from "@material-ui/icons/MenuOpen";
 import Link from "next/link";
@@ -102,21 +105,25 @@ export const NavigationBar = () => {
           setIsDrawerOpen(false);
         }}
       >
-        <Box width="66vw">
-          {NAVIGATION_LINKS.map(({ href, label }) => (
-            <Box marginRight={1} key={href}>
-              <Link href={href}>
-                <Button
-                  fullWidth
+        <Box display="flex" flexDirection="column" width="66vw" height="100vh">
+          <List>
+            {NAVIGATION_LINKS.map(({ href, label }) => (
+              <Link href={href} key={href}>
+                <ListItem
+                  button
+                  divider
                   onClick={() => {
                     setIsDrawerOpen(false);
                   }}
                 >
-                  {label}
-                </Button>
+                  <ListItemText
+                    primary={label}
+                    primaryTypographyProps={{ variant: "button" }}
+                  />
+                </ListItem>
               </Link>
-            </Box>
-          ))}
+            ))}
+          </List>
         </Box>
       </Drawer>
     </React.Fragment>
