@@ -1,4 +1,4 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box, Typography, Container } from "@material-ui/core";
 import React from "react";
 import { Section } from "../../../components/section";
 import { ContactForm } from "./contact-form";
@@ -18,8 +18,9 @@ export const Contact = () => {
       >
         Feel free to shoot me a message!
       </Typography>
-
-      <ContactForm />
+      <Container maxWidth="sm">
+        <ContactForm />
+      </Container>
     </Section>
   );
 };

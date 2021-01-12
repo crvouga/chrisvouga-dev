@@ -7,10 +7,12 @@ import {
   CardContent,
   CardHeader,
   CardMedia,
+  IconButton,
   Link,
   makeStyles,
   Typography,
 } from "@material-ui/core";
+import CallMadeIcon from "@material-ui/icons/CallMade";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import WebIcon from "@material-ui/icons/Web";
 import React from "react";
@@ -33,6 +35,7 @@ const useStyles = makeStyles(() => ({
     height: 0,
     paddingTop: "75%",
   },
+  link: {},
 }));
 
 const SourceCodeButton = ({ sourceCodeUrl }: { sourceCodeUrl: string }) => {
@@ -62,9 +65,15 @@ export const ProjectCard = (props: IProjectCardProps) => {
 
   return (
     <Card>
-      <CardHeader title={title} />
-
-      <Link href={liveSiteUrl}>
+      <Link className={classes.link} href={liveSiteUrl}>
+        <CardHeader
+          title={title}
+          action={
+            <IconButton disableRipple disableFocusRipple disableTouchRipple>
+              <CallMadeIcon />
+            </IconButton>
+          }
+        />
         <CardActionArea>
           <CardMedia className={classes.media} image={src} />
         </CardActionArea>
