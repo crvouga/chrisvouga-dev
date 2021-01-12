@@ -1,12 +1,12 @@
-import { Box, Divider } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import React from "react";
+import { NavigationBar } from "../../components/navigation";
+import { Sections, SECTION_ORDER } from "../../components/section";
 import { About } from "./about";
 import { Contact } from "./contact";
 import { Footer } from "./footer";
 import { Hero } from "./hero";
-import { NavigationBar } from "../../components/navigation";
 import { Projects } from "./projects";
-import { SECTION_ORDER, Sections } from "../../components/section";
 
 export const LandingPage = () => {
   return (
