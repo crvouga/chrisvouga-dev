@@ -14,7 +14,8 @@ import {
   makeStyles,
   Toolbar,
 } from "@material-ui/core";
-import MenuOpenIcon from "@material-ui/icons/MenuOpen";
+import CloseIcon from "@material-ui/icons/Close";
+import MenuIcon from "@material-ui/icons/Menu";
 import Link from "next/link";
 import React, { useState } from "react";
 import { ElevationScroll } from "./elevation-scroll";
@@ -86,7 +87,7 @@ export const NavigationBar = () => {
                   }}
                 >
                   <Box color="#fff">
-                    <MenuOpenIcon color="inherit" />
+                    <MenuIcon color="inherit" />
                   </Box>
                 </IconButton>
               </Hidden>
@@ -105,6 +106,16 @@ export const NavigationBar = () => {
           setIsDrawerOpen(false);
         }}
       >
+        <Toolbar>
+          <Box flex={1} />
+          <IconButton
+            onClick={() => {
+              setIsDrawerOpen(false);
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </Toolbar>
         <Box display="flex" flexDirection="column" width="66vw" height="100vh">
           <List>
             {NAVIGATION_LINKS.map(({ href, label }) => (
