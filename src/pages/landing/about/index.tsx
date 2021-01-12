@@ -1,13 +1,13 @@
 import { Box, Grid, Typography } from "@material-ui/core";
 import React from "react";
-import { Section } from "../section";
+import { SectionContainer } from "../section";
 import { EducationCard } from "./education";
 import { SkillsCard } from "./skills";
 import { SummaryCard } from "./summary";
 
 export const About = () => {
   return (
-    <Section id="about">
+    <SectionContainer id="about">
       <Typography variant="h4" gutterBottom>
         <Box fontWeight="bold">A Little Bit About Me</Box>
       </Typography>
@@ -23,6 +23,6 @@ export const About = () => {
           <EducationCard />
         </Grid>
       </Grid>
-    </Section>
+    </SectionContainer>
   );
 };

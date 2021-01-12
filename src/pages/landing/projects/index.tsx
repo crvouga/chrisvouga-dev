@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@material-ui/core";
 import React from "react";
-import { Section } from "../section";
+import { SectionContainer } from "../section";
 import { useLandingPageStaticProps } from "../static-props";
 import { ProjectCard } from "./project-card";
 
@@ -8,7 +8,7 @@ export const Projects = () => {
   const { projectCardsProps } = useLandingPageStaticProps();
 
   return (
-    <Section id="projects">
+    <SectionContainer id="projects">
       <Typography variant="h4" gutterBottom>
         <Box fontWeight="bold">Some of the Things I've Built</Box>
       </Typography>
@@ -19,6 +19,6 @@ export const Projects = () => {
           </Grid>
         ))}
       </Grid>
-    </Section>
+    </SectionContainer>
   );
 };

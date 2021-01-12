@@ -1,12 +1,12 @@
 import { Box, ButtonBase, Typography } from "@material-ui/core";
 import React from "react";
 import content from "../../../../content/content.json";
-import { Section } from "../section";
+import { SectionContainer } from "../section";
 import { SocialMediaIconButton } from "../../../components/social-media";
 
 export const Footer = () => {
   return (
-    <Section>
+    <SectionContainer>
       <Box display="flex" justifyContent="center" paddingY={2}>
         {content.socialMedia.map((socialMedia) => (
           <SocialMediaIconButton
@@ -25,6 +25,6 @@ export const Footer = () => {
           </Box>
         </ButtonBase>
       </Box>
-    </Section>
+    </SectionContainer>
   );
 };

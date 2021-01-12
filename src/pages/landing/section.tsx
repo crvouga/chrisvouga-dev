@@ -37,7 +37,7 @@ export const SectionIcon = ({ section }: { section: Sections }) => {
   }
 };
 
-export const Section = ({
+export const SectionContainer = ({
   children,
   ...props
 }: React.PropsWithChildren<BoxProps>) => {

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IContactForm } from "./contact-form";
+import { IContactForm } from "../pages/landing/contact/contact-form";
 
 export const getFormspreeEndpoint = () => {
   const endpoint = process.env.FORMSPREE_ENDPOINT;

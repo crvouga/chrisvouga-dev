@@ -2,12 +2,13 @@ import {
   Box,
   Button,
   Card,
+  Grid,
   makeStyles,
   TextField,
-  Grid,
 } from "@material-ui/core";
-import React from "react";
 import SendIcon from "@material-ui/icons/Send";
+import React from "react";
+import { EmailAddress } from "../../../utility";
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -26,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
   },
 }));
+
+export interface IContactForm {
+  submit(emailAddress: EmailAddress, message: string): Promise<void>;
+}
 
 export const ContactForm = () => {
   const classes = useStyles();

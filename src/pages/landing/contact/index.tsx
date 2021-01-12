@@ -1,11 +1,11 @@
 import { Box, Typography } from "@material-ui/core";
 import React from "react";
-import { Section } from "../section";
+import { SectionContainer } from "../section";
 import { ContactForm } from "./contact-form";
 
 export const Contact = () => {
   return (
-    <Section id="contact">
+    <SectionContainer id="contact">
       <Typography align="center" variant="h4">
         <Box fontWeight="bold">Get In Touch</Box>
       </Typography>
@@ -20,6 +20,6 @@ export const Contact = () => {
       </Typography>
 
       <ContactForm />
-    </Section>
+    </SectionContainer>
   );
 };
