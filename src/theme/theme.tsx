@@ -1,5 +1,5 @@
 import { createMuiTheme, ThemeOptions } from "@material-ui/core/styles";
-import { mergeDeepRight } from "ramda";
+import merge from "deepmerge";
 
 export type ThemeType = "light" | "dark";
 
@@ -60,9 +60,6 @@ const themeTypeToThemeOptions: { [themeType in ThemeType]: ThemeOptions } = {
 
 export const createTheme = (themeType: ThemeType) => {
   return createMuiTheme(
-    mergeDeepRight<ThemeOptions, any>(
-      themeOptions,
-      themeTypeToThemeOptions[themeType]
-    )
+    merge(themeOptions, themeTypeToThemeOptions[themeType])
   );
 };

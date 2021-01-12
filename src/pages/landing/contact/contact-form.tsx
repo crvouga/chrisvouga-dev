@@ -10,11 +10,10 @@ import {
   Grid,
   TextField,
   Typography,
-  DialogActions,
 } from "@material-ui/core";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import SendIcon from "@material-ui/icons/Send";
-import { dissoc } from "ramda";
+import { omit, pipe } from "remeda";
 import React, { useRef, useState } from "react";
 import { submitContactForm } from "../../../services/contact-form";
 import { castEmailAddress, isValidEmailAddress } from "../../../utility";
@@ -36,10 +35,13 @@ const SubmitButton = (props: ButtonProps) => {
 };
 
 const formEventToFormData = (formEvent: React.FormEvent<HTMLFormElement>) =>
-  Object.fromEntries(
-    Array.from(
-      new FormData(formEvent.currentTarget).entries()
-    ).map(([key, value]) => [key.toString(), value.toString()])
+  pipe(
+    formEvent,
+    (formEvent) => formEvent.currentTarget,
+    (form) => new FormData(form),
+    (formData) => Array.from(formData.entries()),
+    (entries) => entries.map((entry) => entry.map((_) => _.toString())),
+    Object.fromEntries
   );
 
 type FormErrors = {
@@ -146,7 +148,7 @@ export const ContactForm = () => {
                     onChange={
                       "emailAddress" in errors
                         ? () => {
-                            setErrors(dissoc("emailAddress", errors));
+                            setErrors(omit(errors, ["emailAddress"]));
                           }
                         : undefined
                     }
