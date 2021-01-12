@@ -1,4 +1,4 @@
-import { Box } from "@material-ui/core";
+import { Box, Divider } from "@material-ui/core";
 import React from "react";
 import { About } from "./about";
 import { Contact } from "./contact";
@@ -11,10 +11,23 @@ export const LandingPage = () => {
   return (
     <Box>
       <NavigationBar />
+
       <Hero />
+
+      <Divider />
+
       <About />
+
+      <Divider />
+
       <Projects />
+
+      <Divider />
+
       <Contact />
+
+      <Divider />
+
       <Footer />
     </Box>
   );
