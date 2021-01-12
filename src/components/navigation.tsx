@@ -9,6 +9,7 @@ import {
   IconButton,
   makeStyles,
   Toolbar,
+  ButtonBase,
 } from "@material-ui/core";
 import MenuOpenIcon from "@material-ui/icons/MenuOpen";
 import Link from "next/link";
@@ -19,38 +20,32 @@ const useStyles = makeStyles((theme) => ({
   gutter: {
     ...theme.mixins.toolbar,
   },
-  logo: {
-    cursor: "pointer",
-  },
 
   button: {
     fontWeight: "bold",
     color: "#fff",
-    marginRight: theme.spacing(1),
   },
 }));
 
-const Links = () => {
-  const classes = useStyles();
+interface INavigationLinkButtonProps {
+  label: string;
+  href: string;
+}
 
-  return (
-    <Box>
-      <Link href="/#about">
-        <Button className={classes.button}>About</Button>
-      </Link>
-      <Link href="/#projects">
-        <Button className={classes.button}>Work</Button>
-      </Link>
-      <Link href="/#contact">
-        <Button className={classes.button}>Contact</Button>
-      </Link>
-
-      <Button variant="outlined" className={classes.button}>
-        Resume
-      </Button>
-    </Box>
-  );
-};
+const NAVIGATION_LINKS: INavigationLinkButtonProps[] = [
+  {
+    label: "About",
+    href: "/#about",
+  },
+  {
+    label: "Work",
+    href: "/#projects",
+  },
+  {
+    label: "Contact",
+    href: "/#contact",
+  },
+];
 
 export const NavigationBar = () => {
   const classes = useStyles();
@@ -64,21 +59,32 @@ export const NavigationBar = () => {
           <Container maxWidth="lg" disableGutters>
             <Toolbar>
               <Link href="/">
-                <Avatar
-                  className={classes.logo}
-                  src={"/personal-logo-dark.svg"}
-                />
+                <ButtonBase color="primary">
+                  <Avatar src="/personal-logo-dark.svg" />
+                </ButtonBase>
               </Link>
+
               <Box flex={1} />
+
               <Hidden xsDown>
-                <Links />
+                {NAVIGATION_LINKS.map(({ href, label }) => (
+                  <Box marginRight={1} key={href}>
+                    <Link href={href}>
+                      <Button className={classes.button}>{label}</Button>
+                    </Link>
+                  </Box>
+                ))}
               </Hidden>
+
               <Hidden smUp>
                 <IconButton
-                  onClick={() => setIsDrawerOpen(true)}
-                  style={{ color: "white" }}
+                  onClick={() => {
+                    setIsDrawerOpen(true);
+                  }}
                 >
-                  <MenuOpenIcon />
+                  <Box color="#fff">
+                    <MenuOpenIcon color="inherit" />
+                  </Box>
                 </IconButton>
               </Hidden>
             </Toolbar>
@@ -92,9 +98,26 @@ export const NavigationBar = () => {
         keepMounted
         anchor="right"
         open={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
+        onClose={() => {
+          setIsDrawerOpen(false);
+        }}
       >
-        <Links />
+        <Box width="66vw">
+          {NAVIGATION_LINKS.map(({ href, label }) => (
+            <Box marginRight={1} key={href}>
+              <Link href={href}>
+                <Button
+                  fullWidth
+                  onClick={() => {
+                    setIsDrawerOpen(false);
+                  }}
+                >
+                  {label}
+                </Button>
+              </Link>
+            </Box>
+          ))}
+        </Box>
       </Drawer>
     </React.Fragment>
   );
