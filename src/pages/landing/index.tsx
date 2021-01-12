@@ -8,6 +8,17 @@ import { Footer } from "./footer";
 import { Hero } from "./hero";
 import { Projects } from "./projects";
 
+const renderSection = (section: Sections) => {
+  switch (section) {
+    case Sections.About:
+      return <About />;
+    case Sections.Contact:
+      return <Contact />;
+    case Sections.Projects:
+      return <Projects />;
+  }
+};
+
 export const LandingPage = () => {
   return (
     <Box>
@@ -16,14 +27,7 @@ export const LandingPage = () => {
       <Hero />
 
       {SECTION_ORDER.map((section) => {
-        switch (section) {
-          case Sections.About:
-            return <About />;
-          case Sections.Contact:
-            return <Contact />;
-          case Sections.Projects:
-            return <Projects />;
-        }
+        <React.Fragment key={section}>{renderSection(section)}</React.Fragment>;
       })}
 
       <Footer />
