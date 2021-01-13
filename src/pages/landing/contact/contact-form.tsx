@@ -85,7 +85,7 @@ const EmailAddressTextField = (props: TextFieldProps) => {
       variant="outlined"
       fullWidth
       label="Email Address"
-      type="text"
+      type="email"
       color="primary"
       name="emailAddress"
       {...props}
