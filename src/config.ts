@@ -18,13 +18,7 @@ export const getReCaptchKey = () => {
 
 //
 export const getGithubPersonalAccessToken = () => {
-  const token = process.env.NEXT_PUBLIC_GITHUB_PERSONAL_ACCESS_TOKEN;
-  if (token) {
-    return token;
-  }
-  throw new Error(
-    "process.env.NEXT_PUBLIC_GITHUB_PERSONAL_ACCESS_TOKEN is undefined"
-  );
+  return process.env.NEXT_PUBLIC_GITHUB_PERSONAL_ACCESS_TOKEN;
 };
 
 export const projects = [
