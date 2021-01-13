@@ -5,6 +5,7 @@ import {
   IContactFormErrors,
   IContactFormStatus,
   validateContactForm,
+  castContactForm,
 } from "./contact-form-domain";
 
 // formspree dashboard: https://formspree.io/forms/xqkgwwnv/integration
@@ -44,16 +45,15 @@ export const useContactForm = () => {
 
     const formData = formEventToFormData(formEvent);
 
-    const result = validateContactForm(formData);
+    const errors = validateContactForm(formData);
 
-    if (result[0]) {
-      const errors = result[0];
+    if (errors.emailAddress.length > 0 || errors.message.length > 0) {
       setErrors(errors);
       setStatus("validation-error");
       return;
     }
 
-    const contactForm = result[1];
+    const contactForm = castContactForm(formData);
 
     try {
       await axios.post(FORMSPREE_ENDPOINT, contactForm);

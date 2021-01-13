@@ -1,8 +1,4 @@
 import * as EmailValidator from "email-validator";
-import { tuple } from "../../../utility";
-
-const MIN_MESSAGE_LENGTH = 2;
-const MAX_MESSAGE_LENGTH = 200;
 
 type IEmailAddress = string & { type: "EmailAddress" };
 type IMessage = string & { type: "Message" };
@@ -36,13 +32,19 @@ export const validateEmailAddress = (emailAddress: string) => {
     errors.push(new Error("Invalid email address"));
   }
 
-  if (errors.length === 0) {
-    return tuple(null, emailAddress as IEmailAddress);
-  } else {
-    return tuple(errors, null);
-  }
+  return errors;
 };
 
+const castEmailAddress = (emailAddress: string) => {
+  const errors = validateEmailAddress(emailAddress);
+  if (errors.length === 0) {
+    return emailAddress as IEmailAddress;
+  }
+  throw errors;
+};
+
+const MIN_MESSAGE_LENGTH = 2;
+const MAX_MESSAGE_LENGTH = 200;
 export const validateMessage = (message: string) => {
   const errors = [];
 
@@ -54,34 +56,39 @@ export const validateMessage = (message: string) => {
     errors.push(new Error("Message is too long"));
   }
 
-  if (errors.length === 0) {
-    return tuple(null, message as IMessage);
-  } else {
-    return tuple(errors, null);
-  }
+  return errors;
 };
 
-export const validateContactForm = (formData: {
+export const castMessage = (message: string) => {
+  const errors = validateMessage(message);
+  if (errors.length === 0) {
+    return message as IMessage;
+  }
+  throw errors;
+};
+
+export const validateContactForm = ({
+  emailAddress,
+  message,
+}: {
   message: string;
   emailAddress: string;
 }) => {
-  const [emailAddressErrors, emailAddress] = validateEmailAddress(
-    formData.emailAddress
-  );
-  const [messageErrors, message] = validateMessage(formData.message);
-
-  if (emailAddress && message) {
-    const contactForm: IContactForm = {
-      emailAddress,
-      message,
-    };
-    return tuple(null, contactForm);
-  }
-
-  const errors: IContactFormErrors = {
-    emailAddress: emailAddressErrors,
-    message: messageErrors,
+  return {
+    emailAddress: validateEmailAddress(emailAddress),
+    message: validateMessage(message),
   };
+};
 
-  return tuple(errors, null);
+export const castContactForm = ({
+  emailAddress,
+  message,
+}: {
+  message: string;
+  emailAddress: string;
+}) => {
+  return {
+    emailAddress: castEmailAddress(emailAddress),
+    message: castMessage(message),
+  };
 };
