@@ -9,14 +9,14 @@ import {
   Dialog,
   Grid,
   TextField,
+  TextFieldProps,
   Typography,
 } from "@material-ui/core";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import SendIcon from "@material-ui/icons/Send";
-import { omit, pipe } from "remeda";
-import React, { useRef, useState } from "react";
-import { submitContactForm } from "../../../services/contact-form";
-import { castEmailAddress, isValidEmailAddress } from "../../../utility";
+import React, { useEffect, useState } from "react";
+import { IContactFormStatus } from "./contact-form-domain";
+import { useContactForm } from "./contact-form-hook";
 
 const SubmitButton = (props: ButtonProps) => {
   return (
@@ -34,121 +34,108 @@ const SubmitButton = (props: ButtonProps) => {
   );
 };
 
-const formEventToFormData = (formEvent: React.FormEvent<HTMLFormElement>) =>
-  pipe(
-    formEvent,
-    (formEvent) => formEvent.currentTarget,
-    (form) => new FormData(form),
-    (formData) => Array.from(formData.entries()),
-    (entries) => entries.map((entry) => entry.map((_) => _.toString())),
-    Object.fromEntries
-  );
+const SuccessDialog = ({ status }: { status: IContactFormStatus }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-type FormErrors = {
-  [name: string]: { helperText: string };
-};
+  useEffect(() => {
+    setIsOpen(status === "success");
+  }, [status]);
 
-export const ContactForm = () => {
-  const formRef = useRef<HTMLFormElement | null>(null);
-
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<"success" | "loading" | "error" | null>(
-    null
-  );
-
-  const handleSubmit = async (formEvent: React.FormEvent<HTMLFormElement>) => {
-    setStatus("loading");
-    try {
-      formEvent.preventDefault();
-
-      const formData = formEventToFormData(formEvent);
-
-      const newErrors: FormErrors = {};
-
-      if (!isValidEmailAddress(formData.emailAddress)) {
-        newErrors.emailAddress = {
-          helperText: "Invalid email address",
-        };
-        setErrors(newErrors);
-        throw new Error("");
-      }
-
-      const emailAddress = castEmailAddress(formData.emailAddress);
-      const message = formData.message.toString();
-
-      await submitContactForm(emailAddress, message);
-
-      if (formRef.current) {
-        formRef.current.reset();
-      }
-      setStatus("success");
-    } catch (error) {
-      setStatus("error");
-    }
+  const close = () => {
+    setIsOpen(false);
   };
 
   return (
+    <Dialog open={isOpen} onClick={close} onClose={close}>
+      <Box p={2}>
+        <Box
+          width="100%"
+          display="flex"
+          justifyContent="center"
+          color="success.main"
+        >
+          <CheckCircleIcon
+            color="inherit"
+            style={{ width: "120px", height: "120px" }}
+          />
+        </Box>
+        <Typography align="center" variant="h5">
+          Message Sent!
+        </Typography>
+        <Typography align="center" variant="h6" color="textSecondary">
+          I'll do my best to get back to you.
+        </Typography>
+      </Box>
+    </Dialog>
+  );
+};
+
+const LoadingDialog = ({ status }: { status: IContactFormStatus }) => {
+  return (
+    <Dialog open={status === "loading"}>
+      <Box display="flex" alignItems="center" p={2}>
+        <Box marginRight={2}>
+          <CircularProgress />
+        </Box>
+        <Typography variant="h6">Sending...</Typography>
+      </Box>
+    </Dialog>
+  );
+};
+
+const EmailAddressTextField = (props: TextFieldProps) => {
+  return (
+    <TextField
+      variant="outlined"
+      fullWidth
+      label="Email Address"
+      type="text"
+      color="primary"
+      name="emailAddress"
+      {...props}
+    />
+  );
+};
+
+export const MessageTextField = (props: TextFieldProps) => {
+  return (
+    <TextField
+      color="primary"
+      variant="outlined"
+      fullWidth
+      multiline
+      rows={6}
+      label="Message"
+      type="text"
+      name="message"
+      {...props}
+    />
+  );
+};
+
+export const ContactForm = () => {
+  const { ref, status, errors, clearError, submit } = useContactForm();
+
+  return (
     <React.Fragment>
-      <Dialog open={status === "loading"}>
-        <Box display="flex" alignItems="center" p={2}>
-          <Box marginRight={2}>
-            <CircularProgress />
-          </Box>
-          <Typography variant="h6">Sending...</Typography>
-        </Box>
-      </Dialog>
-      <Dialog
-        open={status === "success"}
-        onClick={() => {
-          setStatus(null);
-        }}
-        onClose={() => {
-          setStatus(null);
-        }}
-      >
-        <Box p={2}>
-          <Box
-            width="100%"
-            display="flex"
-            justifyContent="center"
-            color="success.main"
-          >
-            <CheckCircleIcon
-              color="inherit"
-              style={{ width: "120px", height: "120px" }}
-            />
-          </Box>
-          <Typography align="center" variant="h5">
-            Message Sent!
-          </Typography>
-          <Typography align="center" variant="h6" color="textSecondary">
-            I'll do my best to get back to you.
-          </Typography>
-        </Box>
-      </Dialog>
-      <form onSubmit={handleSubmit} ref={formRef}>
+      <LoadingDialog status={status} />
+      <SuccessDialog status={status} />
+
+      <form ref={ref} onSubmit={submit}>
         <Container maxWidth="sm" disableGutters>
           <Card>
             <CardContent>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    fullWidth
-                    label="Email Address"
-                    type="text"
-                    color="primary"
-                    name="emailAddress"
-                    error={"emailAddress" in errors}
+                  <EmailAddressTextField
+                    error={Boolean(errors.emailAddress)}
                     helperText={
-                      "emailAddress" in errors
-                        ? errors.emailAddress.helperText
-                        : ""
+                      errors.emailAddress ? errors.emailAddress[0].message : ""
                     }
                     onChange={
-                      "emailAddress" in errors
+                      errors
                         ? () => {
-                            setErrors(omit(errors, ["emailAddress"]));
+                            clearError("emailAddress");
                           }
                         : undefined
                     }
@@ -156,15 +143,16 @@ export const ContactForm = () => {
                 </Grid>
 
                 <Grid item xs={12}>
-                  <TextField
-                    color="primary"
-                    variant="outlined"
-                    fullWidth
-                    multiline
-                    rows={6}
-                    label="Message"
-                    type="text"
-                    name="message"
+                  <MessageTextField
+                    error={Boolean(errors.message)}
+                    helperText={errors.message ? errors.message[0].message : ""}
+                    onChange={
+                      errors.message
+                        ? () => {
+                            clearError("message");
+                          }
+                        : undefined
+                    }
                   />
                 </Grid>
 

@@ -1,3 +1,4 @@
 export * from "./env";
 export * from "./url";
-export * from "./email-address";
+
+export const tuple = <T extends any[]>(...args: T): T => args;
