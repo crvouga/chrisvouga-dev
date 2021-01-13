@@ -1,9 +1,8 @@
 import { capitalize } from "@material-ui/core";
-import content from "../../../../content/content.json";
+import { config } from "../../../config";
 import { githubAPI } from "../../../services/github";
-
-import { IProjectCardProps } from "./project-card";
 import { castUrl, encodeUrl } from "../../../utility";
+import { IProjectCardProps } from "./project-card";
 
 const repositoryNameToTitle = (repositoryName: string) =>
   repositoryName.split("-").map(capitalize).join(" ");
@@ -41,7 +40,7 @@ const getProjectCardStaticProps = async ({
 
 export const getProjectSectionStaticProps = async () => {
   const projectCardsProps = await Promise.all(
-    content.projects.map(getProjectCardStaticProps)
+    config.projects.map(getProjectCardStaticProps)
   );
 
   return projectCardsProps;

@@ -1,8 +1,7 @@
-import content from "../content/content.json";
-import { githubAPI } from "../src/services/github";
-
+import { config } from "../config";
+import { githubAPI } from "../services/github";
+import { encodeUrl } from "../utility";
 import { writeScreenshot } from "./screenshot";
-import { encodeUrl } from "../src/utility";
 
 const generateScreenshot = async ({
   ownerName,
@@ -30,7 +29,7 @@ const generateScreenshot = async ({
 };
 
 const generateProjectScreenshots = async () => {
-  await Promise.all(content.projects.map(generateScreenshot));
+  await Promise.all(config.projects.map(generateScreenshot));
 };
 
 generateProjectScreenshots();
