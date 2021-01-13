@@ -46,20 +46,22 @@ export const useContactForm = () => {
 
     const result = validateContactForm(formData);
 
+    if (result[0]) {
+      const errors = result[0];
+      setErrors(errors);
+      setStatus("validation-error");
+      return;
+    }
+
+    const contactForm = result[1];
+
     try {
-      if (result[0]) {
-        const errors = result[0];
-        setErrors(errors);
-        throw errors;
-      }
-
-      const contactForm = result[1];
-
       await axios.post(FORMSPREE_ENDPOINT, contactForm);
-
       setStatus("success");
+      return;
     } catch (error) {
       setStatus("error");
+      return;
     }
   };
 

@@ -14,6 +14,7 @@ import {
 } from "@material-ui/core";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import SendIcon from "@material-ui/icons/Send";
+import ErrorIcon from "@material-ui/icons/Error";
 import React from "react";
 import { IContactFormStatus } from "./contact-form-domain";
 import { useContactForm } from "./contact-form-hook";
@@ -79,6 +80,38 @@ const LoadingDialog = ({ status }: { status: IContactFormStatus }) => {
   );
 };
 
+const ErrorDialog = ({
+  status,
+  onClose,
+}: {
+  status: IContactFormStatus;
+  onClose: () => void;
+}) => {
+  return (
+    <Dialog open={status === "error"} onClick={onClose} onClose={onClose}>
+      <Box p={2}>
+        <Box
+          width="100%"
+          display="flex"
+          justifyContent="center"
+          color="error.main"
+        >
+          <ErrorIcon
+            color="inherit"
+            style={{ width: "120px", height: "120px" }}
+          />
+        </Box>
+        <Typography align="center" variant="h5">
+          Something went wrong
+        </Typography>
+        <Typography align="center" variant="h6" color="textSecondary">
+          Was unable to send message.
+        </Typography>
+      </Box>
+    </Dialog>
+  );
+};
+
 const EmailAddressTextField = (props: TextFieldProps) => {
   return (
     <TextField
@@ -116,6 +149,7 @@ export const ContactForm = () => {
     <React.Fragment>
       <LoadingDialog status={status} />
       <SuccessDialog status={status} onClose={reset} />
+      <ErrorDialog status={status} onClose={reset} />
 
       <form ref={ref} onSubmit={submit}>
         <Container maxWidth="sm" disableGutters>

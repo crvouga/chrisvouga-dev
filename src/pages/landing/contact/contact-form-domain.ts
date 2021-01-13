@@ -17,7 +17,12 @@ export type IContactFormErrors = {
   message?: Error[] | null;
 };
 
-export type IContactFormStatus = "loading" | "error" | "success" | null;
+export type IContactFormStatus =
+  | "loading"
+  | "validation-error"
+  | "error"
+  | "success"
+  | null;
 
 /* 
 
