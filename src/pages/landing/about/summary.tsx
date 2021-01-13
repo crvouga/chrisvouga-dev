@@ -1,6 +1,6 @@
 import { CardContent, CardHeader, Typography } from "@material-ui/core";
 import React from "react";
-import { usePersonalLogoSrc } from "../../../theme";
+import { usePersonalLogoSrc } from "../../../components/theme";
 import { AboutCard, AboutCardImage } from "./card";
 
 export const SummaryCard = () => {

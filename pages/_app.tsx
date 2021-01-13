@@ -2,7 +2,7 @@ import { AppProps } from "next/dist/next-server/lib/router/router";
 import Head from "next/head";
 import React from "react";
 import { ReCaptchaProvider } from "../src/components/recaptcha";
-import ThemeProvider from "../src/theme/theme-provider";
+import ThemeProvider from "../src/components/theme/theme-provider";
 
 const App = (props: AppProps) => {
   const { Component, pageProps } = props;
