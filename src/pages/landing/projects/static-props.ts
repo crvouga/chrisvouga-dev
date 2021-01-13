@@ -1,8 +1,13 @@
 import { capitalize } from "@material-ui/core";
-import { config } from "../../../config";
-import { githubAPI } from "../../../services/github";
+import { Octokit } from "@octokit/rest";
+import { getGithubPersonalAccessToken, projects } from "../../../config";
 import { castUrl, encodeUrl } from "../../../utility";
 import { IProjectCardProps } from "./project-card";
+
+export const octokit = new Octokit({
+  userAgent: "personal-website",
+  auth: getGithubPersonalAccessToken(),
+});
 
 const repositoryNameToTitle = (repositoryName: string) =>
   repositoryName.split("-").map(capitalize).join(" ");
@@ -20,8 +25,8 @@ const getProjectCardStaticProps = async ({
   };
 
   const [response, responseTopics] = await Promise.all([
-    githubAPI.repos.get(params),
-    githubAPI.repos.getAllTopics(params),
+    octokit.repos.get(params),
+    octokit.repos.getAllTopics(params),
   ]);
 
   const liveSiteUrl = castUrl(response.data.homepage);
@@ -40,7 +45,7 @@ const getProjectCardStaticProps = async ({
 
 export const getProjectSectionStaticProps = async () => {
   const projectCardsProps = await Promise.all(
-    config.projects.map(getProjectCardStaticProps)
+    projects.map(getProjectCardStaticProps)
   );
 
   return projectCardsProps;

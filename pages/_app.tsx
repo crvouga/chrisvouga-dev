@@ -1,8 +1,9 @@
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import Head from "next/head";
 import React from "react";
-import { ReCaptchaProvider } from "../src/components/recaptcha";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import ThemeProvider from "../src/components/theme/theme-provider";
+import { getReCaptchKey } from "../src/config";
 
 const App = (props: AppProps) => {
   const { Component, pageProps } = props;
@@ -21,11 +22,11 @@ const App = (props: AppProps) => {
         <link rel="icon" type="image/png" href="/personal-logo.png" />
         <title>Chris Vouga</title>
       </Head>
-      <ReCaptchaProvider>
+      <GoogleReCaptchaProvider reCaptchaKey={getReCaptchKey()}>
         <ThemeProvider>
           <Component {...pageProps} />
         </ThemeProvider>
-      </ReCaptchaProvider>
+      </GoogleReCaptchaProvider>
     </React.Fragment>
   );
 };

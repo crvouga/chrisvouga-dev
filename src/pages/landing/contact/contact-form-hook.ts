@@ -1,15 +1,14 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { omit, pipe } from "remeda";
+import { getContactFormEndpoint } from "../../../config";
 import {
+  castContactForm,
   IContactFormErrors,
   IContactFormStatus,
   validateContactForm,
-  castContactForm,
 } from "./contact-form-domain";
-
-// formspree dashboard: https://formspree.io/forms/xqkgwwnv/integration
-export const FORMSPREE_ENDPOINT = "https://formspree.io/f/xqkgwwnv";
 
 const formEventToFormData = (formEvent: React.FormEvent<HTMLFormElement>) =>
   pipe(
@@ -25,6 +24,8 @@ export const useContactForm = () => {
   const ref = useRef<HTMLFormElement | null>(null);
   const [errors, setErrors] = useState<IContactFormErrors>({});
   const [status, setStatus] = useState<IContactFormStatus>(null);
+
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const clearError = (key: keyof IContactFormErrors) => {
     setErrors((errors) => omit(errors, [key]));
@@ -56,7 +57,9 @@ export const useContactForm = () => {
     const contactForm = castContactForm(formData);
 
     try {
-      await axios.post(FORMSPREE_ENDPOINT, contactForm);
+      await executeRecaptcha("contact_form");
+
+      await axios.post(getContactFormEndpoint(), contactForm);
       setStatus("success");
       return;
     } catch (error) {

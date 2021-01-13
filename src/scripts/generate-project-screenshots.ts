@@ -1,7 +1,12 @@
-import { config } from "../config";
-import { githubAPI } from "../services/github";
+import { Octokit } from "@octokit/rest";
+import { getGithubPersonalAccessToken, projects } from "../config";
 import { encodeUrl } from "../utility";
 import { writeScreenshot } from "./screenshot";
+
+export const octokit = new Octokit({
+  userAgent: "personal-website",
+  auth: getGithubPersonalAccessToken(),
+});
 
 const generateScreenshot = async ({
   ownerName,
@@ -10,7 +15,7 @@ const generateScreenshot = async ({
   ownerName: string;
   repositoryName: string;
 }) => {
-  const response = await githubAPI.repos.get({
+  const response = await octokit.repos.get({
     owner: ownerName,
     repo: repositoryName,
   });
@@ -29,7 +34,7 @@ const generateScreenshot = async ({
 };
 
 const generateProjectScreenshots = async () => {
-  await Promise.all(config.projects.map(generateScreenshot));
+  await Promise.all(projects.map(generateScreenshot));
 };
 
 generateProjectScreenshots();
