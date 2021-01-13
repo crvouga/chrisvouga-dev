@@ -24,9 +24,6 @@ export interface IProjectCardProps {
   liveSiteUrl: string;
   sourceCodeUrl: string;
   topics: string[];
-  languages: {
-    [language: string]: number;
-  };
   description: string;
 }
 

@@ -20,10 +20,9 @@ const getProjectCardStaticProps = async ({
     repo: repositoryName,
   };
 
-  const [response, responseTopics, responseLanguages] = await Promise.all([
+  const [response, responseTopics] = await Promise.all([
     githubAPI.repos.get(params),
     githubAPI.repos.getAllTopics(params),
-    githubAPI.repos.listLanguages(params),
   ]);
 
   const liveSiteUrl = castUrl(response.data.homepage);
@@ -31,7 +30,6 @@ const getProjectCardStaticProps = async ({
   const src = `/${encodeUrl(liveSiteUrl)}.png`;
 
   return {
-    languages: responseLanguages.data,
     liveSiteUrl,
     description: response.data.description || "",
     sourceCodeUrl: castUrl(response.data.html_url),

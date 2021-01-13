@@ -13,12 +13,12 @@ import {
   Typography,
 } from "@material-ui/core";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import SendIcon from "@material-ui/icons/Send";
 import ErrorIcon from "@material-ui/icons/Error";
+import SendIcon from "@material-ui/icons/Send";
 import React from "react";
+import { ReCaptcha } from "../../../components/recaptcha";
 import { IContactFormStatus } from "./contact-form-domain";
 import { useContactForm } from "./contact-form-hook";
-
 const SubmitButton = (props: ButtonProps) => {
   return (
     <Button
@@ -186,7 +186,16 @@ export const ContactForm = () => {
                   />
                 </Grid>
 
-                <Grid container item xs direction="row-reverse">
+                <Grid container item xs={12}>
+                  <Grid item>
+                    <ReCaptcha
+                      onVerify={() => {
+                        console.log("verified");
+                      }}
+                    />
+                  </Grid>
+                </Grid>
+                <Grid container item xs={12} direction="row-reverse">
                   <Grid item>
                     <SubmitButton />
                   </Grid>

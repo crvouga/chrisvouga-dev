@@ -1,7 +1,8 @@
 import { AppProps } from "next/dist/next-server/lib/router/router";
-import React from "react";
-import ThemeProvider from "../src/theme/theme-provider";
 import Head from "next/head";
+import React from "react";
+import { ReCaptchaProvider } from "../src/components/recaptcha";
+import ThemeProvider from "../src/theme/theme-provider";
 
 const App = (props: AppProps) => {
   const { Component, pageProps } = props;
@@ -20,9 +21,11 @@ const App = (props: AppProps) => {
         <link rel="icon" type="image/png" href="/personal-logo.png" />
         <title>Chris Vouga</title>
       </Head>
-      <ThemeProvider>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <ReCaptchaProvider>
+        <ThemeProvider>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </ReCaptchaProvider>
     </React.Fragment>
   );
 };
