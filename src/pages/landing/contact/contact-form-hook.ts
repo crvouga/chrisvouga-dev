@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
-import { pipe, omit } from "remeda";
+import { omit, pipe } from "remeda";
 import {
   IContactFormErrors,
-  validateContactForm,
   IContactFormStatus,
+  validateContactForm,
 } from "./contact-form-domain";
 
 // formspree dashboard: https://formspree.io/forms/xqkgwwnv/integration
@@ -29,10 +29,12 @@ export const useContactForm = () => {
     setErrors((errors) => omit(errors, [key]));
   };
 
-  const clearForm = () => {
+  const reset = () => {
     if (ref.current) {
       ref.current.reset();
     }
+    setStatus(null);
+    setErrors({});
   };
 
   const submit = async (formEvent: React.FormEvent<HTMLFormElement>) => {
@@ -55,8 +57,6 @@ export const useContactForm = () => {
 
       await axios.post(FORMSPREE_ENDPOINT, contactForm);
 
-      clearForm();
-
       setStatus("success");
     } catch (error) {
       setStatus("error");
@@ -69,5 +69,6 @@ export const useContactForm = () => {
     errors,
     status,
     clearError,
+    reset,
   };
 };

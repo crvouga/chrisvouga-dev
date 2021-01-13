@@ -14,7 +14,7 @@ import {
 } from "@material-ui/core";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import SendIcon from "@material-ui/icons/Send";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { IContactFormStatus } from "./contact-form-domain";
 import { useContactForm } from "./contact-form-hook";
 
@@ -34,19 +34,15 @@ const SubmitButton = (props: ButtonProps) => {
   );
 };
 
-const SuccessDialog = ({ status }: { status: IContactFormStatus }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    setIsOpen(status === "success");
-  }, [status]);
-
-  const close = () => {
-    setIsOpen(false);
-  };
-
+const SuccessDialog = ({
+  status,
+  onClose,
+}: {
+  status: IContactFormStatus;
+  onClose: () => void;
+}) => {
   return (
-    <Dialog open={isOpen} onClick={close} onClose={close}>
+    <Dialog open={status === "success"} onClick={onClose} onClose={onClose}>
       <Box p={2}>
         <Box
           width="100%"
@@ -114,12 +110,12 @@ export const MessageTextField = (props: TextFieldProps) => {
 };
 
 export const ContactForm = () => {
-  const { ref, status, errors, clearError, submit } = useContactForm();
+  const { ref, status, errors, clearError, submit, reset } = useContactForm();
 
   return (
     <React.Fragment>
       <LoadingDialog status={status} />
-      <SuccessDialog status={status} />
+      <SuccessDialog status={status} onClose={reset} />
 
       <form ref={ref} onSubmit={submit}>
         <Container maxWidth="sm" disableGutters>
@@ -133,7 +129,7 @@ export const ContactForm = () => {
                       errors.emailAddress ? errors.emailAddress[0].message : ""
                     }
                     onChange={
-                      errors
+                      errors.emailAddress
                         ? () => {
                             clearError("emailAddress");
                           }
