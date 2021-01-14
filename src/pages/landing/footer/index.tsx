@@ -17,13 +17,11 @@ export const Footer = () => {
         ))}
       </Box>
       <Box display="flex" justifyContent="center">
-        <ButtonBase>
-          <Box p={1}>
-            <Typography color="textSecondary" align="center">
-              Built by Chris Vouga
-            </Typography>
-          </Box>
-        </ButtonBase>
+        <Box p={1}>
+          <Typography color="textSecondary" align="center">
+            Built by Chris Vouga
+          </Typography>
+        </Box>
       </Box>
     </SectionContainer>
   );
