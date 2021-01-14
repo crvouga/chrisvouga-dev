@@ -1,4 +1,4 @@
-import { Box, ButtonBase, Typography } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import React from "react";
 import { SocialMediaIconButton } from "../../../components/social-media";
 import { socialMedia } from "../../../config";
