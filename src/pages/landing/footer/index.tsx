@@ -1,7 +1,7 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box, Link, Typography } from "@material-ui/core";
 import React from "react";
 import { SocialMediaIconButton } from "../../../components/social-media";
-import { socialMedia } from "../../../config";
+import { repositoryUrl, socialMedia } from "../../../config";
 import { SectionContainer } from "../section";
 
 export const Footer = () => {
@@ -18,9 +18,11 @@ export const Footer = () => {
       </Box>
       <Box display="flex" justifyContent="center">
         <Box p={1}>
-          <Typography color="textSecondary" align="center">
-            Built by Chris Vouga
-          </Typography>
+          <Link href={repositoryUrl}>
+            <Typography color="textSecondary" align="center">
+              Built by Chris Vouga
+            </Typography>
+          </Link>
         </Box>
       </Box>
     </SectionContainer>

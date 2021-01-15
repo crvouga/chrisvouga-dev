@@ -21,6 +21,8 @@ export const getGithubPersonalAccessToken = () => {
   return process.env.NEXT_PUBLIC_GITHUB_PERSONAL_ACCESS_TOKEN;
 };
 
+export const repositoryUrl = "https://github.com/crvouga/personal-website";
+
 export const projects = [
   {
     ownerName: "crvouga",
