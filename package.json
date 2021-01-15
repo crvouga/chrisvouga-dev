@@ -31,5 +31,10 @@
   "browser": {
     "@comment child_procces": "why? https://stackoverflow.com/questions/54459442/module-not-found-error-cant-resolve-child-process-how-to-fix",
     "child_process": false
+  },
+  "bit": {
+    "env": {},
+    "componentsDefaultDirectory": "components/{name}",
+    "packageManager": "npm"
   }
 }
