@@ -1,6 +1,6 @@
 import React from "react";
-import PersonalAttribution from "../src/components/personal/personal-attribution";
-import Logo from "../src/components/personal/logo";
+import PersonalAttribution from "../src/shared/personal-attribution";
+import Logo from "../src/shared/logo";
 import { Container } from "@material-ui/core";
 
 const Playground = () => {

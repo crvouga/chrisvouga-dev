@@ -1,6 +1,7 @@
 import { Octokit } from "@octokit/rest";
 import puppeteer from "puppeteer";
-import { getGithubPersonalAccessToken, projects } from "../config";
+import { getGithubPersonalAccessToken } from "../config";
+import { PROJECTS } from "../shared/constants";
 import { delay, encodeUrl } from "../utility";
 
 export const octokit = new Octokit({
@@ -36,7 +37,7 @@ const generateProjectScreenshots = async () => {
     }
   };
 
-  await Promise.all(projects.map(generateScreenshot));
+  await Promise.all(PROJECTS.map(generateScreenshot));
 
   await browser.close();
 };

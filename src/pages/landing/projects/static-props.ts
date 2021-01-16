@@ -1,6 +1,7 @@
 import { capitalize } from "@material-ui/core";
 import { Octokit } from "@octokit/rest";
-import { getGithubPersonalAccessToken, projects } from "../../../config";
+import { getGithubPersonalAccessToken } from "../../../config";
+import { PROJECTS } from "../../../shared/constants";
 import { castUrl, encodeUrl } from "../../../utility";
 import { IProjectCardProps } from "./project-card";
 
@@ -45,7 +46,7 @@ const getProjectCardStaticProps = async ({
 
 export const getProjectSectionStaticProps = async () => {
   const projectCardsProps = await Promise.all(
-    projects.map(getProjectCardStaticProps)
+    PROJECTS.map(getProjectCardStaticProps)
   );
 
   return projectCardsProps;

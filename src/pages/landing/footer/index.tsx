@@ -1,24 +1,20 @@
 import { Box, Link, Typography } from "@material-ui/core";
 import React from "react";
 import { SocialMediaIconButton } from "../../../components/social-media";
-import { repositoryUrl, socialMedia } from "../../../config";
+import { SOCIAL_MEDIA, REPOSITORY_URL } from "../../../shared/constants";
 import { SectionContainer } from "../section";
 
 export const Footer = () => {
   return (
     <SectionContainer>
       <Box display="flex" justifyContent="center" paddingY={2}>
-        {socialMedia.map((socialMedia) => (
-          <SocialMediaIconButton
-            key={socialMedia.url}
-            name={socialMedia.name}
-            url={socialMedia.url}
-          />
+        {SOCIAL_MEDIA.map(({ url, name }) => (
+          <SocialMediaIconButton key={url} name={name} url={url} />
         ))}
       </Box>
       <Box display="flex" justifyContent="center">
         <Box p={1}>
-          <Link href={repositoryUrl}>
+          <Link href={REPOSITORY_URL}>
             <Typography color="textSecondary" align="center">
               Built by Chris Vouga
             </Typography>
