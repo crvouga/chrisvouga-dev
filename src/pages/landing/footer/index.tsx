@@ -1,7 +1,10 @@
 import { Box, Link, Typography } from "@material-ui/core";
 import React from "react";
 import { SocialMediaIconButton } from "../../../components/social-media";
-import { SOCIAL_MEDIA, REPOSITORY_URL } from "../../../shared/constants";
+import {
+  SOCIAL_MEDIA,
+  PERSONAL_SITE_REPOSITORY_URL,
+} from "../../../shared/constants";
 import { SectionContainer } from "../section";
 
 export const Footer = () => {
@@ -14,7 +17,7 @@ export const Footer = () => {
       </Box>
       <Box display="flex" justifyContent="center">
         <Box p={1}>
-          <Link href={REPOSITORY_URL}>
+          <Link href={PERSONAL_SITE_REPOSITORY_URL}>
             <Typography color="textSecondary" align="center">
               Built by Chris Vouga
             </Typography>

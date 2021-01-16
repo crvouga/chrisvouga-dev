@@ -13,6 +13,18 @@
         "origin": "AUTHORED",
         "exported": false
     },
+    "constants": {
+        "files": [
+            {
+                "relativePath": "src/shared/constants.tsx",
+                "test": false,
+                "name": "constants.tsx"
+            }
+        ],
+        "mainFile": "src/shared/constants.tsx",
+        "origin": "AUTHORED",
+        "exported": false
+    },
     "crvouga.personal/logo@1.0.3": {
         "files": [
             {
@@ -48,6 +60,42 @@
         "mainFile": "src/components/personal/README.md",
         "origin": "AUTHORED",
         "exported": true
+    },
+    "shared/attribution-button": {
+        "files": [
+            {
+                "relativePath": "src/shared/attribution-button.tsx",
+                "test": false,
+                "name": "attribution-button.tsx"
+            }
+        ],
+        "mainFile": "src/shared/attribution-button.tsx",
+        "origin": "AUTHORED",
+        "exported": false
+    },
+    "shared/logo": {
+        "files": [
+            {
+                "relativePath": "src/shared/logo.tsx",
+                "test": false,
+                "name": "logo.tsx"
+            }
+        ],
+        "mainFile": "src/shared/logo.tsx",
+        "origin": "AUTHORED",
+        "exported": false
+    },
+    "shared/personal-attribution": {
+        "files": [
+            {
+                "relativePath": "src/shared/personal-attribution.tsx",
+                "test": false,
+                "name": "personal-attribution.tsx"
+            }
+        ],
+        "mainFile": "src/shared/personal-attribution.tsx",
+        "origin": "AUTHORED",
+        "exported": false
     },
     "version": "14.8.8"
 }

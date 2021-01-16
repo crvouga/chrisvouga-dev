@@ -1,6 +1,7 @@
-export const LIVE_SITE_URL = `https://chrisvouga.dev/`;
+export const PERSONAL_SITE_URL = `https://chrisvouga.dev/`;
 
-export const REPOSITORY_URL = "https://github.com/crvouga/personal-website";
+export const PERSONAL_SITE_REPOSITORY_URL =
+  "https://github.com/crvouga/personal-website";
 
 export const PROJECTS = [
   {
@@ -39,3 +40,10 @@ export const SOCIAL_MEDIA = [
     url: "https://twitter.com/ChrisVouga",
   },
 ];
+
+export default {
+  SOCIAL_MEDIA,
+  PROJECTS,
+  PERSONAL_SITE_URL,
+  PERSONAL_SITE_REPOSITORY_URL,
+};
