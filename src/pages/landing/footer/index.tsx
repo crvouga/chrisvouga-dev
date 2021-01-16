@@ -1,10 +1,7 @@
 import { Box, Link, Typography } from "@material-ui/core";
 import React from "react";
 import { SocialMediaIconButton } from "../../../components/social-media";
-import {
-  SOCIAL_MEDIA,
-  PERSONAL_SITE_REPOSITORY_URL,
-} from "../../../shared/constants";
+import { SOCIAL_MEDIA, PERSONAL_SITE_REPOSITORY_URL } from "../../../constants";
 import { SectionContainer } from "../section";
 
 export const Footer = () => {

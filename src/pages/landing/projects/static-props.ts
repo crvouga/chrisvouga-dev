@@ -1,7 +1,7 @@
 import { capitalize } from "@material-ui/core";
 import { Octokit } from "@octokit/rest";
 import { getGithubPersonalAccessToken } from "../../../config";
-import { PROJECTS } from "../../../shared/constants";
+import { PROJECTS } from "../../../constants";
 import { castUrl, encodeUrl } from "../../../utility";
 import { IProjectCardProps } from "./project-card";
 
