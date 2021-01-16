@@ -1,7 +1,7 @@
 import { Octokit } from "@octokit/rest";
 import puppeteer from "puppeteer";
 import { getGithubPersonalAccessToken } from "../config";
-import { PROJECTS } from "../constants";
+import { PROJECTS } from "../personal-information";
 import { delay, encodeUrl } from "../utility";
 
 export const octokit = new Octokit({
