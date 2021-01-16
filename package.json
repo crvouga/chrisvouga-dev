@@ -33,7 +33,9 @@
     "child_process": false
   },
   "bit": {
-    "env": {},
+    "env": {
+      "compiler": "bit.envs/compilers/react-typescript@3.1.64"
+    },
     "componentsDefaultDirectory": "components/{name}",
     "packageManager": "npm"
   }
