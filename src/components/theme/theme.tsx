@@ -37,6 +37,10 @@ const themeOptions: ThemeOptions = {
   overrides: {
     MuiCssBaseline: {
       "@global": {
+        ".grecaptcha-badge": {
+          visibility: "hidden",
+        },
+
         html: {
           scrollBehavior: "smooth",
         },
