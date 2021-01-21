@@ -2,11 +2,9 @@ import {
   Box,
   Button,
   Card,
-  CardActionArea,
   CardActions,
   CardContent,
   CardHeader,
-  CardMedia,
   IconButton,
   Link,
   makeStyles,
@@ -17,6 +15,7 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import WebIcon from "@material-ui/icons/Web";
 import React from "react";
 import { GithubTopicChipGroup } from "../../../components/github-topics";
+import Image from "next/image";
 
 export interface IProjectCardProps {
   src: string;
@@ -29,6 +28,7 @@ export interface IProjectCardProps {
 
 const useStyles = makeStyles(() => ({
   media: {
+    position: "relative",
     height: 0,
     paddingTop: "75%",
   },
@@ -78,9 +78,10 @@ export const ProjectCard = (props: IProjectCardProps) => {
             </IconButton>
           }
         />
-        <CardActionArea>
-          <CardMedia className={classes.media} image={src} />
-        </CardActionArea>
+
+        <Box className={classes.media}>
+          <Image layout="fill" alt={description} src={src} />
+        </Box>
       </Link>
 
       <CardContent className={classes.content}>
