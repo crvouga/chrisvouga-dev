@@ -12,10 +12,6 @@ export const SOCIAL_MEDIA = [
     name: "Linkedin",
     url: "https://www.linkedin.com/in/chris-vouga/",
   },
-  {
-    name: "Twitter",
-    url: "https://twitter.com/ChrisVouga",
-  },
 ];
 
 export const PROJECTS = [
