@@ -29,6 +29,10 @@ export const PROJECTS = [
   },
   {
     ownerName: "crvouga",
+    repositoryName: "bug-tracker",
+  },
+  {
+    ownerName: "crvouga",
     repositoryName: "match-three",
   },
   {
