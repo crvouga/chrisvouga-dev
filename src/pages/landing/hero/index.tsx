@@ -9,6 +9,7 @@ import {
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "75px",
   },
+
   section: {
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(12),
@@ -44,8 +46,8 @@ export const Hero = () => {
   return (
     <Box className={classes.root} id="hero">
       <Container maxWidth="lg" className={classes.section}>
-        <Grid container direction="row" alignItems="center">
-          <Grid item md={6}>
+        <Grid container direction="row" alignItems="center" justify="center">
+          <Grid item xs={12} sm={12} md={6}>
             <Typography variant="h4">
               <Box color="#fff" fontWeight="bold">
                 Hello, my name is
@@ -73,10 +75,10 @@ export const Hero = () => {
             </Link>
           </Grid>
 
-          <Grid item md={6}>
-            <Container maxWidth="xs">
-              <img width="100%" height="100%" src="/hero.svg" />
-            </Container>
+          <Grid item xs={12} sm={8} md={6}>
+            <Box position="relative" paddingTop="100%" height={0} margin="auto">
+              <Image layout="fill" src="/hero.svg" alt="hero" />
+            </Box>
           </Grid>
         </Grid>
       </Container>
