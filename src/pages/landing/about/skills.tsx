@@ -16,7 +16,7 @@ export const SkillsCard = () => {
     <AboutCard>
       <CardHeader title="Technology" />
 
-      <AboutCardImage src="/code.svg" />
+      <AboutCardImage src="/code.svg" alt="code" />
 
       <CardContent>
         <Typography component="div" variant="body1" color="textSecondary">

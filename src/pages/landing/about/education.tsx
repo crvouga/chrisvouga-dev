@@ -30,7 +30,7 @@ export const EducationCard = () => {
     <AboutCard>
       <CardHeader title="Education" />
 
-      <AboutCardImage src="/diploma.svg" />
+      <AboutCardImage src="/diploma.svg" alt="diploma" />
 
       <CardContent>
         <Typography component="div" variant="body1" color="textSecondary">

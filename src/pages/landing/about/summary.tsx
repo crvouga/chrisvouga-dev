@@ -10,7 +10,7 @@ export const SummaryCard = () => {
     <AboutCard>
       <CardHeader title="Summary" />
 
-      <AboutCardImage src={personalLogoSrc} />
+      <AboutCardImage src={personalLogoSrc} alt="personal logo" />
 
       <CardContent>
         <Typography variant="body1" color="textSecondary">

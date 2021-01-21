@@ -1,5 +1,6 @@
 import { makeStyles, withStyles, Card } from "@material-ui/core";
 import React from "react";
+import Image from "next/image";
 
 const useStyles = makeStyles(() => ({
   cardImageContainer: {
@@ -18,11 +19,11 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const AboutCardImage = ({ src }: { src: string }) => {
+export const AboutCardImage = ({ src, alt }: { src: string; alt: string }) => {
   const classes = useStyles();
   return (
     <div className={classes.cardImageContainer}>
-      <img className={classes.cardImage} src={src} />
+      <Image layout="fill" src={src} alt={alt} />
     </div>
   );
 };
