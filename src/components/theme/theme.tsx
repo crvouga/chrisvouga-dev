@@ -1,4 +1,8 @@
-import { createMuiTheme, ThemeOptions } from "@material-ui/core/styles";
+import {
+  createMuiTheme,
+  responsiveFontSizes,
+  ThemeOptions,
+} from "@material-ui/core/styles";
 import merge from "deepmerge";
 
 export type ThemeType = "light" | "dark";
@@ -63,7 +67,7 @@ const themeTypeToThemeOptions: { [themeType in ThemeType]: ThemeOptions } = {
 };
 
 export const createTheme = (themeType: ThemeType) => {
-  return createMuiTheme(
-    merge(themeOptions, themeTypeToThemeOptions[themeType])
+  return responsiveFontSizes(
+    createMuiTheme(merge(themeOptions, themeTypeToThemeOptions[themeType]))
   );
 };

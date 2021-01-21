@@ -36,12 +36,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(12),
   },
-
-  heading: {
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "3.2em",
-    },
-  },
 }));
 
 export const Hero = () => {
@@ -52,24 +46,19 @@ export const Hero = () => {
       <Container maxWidth="lg" className={classes.section}>
         <Grid container direction="row" alignItems="center">
           <Grid item md={6}>
-            <Typography variant="h6">
+            <Typography variant="h4">
               <Box color="#fff" fontWeight="bold">
                 Hello, my name is
               </Box>
             </Typography>
-            <Typography variant="h2" className={classes.heading}>
+            <Typography variant="h1">
               <Box fontWeight="bold" color="#fff">
-                Chris Vouga.
+                Chris Vouga
               </Box>
             </Typography>
-            <Typography
-              variant="h3"
-              color="textSecondary"
-              className={classes.heading}
-              gutterBottom
-            >
+            <Typography variant="h2" color="textSecondary" gutterBottom>
               <Box color="#fff" fontWeight="bold">
-                I'm a software developer.
+                Software Developer
               </Box>
             </Typography>
             <Link href="/#projects">
