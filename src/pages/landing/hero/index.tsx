@@ -63,13 +63,13 @@ export const Hero = () => {
               </Box>
             </Typography>
             <Typography
-              variant="h2"
+              variant="h3"
               color="textSecondary"
               className={classes.heading}
               gutterBottom
             >
               <Box color="#fff" fontWeight="bold">
-                I build things for the web.
+                I'm a software developer.
               </Box>
             </Typography>
             <Link href="/#projects">
@@ -79,7 +79,7 @@ export const Hero = () => {
                 variant="outlined"
                 startIcon={<ArrowDownwardIcon />}
               >
-                Check out work
+                Projects
               </Button>
             </Link>
           </Grid>
