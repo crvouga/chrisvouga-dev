@@ -1,7 +1,7 @@
 import { AppProps } from "next/dist/next-server/lib/router/router";
-import Head from "next/head";
 import React from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import { SEO } from "../src/components/seo";
 import ThemeProvider from "../src/components/theme/theme-provider";
 import { getReCaptchKey } from "../src/config";
 
@@ -18,10 +18,7 @@ const App = (props: AppProps) => {
 
   return (
     <React.Fragment>
-      <Head>
-        <link rel="icon" type="image/png" href="/personal-logo.png" />
-        <title>Chris Vouga</title>
-      </Head>
+      <SEO />
       <GoogleReCaptchaProvider reCaptchaKey={getReCaptchKey()}>
         <ThemeProvider>
           <Component {...pageProps} />
