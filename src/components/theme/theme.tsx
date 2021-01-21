@@ -39,6 +39,11 @@ const themeOptions: ThemeOptions = {
     },
   },
   overrides: {
+    MuiButton: {
+      label: {
+        fontWeight: "bolder",
+      },
+    },
     MuiCssBaseline: {
       "@global": {
         ".grecaptcha-badge": {
