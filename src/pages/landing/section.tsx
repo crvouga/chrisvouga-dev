@@ -17,7 +17,7 @@ export const SECTION_TO_URL: { [section in Sections]: string } = {
 export const SECTION_TO_NAME: { [section in Sections]: string } = {
   [Sections.About]: "About",
   [Sections.Contact]: "Contact",
-  [Sections.Projects]: "Work",
+  [Sections.Projects]: "Projects",
 };
 
 export const SECTION_ORDER = [
