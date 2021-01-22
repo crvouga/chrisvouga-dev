@@ -1,13 +1,11 @@
-import {
-  Avatar,
-  Box,
-  CardContent,
-  CardHeader,
-  Chip,
-  Typography,
-} from "@material-ui/core";
-import Link from "next/link";
+import Avatar from "@material-ui/core/Avatar";
+import Box from "@material-ui/core/Box";
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+import Chip from "@material-ui/core/Chip";
+import Typography from "@material-ui/core/Typography";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { AboutCard, AboutCardImage } from "./card";
 

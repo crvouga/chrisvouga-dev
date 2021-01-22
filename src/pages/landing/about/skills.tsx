@@ -1,4 +1,6 @@
-import { CardContent, CardHeader, Typography } from "@material-ui/core";
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+import Typography from "@material-ui/core/Typography";
 import React from "react";
 import * as R from "remeda";
 import { GithubTopicChipGroup } from "../../../components/github-topics";

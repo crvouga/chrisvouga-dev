@@ -1,4 +1,4 @@
-import { Theme } from "@material-ui/core";
+import { Theme } from "@material-ui/core/styles";
 
 export const themeToFill = (theme: Theme) =>
   theme.palette.background.default

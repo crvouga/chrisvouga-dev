@@ -1,17 +1,13 @@
-import {
-  Box,
-  Button,
-  ButtonProps,
-  Card,
-  CardContent,
-  CircularProgress,
-  Container,
-  Dialog,
-  Grid,
-  TextField,
-  TextFieldProps,
-  Typography,
-} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import Button, { ButtonProps } from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Container from "@material-ui/core/Container";
+import Dialog from "@material-ui/core/Dialog";
+import Grid from "@material-ui/core/Grid";
+import TextField, { TextFieldProps } from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import ErrorIcon from "@material-ui/icons/Error";
 import SendIcon from "@material-ui/icons/Send";

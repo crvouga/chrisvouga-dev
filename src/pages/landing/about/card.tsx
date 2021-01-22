@@ -1,6 +1,8 @@
-import { makeStyles, withStyles, Card } from "@material-ui/core";
-import React from "react";
+import Card from "@material-ui/core/Card";
+import makeStyles from "@material-ui/styles/makeStyles";
+import withStyles from "@material-ui/styles/withStyles";
 import Image from "next/image";
+import React from "react";
 
 const useStyles = makeStyles(() => ({
   cardImageContainer: {

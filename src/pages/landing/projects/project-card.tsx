@@ -1,15 +1,13 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  IconButton,
-  Link,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+import IconButton from "@material-ui/core/IconButton";
+import Link from "@material-ui/core/Link";
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
 import CallMadeIcon from "@material-ui/icons/CallMade";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import WebIcon from "@material-ui/icons/Web";

@@ -1,7 +1,9 @@
-import { Box, BoxProps, Container } from "@material-ui/core";
+import Box, { BoxProps } from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
 import InfoIcon from "@material-ui/icons/Info";
 import SendIcon from "@material-ui/icons/Send";
 import WebIcon from "@material-ui/icons/Web";
+
 export enum Sections {
   About = "About",
   Projects = "Projects",

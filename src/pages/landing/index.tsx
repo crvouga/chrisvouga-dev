@@ -1,4 +1,3 @@
-import { Box } from "@material-ui/core";
 import React from "react";
 import { About } from "./about";
 import { Contact } from "./contact";
@@ -9,7 +8,7 @@ import { Projects } from "./projects";
 
 export const LandingPage = () => {
   return (
-    <Box>
+    <React.Fragment>
       <NavigationBar />
 
       <Hero />
@@ -19,6 +18,6 @@ export const LandingPage = () => {
       <Contact />
 
       <Footer />
-    </Box>
+    </React.Fragment>
   );
 };

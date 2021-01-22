@@ -1,12 +1,10 @@
-import {
-  Avatar,
-  Box,
-  CardContent,
-  CardHeader,
-  Chip,
-  Link,
-  Typography,
-} from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
+import Box from "@material-ui/core/Box";
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+import Chip from "@material-ui/core/Chip";
+import Link from "@material-ui/core/Link";
+import Typography from "@material-ui/core/Typography";
 import Image from "next/image";
 import React from "react";
 import { usePersonalLogoSrc } from "../../../components/theme";
@@ -41,7 +39,7 @@ export const SummaryCard = () => {
       <AboutCardImage src={personalLogoSrc} alt="chris vouga logo" />
 
       <CardContent>
-        <Typography variant="body1" color="textSecondary">
+        <Typography component="div" variant="body1" color="textSecondary">
           Hello, my name is Chris Vouga. I'm a software developer based in the
           {locationChip}. I find it a lot of fun to create things that live on
           web. So it follows that most of my skills and expertise reside in web

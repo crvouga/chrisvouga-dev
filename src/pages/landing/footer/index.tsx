@@ -1,9 +1,11 @@
-import { Box, Link, Typography } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import Link from "next/link";
 import React from "react";
 import { SocialMediaIconButton } from "../../../components/social-media";
 import {
-  SOCIAL_MEDIA,
   PERSONAL_SITE_REPOSITORY_URL,
+  SOCIAL_MEDIA,
 } from "../../../personal-information";
 import { SectionContainer } from "../section";
 
