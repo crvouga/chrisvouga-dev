@@ -12,6 +12,16 @@ const DOMAIN = `https://chrisvouga.dev`;
 
 const LOGO = `${DOMAIN}/personal-logo.png`;
 
+const KEYWORDS = [
+  "chris",
+  "christopher",
+  "vouga",
+  "chrisvouga",
+  "christophervouga",
+];
+
+const AUTHOR = "Chris Vouga";
+
 export const SEO = () => {
   return (
     <Head>
@@ -22,6 +32,10 @@ export const SEO = () => {
       <title>{TITLE}</title>
 
       <meta name="description" content={DESCRIPTION} />
+
+      <meta name="keywords" content={KEYWORDS.join(", ")} />
+
+      <meta name="author" content={AUTHOR} />
 
       <meta name="og:title" property="og:title" content={TITLE} />
 
