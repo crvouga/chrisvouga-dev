@@ -116,13 +116,7 @@ export const NavigationBar = () => {
                 href={SECTION_TO_URL[section]}
                 key={SECTION_TO_URL[section]}
               >
-                <ListItem
-                  button
-                  divider
-                  onClick={() => {
-                    setIsDrawerOpen(false);
-                  }}
-                >
+                <ListItem button divider onClick={closeDrawer}>
                   <ListItemText
                     primary={SECTION_TO_NAME[section]}
                     primaryTypographyProps={{ variant: "button" }}
