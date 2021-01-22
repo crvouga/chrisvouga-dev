@@ -16,7 +16,8 @@ import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
+import { useBoolean } from "../../components/boolean";
 import { ElevationScroll } from "../../components/elevation-scroll";
 import { SECTION_ORDER, SECTION_TO_NAME, SECTION_TO_URL } from "./section";
 
@@ -38,15 +39,7 @@ const useStyles = makeStyles((theme) => ({
 export const NavigationBar = () => {
   const classes = useStyles();
 
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const closeDrawer = () => {
-    setIsDrawerOpen(false);
-  };
-
-  const openDrawer = () => {
-    setIsDrawerOpen(false);
-  };
+  const open = useBoolean(false);
 
   return (
     <React.Fragment>
@@ -84,7 +77,7 @@ export const NavigationBar = () => {
               </Hidden>
 
               <Hidden smUp>
-                <IconButton aria-label="open drawer" onClick={openDrawer}>
+                <IconButton aria-label="open drawer" onClick={open.setTrue}>
                   <Box color="#fff">
                     <MenuIcon color="inherit" />
                   </Box>
@@ -100,12 +93,12 @@ export const NavigationBar = () => {
       <Drawer
         keepMounted
         anchor="right"
-        open={isDrawerOpen}
-        onClose={closeDrawer}
+        open={open.value}
+        onClose={open.setFalse}
       >
         <Toolbar>
           <Box flex={1} />
-          <IconButton aria-label="close drawer" onClick={closeDrawer}>
+          <IconButton aria-label="close drawer" onClick={open.setFalse}>
             <CloseIcon />
           </IconButton>
         </Toolbar>
@@ -116,7 +109,7 @@ export const NavigationBar = () => {
                 href={SECTION_TO_URL[section]}
                 key={SECTION_TO_URL[section]}
               >
-                <ListItem button divider onClick={closeDrawer}>
+                <ListItem button divider onClick={open.setFalse}>
                   <ListItemText
                     primary={SECTION_TO_NAME[section]}
                     primaryTypographyProps={{ variant: "button" }}
