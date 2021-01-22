@@ -2,27 +2,29 @@ import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
-import * as R from "remeda";
 import { GithubTopicChipGroup } from "../../../components/github-topics";
 import { useLandingPageStaticProps } from "../static-props";
 import { AboutCard, AboutCardImage } from "./card";
 
+const descend = <T,>(keyfn: (x: T) => number) => (a: T, b: T) =>
+  keyfn(b) - keyfn(a);
+
 export const SkillsCard = () => {
   const { projectCardsProps } = useLandingPageStaticProps();
 
-  const topicFrequencies = R.pipe(
-    projectCardsProps,
-    R.flatMap(R.prop("topics")),
-    R.groupBy(R.identity),
-    R.mapValues((topics) => topics.length)
-  );
+  const topicFrequencies = projectCardsProps
+    .flatMap((props) => props.topics)
+    .reduce(
+      (topicFrequencies: { [topic: string]: number }, topic) => ({
+        ...topicFrequencies,
+        [topic]: topic in topicFrequencies ? topicFrequencies[topic] + 1 : 1,
+      }),
+      {}
+    );
 
-  const topTopics = R.pipe(
-    topicFrequencies,
-    Object.keys,
-    R.sortBy((topic) => -topicFrequencies[topic]),
-    R.take(5)
-  );
+  const topTopics = Object.keys(topicFrequencies)
+    .sort(descend((topic) => topicFrequencies[topic]))
+    .slice(0, 5);
 
   const chips = (
     <GithubTopicChipGroup topics={topTopics} ChipProps={{ size: "small" }} />

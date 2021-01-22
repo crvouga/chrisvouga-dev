@@ -16,15 +16,15 @@
     "deepmerge": "^4.2.2",
     "email-validator": "^2.0.4",
     "next": "10.0.4",
+    "pipe-ts": "^0.0.9",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "remeda": "^0.0.27",
     "sharp": "^0.27.0"
   },
   "devDependencies": {
+    "@types/node": "^14.14.14",
     "@types/puppeteer": "^5.4.2",
     "puppeteer": "^5.5.0",
-    "@types/node": "^14.14.14",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   },

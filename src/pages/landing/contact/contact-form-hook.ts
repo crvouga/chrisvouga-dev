@@ -1,6 +1,6 @@
 import axios from "axios";
+import { pipe } from "pipe-ts";
 import React, { useRef, useState } from "react";
-import { omit, pipe } from "remeda";
 import { getContactFormEndpoint } from "../../../config";
 import {
   castContactForm,
@@ -9,15 +9,19 @@ import {
   validateContactForm,
 } from "./contact-form-domain";
 
+const removeKey = <T>(key: keyof T, object: T) => {
+  const { [key]: _, ...rest } = object;
+  return rest;
+};
+
 const formEventToFormData = (formEvent: React.FormEvent<HTMLFormElement>) =>
   pipe(
-    formEvent,
-    (formEvent) => formEvent.currentTarget,
+    (formEvent: React.FormEvent<HTMLFormElement>) => formEvent.currentTarget,
     (form) => new FormData(form),
     (formData) => Array.from(formData.entries()),
     (entries) => entries.map((entry) => entry.map((_) => _.toString())),
     Object.fromEntries
-  );
+  )(formEvent);
 
 export const useContactForm = () => {
   const ref = useRef<HTMLFormElement | null>(null);
@@ -25,7 +29,7 @@ export const useContactForm = () => {
   const [status, setStatus] = useState<IContactFormStatus>(null);
 
   const clearError = (key: keyof IContactFormErrors) => {
-    setErrors((errors) => omit(errors, [key]));
+    setErrors((errors) => removeKey(key, errors));
   };
 
   const reset = () => {
