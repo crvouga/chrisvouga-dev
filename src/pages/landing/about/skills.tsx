@@ -39,7 +39,7 @@ export const SkillsCard = () => {
           Some things I've been using in my projects: {chips}
           The philosophy I live by is to learn and adopt technology on a
           need-to-nerd basis. In other words, focus on tech that gets the job
-          done right rather than fashionability.
+          done rather than what is currently fashionable.
         </Typography>
       </CardContent>
     </AboutCard>
