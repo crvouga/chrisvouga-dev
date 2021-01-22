@@ -16,10 +16,11 @@ import {
 } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { ElevationScroll } from "../../components/elevation-scroll";
-import { SECTION_ORDER, SECTION_TO_URL, SECTION_TO_NAME } from "./section";
+import { SECTION_ORDER, SECTION_TO_NAME, SECTION_TO_URL } from "./section";
 
 const useStyles = makeStyles((theme) => ({
   gutter: {
@@ -46,10 +47,13 @@ export const NavigationBar = () => {
               <Link href="/">
                 <Box color="#fff">
                   <ButtonBase color="inherit">
-                    <Avatar
-                      alt="chris vouga logo"
-                      src="/personal-logo-dark.svg"
-                    />
+                    <Avatar>
+                      <Image
+                        layout="fill"
+                        alt="chris vouga logo"
+                        src="/personal-logo-dark.svg"
+                      />
+                    </Avatar>
                   </ButtonBase>
                 </Box>
               </Link>
