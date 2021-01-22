@@ -1,4 +1,3 @@
-import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -35,30 +34,40 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(12),
   },
+
+  imageContainer: {
+    position: "relative",
+    paddingTop: "100%",
+    height: 0,
+    margin: "auto",
+  },
+
+  typography: {
+    fontWeight: "bolder",
+    color: "#fff",
+  },
 }));
 
 export const Hero = () => {
   const classes = useStyles();
 
   return (
-    <Box className={classes.root} id="hero">
+    <div id="hero" className={classes.root}>
       <Container maxWidth="lg" className={classes.section}>
         <Grid container direction="row" alignItems="center" justify="center">
           <Grid item xs={12} sm={12} md={6}>
-            <Typography variant="h4">
-              <Box color="#fff" fontWeight="bold">
-                Hello, my name is
-              </Box>
+            <Typography className={classes.typography} variant="h4">
+              Hello, my name is
             </Typography>
-            <Typography variant="h1">
-              <Box fontWeight="bold" color="#fff">
-                Chris Vouga
-              </Box>
+            <Typography className={classes.typography} variant="h1">
+              Chris Vouga
             </Typography>
-            <Typography variant="h2" color="textSecondary" gutterBottom>
-              <Box color="#fff" fontWeight="bold">
-                Software Developer
-              </Box>
+            <Typography
+              className={classes.typography}
+              variant="h2"
+              gutterBottom
+            >
+              Software Developer
             </Typography>
 
             <Button
@@ -73,12 +82,12 @@ export const Hero = () => {
           </Grid>
 
           <Grid item xs={12} sm={8} md={6}>
-            <Box position="relative" paddingTop="100%" height={0} margin="auto">
+            <div className={classes.imageContainer}>
               <Image priority layout="fill" src="/hero.svg" alt="hero" />
-            </Box>
+            </div>
           </Grid>
         </Grid>
       </Container>
-    </Box>
+    </div>
   );
 };
