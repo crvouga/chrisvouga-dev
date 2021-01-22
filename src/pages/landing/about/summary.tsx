@@ -1,12 +1,13 @@
 import {
-  Link,
-  CardContent,
-  CardHeader,
-  Typography,
-  Chip,
   Avatar,
   Box,
+  CardContent,
+  CardHeader,
+  Chip,
+  Link,
+  Typography,
 } from "@material-ui/core";
+import Image from "next/image";
 import React from "react";
 import { usePersonalLogoSrc } from "../../../components/theme";
 import { AboutCard, AboutCardImage } from "./card";
@@ -20,7 +21,11 @@ export const SummaryCard = () => {
     <Link href={`http://google.com/search?q=${location}`}>
       <Box display="inline" p={1 / 2}>
         <Chip
-          avatar={<Avatar src="/arizona-flag.png" />}
+          avatar={
+            <Avatar>
+              <Image layout="fill" alt="arizona flag" src="/arizona-flag.png" />
+            </Avatar>
+          }
           clickable
           size="small"
           label={location}
@@ -33,7 +38,7 @@ export const SummaryCard = () => {
     <AboutCard>
       <CardHeader title="Overview" />
 
-      <AboutCardImage src={personalLogoSrc} alt="personal logo" />
+      <AboutCardImage src={personalLogoSrc} alt="chris vouga logo" />
 
       <CardContent>
         <Typography variant="body1" color="textSecondary">

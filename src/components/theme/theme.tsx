@@ -39,6 +39,11 @@ const themeOptions: ThemeOptions = {
     },
   },
   overrides: {
+    MuiChip: {
+      label: {
+        fontWeight: "bold",
+      },
+    },
     MuiButton: {
       label: {
         fontWeight: "bolder",

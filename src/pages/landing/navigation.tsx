@@ -46,7 +46,10 @@ export const NavigationBar = () => {
               <Link href="/">
                 <Box color="#fff">
                   <ButtonBase color="inherit">
-                    <Avatar src="/personal-logo-dark.svg" />
+                    <Avatar
+                      alt="chris vouga logo"
+                      src="/personal-logo-dark.svg"
+                    />
                   </ButtonBase>
                 </Box>
               </Link>

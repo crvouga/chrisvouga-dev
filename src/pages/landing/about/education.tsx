@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 import { AboutCard, AboutCardImage } from "./card";
 
@@ -15,7 +16,15 @@ export const EducationCard = () => {
     <Link href="https://www.asu.edu/">
       <Box display="inline" p={1 / 2}>
         <Chip
-          avatar={<Avatar src="/asu-logo.png" />}
+          avatar={
+            <Avatar>
+              <Image
+                layout="fill"
+                alt="arizona state univeristy logo "
+                src="/asu-logo-fork.png"
+              />
+            </Avatar>
+          }
           clickable
           size="small"
           label="Arizona State Univeristy"
