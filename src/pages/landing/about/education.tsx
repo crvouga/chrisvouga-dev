@@ -10,16 +10,14 @@ import Link from "next/link";
 import React from "react";
 import { AboutCard, AboutCardImage } from "./card";
 
-const ASU_URL = "https://www.asu.edu/";
 export const EducationCard = () => {
   const asuChip = (
-    <Link href={ASU_URL}>
+    <Link href={"https://www.asu.edu/"}>
       <Box display="inline" p={1 / 2}>
         <Chip
           avatar={<Avatar src="/asu-logo.png" />}
           clickable
           size="small"
-          variant="outlined"
           label="Arizona State Univeristy"
         />
       </Box>
@@ -35,10 +33,9 @@ export const EducationCard = () => {
       <CardContent>
         <Typography component="div" variant="body1" color="textSecondary">
           I have achieved a Bachelor of Science degree in Mathematics and
-          Statistics from {asuChip}. My education has sharped my problem
-          solving/analytical skills, and provided me with the ability and
-          confidence to tackle hard problems that deal with abstact concepts and
-          critical thinking.
+          Statistics from {asuChip}. Being a math major, I've always enjoyed
+          learning the theory behind software development such as type systems,
+          architecture, and functional programming (which is origin of my logo).
         </Typography>
       </CardContent>
     </AboutCard>

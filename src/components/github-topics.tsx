@@ -4,9 +4,9 @@ import {
   capitalize,
   Chip,
   ChipProps,
-  Link,
   makeStyles,
 } from "@material-ui/core";
+import Link from "next/link";
 import React from "react";
 
 const useStylesChip = makeStyles(() => ({
@@ -63,7 +63,13 @@ export const GithubTopicChip = ({
   );
 };
 
-export const GithubTopicChipGroup = ({ topics }: { topics: string[] }) => {
+export const GithubTopicChipGroup = ({
+  topics,
+  ChipProps,
+}: {
+  topics: string[];
+  ChipProps?: ChipProps;
+}) => {
   return (
     <Box
       display="flex"
@@ -71,9 +77,9 @@ export const GithubTopicChipGroup = ({ topics }: { topics: string[] }) => {
       alignContent="center"
       flexWrap="wrap"
     >
-      {topics.sort().map((topic) => (
+      {topics.map((topic) => (
         <Box key={topic} paddingRight={1 / 2} paddingBottom={1 / 2}>
-          <GithubTopicChip topic={topic} />
+          <GithubTopicChip topic={topic} {...ChipProps} />
         </Box>
       ))}
     </Box>
