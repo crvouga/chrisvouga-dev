@@ -38,7 +38,7 @@ export const SkillsCard = () => {
 
       <CardContent>
         <Typography component="div" variant="body1" color="textSecondary">
-          Some things I've been using in my projects: {chips}
+          Some of the things I've been using in my projects: {chips}
           The philosophy I live by is to learn and adopt technology on a
           need-to-nerd basis. In other words, focus on tech that gets the job
           done rather than what is currently fashionable.
