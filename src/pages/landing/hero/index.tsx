@@ -6,7 +6,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -61,21 +60,21 @@ export const Hero = () => {
                 Software Developer
               </Box>
             </Typography>
-            <Link href="/#projects">
-              <Button
-                size="large"
-                className={classes.callToAction}
-                variant="outlined"
-                startIcon={<ArrowDownwardIcon />}
-              >
-                Projects
-              </Button>
-            </Link>
+
+            <Button
+              href="/#projects"
+              size="large"
+              className={classes.callToAction}
+              variant="outlined"
+              startIcon={<ArrowDownwardIcon />}
+            >
+              Projects
+            </Button>
           </Grid>
 
           <Grid item xs={12} sm={8} md={6}>
             <Box position="relative" paddingTop="100%" height={0} margin="auto">
-              <Image layout="fill" src="/hero.svg" alt="hero" />
+              <Image priority layout="fill" src="/hero.svg" alt="hero" />
             </Box>
           </Grid>
         </Grid>

@@ -51,6 +51,7 @@ export const NavigationBar = () => {
                   <ButtonBase color="inherit">
                     <Avatar className={classes.logo}>
                       <Image
+                        priority
                         layout="fill"
                         alt="chris vouga logo"
                         src="/personal-logo-dark.svg"
