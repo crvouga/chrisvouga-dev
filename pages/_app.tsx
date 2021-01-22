@@ -1,9 +1,7 @@
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import React from "react";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { SEO } from "../src/components/seo";
 import ThemeProvider from "../src/components/theme/theme-provider";
-import { getReCaptchKey } from "../src/config";
 
 const App = (props: AppProps) => {
   const { Component, pageProps } = props;
@@ -19,11 +17,10 @@ const App = (props: AppProps) => {
   return (
     <React.Fragment>
       <SEO />
-      <GoogleReCaptchaProvider reCaptchaKey={getReCaptchKey()}>
-        <ThemeProvider>
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </GoogleReCaptchaProvider>
+
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </React.Fragment>
   );
 };

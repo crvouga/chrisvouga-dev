@@ -51,10 +51,6 @@ const themeOptions: ThemeOptions = {
     },
     MuiCssBaseline: {
       "@global": {
-        ".grecaptcha-badge": {
-          visibility: "hidden",
-        },
-
         html: {
           scrollBehavior: "smooth",
         },

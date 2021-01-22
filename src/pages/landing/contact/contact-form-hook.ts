@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { omit, pipe } from "remeda";
 import { getContactFormEndpoint } from "../../../config";
 import {
@@ -24,8 +23,6 @@ export const useContactForm = () => {
   const ref = useRef<HTMLFormElement | null>(null);
   const [errors, setErrors] = useState<IContactFormErrors>({});
   const [status, setStatus] = useState<IContactFormStatus>(null);
-
-  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const clearError = (key: keyof IContactFormErrors) => {
     setErrors((errors) => omit(errors, [key]));
@@ -57,8 +54,6 @@ export const useContactForm = () => {
     const contactForm = castContactForm(formData);
 
     try {
-      await executeRecaptcha("contact_form");
-
       await axios.post(getContactFormEndpoint(), contactForm);
       setStatus("success");
       return;
