@@ -1,4 +1,4 @@
-import React from "react";
+import { ServerStyleSheets } from "@material-ui/core/styles";
 import Document, {
   DocumentContext,
   Head,
@@ -6,7 +6,8 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import { ServerStyleSheets } from "@material-ui/core/styles";
+import React from "react";
+import { SEO } from "../src/components/seo";
 
 export default class extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -35,10 +36,7 @@ export default class extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-          /> */}
+          <SEO />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             rel="stylesheet"

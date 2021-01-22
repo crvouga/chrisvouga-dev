@@ -1,6 +1,5 @@
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import React from "react";
-import { SEO } from "../src/components/seo";
 import ThemeProvider from "../src/components/theme/theme-provider";
 
 const App = (props: AppProps) => {
@@ -15,13 +14,9 @@ const App = (props: AppProps) => {
   }, []);
 
   return (
-    <React.Fragment>
-      <SEO />
-
-      <ThemeProvider>
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </React.Fragment>
+    <ThemeProvider>
+      <Component {...pageProps} />
+    </ThemeProvider>
   );
 };
 
