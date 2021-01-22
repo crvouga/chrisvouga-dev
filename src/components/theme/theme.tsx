@@ -16,12 +16,12 @@ export const castThemeType = (themeType: any): ThemeType => {
 
 const themeOptions: ThemeOptions = {
   palette: {
-    primary: {
-      main: "#02A6F2",
-    },
-    secondary: {
-      main: "#53C1A2",
-    },
+    // primary: {
+    //   main: "#02A6F2",
+    // },
+    // secondary: {
+    //   main: "#53C1A2",
+    // },
   },
   typography: {
     fontWeightRegular: "bold",

@@ -10,7 +10,7 @@ import { SummaryCard } from "./summary";
 export const About = () => {
   return (
     <SectionContainer id="about">
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h3" gutterBottom>
         <Box fontWeight="bold">A Little Bit About Me</Box>
       </Typography>
 

@@ -51,7 +51,12 @@ export const ProjectCard = (props: IProjectCardProps) => {
         <CardHeader
           title={title}
           action={
-            <IconButton disableRipple disableFocusRipple disableTouchRipple>
+            <IconButton
+              disableRipple
+              disableFocusRipple
+              disableTouchRipple
+              aria-label="go to project"
+            >
               <CallMadeIcon />
             </IconButton>
           }

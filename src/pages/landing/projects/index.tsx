@@ -11,7 +11,7 @@ export const Projects = () => {
 
   return (
     <SectionContainer id="projects">
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h3" gutterBottom>
         <Box fontWeight="bold">Some of the Things I've Built</Box>
       </Typography>
       <Grid container spacing={2}>

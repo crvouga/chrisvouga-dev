@@ -111,6 +111,7 @@ const ErrorDialog = ({
 const EmailAddressTextField = (props: TextFieldProps) => {
   return (
     <TextField
+      id="emailAddress"
       variant="outlined"
       fullWidth
       label="Email Address"
@@ -125,6 +126,7 @@ const EmailAddressTextField = (props: TextFieldProps) => {
 export const MessageTextField = (props: TextFieldProps) => {
   return (
     <TextField
+      id="message"
       color="primary"
       variant="outlined"
       fullWidth

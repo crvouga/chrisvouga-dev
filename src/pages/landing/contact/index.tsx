@@ -7,14 +7,14 @@ import { ContactForm } from "./contact-form";
 export const Contact = () => {
   return (
     <SectionContainer id="contact">
-      <Typography align="center" variant="h4">
+      <Typography align="center" variant="h3">
         <Box fontWeight="bold">Get In Touch</Box>
       </Typography>
 
       <Typography
         align="center"
         color="textSecondary"
-        variant="h6"
+        variant="h4"
         gutterBottom
       >
         Feel free to shoot me a message!

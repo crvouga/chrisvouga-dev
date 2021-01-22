@@ -45,7 +45,7 @@ export const SocialMediaIconButton = ({
 
   return (
     <Link href={url}>
-      <IconButton {...props}>
+      <IconButton aria-label={name} {...props}>
         <SocialMediaIcon className={classes.large} name={name} />
       </IconButton>
     </Link>
