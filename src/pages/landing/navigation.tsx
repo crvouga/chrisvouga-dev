@@ -31,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     color: "#fff",
   },
+
+  logo: {
+    backgroundColor: "transparent",
+  },
 }));
 
 export const NavigationBar = () => {
@@ -47,7 +51,7 @@ export const NavigationBar = () => {
               <Link href="/">
                 <Box color="#fff">
                   <ButtonBase color="inherit">
-                    <Avatar>
+                    <Avatar className={classes.logo}>
                       <Image
                         layout="fill"
                         alt="chris vouga logo"
