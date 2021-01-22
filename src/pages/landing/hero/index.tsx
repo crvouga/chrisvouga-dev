@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
       linear-gradient(
         to bottom,
         ${theme.palette.primary.main}, 
-        ${theme.palette.secondary.main}, 99%,
+        ${theme.palette.primary.light}, 99%,
         ${theme.palette.background.default} 99%
       )`,
   },
