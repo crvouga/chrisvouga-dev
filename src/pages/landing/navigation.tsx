@@ -45,7 +45,6 @@ export const NavigationBar = () => {
       <ElevationScroll>
         <AppBar>
           <Container maxWidth="lg" disableGutters>
-            ˜
             <Toolbar>
               <Link href="/">
                 <Box color="#fff">
