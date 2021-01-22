@@ -42,8 +42,8 @@ export const SummaryCard = () => {
         <Typography component="div" variant="body1" color="textSecondary">
           Hello, my name is Chris Vouga. I'm a software developer based in the
           {locationChip}. I find it a lot of fun to create things that live on
-          web. So it follows that most of my skills and expertise reside in web
-          development. A random fact about me is that I play the drums.
+          the web. So it follows that most of my skills and expertise reside in
+          web development. A random fact about me is that I play the drums.
         </Typography>
       </CardContent>
     </AboutCard>

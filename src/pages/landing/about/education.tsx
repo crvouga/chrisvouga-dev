@@ -41,7 +41,7 @@ export const EducationCard = () => {
         <Typography component="div" variant="body1" color="textSecondary">
           I have achieved a Bachelor of Science degree in Mathematics and
           Statistics from {asuChip}. Being a math major, I've always enjoyed
-          learning the theory behind software development like type systems,
+          learning the theory behind software development such as type systems,
           architecture, and functional programming (which is origin of my logo).
         </Typography>
       </CardContent>
