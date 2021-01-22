@@ -40,6 +40,14 @@ export const NavigationBar = () => {
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+  };
+
+  const openDrawer = () => {
+    setIsDrawerOpen(false);
+  };
+
   return (
     <React.Fragment>
       <ElevationScroll>
@@ -76,11 +84,7 @@ export const NavigationBar = () => {
               </Hidden>
 
               <Hidden smUp>
-                <IconButton
-                  onClick={() => {
-                    setIsDrawerOpen(true);
-                  }}
-                >
+                <IconButton aria-label="open drawer" onClick={openDrawer}>
                   <Box color="#fff">
                     <MenuIcon color="inherit" />
                   </Box>
@@ -97,17 +101,11 @@ export const NavigationBar = () => {
         keepMounted
         anchor="right"
         open={isDrawerOpen}
-        onClose={() => {
-          setIsDrawerOpen(false);
-        }}
+        onClose={closeDrawer}
       >
         <Toolbar>
           <Box flex={1} />
-          <IconButton
-            onClick={() => {
-              setIsDrawerOpen(false);
-            }}
-          >
+          <IconButton aria-label="close drawer" onClick={closeDrawer}>
             <CloseIcon />
           </IconButton>
         </Toolbar>
