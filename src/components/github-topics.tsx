@@ -30,6 +30,7 @@ const topicToImageSrc: { [key: string]: string } = {
   express: "/express.svg",
   nodejs: "/nodejs-icon.svg",
   puppeteer: "/puppeteer.svg",
+  formspree: "/formspree-logo.png",
 };
 
 const topicToLabel = (topic: string) =>

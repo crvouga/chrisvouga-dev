@@ -21,7 +21,7 @@ export const PROJECTS = [
   },
   {
     ownerName: "crvouga",
-    repositoryName: "connect-four",
+    repositoryName: "personal-website",
   },
   {
     ownerName: "crvouga",
@@ -29,11 +29,11 @@ export const PROJECTS = [
   },
   {
     ownerName: "crvouga",
-    repositoryName: "match-three",
+    repositoryName: "connect-four",
   },
   {
     ownerName: "crvouga",
-    repositoryName: "personal-website",
+    repositoryName: "match-three",
   },
   {
     ownerName: "crvouga",
