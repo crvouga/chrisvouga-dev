@@ -13,7 +13,6 @@
     "@material-ui/icons": "^4.11.2",
     "@octokit/rest": "^18.0.12",
     "axios": "^0.21.1",
-    "deepmerge": "^4.2.2",
     "email-validator": "^2.0.4",
     "next": "10.0.4",
     "pipe-ts": "^0.0.9",
