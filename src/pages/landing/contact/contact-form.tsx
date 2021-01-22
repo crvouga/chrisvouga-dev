@@ -14,6 +14,7 @@ import SendIcon from "@material-ui/icons/Send";
 import React from "react";
 import { IContactFormStatus } from "./contact-form-domain";
 import { useContactForm } from "./contact-form-hook";
+import { getContactFormEndpoint } from "../../../config";
 
 const SubmitButton = (props: ButtonProps) => {
   return (
@@ -149,7 +150,12 @@ export const ContactForm = () => {
       <SuccessDialog status={status} onClose={reset} />
       <ErrorDialog status={status} onClose={reset} />
 
-      <form ref={ref} onSubmit={submit}>
+      <form
+        ref={ref}
+        onSubmit={submit}
+        action={getContactFormEndpoint()}
+        method="POST"
+      >
         <Container maxWidth="sm" disableGutters>
           <Card>
             <CardContent>

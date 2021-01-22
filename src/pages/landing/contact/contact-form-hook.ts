@@ -1,7 +1,5 @@
-import axios from "axios";
 import { pipe } from "pipe-ts";
 import React, { useRef, useState } from "react";
-import { getContactFormEndpoint } from "../../../config";
 import {
   castContactForm,
   IContactFormErrors,
@@ -45,6 +43,8 @@ export const useContactForm = () => {
 
     formEvent.preventDefault();
 
+    const form = formEvent.currentTarget;
+
     const formData = formEventToFormData(formEvent);
 
     const errors = validateContactForm(formData);
@@ -58,7 +58,15 @@ export const useContactForm = () => {
     const contactForm = castContactForm(formData);
 
     try {
-      await axios.post(getContactFormEndpoint(), contactForm);
+      await fetch(form.action, {
+        method: form.method,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contactForm),
+      });
+
       setStatus("success");
       return;
     } catch (error) {
