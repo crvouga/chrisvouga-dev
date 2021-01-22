@@ -1,4 +1,5 @@
 import React from "react";
+import { encodeUrl } from "../utility";
 
 const TITLE = "Chris Vouga | Software Developer";
 
@@ -9,7 +10,7 @@ const DESCRIPTION = `
 
 const DOMAIN = `https://chrisvouga.dev`;
 
-const LOGO = `${DOMAIN}/personal-logo.png`;
+const IMAGE = `${DOMAIN}/${encodeUrl(DOMAIN)}`;
 
 const KEYWORDS = [
   "chris",
@@ -48,7 +49,7 @@ export const SEO = () => {
 
       <meta property="og:type" content="website" />
 
-      <meta property="og:image" content={LOGO} />
+      <meta property="og:image" content={IMAGE} />
     </React.Fragment>
   );
 };
