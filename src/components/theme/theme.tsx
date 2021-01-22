@@ -53,6 +53,6 @@ const themeOptions: ThemeOptions = {
   },
 };
 
-export const createTheme = (themeType: ThemeType) => {
+export const createTheme = () => {
   return responsiveFontSizes(createMuiTheme(themeOptions));
 };

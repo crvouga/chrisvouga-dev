@@ -9,7 +9,7 @@ export default function ThemeProvider(props: IThemeProviderProps) {
   const { children } = props;
 
   return (
-    <MuiThemeProvider theme={createTheme("light")}>
+    <MuiThemeProvider theme={createTheme()}>
       <CssBaseline />
       {children}
     </MuiThemeProvider>
