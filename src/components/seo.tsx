@@ -8,9 +8,9 @@ const DESCRIPTION = `
   in the Phoenix Valley. I like building things for web.
 `;
 
-const DOMAIN = `https://chrisvouga.dev`;
+const DOMAIN = `https://chrisvouga.dev/`;
 
-const IMAGE = `${DOMAIN}/${encodeUrl(DOMAIN)}.png`;
+const IMAGE = `${DOMAIN}${encodeUrl(DOMAIN)}.png`;
 
 const KEYWORDS = [
   "chris",
