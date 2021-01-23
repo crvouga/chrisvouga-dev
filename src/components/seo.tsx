@@ -10,7 +10,7 @@ const DESCRIPTION = `
 
 const DOMAIN = `https://chrisvouga.dev`;
 
-const IMAGE = `${DOMAIN}/${encodeUrl(DOMAIN)}`;
+const IMAGE = `${DOMAIN}/${encodeUrl(DOMAIN)}.png`;
 
 const KEYWORDS = [
   "chris",
