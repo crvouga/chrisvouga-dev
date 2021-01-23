@@ -5,8 +5,7 @@ import { DOMAIN } from "../personal-information";
 const TITLE = "Chris Vouga | Software Developer";
 
 const DESCRIPTION = `
-  Hello, my name is Chris Vouga. I'm a software developer based 
-  in the Phoenix Valley. I like building things for the web.
+  Personal website for Chris Vouga. Chris Vouga is a software developer.
 `;
 
 const IMAGE = `${DOMAIN}${encodeUrl(DOMAIN)}.png`;
