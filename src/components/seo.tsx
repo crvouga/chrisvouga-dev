@@ -31,6 +31,8 @@ export const SEO = () => {
 
       <title>{TITLE}</title>
 
+      <meta name="image" content={IMAGE} />
+
       <meta name="description" content={DESCRIPTION} />
 
       <meta name="keywords" content={KEYWORDS.join(", ")} />
