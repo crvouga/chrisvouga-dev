@@ -1,4 +1,4 @@
-export const PERSONAL_SITE_URL = `https://chrisvouga.dev/`;
+export const DOMAIN = `https://chrisvouga.dev/`;
 
 export const PERSONAL_SITE_REPOSITORY_URL =
   "https://github.com/crvouga/personal-website";
@@ -44,6 +44,6 @@ export const PROJECTS = [
 export default {
   SOCIAL_MEDIA,
   PROJECTS,
-  PERSONAL_SITE_URL,
+  DOMAIN,
   PERSONAL_SITE_REPOSITORY_URL,
 };

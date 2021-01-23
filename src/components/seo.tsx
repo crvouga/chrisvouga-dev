@@ -1,5 +1,6 @@
 import React from "react";
 import { encodeUrl } from "../utility";
+import { DOMAIN } from "../personal-information";
 
 const TITLE = "Chris Vouga | Software Developer";
 
@@ -7,8 +8,6 @@ const DESCRIPTION = `
   Hello, my name is Chris Vouga. I'm a software developer based 
   in the Phoenix Valley. I like building things for the web.
 `;
-
-const DOMAIN = `https://chrisvouga.dev/`;
 
 const IMAGE = `${DOMAIN}${encodeUrl(DOMAIN)}.png`;
 
