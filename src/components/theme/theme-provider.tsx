@@ -1,4 +1,4 @@
-import { CssBaseline } from "@material-ui/core";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { PropsWithChildren } from "react";
 import { createTheme } from "./theme";
