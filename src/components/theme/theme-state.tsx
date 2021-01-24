@@ -1,4 +1,4 @@
-import { IconButton } from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
 import Brightness2Icon from "@material-ui/icons/Brightness2";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import { useEffect, useState } from "react";

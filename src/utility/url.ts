@@ -1,4 +1,4 @@
-export type Url = string & { type: "Url" };
+export type Url = string & { Url: "Url" };
 
 export const castUrl = (url: any): Url => {
   new URL(url);

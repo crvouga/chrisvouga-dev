@@ -1,33 +1,26 @@
-import { pipe } from "pipe-ts";
 import React, { useRef, useState } from "react";
+import { getContactFormEndpoint } from "../../../config";
+import { getFormValue } from "../../../utility";
 import {
   castContactForm,
   IContactFormErrors,
   IContactFormStatus,
   validateContactForm,
+  EMPTY_CONTACT_FORM_ERRORS,
 } from "./contact-form-domain";
-
-const removeKey = <T>(key: keyof T, object: T) => {
-  const { [key]: _, ...rest } = object;
-  return rest;
-};
-
-const formEventToFormData = (formEvent: React.FormEvent<HTMLFormElement>) =>
-  pipe(
-    (formEvent: React.FormEvent<HTMLFormElement>) => formEvent.currentTarget,
-    (form) => new FormData(form),
-    (formData) => Array.from(formData.entries()),
-    (entries) => entries.map((entry) => entry.map((_) => _.toString())),
-    Object.fromEntries
-  )(formEvent);
 
 export const useContactForm = () => {
   const ref = useRef<HTMLFormElement | null>(null);
-  const [errors, setErrors] = useState<IContactFormErrors>({});
+  const [errors, setErrors] = useState<IContactFormErrors>(
+    EMPTY_CONTACT_FORM_ERRORS
+  );
   const [status, setStatus] = useState<IContactFormStatus>(null);
 
   const clearError = (key: keyof IContactFormErrors) => {
-    setErrors((errors) => removeKey(key, errors));
+    setErrors((errors) => ({
+      ...errors,
+      [key]: [],
+    }));
   };
 
   const reset = () => {
@@ -35,7 +28,7 @@ export const useContactForm = () => {
       ref.current.reset();
     }
     setStatus(null);
-    setErrors({});
+    setErrors(EMPTY_CONTACT_FORM_ERRORS);
   };
 
   const submit = async (formEvent: React.FormEvent<HTMLFormElement>) => {
@@ -45,7 +38,10 @@ export const useContactForm = () => {
 
     const form = formEvent.currentTarget;
 
-    const formData = formEventToFormData(formEvent);
+    const formData = {
+      emailAddress: getFormValue("emailAddress", form),
+      message: getFormValue("message", form),
+    };
 
     const errors = validateContactForm(formData);
 
@@ -58,8 +54,8 @@ export const useContactForm = () => {
     const contactForm = castContactForm(formData);
 
     try {
-      await fetch(form.action, {
-        method: form.method,
+      await fetch(getContactFormEndpoint(), {
+        method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -76,10 +72,10 @@ export const useContactForm = () => {
   };
 
   return {
-    submit,
     ref,
     errors,
     status,
+    submit,
     clearError,
     reset,
   };

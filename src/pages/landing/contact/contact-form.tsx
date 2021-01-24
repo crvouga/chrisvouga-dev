@@ -14,7 +14,6 @@ import SendIcon from "@material-ui/icons/Send";
 import React from "react";
 import { IContactFormStatus } from "./contact-form-domain";
 import { useContactForm } from "./contact-form-hook";
-import { getContactFormEndpoint } from "../../../config";
 
 const SubmitButton = (props: ButtonProps) => {
   return (
@@ -150,22 +149,15 @@ export const ContactForm = () => {
       <SuccessDialog status={status} onClose={reset} />
       <ErrorDialog status={status} onClose={reset} />
 
-      <form
-        ref={ref}
-        onSubmit={submit}
-        action={getContactFormEndpoint()}
-        method="POST"
-      >
+      <form ref={ref} onSubmit={submit}>
         <Container maxWidth="sm" disableGutters>
           <Card>
             <CardContent>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <EmailAddressTextField
-                    error={Boolean(errors.emailAddress)}
-                    helperText={
-                      errors.emailAddress ? errors.emailAddress[0].message : ""
-                    }
+                    error={errors.emailAddress.length > 0}
+                    helperText={errors.emailAddress?.[0]?.message ?? undefined}
                     onChange={
                       errors.emailAddress
                         ? () => {
@@ -178,8 +170,8 @@ export const ContactForm = () => {
 
                 <Grid item xs={12}>
                   <MessageTextField
-                    error={Boolean(errors.message)}
-                    helperText={errors.message ? errors.message[0].message : ""}
+                    error={errors.message.length > 0}
+                    helperText={errors.message?.[0]?.message ?? undefined}
                     onChange={
                       errors.message
                         ? () => {

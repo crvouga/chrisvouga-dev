@@ -1,16 +1,24 @@
-import * as EmailValidator from "email-validator";
+import {
+  castEmailAddress,
+  IEmailAddress,
+  validateEmailAddress,
+} from "../../../utility/email-address";
 
-type IEmailAddress = string & { type: "EmailAddress" };
-type IMessage = string & { type: "Message" };
+type IContactFormMessage = string & { Message: "Message" };
 
 export type IContactForm = {
   emailAddress: IEmailAddress;
-  message: IMessage;
+  message: IContactFormMessage;
 };
 
 export type IContactFormErrors = {
-  emailAddress?: Error[] | null;
-  message?: Error[] | null;
+  emailAddress: Error[];
+  message: Error[];
+};
+
+export const EMPTY_CONTACT_FORM_ERRORS: IContactFormErrors = {
+  emailAddress: [],
+  message: [],
 };
 
 export type IContactFormStatus =
@@ -20,31 +28,9 @@ export type IContactFormStatus =
   | "success"
   | null;
 
-/* 
-
-
-*/
-
-export const validateEmailAddress = (emailAddress: string) => {
-  const errors = [];
-
-  if (!EmailValidator.validate(emailAddress)) {
-    errors.push(new Error("Invalid email address"));
-  }
-
-  return errors;
-};
-
-const castEmailAddress = (emailAddress: string) => {
-  const errors = validateEmailAddress(emailAddress);
-  if (errors.length === 0) {
-    return emailAddress as IEmailAddress;
-  }
-  throw errors;
-};
-
 const MIN_MESSAGE_LENGTH = 2;
 const MAX_MESSAGE_LENGTH = 200;
+
 export const validateMessage = (message: string) => {
   const errors = [];
 
@@ -59,11 +45,13 @@ export const validateMessage = (message: string) => {
   return errors;
 };
 
-export const castMessage = (message: string) => {
+export const castContactFormMessage = (message: string) => {
   const errors = validateMessage(message);
+
   if (errors.length === 0) {
-    return message as IMessage;
+    return message as IContactFormMessage;
   }
+
   throw errors;
 };
 
@@ -89,6 +77,6 @@ export const castContactForm = ({
 }) => {
   return {
     emailAddress: castEmailAddress(emailAddress),
-    message: castMessage(message),
+    message: castContactFormMessage(message),
   };
 };
