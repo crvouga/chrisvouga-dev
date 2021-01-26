@@ -1,30 +1,18 @@
-import { Octokit } from "@octokit/rest";
 import puppeteer from "puppeteer";
-import { getGithubPersonalAccessToken } from "../config";
 import { PROJECTS } from "../personal-information";
+import { getGithubRepository } from "../services/github";
 import { delay, encodeUrl } from "../utility";
-
-export const octokit = new Octokit({
-  userAgent: "personal-website",
-  auth: getGithubPersonalAccessToken(),
-});
 
 const generateProjectScreenshots = async () => {
   const browser = await puppeteer.launch();
 
-  const generateScreenshot = async ({
-    ownerName,
-    repositoryName,
-  }: {
+  const generateScreenshot = async (params: {
     ownerName: string;
     repositoryName: string;
   }) => {
-    const response = await octokit.repos.get({
-      owner: ownerName,
-      repo: repositoryName,
-    });
+    const response = await getGithubRepository(params);
 
-    const liveSiteURL = response.data.homepage;
+    const liveSiteURL = response.homepage;
 
     if (liveSiteURL) {
       const page = await browser.newPage();

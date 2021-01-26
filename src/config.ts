@@ -9,5 +9,9 @@ export const getContactFormEndpoint = () => {
 
 //
 export const getGithubPersonalAccessToken = () => {
-  return process.env.NEXT_PUBLIC_GITHUB_PERSONAL_ACCESS_TOKEN;
+  const token = process.env.NEXT_PUBLIC_GITHUB_PERSONAL_ACCESS_TOKEN;
+  if (token) {
+    return token;
+  }
+  return "";
 };

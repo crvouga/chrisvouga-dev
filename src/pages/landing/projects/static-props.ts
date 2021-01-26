@@ -1,46 +1,38 @@
 import { capitalize } from "@material-ui/core";
-import { Octokit } from "@octokit/rest";
-import { getGithubPersonalAccessToken } from "../../../config";
 import { PROJECTS } from "../../../personal-information";
 import { castUrl, encodeUrl } from "../../../utility";
 import { IProjectCardProps } from "./project-card";
-
-export const octokit = new Octokit({
-  userAgent: "personal-website",
-  auth: getGithubPersonalAccessToken(),
-});
+import {
+  getGithubRepository,
+  getGithubRepositoryTopics,
+} from "../../../services/github";
 
 const repositoryNameToTitle = (repositoryName: string) =>
   repositoryName.split("-").map(capitalize).join(" ");
 
-const getProjectCardStaticProps = async ({
-  ownerName,
-  repositoryName,
-}: {
+const getProjectCardStaticProps = async (params: {
   ownerName: string;
   repositoryName: string;
 }): Promise<IProjectCardProps> => {
-  const params = {
-    owner: ownerName,
-    repo: repositoryName,
-  };
-
-  const [response, responseTopics] = await Promise.all([
-    octokit.repos.get(params),
-    octokit.repos.getAllTopics(params),
+  const [
+    { homepage, description, html_url },
+    { names: topics },
+  ] = await Promise.all([
+    getGithubRepository(params),
+    getGithubRepositoryTopics(params),
   ]);
 
-  const liveSiteUrl = castUrl(response.data.homepage);
+  const liveSiteUrl = castUrl(homepage);
 
   const src = `/${encodeUrl(liveSiteUrl)}.png`;
 
   return {
     liveSiteUrl,
-    description: response.data.description || "",
-    sourceCodeUrl: castUrl(response.data.html_url),
-    title: repositoryNameToTitle(repositoryName),
+    description: description || "",
+    sourceCodeUrl: castUrl(html_url),
+    title: repositoryNameToTitle(params.repositoryName),
     src,
-    topics: responseTopics.data.names || [],
+    topics: topics || [],
   };
 };
 
