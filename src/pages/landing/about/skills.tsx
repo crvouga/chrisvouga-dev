@@ -6,25 +6,8 @@ import { GithubTopicChipGroup } from "../../../components/github-topics";
 import { useLandingPageStaticProps } from "../static-props";
 import { AboutCard, AboutCardImage } from "./card";
 
-const descend = <T,>(keyfn: (x: T) => number) => (a: T, b: T) =>
-  keyfn(b) - keyfn(a);
-
 export const SkillsCard = () => {
-  const { projectCardsProps } = useLandingPageStaticProps();
-
-  const topicFrequencies = projectCardsProps
-    .flatMap((props) => props.topics)
-    .reduce(
-      (topicFrequencies: { [topic: string]: number }, topic) => ({
-        ...topicFrequencies,
-        [topic]: topic in topicFrequencies ? topicFrequencies[topic] + 1 : 1,
-      }),
-      {}
-    );
-
-  const topTopics = Object.keys(topicFrequencies)
-    .sort(descend((topic) => topicFrequencies[topic]))
-    .slice(0, 5);
+  const { topTopics } = useLandingPageStaticProps();
 
   const chips = (
     <GithubTopicChipGroup topics={topTopics} ChipProps={{ size: "small" }} />
