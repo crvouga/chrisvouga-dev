@@ -18,7 +18,7 @@ export const EducationCard = () => {
             <Avatar>
               <Image
                 layout="fill"
-                alt="arizona state univeristy logo "
+                alt="arizona state univeristy logo"
                 src="/asu-logo-fork.png"
               />
             </Avatar>
