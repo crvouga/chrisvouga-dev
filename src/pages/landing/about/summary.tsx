@@ -7,12 +7,10 @@ import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import Image from "next/image";
 import React from "react";
-import { usePersonalLogoSrc } from "../../../components/theme";
+
 import { AboutCard, AboutCardImage } from "./card";
 
 export const SummaryCard = () => {
-  const personalLogoSrc = usePersonalLogoSrc();
-
   const location = "Phoenix Valley";
 
   const locationChip = (
@@ -36,7 +34,7 @@ export const SummaryCard = () => {
     <AboutCard>
       <CardHeader title="Overview" />
 
-      <AboutCardImage src={personalLogoSrc} alt="chris vouga logo" />
+      <AboutCardImage src="/personal-logo-light.svg" alt="chris vouga logo" />
 
       <CardContent>
         <Typography component="div" variant="body1" color="textSecondary">

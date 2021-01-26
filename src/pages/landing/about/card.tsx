@@ -1,6 +1,5 @@
-import Card from "@material-ui/core/Card";
-import makeStyles from "@material-ui/styles/makeStyles";
-import withStyles from "@material-ui/styles/withStyles";
+import Card, { CardProps } from "@material-ui/core/Card";
+import { makeStyles } from "@material-ui/core/styles";
 import Image from "next/image";
 import React from "react";
 
@@ -10,6 +9,7 @@ const useStyles = makeStyles(() => ({
     width: "100%",
     paddingTop: `${(1 / 2.35) * 100}%`,
   },
+
   cardImage: {
     position: "absolute",
     top: 0,
@@ -18,6 +18,10 @@ const useStyles = makeStyles(() => ({
     height: "100%",
     objectFit: "contain",
     objectPosition: "center",
+  },
+
+  card: {
+    height: "100%",
   },
 }));
 
@@ -30,8 +34,7 @@ export const AboutCardImage = ({ src, alt }: { src: string; alt: string }) => {
   );
 };
 
-export const AboutCard = withStyles(() => ({
-  root: {
-    height: "100%",
-  },
-}))(Card);
+export const AboutCard = (props: CardProps) => {
+  const classes = useStyles();
+  return <Card className={classes.card} {...props} />;
+};
