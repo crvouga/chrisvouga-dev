@@ -13,18 +13,18 @@ export const getLandingPageStaticProps = async (): Promise<
 > => {
   const projectCardsProps = await getProjectSectionStaticProps();
 
-  const topicFrequencies = projectCardsProps
+  const frequencies = projectCardsProps
     .flatMap((props) => props.topics)
-    .reduce(
-      (topicFrequencies: { [topic: string]: number }, topic) => ({
-        ...topicFrequencies,
-        [topic]: topic in topicFrequencies ? topicFrequencies[topic] + 1 : 1,
+    .reduce<{ [topic: string]: number }>(
+      (frequencies, topic) => ({
+        ...frequencies,
+        [topic]: topic in frequencies ? frequencies[topic] + 1 : 1,
       }),
       {}
     );
 
-  const topTopics = Object.keys(topicFrequencies)
-    .sort(descend((topic) => topicFrequencies[topic]))
+  const topTopics = Object.keys(frequencies)
+    .sort(descend((topic) => frequencies[topic]))
     .slice(0, 5);
 
   return {
