@@ -1,6 +1,5 @@
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import Link from "next/link";
+import Link from "@material-ui/core/Link";
 import React from "react";
 import { SocialMediaIconButton } from "../../../components/social-media";
 import {
@@ -19,10 +18,12 @@ export const Footer = () => {
       </Box>
       <Box display="flex" justifyContent="center">
         <Box p={1}>
-          <Link href={PERSONAL_SITE_REPOSITORY_URL}>
-            <Typography color="textSecondary" align="center">
-              Built by Chris Vouga
-            </Typography>
+          <Link
+            href={PERSONAL_SITE_REPOSITORY_URL}
+            color="textSecondary"
+            align="center"
+          >
+            Built by Chris Vouga
           </Link>
         </Box>
       </Box>

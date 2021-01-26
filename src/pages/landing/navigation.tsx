@@ -7,6 +7,7 @@ import Container from "@material-ui/core/Container";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
+import Link from "@material-ui/core/Link";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -15,7 +16,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import { useBoolean } from "../../components/boolean";
 import { ElevationScroll } from "../../components/elevation-scroll";
@@ -47,31 +47,30 @@ export const NavigationBar = () => {
         <AppBar>
           <Container maxWidth="lg" disableGutters>
             <Toolbar>
-              <Link href="/">
-                <Box color="#fff">
-                  <ButtonBase color="inherit">
-                    <Avatar className={classes.logo}>
-                      <Image
-                        priority
-                        layout="fill"
-                        alt="chris vouga logo"
-                        src="/personal-logo-dark.svg"
-                      />
-                    </Avatar>
-                  </ButtonBase>
-                </Box>
-              </Link>
+              <Box color="#fff">
+                <ButtonBase href="/" color="inherit">
+                  <Avatar className={classes.logo}>
+                    <Image
+                      priority
+                      layout="fill"
+                      alt="chris vouga logo"
+                      src="/personal-logo-dark.svg"
+                    />
+                  </Avatar>
+                </ButtonBase>
+              </Box>
 
               <Box flex={1} />
 
               <Hidden xsDown>
                 {SECTION_ORDER.map((section) => (
                   <Box marginRight={1} key={SECTION_TO_URL[section]}>
-                    <Link href={SECTION_TO_URL[section]}>
-                      <Button className={classes.button}>
-                        {SECTION_TO_NAME[section]}
-                      </Button>
-                    </Link>
+                    <Button
+                      href={SECTION_TO_URL[section]}
+                      className={classes.button}
+                    >
+                      {SECTION_TO_NAME[section]}
+                    </Button>
                   </Box>
                 ))}
               </Hidden>

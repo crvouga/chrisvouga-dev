@@ -1,10 +1,10 @@
 import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
 import Chip, { ChipProps } from "@material-ui/core/Chip";
+import Link from "@material-ui/core/Link";
+import { makeStyles } from "@material-ui/core/styles";
 import { capitalize } from "@material-ui/core/utils";
-import makeStyles from "@material-ui/styles/makeStyles";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 const useStyles = makeStyles(() => ({

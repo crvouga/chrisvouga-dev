@@ -3,9 +3,9 @@ import Box from "@material-ui/core/Box";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import Chip from "@material-ui/core/Chip";
+import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import { AboutCard, AboutCardImage } from "./card";
 
