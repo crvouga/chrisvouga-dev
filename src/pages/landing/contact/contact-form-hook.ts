@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react";
-import { getContactFormEndpoint } from "../../../config";
+import { getContactFormEndpoint } from "../../../services/formspree";
 import { getFormValue } from "../../../utility";
 import {
   castContactForm,
+  EMPTY_CONTACT_FORM_ERRORS,
   IContactFormErrors,
   IContactFormStatus,
   validateContactForm,
-  EMPTY_CONTACT_FORM_ERRORS,
 } from "./contact-form-domain";
 
 export const useContactForm = () => {

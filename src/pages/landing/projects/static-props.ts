@@ -14,25 +14,25 @@ const getProjectCardStaticProps = async (params: {
   ownerName: string;
   repositoryName: string;
 }): Promise<IProjectCardProps> => {
-  const [
-    { homepage, description, html_url },
-    { names: topics },
-  ] = await Promise.all([
+  const [repositoryData, repositoryTopicsData] = await Promise.all([
     getGithubRepository(params),
     getGithubRepositoryTopics(params),
   ]);
 
-  const liveSiteUrl = castUrl(homepage);
-
+  const liveSiteUrl = castUrl(repositoryData.homepage);
+  const description = repositoryData.description || "";
+  const sourceCodeUrl = castUrl(repositoryData.html_url);
+  const title = repositoryNameToTitle(params.repositoryName);
   const src = `/${encodeUrl(liveSiteUrl)}.png`;
+  const topics = repositoryTopicsData.names || [];
 
   return {
     liveSiteUrl,
-    description: description || "",
-    sourceCodeUrl: castUrl(html_url),
-    title: repositoryNameToTitle(params.repositoryName),
+    description,
+    sourceCodeUrl,
+    title,
     src,
-    topics: topics || [],
+    topics,
   };
 };
 

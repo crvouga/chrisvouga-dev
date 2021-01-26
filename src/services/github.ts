@@ -1,12 +1,24 @@
 import fetch from "node-fetch";
-import { getGithubPersonalAccessToken } from "../config";
 
-const headers = {
-  "User-Agent": "personal-website",
-  Authorization: getGithubPersonalAccessToken(),
+// source: https://github.com/settings/tokens
+const getGithubPersonalAccessToken = () => {
+  const token = process.env.NEXT_PUBLIC_GITHUB_PERSONAL_ACCESS_TOKEN;
+  if (token) {
+    return token;
+  }
+  throw new Error(
+    "process.env.NEXT_PUBLIC_GITHUB_PERSONAL_ACCESS_TOKEN is undefined"
+  );
 };
 
 export const BASE_URL = `https://api.github.com`;
+
+const HEADERS = {
+  "User-Agent": "personal-website",
+  //docs: https://docs.github.com/en/rest/overview/other-authentication-methods#basic-authentication
+  Authorization: `token ${getGithubPersonalAccessToken()}`,
+  Accept: "application/vnd.github.mercy-preview+json",
+};
 
 type IGetGithubRepositoryParams = {
   repositoryName: string;
@@ -27,7 +39,7 @@ export const getGithubRepository = async ({
   const url = `${BASE_URL}/repos/${ownerName}/${repositoryName}`;
 
   const response = await fetch(url, {
-    headers,
+    headers: HEADERS,
   });
 
   const data: IGetGithubRepositoryData = await response.json();
@@ -47,10 +59,7 @@ export const getGithubRepositoryTopics = async ({
   const url = `${BASE_URL}/repos/${ownerName}/${repositoryName}/topics`;
 
   const response = await fetch(url, {
-    headers: {
-      ...headers,
-      Accept: "application/vnd.github.mercy-preview+json",
-    },
+    headers: HEADERS,
   });
 
   const data: IGetGithubRepositoryTopicsData = await response.json();
