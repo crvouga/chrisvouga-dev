@@ -55,7 +55,5 @@ export const getGithubRepositoryTopics = async ({
 
   const data: IGetGithubRepositoryTopicsData = await response.json();
 
-  console.log({ data });
-
   return data;
 };
