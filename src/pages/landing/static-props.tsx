@@ -1,5 +1,5 @@
-import { IProjectCardProps } from "./projects/project-card";
 import React from "react";
+import { IProjectCardProps } from "./projects/project-card";
 import { getProjectSectionStaticProps } from "./projects/static-props";
 
 export interface ILandingPageStaticProps {
