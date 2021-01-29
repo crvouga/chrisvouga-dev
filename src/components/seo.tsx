@@ -4,9 +4,17 @@ import { DOMAIN } from "../personal-information";
 const seo = {
   title: "Chris Vouga | Software Developer",
   description:
-    "Personal website for Chris Vouga. Chris Vouga is a software developer.",
+    "Hello, my name is Chis Vouga. I enjoy building things that live on the web.",
   image: `${DOMAIN}personal-logo.png`,
-  keywords: ["chris", "christopher", "vouga", "chrisvouga", "christophervouga"],
+  keywords: [
+    "chris",
+    "christopher",
+    "vouga",
+    "chrisvouga",
+    "christophervouga",
+    "developer",
+    "web",
+  ],
   author: "Chris Vouga",
 };
 
