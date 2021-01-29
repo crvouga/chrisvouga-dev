@@ -1,17 +1,19 @@
 import React from "react";
+import { PERSONAL_WEBSITE_REPOSITORY_NAME } from "../../personal-information";
 import { descend } from "../../utility/sort";
 import { IProjectCardProps } from "./projects/project-card";
-import { getProjectSectionStaticProps } from "./projects/static-props";
+import { getProjectsSectionStaticProps } from "./projects/static-props";
 
 export interface ILandingPageStaticProps {
   projectCardsProps: IProjectCardProps[];
   topTopics: string[];
+  personalWebsiteSourceCodeUrl: string;
 }
 
 export const getLandingPageStaticProps = async (): Promise<
   ILandingPageStaticProps
 > => {
-  const projectCardsProps = await getProjectSectionStaticProps();
+  const projectCardsProps = await getProjectsSectionStaticProps();
 
   const frequencies = projectCardsProps
     .flatMap((props) => props.topics)
@@ -27,7 +29,14 @@ export const getLandingPageStaticProps = async (): Promise<
     .sort(descend((topic) => frequencies[topic]))
     .slice(0, 5);
 
+  const [personalWebsiteSourceCodeUrl] = projectCardsProps
+    .filter(
+      (props) => props.repositoryName === PERSONAL_WEBSITE_REPOSITORY_NAME
+    )
+    .map((props) => props.sourceCodeUrl);
+
   return {
+    personalWebsiteSourceCodeUrl,
     topTopics,
     projectCardsProps,
   };
@@ -38,6 +47,7 @@ export const LandingPageStaticPropsContext = React.createContext<
 >({
   topTopics: [],
   projectCardsProps: [],
+  personalWebsiteSourceCodeUrl: "",
 });
 
 export const LandingPageStaticPropsProvider = ({

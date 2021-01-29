@@ -1,9 +1,11 @@
 export const DOMAIN = `https://chrisvouga.dev/`;
 
-export const PERSONAL_SITE_REPOSITORY_URL =
-  "https://github.com/crvouga/personal-website";
+export type ISocialMedia = {
+  name: string;
+  url: string;
+};
 
-export const SOCIAL_MEDIA = [
+export const SOCIAL_MEDIA: ISocialMedia[] = [
   {
     name: "Github",
     url: "https://github.com/crvouga",
@@ -14,7 +16,14 @@ export const SOCIAL_MEDIA = [
   },
 ];
 
-export const PROJECTS = [
+export type IPersonalProject = {
+  ownerName: string;
+  repositoryName: string;
+};
+
+export const PERSONAL_WEBSITE_REPOSITORY_NAME = "personal-website";
+
+export const PERSONAL_PROJECTS: IPersonalProject[] = [
   {
     ownerName: "crvouga",
     repositoryName: "pickflix",
@@ -40,10 +49,3 @@ export const PROJECTS = [
     repositoryName: "simon-says",
   },
 ];
-
-export default {
-  SOCIAL_MEDIA,
-  PROJECTS,
-  DOMAIN,
-  PERSONAL_SITE_REPOSITORY_URL,
-};

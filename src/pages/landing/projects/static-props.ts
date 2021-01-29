@@ -1,32 +1,35 @@
 import { capitalize } from "@material-ui/core";
-import { PROJECTS } from "../../../personal-information";
-import { castUrl, encodeUrl } from "../../../utility";
-import { IProjectCardProps } from "./project-card";
+import {
+  IPersonalProject,
+  PERSONAL_PROJECTS,
+} from "../../../personal-information";
 import {
   getGithubRepository,
   getGithubRepositoryTopics,
 } from "../../../services/github";
+import { castUrl, encodeUrl } from "../../../utility";
+import { IProjectCardProps } from "./project-card";
 
-const repositoryNameToTitle = (repositoryName: string) =>
+export const repositoryNameToTitle = (repositoryName: string) =>
   repositoryName.split("-").map(capitalize).join(" ");
 
-const getProjectCardStaticProps = async (params: {
-  ownerName: string;
-  repositoryName: string;
-}): Promise<IProjectCardProps> => {
+const getProjectCardStaticProps = async (
+  personalProject: IPersonalProject
+): Promise<IProjectCardProps & IPersonalProject> => {
   const [repositoryData, repositoryTopicsData] = await Promise.all([
-    getGithubRepository(params),
-    getGithubRepositoryTopics(params),
+    getGithubRepository(personalProject),
+    getGithubRepositoryTopics(personalProject),
   ]);
 
   const liveSiteUrl = castUrl(repositoryData.homepage);
-  const description = repositoryData.description || "";
+  const description = repositoryData.description ?? "";
   const sourceCodeUrl = castUrl(repositoryData.html_url);
-  const title = repositoryNameToTitle(params.repositoryName);
+  const title = repositoryNameToTitle(personalProject.repositoryName);
   const src = `/${encodeUrl(liveSiteUrl)}.png`;
-  const topics = repositoryTopicsData.names || [];
+  const topics = repositoryTopicsData.names ?? [];
 
   return {
+    ...personalProject,
     liveSiteUrl,
     description,
     sourceCodeUrl,
@@ -36,9 +39,9 @@ const getProjectCardStaticProps = async (params: {
   };
 };
 
-export const getProjectSectionStaticProps = async () => {
+export const getProjectsSectionStaticProps = async () => {
   const projectCardsProps = await Promise.all(
-    PROJECTS.map(getProjectCardStaticProps)
+    PERSONAL_PROJECTS.map(getProjectCardStaticProps)
   );
 
   return projectCardsProps;

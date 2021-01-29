@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-import { PROJECTS } from "../../personal-information";
+import { PERSONAL_PROJECTS } from "../../personal-information";
 import { getGithubRepository } from "../../services/github";
 import { delay, encodeUrl } from "../../utility";
 
@@ -25,11 +25,11 @@ const generateScreenshot = async (
   }
 };
 
-export const generateProjectScreenshots = async () => {
+export const generatePERSONAL_PROJECTScreenshots = async () => {
   const browser = await puppeteer.launch();
 
   await Promise.all(
-    PROJECTS.map((project) => generateScreenshot(browser, project))
+    PERSONAL_PROJECTS.map((project) => generateScreenshot(browser, project))
   );
 
   await browser.close();
