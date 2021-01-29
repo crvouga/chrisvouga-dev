@@ -11,7 +11,7 @@ import { SitemapStream, streamToPromise } from "sitemap";
 export const handler: NextApiHandler = async (req, res) => {
   try {
     const hostname = `https://${req.headers.host}`;
-    console.log({ hostname });
+
     const smStream = new SitemapStream({
       hostname,
     });
