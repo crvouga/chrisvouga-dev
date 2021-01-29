@@ -13,11 +13,13 @@ const getGithubPersonalAccessToken = () => {
 
 export const BASE_URL = `https://api.github.com`;
 
-const HEADERS = {
-  "User-Agent": "personal-website",
-  //docs: https://docs.github.com/en/rest/overview/other-authentication-methods#basic-authentication
-  Authorization: `token ${getGithubPersonalAccessToken()}`,
-  Accept: "application/vnd.github.mercy-preview+json",
+const getHeaders = () => {
+  return {
+    "User-Agent": "personal-website",
+    //docs: https://docs.github.com/en/rest/overview/other-authentication-methods#basic-authentication
+    Authorization: `token ${getGithubPersonalAccessToken()}`,
+    Accept: "application/vnd.github.mercy-preview+json",
+  };
 };
 
 type IGetGithubRepositoryParams = {
@@ -39,7 +41,7 @@ export const getGithubRepository = async ({
   const url = `${BASE_URL}/repos/${ownerName}/${repositoryName}`;
 
   const response = await fetch(url, {
-    headers: HEADERS,
+    headers: getHeaders(),
   });
 
   const data: IGetGithubRepositoryData = await response.json();
@@ -59,7 +61,7 @@ export const getGithubRepositoryTopics = async ({
   const url = `${BASE_URL}/repos/${ownerName}/${repositoryName}/topics`;
 
   const response = await fetch(url, {
-    headers: HEADERS,
+    headers: getHeaders(),
   });
 
   const data: IGetGithubRepositoryTopicsData = await response.json();

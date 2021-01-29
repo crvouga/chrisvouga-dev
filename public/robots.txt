@@ -1,6 +1,4 @@
-Sitemap: https://domain.com/api/sitemap
-
+Sitemap: https://chrisvouga.dev//api/sitemap
 User-agent: *
 Allow: /*
-
 Disallow: /api/*
