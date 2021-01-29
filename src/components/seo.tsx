@@ -1,12 +1,11 @@
 import React from "react";
-import { encodeUrl } from "../utility";
 import { DOMAIN } from "../personal-information";
 
 const seo = {
   title: "Chris Vouga | Software Developer",
   description:
     "Personal website for Chris Vouga. Chris Vouga is a software developer.",
-  image: `${DOMAIN}${encodeUrl(DOMAIN)}.png`,
+  image: `${DOMAIN}personal-logo.png`,
   keywords: ["chris", "christopher", "vouga", "chrisvouga", "christophervouga"],
   author: "Chris Vouga",
 };
