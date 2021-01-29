@@ -8,6 +8,7 @@ import Document, {
 } from "next/document";
 import React from "react";
 import { SEO } from "../src/components/seo";
+import { getSiteUrl } from "../src/personal-information";
 
 export default class extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -45,7 +46,7 @@ export default class extends Document {
     return (
       <Html lang="en">
         <Head>
-          <SEO />
+          <SEO siteUrl={getSiteUrl()} />
 
           <link
             rel="preload"

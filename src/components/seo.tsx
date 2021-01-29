@@ -1,24 +1,24 @@
 import React from "react";
-import { DOMAIN } from "../personal-information";
+import path from "path";
 
-const seo = {
-  title: "Chris Vouga | Software Developer",
-  description:
-    "Hello, my name is Chis Vouga. I enjoy building things that live on the web.",
-  image: `${DOMAIN}personal-logo.png`,
-  keywords: [
-    "chris",
-    "christopher",
-    "vouga",
-    "chrisvouga",
-    "christophervouga",
-    "developer",
-    "web",
-  ],
-  author: "Chris Vouga",
-};
+export const SEO = ({ siteUrl }: { siteUrl: string }) => {
+  const seo = {
+    title: "Chris Vouga | Software Developer",
+    description:
+      "Hello, my name is Chis Vouga. I enjoy building things that live on the web.",
+    image: path.join(siteUrl, "personal-log.png"),
+    keywords: [
+      "chris",
+      "christopher",
+      "vouga",
+      "chrisvouga",
+      "christophervouga",
+      "developer",
+      "web",
+    ],
+    author: "Chris Vouga",
+  };
 
-export const SEO = () => {
   return (
     <React.Fragment>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -43,7 +43,7 @@ export const SEO = () => {
         content={seo.description}
       />
 
-      <meta property="og:url" content={DOMAIN} />
+      <meta property="og:url" content={siteUrl} />
 
       <meta property="og:type" content="website" />
 

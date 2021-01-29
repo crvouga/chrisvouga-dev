@@ -3,22 +3,27 @@ import React from "react";
 import { LandingPage } from "../src/pages/landing";
 import {
   getLandingPageStaticProps,
-  LandingPageStaticPropsProvider,
   ILandingPageStaticProps,
+  LandingPageStaticPropsProvider,
 } from "../src/pages/landing/static-props";
 
-export const getStaticProps: GetStaticProps<ILandingPageStaticProps> = async () => {
+type IndexPageProps = ILandingPageStaticProps;
+
+export const getStaticProps: GetStaticProps<IndexPageProps> = async () => {
   const props = await getLandingPageStaticProps();
+
   return {
     props,
   };
 };
 
-const Index = (props: ILandingPageStaticProps) => {
+const Index = (props: IndexPageProps) => {
   return (
-    <LandingPageStaticPropsProvider props={props}>
-      <LandingPage />
-    </LandingPageStaticPropsProvider>
+    <React.Fragment>
+      <LandingPageStaticPropsProvider props={props}>
+        <LandingPage />
+      </LandingPageStaticPropsProvider>
+    </React.Fragment>
   );
 };
 

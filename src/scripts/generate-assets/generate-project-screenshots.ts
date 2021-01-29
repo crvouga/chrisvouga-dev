@@ -3,7 +3,7 @@ import { PERSONAL_PROJECTS } from "../../personal-information";
 import { getGithubRepository } from "../../services/github";
 import { delay, encodeUrl } from "../../utility";
 
-const generateScreenshot = async (
+const generateSingleProjectScreenshot = async (
   browser: puppeteer.Browser,
   params: {
     ownerName: string;
@@ -25,11 +25,13 @@ const generateScreenshot = async (
   }
 };
 
-export const generatePERSONAL_PROJECTScreenshots = async () => {
+export const generateAllProjectScreenshots = async () => {
   const browser = await puppeteer.launch();
 
   await Promise.all(
-    PERSONAL_PROJECTS.map((project) => generateScreenshot(browser, project))
+    PERSONAL_PROJECTS.map((project) =>
+      generateSingleProjectScreenshot(browser, project)
+    )
   );
 
   await browser.close();
