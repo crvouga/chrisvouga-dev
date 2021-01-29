@@ -1,8 +1,5 @@
 import { capitalize } from "@material-ui/core";
-import {
-  IPersonalProject,
-  PERSONAL_PROJECTS,
-} from "../../../personal-information";
+import { IPersonalProject, PERSONAL_PROJECTS } from "../../../configuration";
 import {
   getGithubRepository,
   getGithubRepositoryTopics,

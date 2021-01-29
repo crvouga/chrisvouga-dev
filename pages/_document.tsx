@@ -8,7 +8,7 @@ import Document, {
 } from "next/document";
 import React from "react";
 import { SEO } from "../src/components/seo";
-import { getSiteUrl } from "../src/personal-information";
+import { getSiteUrl } from "../src/configuration";
 
 export default class extends Document {
   static async getInitialProps(ctx: DocumentContext) {

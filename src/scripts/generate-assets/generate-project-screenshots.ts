@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-import { PERSONAL_PROJECTS } from "../../personal-information";
+import { PERSONAL_PROJECTS } from "../../configuration";
 import { getGithubRepository } from "../../services/github";
 import { delay, encodeUrl } from "../../utility";
 

@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { getSiteUrl } from "../../personal-information";
+import { getSiteUrl } from "../../configuration";
 
 //why?: https://developers.google.com/search/docs/advanced/robots/intro
 

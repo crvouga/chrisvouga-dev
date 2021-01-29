@@ -1,5 +1,5 @@
 import React from "react";
-import { PERSONAL_WEBSITE_REPOSITORY_NAME } from "../../personal-information";
+import { PERSONAL_WEBSITE_REPOSITORY_NAME } from "../../configuration";
 import { descend } from "../../utility/sort";
 import { IProjectCardProps } from "./projects/project-card";
 import { getProjectsSectionStaticProps } from "./projects/static-props";

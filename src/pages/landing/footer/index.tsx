@@ -2,7 +2,7 @@ import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
 import React from "react";
 import { SocialMediaIconButton } from "../../../components/social-media";
-import { SOCIAL_MEDIA } from "../../../personal-information";
+import { SOCIAL_MEDIA } from "../../../configuration";
 import { SectionContainer } from "../section";
 import { useLandingPageStaticProps } from "../static-props";
 
