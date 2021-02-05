@@ -6,7 +6,7 @@ export const SEO = ({ siteUrl }: { siteUrl: string }) => {
     title: "Chris Vouga | Software Developer",
     description:
       "Hello, my name is Chis Vouga. I enjoy building things that live on the web.",
-    image: path.join(siteUrl, "personal-log.png"),
+    image: path.join(siteUrl, "personal-logo.png"),
     keywords: [
       "chris",
       "christopher",
