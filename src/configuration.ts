@@ -36,7 +36,11 @@ export const PERSONAL_PROJECTS: IPersonalProject[] = [
   },
   {
     ownerName: "crvouga",
-    repositoryName: "personal-website",
+    repositoryName: "band-website",
+  },
+  {
+    ownerName: "crvouga",
+    repositoryName: "connect-four",
   },
   {
     ownerName: "crvouga",
@@ -44,7 +48,7 @@ export const PERSONAL_PROJECTS: IPersonalProject[] = [
   },
   {
     ownerName: "crvouga",
-    repositoryName: "connect-four",
+    repositoryName: "personal-website",
   },
   {
     ownerName: "crvouga",
