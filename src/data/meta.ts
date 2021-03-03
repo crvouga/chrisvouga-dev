@@ -6,6 +6,7 @@ export type IMeta = {
   description: string;
   siteUrl: string;
   imageUrl: string;
+  iconUrl: string;
   keywords: string[];
 };
 

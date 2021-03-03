@@ -1,12 +1,13 @@
+import Head from "next/head";
 import React from "react";
 import { IMeta } from "../data/meta";
 
 export const Meta = ({ meta }: { meta: IMeta }) => {
   return (
-    <React.Fragment>
+    <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <link rel="icon" type="image/png" href="/personal-logo.png" />
+      <link rel="icon" type="image/png" href={meta.iconUrl} />
 
       <title>{meta.title}</title>
 
@@ -31,6 +32,6 @@ export const Meta = ({ meta }: { meta: IMeta }) => {
       <meta property="og:type" content="website" />
 
       <meta property="og:image" content={meta.imageUrl} />
-    </React.Fragment>
+    </Head>
   );
 };

@@ -3,6 +3,7 @@ import {
   responsiveFontSizes,
   ThemeOptions,
 } from "@material-ui/core/styles";
+import { fontFamilies } from "./fonts";
 
 export type ThemeType = "light" | "dark";
 
@@ -19,7 +20,18 @@ const themeOptions: ThemeOptions = {
   },
   typography: {
     fontWeightRegular: "bold",
-    fontFamily: ["Inter", "sans-serif"].join(","),
+    fontFamily: [fontFamilies.heading, fontFamilies.body, "sans-serif"].join(
+      ","
+    ),
+    button: {
+      fontFamily: fontFamilies.body,
+    },
+    body1: {
+      fontFamily: fontFamilies.body,
+    },
+    body2: {
+      fontFamily: fontFamilies.body,
+    },
   },
   props: {
     MuiLink: {

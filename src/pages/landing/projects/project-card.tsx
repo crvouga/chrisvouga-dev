@@ -68,9 +68,7 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
 
       <CardContent className={classes.content}>
         <Box paddingBottom={2}>
-          <Typography variant="body1" color="textSecondary">
-            {description}
-          </Typography>
+          <Typography variant="body1">{description}</Typography>
         </Box>
         <GithubTopicChipGroup topics={topics} />
       </CardContent>
