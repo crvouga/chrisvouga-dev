@@ -14,7 +14,7 @@ export const Footer = ({ socialMedia }: { socialMedia: ISocialMedia[] }) => {
         ))}
       </Box>
       <Box display="flex" justifyContent="center">
-        <Typography variant="subtitle1" color="textSecondary">
+        <Typography variant="body1" color="textSecondary">
           Built by Chris Vouga
         </Typography>
       </Box>
