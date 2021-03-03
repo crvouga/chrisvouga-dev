@@ -21,7 +21,7 @@ const FontStyleSheetLink = ({ href }: { href: string }) => {
 };
 
 const RalewayAndRobotoHref =
-  "https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swa";
+  "https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap";
 
 export const fontFamilies = {
   heading: "Raleway",
