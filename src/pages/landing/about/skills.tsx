@@ -1,14 +1,19 @@
+import { Box } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { GithubTopicChipGroup } from "../../../components/github-topics";
-import { useLandingPageStaticProps } from "../static-props";
+import { IAboutMe } from "../../../data/about-me";
 import { AboutCard, AboutCardImage } from "./card";
 
-export const SkillsCard = () => {
-  const { topTopics } = useLandingPageStaticProps();
-
+export const SkillsCard = ({
+  topTopics,
+  aboutMe,
+}: {
+  topTopics: string[];
+  aboutMe: IAboutMe;
+}) => {
   const chips = (
     <GithubTopicChipGroup topics={topTopics} ChipProps={{ size: "small" }} />
   );
@@ -22,9 +27,7 @@ export const SkillsCard = () => {
       <CardContent>
         <Typography component="div" variant="body1" color="textSecondary">
           Some of the things I've been using in my projects: {chips}
-          The philosophy I live by is to learn and adopt technology on a
-          need-to-nerd basis. In other words, focus on tech that gets the job
-          done rather than what is currently fashionable.
+          <Box dangerouslySetInnerHTML={{ __html: aboutMe.skills }} />
         </Typography>
       </CardContent>
     </AboutCard>

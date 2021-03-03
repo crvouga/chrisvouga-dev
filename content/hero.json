@@ -1,0 +1,10 @@
+{
+  "greeting": "Hello, my name is",
+  "main": "Chris Vouga",
+  "secondary": "Software Developer",
+  "callToAction": {
+    "name": "Projects",
+    "link": "/#projects"
+  },
+  "mainImage": "/hero.svg"
+}

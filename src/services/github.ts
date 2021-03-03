@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import { capitalize } from "@material-ui/core";
 
 // source: https://github.com/settings/tokens
 const getGithubPersonalAccessToken = () => {
@@ -68,3 +69,6 @@ export const getGithubRepositoryTopics = async ({
 
   return data;
 };
+
+export const formatRepositoryName = (repositoryName: string) =>
+  repositoryName.split("-").map(capitalize).join(" ");

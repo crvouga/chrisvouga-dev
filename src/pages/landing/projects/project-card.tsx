@@ -14,15 +14,7 @@ import WebIcon from "@material-ui/icons/Web";
 import Image from "next/image";
 import React from "react";
 import { GithubTopicChipGroup } from "../../../components/github-topics";
-
-export interface IProjectCardProps {
-  src: string;
-  title: string;
-  liveSiteUrl: string;
-  sourceCodeUrl: string;
-  topics: string[];
-  description: string;
-}
+import { IProject } from "../../../data/projects";
 
 const useStyles = makeStyles(() => ({
   media: {
@@ -40,8 +32,15 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const ProjectCard = (props: IProjectCardProps) => {
-  const { src, title, description, liveSiteUrl, sourceCodeUrl, topics } = props;
+export const ProjectCard = ({ project }: { project: IProject }) => {
+  const {
+    src,
+    title,
+    description,
+    liveSiteUrl,
+    sourceCodeUrl,
+    topics,
+  } = project;
 
   const classes = useStyles();
 

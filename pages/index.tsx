@@ -1,30 +1,19 @@
 import { GetStaticProps } from "next";
-import React from "react";
-import { LandingPage } from "../src/pages/landing";
-import {
-  getLandingPageStaticProps,
-  ILandingPageStaticProps,
-  LandingPageStaticPropsProvider,
-} from "../src/pages/landing/static-props";
+import { dataStore } from "../src/data";
+import { ILandingPageProps, LandingPage } from "../src/pages/landing";
 
-type IndexPageProps = ILandingPageStaticProps;
-
-export const getStaticProps: GetStaticProps<IndexPageProps> = async () => {
-  const props = await getLandingPageStaticProps();
-
+export const getStaticProps: GetStaticProps<ILandingPageProps> = async () => {
   return {
-    props,
+    props: {
+      data: {
+        aboutMe: await dataStore.aboutMe.get(),
+        projects: await dataStore.projects.getAll(),
+        topTopics: await dataStore.projects.getTopTopics(),
+        socialMedia: await dataStore.socialMedia.getAll(),
+        hero: await dataStore.hero.get(),
+      },
+    },
   };
 };
 
-const Index = (props: IndexPageProps) => {
-  return (
-    <React.Fragment>
-      <LandingPageStaticPropsProvider props={props}>
-        <LandingPage />
-      </LandingPageStaticPropsProvider>
-    </React.Fragment>
-  );
-};
-
-export default Index;
+export default LandingPage;

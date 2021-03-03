@@ -2,12 +2,19 @@ import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
+import { IAboutMe } from "../../../data/about-me";
 import { SectionContainer } from "../section";
 import { EducationCard } from "./education";
 import { SkillsCard } from "./skills";
 import { SummaryCard } from "./summary";
 
-export const About = () => {
+export const About = ({
+  topTopics,
+  aboutMe,
+}: {
+  topTopics: string[];
+  aboutMe: IAboutMe;
+}) => {
   return (
     <SectionContainer id="about">
       <Typography variant="h3" gutterBottom>
@@ -16,13 +23,13 @@ export const About = () => {
 
       <Grid container spacing={2}>
         <Grid item sm={4}>
-          <SummaryCard />
+          <SummaryCard aboutMe={aboutMe} />
         </Grid>
         <Grid item sm={4}>
-          <SkillsCard />
+          <SkillsCard aboutMe={aboutMe} topTopics={topTopics} />
         </Grid>
         <Grid item sm={4}>
-          <EducationCard />
+          <EducationCard aboutMe={aboutMe} />
         </Grid>
       </Grid>
     </SectionContainer>

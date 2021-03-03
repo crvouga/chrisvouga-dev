@@ -1,16 +1,14 @@
 import puppeteer from "puppeteer";
-import { PERSONAL_PROJECTS } from "../../configuration";
+import { IProject } from "../../data/projects";
 import { getGithubRepository } from "../../services/github";
 import { delay, encodeUrl } from "../../utility";
+import { dataStore } from "../../data";
 
 const generateSingleProjectScreenshot = async (
   browser: puppeteer.Browser,
-  params: {
-    ownerName: string;
-    repositoryName: string;
-  }
+  project: IProject
 ) => {
-  const response = await getGithubRepository(params);
+  const response = await getGithubRepository(project.projectId);
 
   const liveSiteURL = response.homepage;
 
@@ -28,10 +26,10 @@ const generateSingleProjectScreenshot = async (
 export const generateAllProjectScreenshots = async () => {
   const browser = await puppeteer.launch();
 
+  const projects = await dataStore.projects.getAll();
+
   await Promise.all(
-    PERSONAL_PROJECTS.map((project) =>
-      generateSingleProjectScreenshot(browser, project)
-    )
+    projects.map((project) => generateSingleProjectScreenshot(browser, project))
   );
 
   await browser.close();

@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import Image from "next/image";
 import React from "react";
+import { IHero } from "../../../data/hero";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Hero = () => {
+export const Hero = ({ hero }: { hero: IHero }) => {
   const classes = useStyles();
 
   return (
@@ -57,33 +58,33 @@ export const Hero = () => {
         <Grid container direction="row" alignItems="center" justify="center">
           <Grid item xs={12} sm={12} md={6}>
             <Typography className={classes.typography} variant="h4">
-              Hello, my name is
+              {hero.greeting}
             </Typography>
             <Typography className={classes.typography} variant="h1">
-              Chris Vouga
+              {hero.main}
             </Typography>
             <Typography
               className={classes.typography}
               variant="h2"
               gutterBottom
             >
-              Software Developer
+              {hero.secondary}
             </Typography>
 
             <Button
-              href="/#projects"
+              href={hero.callToAction.link}
               size="large"
               className={classes.callToAction}
               variant="outlined"
               startIcon={<ArrowDownwardIcon />}
             >
-              Projects
+              {hero.callToAction.name}
             </Button>
           </Grid>
 
           <Grid item xs={12} sm={8} md={6}>
             <div className={classes.imageContainer}>
-              <Image priority layout="fill" src="/hero.svg" alt="hero" />
+              <Image priority layout="fill" src={hero.mainImage} alt="hero" />
             </div>
           </Grid>
         </Grid>
