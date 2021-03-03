@@ -7,8 +7,7 @@ import Document, {
   NextScript,
 } from "next/document";
 import React from "react";
-import { SEO } from "../src/components/seo";
-import { getSiteUrl } from "../src/configuration";
+import { Fonts } from "../src/components/theme";
 
 export default class extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -34,26 +33,10 @@ export default class extends Document {
   }
 
   render() {
-    //why?: https://stackoverflow.com/questions/45983301/google-pagespeed-eliminate-render-blocking-resources-above-the-fold-caused-fro
-    const handleLoad = (
-      event: React.SyntheticEvent<HTMLLinkElement, Event>
-    ) => {
-      const link = event.currentTarget;
-      link.onload = null;
-      link.rel = "stylesheet";
-    };
-
     return (
       <Html lang="en">
         <Head>
-          <SEO siteUrl={getSiteUrl()} />
-
-          <link
-            rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-            as="style"
-            onLoad={handleLoad}
-          />
+          <Fonts />
         </Head>
         <body>
           <Main />

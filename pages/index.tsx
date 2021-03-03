@@ -11,6 +11,7 @@ export const getStaticProps: GetStaticProps<ILandingPageProps> = async () => {
         topTopics: await dataStore.projects.getTopTopics(),
         socialMedia: await dataStore.socialMedia.getAll(),
         hero: await dataStore.hero.get(),
+        meta: await dataStore.meta.get(),
       },
     },
   };

@@ -1,14 +1,14 @@
 import fs from "fs";
 import path from "path";
-import { getSiteUrl } from "../../configuration";
+import { dataStore } from "../../data";
 
 //why?: https://developers.google.com/search/docs/advanced/robots/intro
 
 const FILE_NAME = "robots.txt";
 
-const getRobotsTxt = () => {
+const toRobotsTxt = (siteUrl: string) => {
   return {
-    Sitemap: path.join(getSiteUrl(), "api/sitemap"),
+    Sitemap: path.join(siteUrl, "api", "sitemap"),
     "User-agent": "*",
     Allow: "/*",
     Disallow: "/api/*",
@@ -22,8 +22,9 @@ const objectToString = <T>(object: T) => {
 };
 
 export const generateRobotsTxt = async () => {
-  fs.writeFileSync(
-    path.join("public", FILE_NAME),
-    objectToString(getRobotsTxt())
-  );
+  const meta = await dataStore.meta.get();
+
+  const robotTxt = toRobotsTxt(meta.siteUrl);
+
+  fs.writeFileSync(path.join("public", FILE_NAME), objectToString(robotTxt));
 };
