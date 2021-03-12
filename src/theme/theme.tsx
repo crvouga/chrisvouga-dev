@@ -19,18 +19,28 @@ const themeOptions: ThemeOptions = {
     type: "light",
   },
   typography: {
-    fontWeightRegular: "bold",
-    fontFamily: [fontFamilies.heading, fontFamilies.body, "sans-serif"].join(
+    fontWeightRegular: "bolder",
+    fontFamily: [fontFamilies.body, fontFamilies.heading, "sans-serif"].join(
       ","
     ),
-    button: {
-      fontFamily: fontFamilies.body,
+
+    h1: {
+      fontFamily: fontFamilies.heading,
     },
-    body1: {
-      fontFamily: fontFamilies.body,
+    h2: {
+      fontFamily: fontFamilies.heading,
     },
-    body2: {
-      fontFamily: fontFamilies.body,
+    h3: {
+      fontFamily: fontFamilies.heading,
+    },
+    h4: {
+      fontFamily: fontFamilies.heading,
+    },
+    h5: {
+      fontFamily: fontFamilies.heading,
+    },
+    h6: {
+      fontFamily: fontFamilies.heading,
     },
   },
   props: {
