@@ -3,6 +3,15 @@ import { IProject } from "../../data/projects";
 import { getGithubRepository } from "../../services/github";
 import { delay, encodeUrl } from "../../utility";
 import { dataStore } from "../../data";
+import path from "path";
+
+export const toProjectScreenShootSrc = ({
+  liveSiteURL,
+}: {
+  liveSiteURL: string;
+}) => {
+  return `/project-screenshots/${encodeUrl(liveSiteURL)}.png`;
+};
 
 const generateSingleProjectScreenshot = async (
   browser: puppeteer.Browser,
@@ -19,7 +28,9 @@ const generateSingleProjectScreenshot = async (
 
     await delay(10000);
 
-    await page.screenshot({ path: `public/${encodeUrl(liveSiteURL)}.png` });
+    await page.screenshot({
+      path: path.join("public", toProjectScreenShootSrc({ liveSiteURL })),
+    });
   }
 };
 

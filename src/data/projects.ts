@@ -1,9 +1,10 @@
 import projectIds from "../../content/project-ids.json";
+import { toProjectScreenShootSrc } from "../scripts/generate-assets/generate-project-screenshots";
 import {
   getGithubRepository,
   getGithubRepositoryTopics,
 } from "../services/github";
-import { castUrl, encodeUrl } from "../utility";
+import { castUrl } from "../utility";
 import { descend } from "../utility/sort";
 
 export type IProjectId = {
@@ -44,7 +45,7 @@ const getOneProject = async (projectId: IProjectId): Promise<IProject> => {
   const description = repositoryData.description ?? "";
   const sourceCodeUrl = castUrl(repositoryData.html_url);
   const title = projectId.title;
-  const src = `/${encodeUrl(liveSiteUrl)}.png`;
+  const src = toProjectScreenShootSrc({ liveSiteURL: liveSiteUrl });
   const topics = repositoryTopicsData.names ?? [];
 
   return {

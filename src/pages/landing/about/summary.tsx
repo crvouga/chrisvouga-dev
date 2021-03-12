@@ -7,9 +7,9 @@ import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import Image from "next/image";
 import React from "react";
-
-import { AboutCard, AboutCardImage } from "./card";
 import { IAboutMe } from "../../../data/about-me";
+import { IMAGE_ASSETS_SRC } from "../../../data/assets";
+import { AboutCard, AboutCardImage } from "./card";
 
 export const LocationChip = ({ location }: { location: string }) => (
   <Link href={`http://google.com/search?q=${location}`}>
@@ -17,7 +17,7 @@ export const LocationChip = ({ location }: { location: string }) => (
       <Chip
         avatar={
           <Avatar>
-            <Image layout="fill" alt="arizona flag" src="/arizona-flag.png" />
+            <Image layout="fill" {...IMAGE_ASSETS_SRC.logos.arizona} />
           </Avatar>
         }
         clickable
@@ -33,7 +33,7 @@ export const SummaryCard = ({ aboutMe }: { aboutMe: IAboutMe }) => {
     <AboutCard>
       <CardHeader title="Overview" />
 
-      <AboutCardImage src="/personal-logo-light.svg" alt="chris vouga logo" />
+      <AboutCardImage {...IMAGE_ASSETS_SRC.logos.personalLight} />
 
       <CardContent>
         <Typography component="div" variant="body1" color="textSecondary">

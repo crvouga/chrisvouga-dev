@@ -84,7 +84,7 @@ export const Hero = ({ hero }: { hero: IHero }) => {
 
           <Grid item xs={12} sm={8} md={6}>
             <div className={classes.imageContainer}>
-              <Image priority layout="fill" src={hero.mainImage} alt="hero" />
+              <Image priority layout="fill" {...hero.mainImage} />
             </div>
           </Grid>
         </Grid>

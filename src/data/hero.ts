@@ -1,4 +1,4 @@
-import hero from "../../content/hero.json";
+import hero from "../../content/hero";
 
 export type IHero = {
   greeting: string;
@@ -8,7 +8,10 @@ export type IHero = {
     name: string;
     link: string;
   };
-  mainImage: string;
+  mainImage: {
+    src: string;
+    alt: string;
+  };
 };
 
 export type IHeroDataStore = {

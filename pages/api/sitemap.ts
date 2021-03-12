@@ -22,7 +22,7 @@ export const handler: NextApiHandler = async (req, res) => {
       priority: 0.9,
       img: [
         {
-          url: `/personal-logo.png`,
+          url: `/logo.png`,
           title: "Chris Vouga",
           caption: "Chris Vouga",
         },
