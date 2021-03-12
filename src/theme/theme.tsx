@@ -3,23 +3,20 @@ import {
   responsiveFontSizes,
   ThemeOptions,
 } from "@material-ui/core/styles";
-import { fontFamilies } from "./fonts";
 
-export type ThemeType = "light" | "dark";
-
-export const castThemeType = (themeType: any): ThemeType => {
-  if (themeType === "light" || themeType === "dark") {
-    return themeType;
-  }
-  throw new Error("failed to cast theme type");
+const fontFamilies = {
+  heading: "Raleway",
+  body: "Roboto",
 };
 
 const themeOptions: ThemeOptions = {
   palette: {
     type: "light",
   },
+
   typography: {
-    fontWeightRegular: "bold",
+    fontWeightRegular: "bolder",
+
     fontFamily: [fontFamilies.body, fontFamilies.heading, "sans-serif"].join(
       ","
     ),
@@ -27,22 +24,28 @@ const themeOptions: ThemeOptions = {
     h1: {
       fontFamily: fontFamilies.heading,
     },
+
     h2: {
       fontFamily: fontFamilies.heading,
     },
+
     h3: {
       fontFamily: fontFamilies.heading,
     },
+
     h4: {
       fontFamily: fontFamilies.heading,
     },
+
     h5: {
       fontFamily: fontFamilies.heading,
     },
+
     h6: {
       fontFamily: fontFamilies.heading,
     },
   },
+
   props: {
     MuiLink: {
       variant: "inherit",
@@ -54,17 +57,20 @@ const themeOptions: ThemeOptions = {
       elevation: 6,
     },
   },
+
   overrides: {
     MuiChip: {
       label: {
         fontWeight: "bold",
       },
     },
+
     MuiButton: {
       label: {
         fontWeight: "bolder",
       },
     },
+
     MuiCssBaseline: {
       "@global": {
         html: {

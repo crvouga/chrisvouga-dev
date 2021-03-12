@@ -7,7 +7,7 @@ import Document, {
   NextScript,
 } from "next/document";
 import React from "react";
-import { Fonts } from "../src/theme";
+import { Fonts } from "../src/theme/fonts";
 
 export default class extends Document {
   static async getInitialProps(ctx: DocumentContext) {

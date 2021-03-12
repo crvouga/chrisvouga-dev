@@ -2,7 +2,15 @@ import IconButton from "@material-ui/core/IconButton";
 import Brightness2Icon from "@material-ui/icons/Brightness2";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import { useEffect, useState } from "react";
-import { castThemeType, ThemeType } from "./theme";
+
+export type ThemeType = "light" | "dark";
+
+export const castThemeType = (themeType: any): ThemeType => {
+  if (themeType === "light" || themeType === "dark") {
+    return themeType;
+  }
+  throw new Error("failed to cast theme type");
+};
 
 export const useThemeState = () => {
   const THEME_TYPE_KEY = "theme-type";
