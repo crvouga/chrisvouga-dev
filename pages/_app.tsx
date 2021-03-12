@@ -1,6 +1,6 @@
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import React from "react";
-import ThemeProvider from "../src/components/theme/theme-provider";
+import ThemeProvider from "../src/theme/theme-provider";
 
 const App = (props: AppProps) => {
   const { Component, pageProps } = props;
