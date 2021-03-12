@@ -1,6 +1,4 @@
-import education from "raw-loader!../../content/education.md";
-import overview from "raw-loader!../../content/overview.md";
-import skills from "raw-loader!../../content/skills.md";
+import aboutMe from "../../content/about-me";
 
 export type IAboutMe = {
   education: string;
@@ -15,11 +13,7 @@ export type IAboutMeDataStore = {
 export const AboutMeDataStore = (): IAboutMeDataStore => {
   return {
     async get() {
-      return {
-        education,
-        overview,
-        skills,
-      };
+      return aboutMe;
     },
   };
 };

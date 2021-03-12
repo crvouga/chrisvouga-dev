@@ -1,11 +1,11 @@
-import overview from "raw-loader!./overview.md";
+import aboutMe from "./about-me";
 
 const siteUrl = "https://chrisvouga.dev";
 const logoUrl = `${siteUrl}/logo.png`;
 
 export default {
   title: "Chris Vouga | Software Developer",
-  description: overview,
+  description: aboutMe.overview,
   author: "Chris Vouga",
   siteUrl,
   imageUrl: logoUrl,
