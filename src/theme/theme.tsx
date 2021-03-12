@@ -19,7 +19,7 @@ const themeOptions: ThemeOptions = {
     type: "light",
   },
   typography: {
-    fontWeightRegular: "bolder",
+    fontWeightRegular: "bold",
     fontFamily: [fontFamilies.body, fontFamilies.heading, "sans-serif"].join(
       ","
     ),
