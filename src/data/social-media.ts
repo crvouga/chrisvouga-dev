@@ -1,4 +1,4 @@
-import data from "../../content/social-media.json";
+import data from "../../content/social-media";
 
 export type ISocialMedia = {
   name: string;
