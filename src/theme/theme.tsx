@@ -1,3 +1,5 @@
+import "@fontsource/raleway";
+import "@fontsource/roboto";
 import {
   createMuiTheme,
   responsiveFontSizes,
@@ -15,11 +17,9 @@ const themeOptions: ThemeOptions = {
   },
 
   typography: {
-    fontWeightRegular: "bolder",
+    fontWeightRegular: "bold",
 
-    fontFamily: [fontFamilies.body, fontFamilies.heading, "sans-serif"].join(
-      ","
-    ),
+    fontFamily: [fontFamilies.body, fontFamilies.heading].join(","),
 
     h1: {
       fontFamily: fontFamilies.heading,

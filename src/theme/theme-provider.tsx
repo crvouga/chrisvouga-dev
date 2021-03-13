@@ -5,11 +5,13 @@ import { createTheme } from "./theme";
 
 interface IThemeProviderProps extends PropsWithChildren<{}> {}
 
+const theme = createTheme();
+
 export default function ThemeProvider(props: IThemeProviderProps) {
   const { children } = props;
 
   return (
-    <MuiThemeProvider theme={createTheme()}>
+    <MuiThemeProvider theme={theme}>
       <CssBaseline />
       {children}
     </MuiThemeProvider>
