@@ -10,8 +10,6 @@
     "find:unused": "next-unused"
   },
   "dependencies": {
-    "@fontsource/raleway": "^4.2.2",
-    "@fontsource/roboto": "^4.2.2",
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
     "next": "10.0.4",
