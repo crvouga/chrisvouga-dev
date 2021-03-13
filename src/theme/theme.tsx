@@ -3,34 +3,14 @@ import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 export const theme = responsiveFontSizes(
   createMuiTheme({
     typography: {
-      fontFamily: "'Roboto', 'Raleway'",
-
-      h1: {
-        fontFamily: "Raleway",
-      },
-
-      h2: {
-        fontFamily: "Raleway",
-      },
-
-      h3: {
-        fontFamily: "Raleway",
-      },
-
-      h4: {
-        fontFamily: "Raleway",
-      },
-
-      h5: {
-        fontFamily: "Raleway",
-      },
-
-      h6: {
-        fontFamily: "Raleway",
-      },
+      fontWeightRegular: "bold",
     },
 
     props: {
+      MuiLink: {
+        underline: "none",
+        color: "textPrimary",
+      },
       MuiCard: {
         elevation: 6,
       },
