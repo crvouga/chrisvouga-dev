@@ -1,7 +1,5 @@
-const withFonts = require("next-fonts");
-
-module.exports = withFonts({
+module.exports = {
   images: {
     domains: ["cdn.svgporn.com"],
   },
-});
+};

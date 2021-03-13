@@ -3,25 +3,8 @@ import {
   responsiveFontSizes,
   ThemeOptions,
 } from "@material-ui/core/styles";
-import { fontFamilies, fontFaces } from "./fonts";
-
-const headingConfig = {
-  fontFamily: fontFamilies.heading,
-};
 
 const themeOptions: ThemeOptions = {
-  typography: {
-    fontFamily: [fontFamilies.body, fontFamilies.heading, "sans-serif"].join(
-      ", "
-    ),
-    h1: headingConfig,
-    h2: headingConfig,
-    h3: headingConfig,
-    h4: headingConfig,
-    h5: headingConfig,
-    h6: headingConfig,
-  },
-
   props: {
     MuiLink: {
       variant: "inherit",
@@ -49,8 +32,6 @@ const themeOptions: ThemeOptions = {
 
     MuiCssBaseline: {
       "@global": {
-        "@font-face": fontFaces,
-
         html: {
           scrollBehavior: "smooth",
         },
