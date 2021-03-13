@@ -1,4 +1,4 @@
-import data from "../../content/social-media";
+import data from "../../data/social-media";
 
 export type ISocialMedia = {
   name: string;

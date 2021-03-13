@@ -1,4 +1,4 @@
-import projectIds from "../../content/project-ids";
+import projectIds from "../../data/project-ids";
 import { toProjectScreenShootSrc } from "../scripts/generate-assets/generate-project-screenshots";
 import {
   getGithubRepository,

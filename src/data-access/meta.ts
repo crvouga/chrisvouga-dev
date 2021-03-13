@@ -1,4 +1,4 @@
-import meta from "../../content/meta";
+import meta from "../../data/meta";
 
 export type IMeta = {
   author: string;

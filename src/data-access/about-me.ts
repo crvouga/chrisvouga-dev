@@ -1,4 +1,4 @@
-import aboutMe from "../../content/about-me";
+import aboutMe from "../../data/about-me";
 
 export type IAboutMe = {
   education: string;

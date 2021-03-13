@@ -1,4 +1,4 @@
-import hero from "../../content/hero";
+import hero from "../../data/hero";
 
 export type IHero = {
   greeting: string;
