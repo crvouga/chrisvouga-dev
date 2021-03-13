@@ -1,45 +1,49 @@
-import {
-  createMuiTheme,
-  responsiveFontSizes,
-  ThemeOptions,
-} from "@material-ui/core/styles";
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 
-const themeOptions: ThemeOptions = {
-  props: {
-    MuiLink: {
-      variant: "inherit",
-      color: "inherit",
-      underline: "none",
-    },
+export const theme = responsiveFontSizes(
+  createMuiTheme({
+    typography: {
+      fontFamily: "'Roboto', 'Raleway'",
 
-    MuiCard: {
-      elevation: 6,
-    },
-  },
+      h1: {
+        fontFamily: "Raleway",
+      },
 
-  overrides: {
-    MuiChip: {
-      label: {
-        fontWeight: "bold",
+      h2: {
+        fontFamily: "Raleway",
+      },
+
+      h3: {
+        fontFamily: "Raleway",
+      },
+
+      h4: {
+        fontFamily: "Raleway",
+      },
+
+      h5: {
+        fontFamily: "Raleway",
+      },
+
+      h6: {
+        fontFamily: "Raleway",
       },
     },
 
-    MuiButton: {
-      label: {
-        fontWeight: "bolder",
+    props: {
+      MuiCard: {
+        elevation: 6,
       },
     },
 
-    MuiCssBaseline: {
-      "@global": {
-        html: {
-          scrollBehavior: "smooth",
+    overrides: {
+      MuiCssBaseline: {
+        "@global": {
+          html: {
+            scrollBehavior: "smooth",
+          },
         },
       },
     },
-  },
-};
-
-export const createTheme = () => {
-  return responsiveFontSizes(createMuiTheme(themeOptions));
-};
+  })
+);

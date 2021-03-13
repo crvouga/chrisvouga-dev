@@ -73,16 +73,3 @@ source: http://google-webfonts-helper.herokuapp.com/fonts/raleway?subsets=latin
     /* Safari, Android, iOS */ url("/fonts/raleway-v19-latin-800.svg#Raleway")
       format("svg"); /* Legacy iOS */
 }
-
-body {
-  font-family: "Roboto";
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Raleway";
-}
