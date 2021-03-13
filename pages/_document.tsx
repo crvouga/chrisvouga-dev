@@ -7,6 +7,7 @@ import Document, {
   NextScript,
 } from "next/document";
 import React from "react";
+import { PreloadFonts } from "../src/theme/fonts";
 
 export default class extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -34,7 +35,9 @@ export default class extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head></Head>
+        <Head>
+          <PreloadFonts />
+        </Head>
         <body>
           <Main />
           <NextScript />

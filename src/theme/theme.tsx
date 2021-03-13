@@ -1,49 +1,25 @@
-import "@fontsource/raleway";
-import "@fontsource/roboto";
 import {
   createMuiTheme,
   responsiveFontSizes,
   ThemeOptions,
 } from "@material-ui/core/styles";
+import { fontFamilies, fontFaces } from "./fonts";
 
-const fontFamilies = {
-  heading: "Raleway",
-  body: "Roboto",
+const headingConfig = {
+  fontFamily: fontFamilies.heading,
 };
 
 const themeOptions: ThemeOptions = {
-  palette: {
-    type: "light",
-  },
-
   typography: {
-    fontWeightRegular: "bold",
-
-    fontFamily: [fontFamilies.body, fontFamilies.heading].join(","),
-
-    h1: {
-      fontFamily: fontFamilies.heading,
-    },
-
-    h2: {
-      fontFamily: fontFamilies.heading,
-    },
-
-    h3: {
-      fontFamily: fontFamilies.heading,
-    },
-
-    h4: {
-      fontFamily: fontFamilies.heading,
-    },
-
-    h5: {
-      fontFamily: fontFamilies.heading,
-    },
-
-    h6: {
-      fontFamily: fontFamilies.heading,
-    },
+    fontFamily: [fontFamilies.body, fontFamilies.heading, "sans-serif"].join(
+      ", "
+    ),
+    h1: headingConfig,
+    h2: headingConfig,
+    h3: headingConfig,
+    h4: headingConfig,
+    h5: headingConfig,
+    h6: headingConfig,
   },
 
   props: {
@@ -73,6 +49,8 @@ const themeOptions: ThemeOptions = {
 
     MuiCssBaseline: {
       "@global": {
+        "@font-face": fontFaces,
+
         html: {
           scrollBehavior: "smooth",
         },
