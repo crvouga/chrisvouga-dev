@@ -1,4 +1,4 @@
-import { IMAGE_ASSETS_SRC } from "../src/data/assets";
+import { IMAGE_ASSETS_SRC } from "../src/data-access/assets";
 
 export default {
   greeting: "Hello, my name is",

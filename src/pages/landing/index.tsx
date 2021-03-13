@@ -1,10 +1,10 @@
 import React from "react";
 import { Meta } from "../../components/meta";
-import { IAboutMe } from "../../data/about-me";
-import { IHero } from "../../data/hero";
-import { IMeta } from "../../data/meta";
-import { IProject } from "../../data/projects";
-import { ISocialMedia } from "../../data/social-media";
+import { IAboutMe } from "../../data-access/about-me";
+import { IHero } from "../../data-access/hero";
+import { IMeta } from "../../data-access/meta";
+import { IProject } from "../../data-access/projects";
+import { ISocialMedia } from "../../data-access/social-media";
 import { About } from "./about";
 import { Contact } from "./contact";
 import { Footer } from "./footer";

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import { IMeta } from "../data/meta";
+import { IMeta } from "../data-access/meta";
 
 export const Meta = ({ meta }: { meta: IMeta }) => {
   return (

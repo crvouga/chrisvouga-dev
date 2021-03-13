@@ -7,8 +7,8 @@ import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import Image from "next/image";
 import React from "react";
-import { IAboutMe } from "../../../data/about-me";
-import { IMAGE_ASSETS_SRC } from "../../../data/assets";
+import { IAboutMe } from "../../../data-access/about-me";
+import { IMAGE_ASSETS_SRC } from "../../../data-access/assets";
 import { AboutCard, AboutCardImage } from "./card";
 
 export const LocationChip = ({ location }: { location: string }) => (

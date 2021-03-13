@@ -7,9 +7,9 @@ import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import Image from "next/image";
 import React from "react";
-import { IAboutMe } from "../../../data/about-me";
+import { IAboutMe } from "../../../data-access/about-me";
 import { AboutCard, AboutCardImage } from "./card";
-import { IMAGE_ASSETS_SRC } from "../../../data/assets";
+import { IMAGE_ASSETS_SRC } from "../../../data-access/assets";
 
 export const AsuChip = () => (
   <Link href="https://www.asu.edu/">

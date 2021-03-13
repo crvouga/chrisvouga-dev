@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { dataStore } from "../src/data";
+import { dataStore } from "../src/data-access";
 import { ILandingPageProps, LandingPage } from "../src/pages/landing";
 
 export const getStaticProps: GetStaticProps<ILandingPageProps> = async () => {

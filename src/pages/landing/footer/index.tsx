@@ -2,7 +2,7 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { SocialMediaIconButton } from "../../../components/social-media";
-import { ISocialMedia } from "../../../data/social-media";
+import { ISocialMedia } from "../../../data-access/social-media";
 import { SectionContainer } from "../section";
 
 export const Footer = ({ socialMedia }: { socialMedia: ISocialMedia[] }) => {

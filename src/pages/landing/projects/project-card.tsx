@@ -14,7 +14,7 @@ import WebIcon from "@material-ui/icons/Web";
 import Image from "next/image";
 import React from "react";
 import { GithubTopicChipGroup } from "../../../components/github-topics";
-import { IProject } from "../../../data/projects";
+import { IProject } from "../../../data-access/projects";
 
 const useStyles = makeStyles(() => ({
   media: {

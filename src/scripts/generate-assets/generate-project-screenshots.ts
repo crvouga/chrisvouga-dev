@@ -1,8 +1,8 @@
 import puppeteer from "puppeteer";
-import { IProject } from "../../data/projects";
+import { IProject } from "../../data-access/projects";
 import { getGithubRepository } from "../../services/github";
 import { delay, encodeUrl } from "../../utility";
-import { dataStore } from "../../data";
+import { dataStore } from "../../data-access";
 import path from "path";
 
 export const toProjectScreenShootSrc = ({

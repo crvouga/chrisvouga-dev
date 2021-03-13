@@ -20,7 +20,7 @@ import React from "react";
 import { useBoolean } from "../../components/boolean";
 import { ElevationScroll } from "../../components/elevation-scroll";
 import { SECTION_ORDER, SECTION_TO_NAME, SECTION_TO_URL } from "./section";
-import { IMAGE_ASSETS_SRC } from "../../data/assets";
+import { IMAGE_ASSETS_SRC } from "../../data-access/assets";
 
 const useStyles = makeStyles((theme) => ({
   gutter: {

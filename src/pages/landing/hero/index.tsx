@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import Image from "next/image";
 import React from "react";
-import { IHero } from "../../../data/hero";
+import { IHero } from "../../../data-access/hero";
 
 const useStyles = makeStyles((theme) => ({
   root: {

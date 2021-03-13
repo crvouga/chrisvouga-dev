@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { dataStore } from "../../data";
+import { dataStore } from "../../data-access";
 
 //why?: https://developers.google.com/search/docs/advanced/robots/intro
 
