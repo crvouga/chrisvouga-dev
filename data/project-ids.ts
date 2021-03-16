@@ -7,7 +7,7 @@ export default [
   {
     title: "The Band Alibi",
     ownerName: "crvouga",
-    repositoryName: "band-website",
+    repositoryName: "the-band-alibi",
   },
   {
     title: "Connect Four",
