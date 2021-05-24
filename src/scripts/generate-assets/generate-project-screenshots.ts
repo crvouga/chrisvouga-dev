@@ -17,7 +17,7 @@ const generateSingleProjectScreenshot = async (
   browser: puppeteer.Browser,
   project: IProject
 ) => {
-  const response = await getGithubRepository(project.projectId);
+  const response = await getGithubRepository(project.projectId.github);
 
   const liveSiteURL = response.homepage;
 

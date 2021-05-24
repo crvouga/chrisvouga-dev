@@ -8,9 +8,11 @@ import { castUrl } from "../utility";
 import { descend } from "../utility/sort";
 
 export type IProjectId = {
-  repositoryName: string;
-  ownerName: string;
   title: string;
+  github: {
+    repositoryName: string;
+    ownerName: string;
+  };
 };
 
 export type IProject = {
@@ -31,14 +33,8 @@ export type IProjectDataStore = {
 
 const getOneProject = async (projectId: IProjectId): Promise<IProject> => {
   const [repositoryData, repositoryTopicsData] = await Promise.all([
-    getGithubRepository({
-      repositoryName: projectId.repositoryName,
-      ownerName: projectId.ownerName,
-    }),
-    getGithubRepositoryTopics({
-      repositoryName: projectId.repositoryName,
-      ownerName: projectId.ownerName,
-    }),
+    getGithubRepository(projectId.github),
+    getGithubRepositoryTopics(projectId.github),
   ]);
 
   const liveSiteUrl = castUrl(repositoryData.homepage);
