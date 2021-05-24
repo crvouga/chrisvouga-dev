@@ -41,8 +41,6 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
       <Link href={liveSiteUrl}>
         <CardHeader
           title={title}
-          subheaderTypographyProps={{ variant: "subtitle2" }}
-          subheader={new URL(liveSiteUrl).hostname}
           action={
             <IconButton
               disableRipple

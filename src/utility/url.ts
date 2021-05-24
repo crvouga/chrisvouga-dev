@@ -1,7 +1,6 @@
 export type Url = string & { Url: "Url" };
 
 export const castUrl = (url: any): Url => {
-  new URL(url);
   return url as Url;
 };
 
