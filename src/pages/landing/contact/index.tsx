@@ -1,14 +1,20 @@
 import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
+import { SocialMediaButton } from "../../../components/social-media";
 import { SectionContainer } from "../section";
-import { ContactForm } from "./contact-form";
 
-export const Contact = () => {
+export const Contact = ({
+  socialMedia,
+}: {
+  socialMedia: { name: string; url: string }[];
+}) => {
   return (
     <SectionContainer id="contact">
       <Typography align="center" variant="h3">
-        <Box fontWeight="bold">Get In Touch</Box>
+        <Box fontWeight="bo ld">Get In Touch</Box>
       </Typography>
 
       <Typography
@@ -17,10 +23,18 @@ export const Contact = () => {
         variant="h4"
         gutterBottom
       >
-        Feel free to shoot me a message!
+        You can find me here.
       </Typography>
 
-      <ContactForm />
+      <Grid container justify="center">
+        {socialMedia.map(({ name, url }) => (
+          <Grid item key={url}>
+            <Link href={url}>
+              <SocialMediaButton name={name} />
+            </Link>
+          </Grid>
+        ))}
+      </Grid>
     </SectionContainer>
   );
 };

@@ -3,6 +3,7 @@ import Container from "@material-ui/core/Container";
 import InfoIcon from "@material-ui/icons/Info";
 import SendIcon from "@material-ui/icons/Send";
 import WebIcon from "@material-ui/icons/Web";
+import React from "react";
 
 export enum Sections {
   About = "About",
@@ -44,10 +45,30 @@ export const SectionContainer = ({
   ...props
 }: React.PropsWithChildren<BoxProps>) => {
   return (
-    <Container maxWidth="lg">
-      <Box component="section" paddingY={10} {...props}>
+    <Container maxWidth="lg" disableGutters>
+      <Box component="section" paddingY={4} {...props}>
         {children}
       </Box>
     </Container>
+  );
+};
+
+export const Section = ({
+  title,
+  body,
+}: {
+  title: React.ReactNode;
+  body: React.ReactNode;
+}) => {
+  return (
+    <Box component="section" paddingY={4}>
+      <Container maxWidth="lg">
+        <React.Fragment>{title}</React.Fragment>
+      </Container>
+
+      <Container maxWidth="lg" disableGutters>
+        <React.Fragment>{body}</React.Fragment>
+      </Container>
+    </Box>
   );
 };

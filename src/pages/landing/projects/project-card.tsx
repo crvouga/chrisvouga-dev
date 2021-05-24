@@ -8,12 +8,11 @@ import IconButton from "@material-ui/core/IconButton";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import CallMadeIcon from "@material-ui/icons/CallMade";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import WebIcon from "@material-ui/icons/Web";
+import CodeIcon from "@material-ui/icons/Code";
+import LinkIcon from "@material-ui/icons/Link";
 import Image from "next/image";
 import React from "react";
-import { GithubTopicChipGroup } from "../../../components/github-topics";
+// import { GithubTopicChipGroup } from "../../../components/github-topics";
 import { IProject } from "../../../data-access/projects";
 
 const useStyles = makeStyles(() => ({
@@ -33,14 +32,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const ProjectCard = ({ project }: { project: IProject }) => {
-  const {
-    src,
-    title,
-    description,
-    liveSiteUrl,
-    sourceCodeUrl,
-    topics,
-  } = project;
+  const { src, title, description, liveSiteUrl, sourceCodeUrl } = project;
 
   const classes = useStyles();
 
@@ -49,6 +41,8 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
       <Link href={liveSiteUrl}>
         <CardHeader
           title={title}
+          subheaderTypographyProps={{ variant: "subtitle2" }}
+          subheader={new URL(liveSiteUrl).hostname}
           action={
             <IconButton
               disableRipple
@@ -56,7 +50,7 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
               disableTouchRipple
               aria-label="go to project"
             >
-              <CallMadeIcon />
+              <LinkIcon />
             </IconButton>
           }
         />
@@ -67,23 +61,22 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
       </Link>
 
       <CardContent className={classes.content}>
-        <Box paddingBottom={2}>
-          <Typography variant="body1" color="textSecondary">
-            {description}
-          </Typography>
-        </Box>
-        <GithubTopicChipGroup topics={topics} />
+        <Typography variant="body1" color="textSecondary">
+          {description}
+        </Typography>
+
+        {/* <GithubTopicChipGroup topics={topics} /> */}
       </CardContent>
 
       <CardActions>
-        <Link href={sourceCodeUrl}>
-          <Button variant="text" size="large" startIcon={<GitHubIcon />}>
-            Source Code
+        <Link href={liveSiteUrl}>
+          <Button variant="text" size="large" startIcon={<LinkIcon />}>
+            Live Site
           </Button>
         </Link>
-        <Link href={liveSiteUrl}>
-          <Button variant="text" size="large" startIcon={<WebIcon />}>
-            Live Site
+        <Link href={sourceCodeUrl}>
+          <Button variant="text" size="large" startIcon={<CodeIcon />}>
+            Code
           </Button>
         </Link>
       </CardActions>

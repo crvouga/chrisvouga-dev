@@ -18,6 +18,7 @@ export const theme = responsiveFontSizes(
         ...OPEN_NEW_TAB_PROPS,
       },
       MuiCard: {
+        variant: "outlined",
         elevation: 6,
       },
     },
@@ -27,6 +28,7 @@ export const theme = responsiveFontSizes(
         "@global": {
           html: {
             scrollBehavior: "smooth",
+            fontWeight: "bold",
           },
         },
       },

@@ -1,7 +1,10 @@
+import Box from "@material-ui/core/Box";
 import IconButton, { IconButtonProps } from "@material-ui/core/IconButton";
 import Link from "@material-ui/core/Link";
 import { SvgIconProps } from "@material-ui/core/SvgIcon";
+import Typography from "@material-ui/core/Typography";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import InstagramIcon from "@material-ui/icons/Instagram";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import makeStyles from "@material-ui/styles/makeStyles";
@@ -13,7 +16,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const SocialMediaIcon = ({
+export const SocialMediaIcon = ({
   name,
   ...props
 }: { name: string } & SvgIconProps) => {
@@ -27,8 +30,11 @@ const SocialMediaIcon = ({
     case "twitter":
       return <TwitterIcon {...props} />;
 
+    case "instagram":
+      return <InstagramIcon {...props} />;
+
     default:
-      return null;
+      throw new Error("Invalid social media name");
   }
 };
 
@@ -49,5 +55,24 @@ export const SocialMediaIconButton = ({
         <SocialMediaIcon className={classes.large} name={name} />
       </IconButton>
     </Link>
+  );
+};
+
+export const SocialMediaButton = ({ name }: { name: string }) => {
+  const length = "2.5em";
+
+  return (
+    <Box
+      width="150px"
+      height="150px"
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      padding={2}
+    >
+      <SocialMediaIcon style={{ width: length, height: length }} name={name} />
+      <Typography variant="h5">{name}</Typography>
+    </Box>
   );
 };
