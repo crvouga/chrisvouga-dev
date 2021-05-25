@@ -8,9 +8,6 @@ import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 import Link from "@material-ui/core/Link";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
 import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import CloseIcon from "@material-ui/icons/Close";
@@ -19,8 +16,8 @@ import Image from "next/image";
 import React from "react";
 import { useBoolean } from "../../components/boolean";
 import { ElevationScroll } from "../../components/elevation-scroll";
-import { SECTION_ORDER, SECTION_TO_NAME, SECTION_TO_URL } from "./section";
 import { IMAGE_ASSETS_SRC } from "../../data-access/assets";
+import { SECTION_ORDER, SECTION_TO_NAME, SECTION_TO_URL } from "./section";
 
 const useStyles = makeStyles((theme) => ({
   gutter: {
@@ -66,6 +63,7 @@ export const NavigationBar = () => {
                 {SECTION_ORDER.map((section) => (
                   <Box marginRight={1} key={SECTION_TO_URL[section]}>
                     <Button
+                      size="large"
                       href={SECTION_TO_URL[section]}
                       className={classes.button}
                     >
@@ -102,21 +100,13 @@ export const NavigationBar = () => {
           </IconButton>
         </Toolbar>
         <Box display="flex" flexDirection="column" width="66vw" height="100vh">
-          <List>
-            {SECTION_ORDER.map((section) => (
-              <Link
-                href={SECTION_TO_URL[section]}
-                key={SECTION_TO_URL[section]}
-              >
-                <ListItem button divider onClick={open.setFalse}>
-                  <ListItemText
-                    primary={SECTION_TO_NAME[section]}
-                    primaryTypographyProps={{ variant: "button" }}
-                  />
-                </ListItem>
-              </Link>
-            ))}
-          </List>
+          {SECTION_ORDER.map((section) => (
+            <Link href={SECTION_TO_URL[section]} key={SECTION_TO_URL[section]}>
+              <Button fullWidth variant="text" size="large">
+                {SECTION_TO_NAME[section]}
+              </Button>
+            </Link>
+          ))}
         </Box>
       </Drawer>
     </React.Fragment>

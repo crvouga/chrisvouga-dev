@@ -5,37 +5,43 @@ import SendIcon from "@material-ui/icons/Send";
 import WebIcon from "@material-ui/icons/Web";
 import React from "react";
 
-export enum Sections {
+export enum ISections {
   About = "About",
   Projects = "Projects",
   Contact = "Contact",
 }
 
-export const SECTION_TO_URL: { [section in Sections]: string } = {
-  [Sections.About]: "/#about",
-  [Sections.Contact]: "/#contact",
-  [Sections.Projects]: "/#projects",
+export const SECTION_TO_ID: { [section in ISections]: string } = {
+  [ISections.About]: "about",
+  [ISections.Contact]: "contact",
+  [ISections.Projects]: "projects",
 };
 
-export const SECTION_TO_NAME: { [section in Sections]: string } = {
-  [Sections.About]: "About",
-  [Sections.Contact]: "Contact",
-  [Sections.Projects]: "Projects",
+export const SECTION_TO_URL: { [section in ISections]: string } = {
+  [ISections.About]: "/#about",
+  [ISections.Contact]: "/#contact",
+  [ISections.Projects]: "/#projects",
+};
+
+export const SECTION_TO_NAME: { [section in ISections]: string } = {
+  [ISections.About]: "About",
+  [ISections.Contact]: "Contact",
+  [ISections.Projects]: "Projects",
 };
 
 export const SECTION_ORDER = [
-  Sections.About,
-  Sections.Projects,
-  Sections.Contact,
+  ISections.Projects,
+  ISections.About,
+  ISections.Contact,
 ];
 
-export const SectionIcon = ({ section }: { section: Sections }) => {
+export const SectionIcon = ({ section }: { section: ISections }) => {
   switch (section) {
-    case Sections.About:
+    case ISections.About:
       return <InfoIcon />;
-    case Sections.Contact:
+    case ISections.Contact:
       return <SendIcon />;
-    case Sections.Projects:
+    case ISections.Projects:
       return <WebIcon />;
   }
 };
@@ -53,13 +59,11 @@ export const SectionContainer = ({
   );
 };
 
-export const Section = ({
-  title,
-  body,
-}: {
+type ISectionProps = {
   title: React.ReactNode;
   body: React.ReactNode;
-}) => {
+};
+export const Section = ({ title, body }: ISectionProps) => {
   return (
     <Box component="section" paddingY={4}>
       <Container maxWidth="lg">
@@ -70,5 +74,21 @@ export const Section = ({
         <React.Fragment>{body}</React.Fragment>
       </Container>
     </Box>
+  );
+};
+
+export const Sections = ({
+  sections,
+}: {
+  sections: { [section in ISections]: ISectionProps };
+}) => {
+  return (
+    <>
+      {SECTION_ORDER.map((section) => (
+        <div key={section} id={SECTION_TO_ID[section]}>
+          <Section {...sections[section]} />
+        </div>
+      ))}
+    </>
   );
 };

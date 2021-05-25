@@ -1,6 +1,6 @@
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { Meta } from "../../components/meta";
 import { IAboutMe } from "../../data-access/about-me";
@@ -13,7 +13,7 @@ import { AboutCardGrid } from "./about/about-card-grid";
 import { Hero } from "./hero";
 import { NavigationBar } from "./navigation";
 import { ProjectCardGrid } from "./projects";
-import { Section } from "./section";
+import { ISections, Sections } from "./section";
 
 export type ILandingPageData = {
   projects: IProject[];
@@ -37,33 +37,38 @@ export const LandingPage = ({ data }: ILandingPageProps) => {
 
       <Hero hero={data.hero} />
 
-      <Section
-        title={
-          <Typography variant="h3" gutterBottom>
-            Some of the Things I've Built
-          </Typography>
-        }
-        body={<ProjectCardGrid projects={data.projects} />}
-      />
-
-      <Section
-        title={
-          <Typography variant="h3" gutterBottom>
-            A Little About Me
-          </Typography>
-        }
-        body={
-          <AboutCardGrid aboutMe={data.aboutMe} topTopics={data.topTopics} />
-        }
-      />
-
-      <Section
-        title={
-          <Typography variant="h3" gutterBottom>
-            Find Me Here
-          </Typography>
-        }
-        body={<SocialMediaCardGrid socialMedia={data.socialMedia} />}
+      <Sections
+        sections={{
+          [ISections.About]: {
+            title: (
+              <Typography variant="h3" gutterBottom>
+                A Little About Me
+              </Typography>
+            ),
+            body: (
+              <AboutCardGrid
+                aboutMe={data.aboutMe}
+                topTopics={data.topTopics}
+              />
+            ),
+          },
+          [ISections.Contact]: {
+            title: (
+              <Typography variant="h3" gutterBottom>
+                Find Me Here
+              </Typography>
+            ),
+            body: <SocialMediaCardGrid socialMedia={data.socialMedia} />,
+          },
+          [ISections.Projects]: {
+            title: (
+              <Typography variant="h3" gutterBottom>
+                Some of the Things I've Built
+              </Typography>
+            ),
+            body: <ProjectCardGrid projects={data.projects} />,
+          },
+        }}
       />
 
       <Container>
