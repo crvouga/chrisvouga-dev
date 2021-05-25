@@ -71,7 +71,7 @@ export const Section = ({ section, title, body }: ISectionProps) => {
         <React.Fragment>{title}</React.Fragment>
       </Container>
 
-      <Container maxWidth="lg" disableGutters>
+      <Container maxWidth="lg">
         <React.Fragment>{body}</React.Fragment>
       </Container>
     </Box>
