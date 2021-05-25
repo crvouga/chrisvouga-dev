@@ -13,7 +13,7 @@ export const AboutCardGrid = ({
   aboutMe: IAboutMe;
 }) => {
   return (
-    <Grid container spacing={1}>
+    <Grid container>
       <Grid item sm={4}>
         <SummaryCard aboutMe={aboutMe} />
       </Grid>

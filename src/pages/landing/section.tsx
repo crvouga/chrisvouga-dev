@@ -60,12 +60,13 @@ export const SectionContainer = ({
 };
 
 type ISectionProps = {
+  section: ISections;
   title: React.ReactNode;
   body: React.ReactNode;
 };
-export const Section = ({ title, body }: ISectionProps) => {
+export const Section = ({ section, title, body }: ISectionProps) => {
   return (
-    <Box component="section" paddingY={4}>
+    <Box id={SECTION_TO_ID[section]} component="section" paddingY={4}>
       <Container maxWidth="lg">
         <React.Fragment>{title}</React.Fragment>
       </Container>
@@ -80,14 +81,12 @@ export const Section = ({ title, body }: ISectionProps) => {
 export const Sections = ({
   sections,
 }: {
-  sections: { [section in ISections]: ISectionProps };
+  sections: { [section in ISections]: Omit<ISectionProps, "section"> };
 }) => {
   return (
     <>
       {SECTION_ORDER.map((section) => (
-        <div key={section} id={SECTION_TO_ID[section]}>
-          <Section {...sections[section]} />
-        </div>
+        <Section key={section} section={section} {...sections[section]} />
       ))}
     </>
   );

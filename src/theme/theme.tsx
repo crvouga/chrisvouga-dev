@@ -12,6 +12,9 @@ export const theme = responsiveFontSizes(
     },
 
     props: {
+      MuiGrid: {
+        spacing: 2,
+      },
       MuiLink: {
         underline: "none",
         color: "textPrimary",

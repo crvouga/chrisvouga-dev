@@ -108,7 +108,7 @@ export const SocialMediaCardGrid = ({
   socialMedia: { url: string; name: string }[];
 }) => {
   return (
-    <Grid container spacing={1}>
+    <Grid container>
       {socialMedia.map(({ name, url }) => (
         <Grid item xs={6} sm={4} md={2} key={url}>
           <Link href={url}>

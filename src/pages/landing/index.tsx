@@ -73,7 +73,7 @@ export const LandingPage = ({ data }: ILandingPageProps) => {
 
       <Container>
         <Box p={4}>
-          <Typography align="center" variant="subtitle2">
+          <Typography color="textSecondary" align="center" variant="subtitle2">
             Built by Chris Vouga
           </Typography>
         </Box>

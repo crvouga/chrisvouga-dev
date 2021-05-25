@@ -153,7 +153,7 @@ export const ContactForm = () => {
         <Container maxWidth="sm" disableGutters>
           <Card>
             <CardContent>
-              <Grid container spacing={2}>
+              <Grid container>
                 <Grid item xs={12}>
                   <EmailAddressTextField
                     error={errors.emailAddress.length > 0}
