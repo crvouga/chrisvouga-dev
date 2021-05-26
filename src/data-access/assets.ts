@@ -4,6 +4,10 @@ export const IMAGE_ASSETS_SRC = {
       src: "/artwork/code.svg",
       alt: "code",
     },
+    desert: {
+      src: "/artwork/desert-8.png",
+      alt: "desert",
+    },
     college: {
       src: "/artwork/college.svg",
       alt: "college",

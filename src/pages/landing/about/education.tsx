@@ -8,8 +8,8 @@ import Typography from "@material-ui/core/Typography";
 import Image from "next/image";
 import React from "react";
 import { IAboutMe } from "../../../data-access/about-me";
-import { AboutCard, AboutCardImage } from "./card";
 import { IMAGE_ASSETS_SRC } from "../../../data-access/assets";
+import { AboutCard } from "./card";
 
 export const AsuChip = () => (
   <Link href="https://www.asu.edu/">
@@ -33,7 +33,7 @@ export const EducationCard = ({ aboutMe }: { aboutMe: IAboutMe }) => {
     <AboutCard>
       <CardHeader title="Education" />
 
-      <AboutCardImage {...IMAGE_ASSETS_SRC.artwork.diploma} />
+      {/* <AboutCardImage {...IMAGE_ASSETS_SRC.artwork.diploma} /> */}
 
       <CardContent>
         <Typography component="div" variant="body1" color="textSecondary">

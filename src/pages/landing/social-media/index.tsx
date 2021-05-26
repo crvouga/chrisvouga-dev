@@ -6,6 +6,7 @@ import Link from "@material-ui/core/Link";
 import { SvgIconProps } from "@material-ui/core/SvgIcon";
 import Typography from "@material-ui/core/Typography";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import EmailIcon from "@material-ui/icons/Email";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import TwitterIcon from "@material-ui/icons/Twitter";
@@ -21,7 +22,9 @@ const useStyles = makeStyles(() => ({
 export const SocialMediaIcon = ({
   name,
   ...props
-}: { name: string } & SvgIconProps) => {
+}: {
+  name: string;
+} & SvgIconProps) => {
   switch (name.toLowerCase()) {
     case "github":
       return <GitHubIcon {...props} />;
@@ -35,8 +38,11 @@ export const SocialMediaIcon = ({
     case "instagram":
       return <InstagramIcon {...props} />;
 
+    case "email":
+      return <EmailIcon {...props} />;
+
     default:
-      throw new Error("Invalid social media name");
+      throw new Error("unsupported social media name");
   }
 };
 
@@ -108,7 +114,7 @@ export const SocialMediaCardGrid = ({
   socialMedia: { url: string; name: string }[];
 }) => {
   return (
-    <Grid container>
+    <Grid container justify="center">
       {socialMedia.map(({ name, url }) => (
         <Grid item xs={6} sm={4} md={2} key={url}>
           <Link href={url}>

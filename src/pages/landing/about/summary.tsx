@@ -9,7 +9,7 @@ import Image from "next/image";
 import React from "react";
 import { IAboutMe } from "../../../data-access/about-me";
 import { IMAGE_ASSETS_SRC } from "../../../data-access/assets";
-import { AboutCard, AboutCardImage } from "./card";
+import { AboutCard } from "./card";
 
 export const LocationChip = ({ location }: { location: string }) => (
   <Link href={`http://google.com/search?q=${location}`}>
@@ -33,7 +33,7 @@ export const SummaryCard = ({ aboutMe }: { aboutMe: IAboutMe }) => {
     <AboutCard>
       <CardHeader title="Overview" />
 
-      <AboutCardImage {...IMAGE_ASSETS_SRC.logos.personalLight} />
+      {/* <AboutCardImage {...IMAGE_ASSETS_SRC.logos.personalLight} /> */}
 
       <CardContent>
         <Typography component="div" variant="body1" color="textSecondary">
