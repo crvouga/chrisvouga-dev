@@ -1,5 +1,6 @@
 import { useTheme } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
+import Divider from "@material-ui/core/Divider";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -67,7 +68,7 @@ export const LandingPage = ({ data }: ILandingPageProps) => {
         </Grid>
 
         <Grid item xs>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             Projects
           </Typography>
 
@@ -75,7 +76,7 @@ export const LandingPage = ({ data }: ILandingPageProps) => {
 
           <Gutter />
 
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             About
           </Typography>
 
