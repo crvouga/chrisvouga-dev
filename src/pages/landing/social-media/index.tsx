@@ -1,4 +1,5 @@
 import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 import IconButton, { IconButtonProps } from "@material-ui/core/IconButton";
@@ -114,14 +115,36 @@ export const SocialMediaCardGrid = ({
   socialMedia: { url: string; name: string }[];
 }) => {
   return (
-    <Grid container justify="center">
+    <Grid container>
       {socialMedia.map(({ name, url }) => (
-        <Grid item xs={6} sm={4} md={2} key={url}>
+        <Grid item xs={6} sm={3} md={2} key={url}>
           <Link href={url}>
             <SocialMediaCard name={name} />
           </Link>
         </Grid>
       ))}
     </Grid>
+  );
+};
+
+export const SocialMediaButtons = ({
+  socialMedia,
+}: {
+  socialMedia: { url: string; name: string }[];
+}) => {
+  return (
+    <Box display="flex" flexDirection="column" width="100%">
+      {socialMedia.map(({ name, url }) => (
+        <Box key={url} width="100%" paddingBottom={1}>
+          <Button
+            fullWidth
+            size="large"
+            startIcon={<SocialMediaIcon name={name} />}
+          >
+            {name}
+          </Button>
+        </Box>
+      ))}
+    </Box>
   );
 };
