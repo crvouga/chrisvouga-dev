@@ -1,6 +1,5 @@
 import { useTheme } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-import Divider from "@material-ui/core/Divider";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
