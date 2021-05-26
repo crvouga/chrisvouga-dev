@@ -7,7 +7,6 @@ import Container from "@material-ui/core/Container";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
-import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import CloseIcon from "@material-ui/icons/Close";
@@ -63,8 +62,8 @@ export const NavigationBar = () => {
                 {SECTION_ORDER.map((section) => (
                   <Box marginRight={1} key={SECTION_TO_URL[section]}>
                     <Button
-                      size="large"
                       href={SECTION_TO_URL[section]}
+                      size="large"
                       className={classes.button}
                     >
                       {SECTION_TO_NAME[section]}
@@ -101,11 +100,18 @@ export const NavigationBar = () => {
         </Toolbar>
         <Box display="flex" flexDirection="column" width="66vw" height="100vh">
           {SECTION_ORDER.map((section) => (
-            <Link href={SECTION_TO_URL[section]} key={SECTION_TO_URL[section]}>
-              <Button fullWidth variant="text" size="large">
-                {SECTION_TO_NAME[section]}
-              </Button>
-            </Link>
+            <Button
+              href={SECTION_TO_URL[section]}
+              key={SECTION_TO_URL[section]}
+              rel={undefined}
+              target={undefined}
+              fullWidth
+              variant="text"
+              size="large"
+              onClick={open.setFalse}
+            >
+              {SECTION_TO_NAME[section]}
+            </Button>
           ))}
         </Box>
       </Drawer>

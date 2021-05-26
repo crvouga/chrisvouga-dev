@@ -2,8 +2,7 @@ const education = `
 I have achieved a Bachelor of Science degree in Mathematics and
 Statistics from Arizona State University. Being a math major,
 I've always enjoyed learning the theory behind software development like
-type systems, architecture, and functional programming (which is the
-origin of my logo).
+type systems, architecture, and functional programming.
 `.trim();
 
 const skills = `
@@ -15,8 +14,7 @@ done rather than what is currently fashionable.
 const overview = `
 Hello, my name is Chris Vouga. I'm a software developer based in the
 Phoenix Valley. I find it a lot of fun to create things that live on
-the web. So it follows that most of my skills and expertise reside in
-web development. A random fact about me is that I play the drums.
+the web. A random fact about me is that I play the drums.
 `.trim();
 
 export default {

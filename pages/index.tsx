@@ -8,7 +8,7 @@ export const getStaticProps: GetStaticProps<ILandingPageProps> = async () => {
       data: {
         aboutMe: await dataStore.aboutMe.get(),
         projects: await dataStore.projects.getAll(),
-        topTopics: await dataStore.projects.getTopTopics(),
+        topTopics: await dataStore.projects.getTopTopics({ topicCount: 10 }),
         socialMedia: await dataStore.socialMedia.getAll(),
         hero: await dataStore.hero.get(),
         meta: await dataStore.meta.get(),

@@ -1,7 +1,6 @@
 import hero from "../../data/hero";
 
 export type IHero = {
-  greeting: string;
   main: string;
   secondary: string;
   callToAction: {

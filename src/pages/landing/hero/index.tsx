@@ -3,7 +3,6 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import Image from "next/image";
 import React from "react";
 import { IHero } from "../../../data-access/hero";
@@ -18,12 +17,6 @@ const useStyles = makeStyles((theme) => ({
         ${theme.palette.primary.light}, 99%,
         ${theme.palette.background.default} 99%
       )`,
-  },
-
-  callToAction: {
-    fontWeight: "bold",
-    color: "white",
-    borderColor: "white",
   },
 
   gutter: {
@@ -57,15 +50,13 @@ export const Hero = ({ hero }: { hero: IHero }) => {
       <Container maxWidth="lg" className={classes.section}>
         <Grid container direction="row" alignItems="center" justify="center">
           <Grid item xs={12} sm={12} md={6}>
-            <Typography className={classes.typography} variant="h4">
-              {hero.greeting}
-            </Typography>
             <Typography className={classes.typography} variant="h1">
               {hero.main}
             </Typography>
+
             <Typography
               className={classes.typography}
-              variant="h2"
+              variant="h3"
               gutterBottom
             >
               {hero.secondary}
@@ -74,9 +65,7 @@ export const Hero = ({ hero }: { hero: IHero }) => {
             <Button
               href={hero.callToAction.link}
               size="large"
-              className={classes.callToAction}
-              variant="outlined"
-              startIcon={<ArrowDownwardIcon />}
+              variant="contained"
             >
               {hero.callToAction.name}
             </Button>

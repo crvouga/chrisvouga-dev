@@ -21,12 +21,16 @@ export const theme = responsiveFontSizes(
         ...OPEN_NEW_TAB_PROPS,
       },
       MuiCard: {
-        variant: "outlined",
-        elevation: 6,
+        // elevation: 6,
       },
     },
 
     overrides: {
+      MuiButton: {
+        root: {
+          fontWeight: "bold",
+        },
+      },
       MuiCssBaseline: {
         "@global": {
           html: {

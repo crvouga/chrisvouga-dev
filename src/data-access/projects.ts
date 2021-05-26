@@ -28,7 +28,7 @@ export type IProject = {
 export type IProjectDataStore = {
   getOne: (id: IProjectId) => Promise<IProject>;
   getAll: () => Promise<IProject[]>;
-  getTopTopics: () => Promise<string[]>;
+  getTopTopics: ({ topicCount }: { topicCount: number }) => Promise<string[]>;
 };
 
 const getOneProject = async (projectId: IProjectId): Promise<IProject> => {
@@ -59,7 +59,11 @@ export const getAllProjects = async () => {
   return Promise.all(projectIds.map(getOneProject));
 };
 
-export const getTopProjectTopics = async () => {
+export const getTopProjectTopics = async ({
+  topicCount,
+}: {
+  topicCount: number;
+}) => {
   const projects = await getAllProjects();
 
   const topicFrequencies = projects
@@ -74,7 +78,7 @@ export const getTopProjectTopics = async () => {
 
   const topTopics = Object.keys(topicFrequencies)
     .sort(descend((topic) => topicFrequencies[topic]))
-    .slice(0, 5);
+    .slice(0, topicCount);
 
   return topTopics;
 };

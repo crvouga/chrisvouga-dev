@@ -69,9 +69,6 @@ export const Section = ({ section, title, body }: ISectionProps) => {
     <Box id={SECTION_TO_ID[section]} component="section" paddingY={4}>
       <Container maxWidth="lg">
         <React.Fragment>{title}</React.Fragment>
-      </Container>
-
-      <Container maxWidth="lg">
         <React.Fragment>{body}</React.Fragment>
       </Container>
     </Box>
