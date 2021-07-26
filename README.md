@@ -1,3 +1,3 @@
-# https://chrisvouga.dev/
+# [chrisvouga.dev](https://chrisvouga.dev/)
 
 # Personal Website
