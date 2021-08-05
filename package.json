@@ -17,7 +17,8 @@
     "node-fetch": "^2.6.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "sitemap": "^6.3.5"
+    "sitemap": "^6.3.5",
+    "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.14",

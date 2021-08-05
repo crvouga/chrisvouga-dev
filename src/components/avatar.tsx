@@ -5,11 +5,18 @@ import Image from "next/image";
 export const Avatar = ({
   alt,
   src,
+  priority,
   ...avatarProps
-}: { alt: string; src: string } & AvatarProps) => {
+}: { priority?: boolean; alt: string; src: string } & AvatarProps) => {
   return (
     <MuiAvatar {...avatarProps}>
-      <Image src={src} alt={alt} layout="fill" objectFit="cover" />
+      <Image
+        priority={priority}
+        src={src}
+        alt={alt}
+        layout="fill"
+        objectFit="cover"
+      />
     </MuiAvatar>
   );
 };

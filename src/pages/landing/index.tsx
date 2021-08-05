@@ -1,4 +1,3 @@
-import { useTheme } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
@@ -10,7 +9,7 @@ import { IProject } from "../../data-access/projects";
 import { ISocialMedia } from "../../data-access/social-media";
 import { SocialMediaButtons } from "../landing/social-media";
 import { AboutCardGrid } from "./about/about-card-grid";
-import { LogoAvatar } from "./logo-avatar";
+import { Logo } from "./logo";
 import { ProjectCardGrid } from "./projects";
 
 export type ILandingPageData = {
@@ -30,12 +29,8 @@ const Gutter = () => {
 };
 
 export const LandingPage = ({ data }: ILandingPageProps) => {
-  const theme = useTheme();
   return (
-    <Container
-      maxWidth="lg"
-      style={{ backgroundColor: theme.palette.background.default }}
-    >
+    <Container maxWidth="lg">
       <Meta meta={data.meta} />
 
       <Gutter />
@@ -46,7 +41,7 @@ export const LandingPage = ({ data }: ILandingPageProps) => {
         justifyContent="center"
         paddingBottom={1}
       >
-        <LogoAvatar />
+        <Logo />
       </Box>
 
       <Typography align="center" variant="h1">
@@ -54,7 +49,7 @@ export const LandingPage = ({ data }: ILandingPageProps) => {
       </Typography>
 
       <Typography align="center" variant="h2" color="primary">
-        Software Engineer
+        SOFTWARE ENGINEER
       </Typography>
 
       <Gutter />
