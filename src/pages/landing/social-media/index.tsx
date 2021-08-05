@@ -137,6 +137,9 @@ export const SocialMediaButtons = ({
       {socialMedia.map(({ name, url }) => (
         <Box key={url} width="100%" paddingBottom={2}>
           <Button
+            target="_blank"
+            rel="noopener noreferrer"
+            href={url}
             variant="contained"
             fullWidth
             size="large"
