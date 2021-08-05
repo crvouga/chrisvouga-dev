@@ -37,6 +37,7 @@ export const LandingPage = ({ data }: ILandingPageProps) => {
       style={{ backgroundColor: theme.palette.background.default }}
     >
       <Meta meta={data.meta} />
+
       <Gutter />
 
       <Box

@@ -4,7 +4,7 @@ const siteUrl = "https://chrisvouga.dev";
 const logoUrl = `${siteUrl}/logo.png`;
 
 export default {
-  title: "Chris Vouga | Software Developer",
+  title: "Chris Vouga • Software Engineer",
   description: aboutMe.overview,
   author: "Chris Vouga",
   siteUrl,
