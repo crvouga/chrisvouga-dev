@@ -135,8 +135,9 @@ export const SocialMediaButtons = ({
   return (
     <Box display="flex" flexDirection="column" width="100%">
       {socialMedia.map(({ name, url }) => (
-        <Box key={url} width="100%" paddingBottom={1}>
+        <Box key={url} width="100%" paddingBottom={2}>
           <Button
+            variant="contained"
             fullWidth
             size="large"
             startIcon={<SocialMediaIcon name={name} />}

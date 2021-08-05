@@ -1,4 +1,4 @@
-import { Paper, Theme, useTheme } from "@material-ui/core";
+import { Theme, useTheme } from "@material-ui/core";
 import React from "react";
 import { Avatar } from "../../components/avatar";
 import { IMAGE_ASSETS_SRC } from "../../data-access/assets";
@@ -9,15 +9,13 @@ const AVATAR_SIZE = (theme: Theme) =>
 export const LogoAvatar = () => {
   const theme = useTheme();
   return (
-    <Paper
-      //@ts-ignore
-      component={Avatar}
+    <Avatar
       style={{
-        background: theme.palette.background.paper,
+        background: "#212121",
         width: AVATAR_SIZE(theme),
         height: AVATAR_SIZE(theme),
       }}
-      src={IMAGE_ASSETS_SRC.logos.personalLight.src}
+      src={IMAGE_ASSETS_SRC.logos.personalDark.src}
       alt="chris vouga logo"
     />
   );

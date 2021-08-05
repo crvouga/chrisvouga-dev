@@ -1,7 +1,6 @@
 import { useTheme } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { Meta } from "../../components/meta";
@@ -40,50 +39,46 @@ export const LandingPage = ({ data }: ILandingPageProps) => {
       <Meta meta={data.meta} />
       <Gutter />
 
-      <Grid container spacing={1}>
-        <Grid item xs={12} md={3}>
-          <Box
-            width="100%"
-            display="flex"
-            justifyContent="center"
-            paddingBottom={1}
-          >
-            <LogoAvatar />
-          </Box>
+      <Box
+        width="100%"
+        display="flex"
+        justifyContent="center"
+        paddingBottom={1}
+      >
+        <LogoAvatar />
+      </Box>
 
-          <Typography align="center" variant="h5">
-            Chris Vouga
-          </Typography>
+      <Typography align="center" variant="h1">
+        Chris Vouga
+      </Typography>
 
-          <Typography align="center" variant="h6">
-            Software Developer
-          </Typography>
+      <Typography align="center" variant="h2" color="primary">
+        Software Engineer
+      </Typography>
 
-          <Gutter />
+      <Gutter />
 
-          <SocialMediaButtons socialMedia={data.socialMedia} />
+      <Container maxWidth="xs" disableGutters>
+        <SocialMediaButtons socialMedia={data.socialMedia} />
+      </Container>
 
-          <Gutter />
-        </Grid>
+      <Gutter />
 
-        <Grid item xs>
-          <Typography variant="h4" gutterBottom>
-            Projects
-          </Typography>
+      <Typography variant="h3" align="center" gutterBottom>
+        About
+      </Typography>
 
-          <ProjectCardGrid projects={data.projects} />
+      <AboutCardGrid aboutMe={data.aboutMe} topTopics={data.topTopics} />
 
-          <Gutter />
+      <Gutter />
 
-          <Typography variant="h4" gutterBottom>
-            About
-          </Typography>
+      <Typography variant="h3" align="center" gutterBottom>
+        Projects
+      </Typography>
 
-          <AboutCardGrid aboutMe={data.aboutMe} topTopics={data.topTopics} />
+      <ProjectCardGrid projects={data.projects} />
 
-          <Gutter />
-        </Grid>
-      </Grid>
+      <Gutter />
     </Container>
   );
 };

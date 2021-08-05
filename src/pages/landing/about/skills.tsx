@@ -13,7 +13,7 @@ export const SkillsCard = ({
 }) => {
   return (
     <AboutCard>
-      <CardHeader title="Technology" />
+      <CardHeader title="Most Frequent Github Topics" />
       <CardContent>
         <GithubTopicChipGroup
           topics={topTopics}

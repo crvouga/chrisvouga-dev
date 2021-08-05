@@ -7,7 +7,7 @@ export default [
     },
   },
   {
-    title: "The Band Alibi",
+    title: "Alibi Official Site",
     github: {
       ownerName: "crvouga",
       repositoryName: "the-band-alibi",

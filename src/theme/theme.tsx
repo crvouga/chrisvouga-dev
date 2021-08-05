@@ -1,4 +1,5 @@
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import green from "@material-ui/core/colors/green";
 
 const OPEN_NEW_TAB_PROPS = {
   rel: "noopener noreferrer",
@@ -9,10 +10,12 @@ export const theme = responsiveFontSizes(
   createMuiTheme({
     palette: {
       type: "dark",
+      primary: green,
     },
 
     typography: {
       fontWeightRegular: "bold",
+      fontFamily: "monospace",
     },
 
     props: {
@@ -26,6 +29,7 @@ export const theme = responsiveFontSizes(
       },
       MuiCard: {
         // elevation: 6,
+        variant: "outlined",
       },
     },
 
