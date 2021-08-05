@@ -7,6 +7,10 @@ const OPEN_NEW_TAB_PROPS = {
 
 export const theme = responsiveFontSizes(
   createMuiTheme({
+    palette: {
+      type: "dark",
+    },
+
     typography: {
       fontWeightRegular: "bold",
     },
