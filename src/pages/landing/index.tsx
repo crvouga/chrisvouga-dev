@@ -12,6 +12,7 @@ import { SocialMediaButtons } from "./social-media";
 import { SkillsCard, SummaryCard } from "./about";
 import { Logo } from "./logo";
 import { ProjectCardGrid } from "./projects";
+import { dataStore } from "../../data-access";
 
 export type ILandingPageData = {
   projects: IProject[];
@@ -19,6 +20,18 @@ export type ILandingPageData = {
   socialMedia: ISocialMedia[];
   aboutMe: IAboutMe;
   meta: IMeta;
+};
+
+export const getLandingPageData = async (): Promise<ILandingPageData> => {
+  return {
+    aboutMe: await dataStore.aboutMe.get(),
+    projects: await dataStore.projects.getAll(),
+    topGithubTopics: await dataStore.projects.getTopTopics({
+      topicCount: 20,
+    }),
+    socialMedia: await dataStore.socialMedia.getAll(),
+    meta: await dataStore.meta.get(),
+  };
 };
 
 export type ILandingPageProps = {

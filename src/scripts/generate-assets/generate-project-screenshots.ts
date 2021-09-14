@@ -1,17 +1,9 @@
 import puppeteer from "puppeteer";
-import { IProject } from "../../data-access/projects";
+import { IProject, toProjectScreenShootSrc } from "../../data-access/projects";
 import { getGithubRepository } from "../../services/github";
-import { delay, encodeUrl } from "../../utility";
+import { delay } from "../../utility";
 import { dataStore } from "../../data-access";
 import path from "path";
-
-export const toProjectScreenShootSrc = ({
-  liveSiteURL,
-}: {
-  liveSiteURL: string;
-}) => {
-  return `/project-screenshots/${encodeUrl(liveSiteURL)}.png`;
-};
 
 const generateSingleProjectScreenshot = async (
   browser: puppeteer.Browser,

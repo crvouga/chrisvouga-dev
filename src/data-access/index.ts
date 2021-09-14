@@ -1,5 +1,4 @@
 import { AboutMeDataStore, IAboutMeDataStore } from "./about-me";
-
 import { IMetaDataStore, MetaDataStore } from "./meta";
 import { IProjectDataStore, ProjectDataStore } from "./projects";
 import { ISocialMediaDataStore, SocialMediaDataStore } from "./social-media";

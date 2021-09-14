@@ -60,7 +60,7 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
           </Button>
         </Link>
         <Link href={sourceCodeUrl}>
-          <Button startIcon={<CodeIcon />} color="primary" variant="outlined">
+          <Button startIcon={<CodeIcon />} color="primary" variant="contained">
             Code
           </Button>
         </Link>

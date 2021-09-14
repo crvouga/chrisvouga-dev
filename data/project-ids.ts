@@ -10,7 +10,7 @@ export default [
     title: "Alibi Official Site",
     github: {
       ownerName: "crvouga",
-      repositoryName: "the-band-alibi",
+      repositoryName: "thebandalibi-com",
     },
   },
   {

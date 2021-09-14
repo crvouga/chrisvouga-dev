@@ -1,11 +1,18 @@
 import projectIds from "../../data/project-ids";
-import { toProjectScreenShootSrc } from "../scripts/generate-assets/generate-project-screenshots";
 import {
   getGithubRepository,
   getGithubRepositoryTopics,
 } from "../services/github";
-import { castUrl } from "../utility";
+import { castUrl, encodeUrl } from "../utility";
 import { descend } from "../utility/sort";
+
+export const toProjectScreenShootSrc = ({
+  liveSiteURL,
+}: {
+  liveSiteURL: string;
+}) => {
+  return `/project-screenshots/${encodeUrl(liveSiteURL)}.png`;
+};
 
 export type IProjectId = {
   title: string;
