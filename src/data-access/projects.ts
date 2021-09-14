@@ -3,7 +3,7 @@ import {
   getGithubRepository,
   getGithubRepositoryTopics,
 } from "../services/github";
-import { castUrl, encodeUrl } from "../utility";
+import { castUrl } from "../utility";
 import { descend } from "../utility/sort";
 
 export type IProjectId = {
