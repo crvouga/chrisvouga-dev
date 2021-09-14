@@ -50,7 +50,7 @@ export const LandingPage = ({ data }: ILandingPageProps) => {
       </Typography>
 
       <Typography align="center" variant="h2" color="primary">
-        SOFTWARE ENGINEER
+        Software Engineer
       </Typography>
 
       <Gutter />
