@@ -7,7 +7,6 @@ import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import Image from "next/image";
 import React from "react";
-import { IAboutMe } from "../../../data-access/about-me";
 import { IMAGE_ASSETS_SRC } from "../../../data-access/assets";
 import { AboutCard } from "./card";
 
@@ -28,7 +27,7 @@ export const LocationChip = ({ location }: { location: string }) => (
   </Link>
 );
 
-export const SummaryCard = ({ aboutMe }: { aboutMe: IAboutMe }) => {
+export const SummaryCard = ({ summary }: { summary: string }) => {
   return (
     <AboutCard>
       <CardHeader title="Overview" />
@@ -37,7 +36,7 @@ export const SummaryCard = ({ aboutMe }: { aboutMe: IAboutMe }) => {
 
       <CardContent>
         <Typography component="div" variant="body1" color="textSecondary">
-          <div dangerouslySetInnerHTML={{ __html: aboutMe.overview }} />
+          <div dangerouslySetInnerHTML={{ __html: summary }} />
         </Typography>
       </CardContent>
     </AboutCard>

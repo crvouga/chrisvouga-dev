@@ -38,6 +38,7 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
   return (
     <Card className={classes.card}>
       <CardHeader title={title} />
+
       <Link href={liveSiteUrl}>
         <CardActionArea>
           <Box className={classes.media}>
@@ -54,22 +55,12 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
 
       <CardActions>
         <Link href={liveSiteUrl}>
-          <Button
-            size="large"
-            startIcon={<LinkIcon />}
-            // color="primary"
-            variant="contained"
-          >
+          <Button startIcon={<LinkIcon />} variant="outlined">
             Live Site
           </Button>
         </Link>
         <Link href={sourceCodeUrl}>
-          <Button
-            size="large"
-            startIcon={<CodeIcon />}
-            color="primary"
-            variant="contained"
-          >
+          <Button startIcon={<CodeIcon />} color="primary" variant="outlined">
             Code
           </Button>
         </Link>

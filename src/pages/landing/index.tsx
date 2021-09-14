@@ -1,5 +1,6 @@
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { Meta } from "../../components/meta";
@@ -7,14 +8,14 @@ import { IAboutMe } from "../../data-access/about-me";
 import { IMeta } from "../../data-access/meta";
 import { IProject } from "../../data-access/projects";
 import { ISocialMedia } from "../../data-access/social-media";
-import { SocialMediaButtons } from "../landing/social-media";
-import { AboutCardGrid } from "./about/about-card-grid";
+import { SocialMediaButtons } from "./social-media";
+import { SkillsCard, SummaryCard } from "./about";
 import { Logo } from "./logo";
 import { ProjectCardGrid } from "./projects";
 
 export type ILandingPageData = {
   projects: IProject[];
-  topTopics: string[];
+  topGithubTopics: string[];
   socialMedia: ISocialMedia[];
   aboutMe: IAboutMe;
   meta: IMeta;
@@ -64,7 +65,14 @@ export const LandingPage = ({ data }: ILandingPageProps) => {
         About
       </Typography>
 
-      <AboutCardGrid aboutMe={data.aboutMe} topTopics={data.topTopics} />
+      <Grid container>
+        <Grid item sm={6}>
+          <SummaryCard summary={data.aboutMe.overview} />
+        </Grid>
+        <Grid item sm={6}>
+          <SkillsCard aboutMe={data.aboutMe} topTopics={data.topGithubTopics} />
+        </Grid>
+      </Grid>
 
       <Gutter />
 
