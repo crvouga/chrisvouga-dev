@@ -10,8 +10,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import CodeIcon from "@material-ui/icons/Code";
 import LinkIcon from "@material-ui/icons/Link";
-import Image from "next/image";
-import React from "react";
+
+import React, { useState, useEffect } from "react";
 import { IProject } from "../../../data-access/projects";
 
 const useStyles = makeStyles(() => ({
@@ -30,10 +30,44 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+const getScreenShot = async ({
+  liveSiteUrl,
+  timeout,
+}: {
+  liveSiteUrl: string;
+  timeout?: number;
+}) => {
+  const response = await fetch(
+    `/api/screenshot?targetUrl=${liveSiteUrl}&timeout=${timeout}`
+  );
+
+  const blob = await response.blob();
+
+  const src = URL.createObjectURL(blob);
+
+  return src;
+};
+
 export const ProjectCard = ({ project }: { project: IProject }) => {
-  const { src, title, description, liveSiteUrl, sourceCodeUrl } = project;
+  const { title, description, liveSiteUrl, sourceCodeUrl } = project;
 
   const classes = useStyles();
+
+  const [src, setSrc] = useState<string | null>(null);
+  const [, setState] = useState<"loading" | "success" | "error">("loading");
+
+  useEffect(() => {
+    setState("loading");
+
+    getScreenShot({ liveSiteUrl, timeout: 5000 })
+      .then((src) => {
+        setSrc(src);
+        setState("success");
+      })
+      .catch(() => {
+        setState("error");
+      });
+  }, [liveSiteUrl]);
 
   return (
     <Card className={classes.card}>
@@ -42,7 +76,19 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
       <Link href={liveSiteUrl}>
         <CardActionArea>
           <Box className={classes.media}>
-            <Image layout="fill" alt={description} src={src} />
+            {src && (
+              <img
+                src={src}
+                alt={description}
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                }}
+              />
+            )}
           </Box>
         </CardActionArea>
       </Link>

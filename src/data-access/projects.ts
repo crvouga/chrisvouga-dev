@@ -6,14 +6,6 @@ import {
 import { castUrl, encodeUrl } from "../utility";
 import { descend } from "../utility/sort";
 
-export const toProjectScreenShootSrc = ({
-  liveSiteURL,
-}: {
-  liveSiteURL: string;
-}) => {
-  return `/project-screenshots/${encodeUrl(liveSiteURL)}.png`;
-};
-
 export type IProjectId = {
   title: string;
   github: {
@@ -24,7 +16,6 @@ export type IProjectId = {
 
 export type IProject = {
   projectId: IProjectId;
-  src: string;
   title: string;
   liveSiteUrl: string;
   sourceCodeUrl: string;
@@ -48,7 +39,6 @@ const getOneProject = async (projectId: IProjectId): Promise<IProject> => {
   const description = repositoryData.description ?? "";
   const sourceCodeUrl = castUrl(repositoryData.html_url);
   const title = projectId.title;
-  const src = toProjectScreenShootSrc({ liveSiteURL: liveSiteUrl });
   const topics = repositoryTopicsData.names ?? [];
 
   return {
@@ -57,7 +47,6 @@ const getOneProject = async (projectId: IProjectId): Promise<IProject> => {
     description,
     sourceCodeUrl,
     title,
-    src,
     topics,
   };
 };
