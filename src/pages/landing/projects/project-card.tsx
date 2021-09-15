@@ -13,7 +13,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import CodeIcon from "@material-ui/icons/Code";
 import LinkIcon from "@material-ui/icons/Link";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { IProject } from "../../../data-access/projects";
 
 const useStyles = makeStyles(() => ({
@@ -37,10 +37,10 @@ const getScreenShot = async ({
   timeout,
 }: {
   liveSiteUrl: string;
-  timeout?: number;
+  timeout: number;
 }) => {
   const response = await fetch(
-    `/api/screenshot?targetUrl=${liveSiteUrl}&timeout=${timeout}`
+    `https://crvouga-screenshot.herokuapp.com/screenshot?targetUrl=${liveSiteUrl}&timeout=${timeout}`,
   );
 
   const blob = await response.blob();
@@ -57,13 +57,13 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
 
   const [src, setSrc] = useState<string | null>(null);
   const [state, setState] = useState<"loading" | "success" | "error">(
-    "loading"
+    "loading",
   );
 
   useEffect(() => {
     setState("loading");
 
-    getScreenShot({ liveSiteUrl, timeout: 5000 })
+    getScreenShot({ liveSiteUrl, timeout: 3000 })
       .then((src) => {
         setSrc(src);
         setState("success");

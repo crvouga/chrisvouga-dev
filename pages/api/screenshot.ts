@@ -5,7 +5,7 @@ import { delay } from "../../src/utility";
 
 export const handler: NextApiHandler = async (req, res) => {
   const targetUrl = req.query.targetUrl;
-  const timeout = Number(req.query.timeout) ?? 3000;
+  const timeout = Number(req.query.timeout ?? 3000);
 
   if (!(typeof targetUrl === "string")) {
     res.status(400).json({
