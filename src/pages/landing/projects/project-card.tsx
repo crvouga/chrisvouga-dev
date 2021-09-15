@@ -37,8 +37,7 @@ const getScreenShot = async ({
   timeout: number;
 }) => {
   const response = await fetch(
-    `https://crvouga-screenshot-service.herokuapp.com/screenshot?targetUrl=${targetUrl}&timeout=${timeout}`
-    // `http://localhost:8000/screenshot?targetUrl=${liveSiteUrl}&timeout=${timeout}`
+    `/api/screenshot?targetUrl=${targetUrl}&timeout=${timeout}.png`
   );
 
   const blob = await response.blob();
@@ -79,6 +78,7 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
       <Link
         href={liveSiteUrl}
         style={{
+          width: "100%",
           height: "100%",
           display: "flex",
           flexDirection: "column",
@@ -87,17 +87,18 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
       >
         <CardActionArea
           style={{
+            width: "100%",
             height: "100%",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
           }}
         >
-          <Box className={classes.media}>
+          <Box className={classes.media} width="100%" height="100%">
             {state === "success" && src && (
               <img
                 src={src}
-                alt={description}
+                alt={title}
                 style={{
                   position: "absolute",
                   top: 0,
