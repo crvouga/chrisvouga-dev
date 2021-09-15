@@ -40,7 +40,8 @@ const getScreenShot = async ({
   timeout: number;
 }) => {
   const response = await fetch(
-    `https://crvouga-screenshot.herokuapp.com/screenshot?targetUrl=${liveSiteUrl}&timeout=${timeout}`,
+    `https://crvouga-screenshot.herokuapp.com/screenshot?targetUrl=${liveSiteUrl}&timeout=${timeout}`
+    // `http://localhost:8000/screenshot?targetUrl=${liveSiteUrl}&timeout=${timeout}`
   );
 
   const blob = await response.blob();
@@ -57,7 +58,7 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
 
   const [src, setSrc] = useState<string | null>(null);
   const [state, setState] = useState<"loading" | "success" | "error">(
-    "loading",
+    "loading"
   );
 
   useEffect(() => {
