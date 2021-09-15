@@ -38,6 +38,8 @@ const getScreenShot = async ({
 }) => {
   const response = await fetch(
     `https://crvouga-screenshot-service.herokuapp.com/screenshot?targetUrl=${targetUrl}&timeout=${timeout}.png`
+    // `http://localhost:8000/screenshot?targetUrl=${targetUrl}&timeout=${timeout}.png`
+    // `/api/screenshot?targetUrl=${targetUrl}&timeout=${timeout}.png`
   );
 
   const blob = await response.blob();
