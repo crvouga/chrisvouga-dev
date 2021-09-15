@@ -3,19 +3,23 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
+import projectIds from "../../../data/project-ids";
 import { Meta } from "../../components/meta";
+import { dataStore } from "../../data-access";
 import { IAboutMe } from "../../data-access/about-me";
 import { IMeta } from "../../data-access/meta";
 import { IProject } from "../../data-access/projects";
 import { ISocialMedia } from "../../data-access/social-media";
-import { SocialMediaButtons } from "./social-media";
 import { SkillsCard, SummaryCard } from "./about";
 import { Logo } from "./logo";
 import { ProjectCardGrid } from "./projects";
-import { dataStore } from "../../data-access";
+import { SocialMediaButtons } from "./social-media";
 
 export type ILandingPageData = {
-  projects: IProject[];
+  projectsResponse: {
+    data?: IProject[];
+    errors: { message: string }[];
+  };
   topGithubTopics: string[];
   socialMedia: ISocialMedia[];
   aboutMe: IAboutMe;
@@ -25,8 +29,9 @@ export type ILandingPageData = {
 export const getLandingPageData = async (): Promise<ILandingPageData> => {
   return {
     aboutMe: await dataStore.aboutMe.get(),
-    projects: await dataStore.projects.getAll(),
+    projectsResponse: await dataStore.projects.getAll(projectIds),
     topGithubTopics: await dataStore.projects.getTopTopics({
+      projectIds,
       topicCount: 20,
     }),
     socialMedia: await dataStore.socialMedia.getAll(),
@@ -78,22 +83,27 @@ export const LandingPage = ({ data }: ILandingPageProps) => {
         About
       </Typography>
 
-      <Grid container>
-        <Grid item sm={6}>
+      <Grid container justifyContent="center">
+        <Grid item xs={12} sm={6}>
           <SummaryCard summary={data.aboutMe.overview} />
         </Grid>
-        <Grid item sm={6}>
-          <SkillsCard aboutMe={data.aboutMe} topTopics={data.topGithubTopics} />
-        </Grid>
+        {data.topGithubTopics.length > 0 && (
+          <Grid item xs={12} sm={6}>
+            <SkillsCard topTopics={data.topGithubTopics} />
+          </Grid>
+        )}
       </Grid>
 
       <Gutter />
 
-      <Typography variant="h3" align="center" gutterBottom>
-        Projects
-      </Typography>
-
-      <ProjectCardGrid projects={data.projects} />
+      {data.projectsResponse.data && (
+        <>
+          <Typography variant="h3" align="center" gutterBottom>
+            Projects
+          </Typography>
+          <ProjectCardGrid projects={data.projectsResponse.data} />
+        </>
+      )}
 
       <Gutter />
     </Container>

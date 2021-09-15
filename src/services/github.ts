@@ -45,9 +45,20 @@ export const getGithubRepository = async ({
     headers: getHeaders(),
   });
 
-  const data: IGetGithubRepositoryData = await response.json();
+  const data = await response.json();
 
-  return data;
+  if (response.status === 200) {
+    return {
+      data: data as IGetGithubRepositoryData,
+      errors: [],
+    };
+  }
+
+  return {
+    errors: [data] as {
+      message: string;
+    }[],
+  };
 };
 
 //docs: https://docs.github.com/en/rest/reference/repos#get-all-repository-topics
@@ -65,9 +76,20 @@ export const getGithubRepositoryTopics = async ({
     headers: getHeaders(),
   });
 
-  const data: IGetGithubRepositoryTopicsData = await response.json();
+  const data = await response.json();
 
-  return data;
+  if (response.status === 200) {
+    return {
+      data: data as IGetGithubRepositoryTopicsData,
+      errors: [],
+    };
+  }
+
+  return {
+    errors: [data] as {
+      message: string;
+    }[],
+  };
 };
 
 export const formatRepositoryName = (repositoryName: string) =>

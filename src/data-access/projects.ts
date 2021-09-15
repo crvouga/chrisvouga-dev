@@ -1,4 +1,3 @@
-import projectIds from "../../data/project-ids";
 import {
   getGithubRepository,
   getGithubRepositoryTopics,
@@ -24,46 +23,79 @@ export type IProject = {
 };
 
 export type IProjectDataStore = {
-  getOne: (id: IProjectId) => Promise<IProject>;
-  getAll: () => Promise<IProject[]>;
-  getTopTopics: ({ topicCount }: { topicCount: number }) => Promise<string[]>;
+  getOne: (
+    id: IProjectId
+  ) => Promise<{ data?: IProject; errors: { message: string }[] }>;
+  getAll: (
+    ids: IProjectId[]
+  ) => Promise<{ data?: IProject[]; errors: { message: string }[] }>;
+  getTopTopics: (params: {
+    projectIds: IProjectId[];
+    topicCount: number;
+  }) => Promise<string[]>;
 };
 
-const getOneProject = async (projectId: IProjectId): Promise<IProject> => {
-  const [repositoryData, repositoryTopicsData] = await Promise.all([
+const getOneProject: IProjectDataStore["getOne"] = async (projectId) => {
+  const [repositoryResponse, repositoryTopicsResponse] = await Promise.all([
     getGithubRepository(projectId.github),
     getGithubRepositoryTopics(projectId.github),
   ]);
 
-  const liveSiteUrl = castUrl(repositoryData.homepage);
-  const description = repositoryData.description ?? "";
-  const sourceCodeUrl = castUrl(repositoryData.html_url);
-  const title = projectId.title;
-  const topics = repositoryTopicsData.names ?? [];
+  if (repositoryResponse.data && repositoryTopicsResponse.data) {
+    const liveSiteUrl = castUrl(repositoryResponse.data.homepage);
+    const description = repositoryResponse.data.description ?? "";
+    const sourceCodeUrl = castUrl(repositoryResponse.data.html_url);
+    const title = projectId.title;
+    const topics = repositoryTopicsResponse.data.names ?? [];
+
+    return {
+      data: {
+        projectId,
+        liveSiteUrl,
+        description,
+        sourceCodeUrl,
+        title,
+        topics,
+      },
+      errors: [],
+    };
+  }
 
   return {
-    projectId,
-    liveSiteUrl,
-    description,
-    sourceCodeUrl,
-    title,
-    topics,
+    errors: [...repositoryResponse.errors, ...repositoryTopicsResponse.errors],
   };
 };
 
-export const getAllProjects = async () => {
-  return Promise.all(projectIds.map(getOneProject));
+export const getAllProjects: IProjectDataStore["getAll"] = async (
+  projectIds
+) => {
+  const projectResponses = await Promise.all(projectIds.map(getOneProject));
+
+  const response: { data?: IProject[]; errors: { message: string }[] } = {
+    errors: [],
+  };
+
+  for (const { data, errors } of projectResponses) {
+    if (data) {
+      response.data = [...(response.data ?? []), data];
+    }
+
+    if (errors) {
+      response.errors = [...response.errors, ...errors];
+    }
+  }
+
+  return response;
 };
 
-export const getTopProjectTopics = async ({
+export const getTopProjectTopics: IProjectDataStore["getTopTopics"] = async ({
+  projectIds,
   topicCount,
-}: {
-  topicCount: number;
 }) => {
-  const projects = await getAllProjects();
+  const responses = await getAllProjects(projectIds);
 
-  const topicFrequencies = projects
-    .flatMap((props) => props.topics)
+  const topicFrequencies = (responses.data ?? [])
+    .flatMap((project) => project.topics)
     .reduce<{ [topic: string]: number }>(
       (frequencies, topic) => ({
         ...frequencies,
