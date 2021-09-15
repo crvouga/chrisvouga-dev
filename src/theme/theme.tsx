@@ -1,4 +1,7 @@
-import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import {
+  createTheme as createMuiTheme,
+  responsiveFontSizes,
+} from "@material-ui/core/styles";
 import green from "@material-ui/core/colors/green";
 
 const OPEN_NEW_TAB_PROPS = {

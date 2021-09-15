@@ -20,13 +20,6 @@ export default [
       repositoryName: "connect-four",
     },
   },
-  // {
-  //   title: "Personal Website",
-  //   github: {
-  //     ownerName: "crvouga",
-  //     repositoryName: "personal-website",
-  //   },
-  // },
   {
     title: "Match Three",
     github: {
@@ -39,6 +32,13 @@ export default [
     github: {
       ownerName: "crvouga",
       repositoryName: "simon-says",
+    },
+  },
+  {
+    title: "Personal Website",
+    github: {
+      ownerName: "crvouga",
+      repositoryName: "personal-website",
     },
   },
 ];
