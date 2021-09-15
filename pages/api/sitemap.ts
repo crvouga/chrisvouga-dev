@@ -39,8 +39,10 @@ export const handler: NextApiHandler = async (req, res) => {
 
     res.end(sitemapOutput);
   } catch (error) {
-    console.error(error.toString());
-    res.send(JSON.stringify(error.toString()));
+    //@ts-ignore
+    const errorMessage = error?.toString?.();
+    console.error(errorMessage);
+    res.send(JSON.stringify(errorMessage));
   }
 };
 
