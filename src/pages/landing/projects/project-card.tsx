@@ -37,7 +37,7 @@ const getScreenShot = async ({
   timeout: number;
 }) => {
   const response = await fetch(
-    `/api/screenshot?targetUrl=${targetUrl}&timeout=${timeout}.png`
+    `https://crvouga-screenshot-service.herokuapp.com/screenshot?targetUrl=${targetUrl}&timeout=${timeout}.png`
   );
 
   const blob = await response.blob();
