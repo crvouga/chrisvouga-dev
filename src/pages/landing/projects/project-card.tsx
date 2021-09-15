@@ -4,13 +4,14 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import BrokenImageIcon from "@material-ui/icons/BrokenImage";
+import Skeleton from "@material-ui/lab/Skeleton";
 import React, { useEffect, useState } from "react";
 import { IProject } from "../../../data-access/projects";
+
 const useStyles = makeStyles(() => ({
   media: {
     position: "relative",
@@ -20,6 +21,7 @@ const useStyles = makeStyles(() => ({
   card: {
     display: "flex",
     flexDirection: "column",
+    justifyContent: "flex-end",
     height: "100%",
   },
   content: {
@@ -28,14 +30,14 @@ const useStyles = makeStyles(() => ({
 }));
 
 const getScreenShot = async ({
-  liveSiteUrl,
+  targetUrl,
   timeout,
 }: {
-  liveSiteUrl: string;
+  targetUrl: string;
   timeout: number;
 }) => {
   const response = await fetch(
-    `https://crvouga-screenshot-service.herokuapp.com/screenshot?targetUrl=${liveSiteUrl}&timeout=${timeout}`
+    `https://crvouga-screenshot-service.herokuapp.com/screenshot?targetUrl=${targetUrl}&timeout=${timeout}`
     // `http://localhost:8000/screenshot?targetUrl=${liveSiteUrl}&timeout=${timeout}`
   );
 
@@ -59,7 +61,10 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
   useEffect(() => {
     setState("loading");
 
-    getScreenShot({ liveSiteUrl, timeout: 3000 })
+    getScreenShot({
+      targetUrl: liveSiteUrl,
+      timeout: 3000,
+    })
       .then((src) => {
         setSrc(src);
         setState("success");
@@ -71,8 +76,23 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
 
   return (
     <Card className={classes.card}>
-      <Link href={liveSiteUrl} style={{ height: "100%" }}>
-        <CardActionArea style={{ height: "100%" }}>
+      <Link
+        href={liveSiteUrl}
+        style={{
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
+        <CardActionArea
+          style={{
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
           <Box className={classes.media}>
             {state === "success" && src && (
               <img
@@ -100,7 +120,7 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
                 justifyContent="center"
                 alignItems="center"
               >
-                <CircularProgress />
+                <Skeleton width="100%" height="100%" variant="rect" />
               </Box>
             )}
 
