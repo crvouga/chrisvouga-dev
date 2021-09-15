@@ -26,6 +26,7 @@ const useStyles = makeStyles(() => ({
     height: "100%",
   },
   content: {
+    width: "100%",
     flex: 1,
   },
 }));
