@@ -28,7 +28,6 @@ export const getPuppeteerBrowser = async () => {
       "--hide-scrollbars",
       "--disable-web-security",
     ],
-    defaultViewport: chrome?.defaultViewport,
     executablePath: await chrome?.executablePath,
     headless: true,
     ignoreHTTPSErrors: true,
