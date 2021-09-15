@@ -9,8 +9,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import BrokenImageIcon from "@material-ui/icons/BrokenImage";
 import Skeleton from "@material-ui/lab/Skeleton";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { IProject } from "../../../data-access/projects";
+import { useScreenshot } from "../../../screenshot/screenshot.client-side";
 
 const useStyles = makeStyles(() => ({
   media: {
@@ -29,51 +30,15 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const getScreenShot = async ({
-  targetUrl,
-  timeout,
-}: {
-  targetUrl: string;
-  timeout: number;
-}) => {
-  const response = await fetch(
-    `https://crvouga-screenshot-service.herokuapp.com/screenshot?targetUrl=${targetUrl}&timeout=${timeout}.png`
-    // `http://localhost:8000/screenshot?targetUrl=${targetUrl}&timeout=${timeout}.png`
-    // `/api/screenshot?targetUrl=${targetUrl}&timeout=${timeout}.png`
-  );
-
-  const blob = await response.blob();
-
-  const src = URL.createObjectURL(blob);
-
-  return src;
-};
-
 export const ProjectCard = ({ project }: { project: IProject }) => {
   const { title, description, liveSiteUrl, sourceCodeUrl } = project;
 
   const classes = useStyles();
 
-  const [src, setSrc] = useState<string | null>(null);
-  const [state, setState] = useState<"loading" | "success" | "error">(
-    "loading"
-  );
-
-  useEffect(() => {
-    setState("loading");
-
-    getScreenShot({
-      targetUrl: liveSiteUrl,
-      timeout: 3000,
-    })
-      .then((src) => {
-        setSrc(src);
-        setState("success");
-      })
-      .catch(() => {
-        setState("error");
-      });
-  }, [liveSiteUrl]);
+  const screenshot = useScreenshot({
+    timeout: 3000,
+    targetUrl: liveSiteUrl,
+  });
 
   return (
     <Card className={classes.card}>
@@ -97,9 +62,9 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
           }}
         >
           <Box className={classes.media} width="100%" height="100%">
-            {state === "success" && src && (
+            {screenshot.state === "success" && screenshot.src && (
               <img
-                src={src}
+                src={screenshot.src}
                 alt={title}
                 style={{
                   position: "absolute",
@@ -111,7 +76,7 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
               />
             )}
 
-            {state === "loading" && (
+            {screenshot.state === "loading" && (
               <Box
                 position="absolute"
                 top={0}
@@ -127,7 +92,7 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
               </Box>
             )}
 
-            {state === "error" && (
+            {screenshot.state === "error" && (
               <Box
                 position="absolute"
                 top={0}

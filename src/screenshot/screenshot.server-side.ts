@@ -1,4 +1,4 @@
-import puppeteer from "puppeteer";
+import { getPuppeteerBrowser } from "./puppeteer";
 import { ITargetUrl } from "./targetUrl";
 import { ITimeout } from "./timeout";
 
@@ -21,9 +21,8 @@ export const createGetScreenshot = async () => {
       message: string;
     }[];
   }> => {
-    const browser = await puppeteer.launch({
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    });
+    const browser = await getPuppeteerBrowser();
+
     try {
       const page = await browser.newPage();
 
