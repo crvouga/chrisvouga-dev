@@ -40,7 +40,7 @@ const getScreenShot = async ({
   timeout: number;
 }) => {
   const response = await fetch(
-    `https://crvouga-screenshot.herokuapp.com/screenshot?targetUrl=${liveSiteUrl}&timeout=${timeout}`
+    `https://crvouga-screenshot-service.herokuapp.com/screenshot?targetUrl=${liveSiteUrl}&timeout=${timeout}`
     // `http://localhost:8000/screenshot?targetUrl=${liveSiteUrl}&timeout=${timeout}`
   );
 
