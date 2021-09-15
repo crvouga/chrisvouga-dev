@@ -88,7 +88,12 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
                 justifyContent="center"
                 alignItems="center"
               >
-                <Skeleton width="100%" height="100%" variant="rect" />
+                <Skeleton
+                  animation="wave"
+                  width="100%"
+                  height="100%"
+                  variant="rect"
+                />
               </Box>
             )}
 
