@@ -4,18 +4,13 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import CardHeader from "@material-ui/core/CardHeader";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import CircularProgress from "@material-ui/core/CircularProgress";
-
-import CodeIcon from "@material-ui/icons/Code";
-import LinkIcon from "@material-ui/icons/Link";
-
+import BrokenImageIcon from "@material-ui/icons/BrokenImage";
 import React, { useEffect, useState } from "react";
 import { IProject } from "../../../data-access/projects";
-
 const useStyles = makeStyles(() => ({
   media: {
     position: "relative",
@@ -76,10 +71,8 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
 
   return (
     <Card className={classes.card}>
-      <CardHeader title={title} />
-
-      <Link href={liveSiteUrl}>
-        <CardActionArea>
+      <Link href={liveSiteUrl} style={{ height: "100%" }}>
+        <CardActionArea style={{ height: "100%" }}>
           <Box className={classes.media}>
             {state === "success" && src && (
               <img
@@ -122,32 +115,31 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
+                color="text.secondary"
               >
-                <Typography variant="subtitle2" color="textSecondary">
-                  Failed to get screenshot of website
-                </Typography>
+                <BrokenImageIcon />
               </Box>
             )}
           </Box>
+
+          <CardContent className={classes.content}>
+            <Typography gutterBottom variant="h5" component="h2">
+              {title}
+            </Typography>
+
+            <Typography variant="body1" color="textSecondary">
+              {description}
+            </Typography>
+          </CardContent>
         </CardActionArea>
       </Link>
 
-      <CardContent className={classes.content}>
-        <Typography variant="body1" color="textSecondary">
-          {description}
-        </Typography>
-      </CardContent>
-
       <CardActions>
-        <Link href={liveSiteUrl}>
-          <Button startIcon={<LinkIcon />} color="default" variant="contained">
-            Live Site
-          </Button>
-        </Link>
         <Link href={sourceCodeUrl}>
-          <Button startIcon={<CodeIcon />} color="primary" variant="contained">
-            Code
-          </Button>
+          <Button color="primary">Code</Button>
+        </Link>
+        <Link href={liveSiteUrl}>
+          <Button color="primary">Live Site</Button>
         </Link>
       </CardActions>
     </Card>
