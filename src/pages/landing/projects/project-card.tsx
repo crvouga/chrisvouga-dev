@@ -8,6 +8,8 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import CircularProgress from "@material-ui/core/CircularProgress";
+
 import CodeIcon from "@material-ui/icons/Code";
 import LinkIcon from "@material-ui/icons/Link";
 
@@ -54,7 +56,9 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
   const classes = useStyles();
 
   const [src, setSrc] = useState<string | null>(null);
-  const [, setState] = useState<"loading" | "success" | "error">("loading");
+  const [state, setState] = useState<"loading" | "success" | "error">(
+    "loading"
+  );
 
   useEffect(() => {
     setState("loading");
@@ -76,7 +80,7 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
       <Link href={liveSiteUrl}>
         <CardActionArea>
           <Box className={classes.media}>
-            {src && (
+            {state === "success" && src && (
               <img
                 src={src}
                 alt={description}
@@ -88,6 +92,40 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
                   height: "100%",
                 }}
               />
+            )}
+
+            {state === "loading" && (
+              <Box
+                position="absolute"
+                top={0}
+                left={0}
+                width="100%"
+                height="100%"
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <CircularProgress />
+              </Box>
+            )}
+
+            {state === "error" && (
+              <Box
+                position="absolute"
+                top={0}
+                left={0}
+                width="100%"
+                height="100%"
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Typography variant="subtitle2" color="textSecondary">
+                  Failed to get screenshot of website
+                </Typography>
+              </Box>
             )}
           </Box>
         </CardActionArea>
@@ -101,7 +139,7 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
 
       <CardActions>
         <Link href={liveSiteUrl}>
-          <Button startIcon={<LinkIcon />} variant="outlined">
+          <Button startIcon={<LinkIcon />} color="default" variant="contained">
             Live Site
           </Button>
         </Link>

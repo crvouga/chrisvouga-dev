@@ -1,5 +1,6 @@
 import { NextApiHandler } from "next";
 import puppeteer from "puppeteer";
+
 import { delay } from "../../src/utility";
 
 export const handler: NextApiHandler = async (req, res) => {
@@ -19,7 +20,7 @@ export const handler: NextApiHandler = async (req, res) => {
 
   const page = await browser.newPage();
 
-  page.goto(targetUrl);
+  await page.goto(targetUrl, { waitUntil: "networkidle2" });
 
   await delay(timeout);
 
