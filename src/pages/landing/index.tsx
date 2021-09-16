@@ -10,6 +10,7 @@ import { IAboutMe } from "../../data-access/about-me";
 import { IMeta } from "../../data-access/meta";
 import { IProject } from "../../data-access/projects";
 import { ISocialMedia } from "../../data-access/social-media";
+import { ThemeTypeSelect, ThemeColorSelect } from "../../theme";
 import { SkillsCard, SummaryCard } from "./about";
 import { Logo } from "./logo";
 import { ProjectCardGrid } from "./projects";
@@ -104,6 +105,19 @@ export const LandingPage = ({ data }: ILandingPageProps) => {
           <ProjectCardGrid projects={data.projectsResponse.data} />
         </>
       )}
+
+      <Gutter />
+
+      <Typography variant="h4" align="center" gutterBottom>
+        Theme
+      </Typography>
+
+      <Container maxWidth="xs" disableGutters>
+        <Box marginBottom={2}>
+          <ThemeTypeSelect fullWidth />
+        </Box>
+        <ThemeColorSelect fullWidth />
+      </Container>
 
       <Gutter />
     </Container>

@@ -1,52 +1,43 @@
-import IconButton from "@material-ui/core/IconButton";
-import Brightness2Icon from "@material-ui/icons/Brightness2";
-import WbSunnyIcon from "@material-ui/icons/WbSunny";
+import constate from "constate";
 import { useEffect, useState } from "react";
+import { castThemeColor, ThemeColor } from "./theme-color";
+import { castThemeType, ThemeType } from "./theme-type";
 
-export type ThemeType = "light" | "dark";
+const THEME_TYPE_KEY = "theme-type";
+const THEME_COLOR_KEY = "theme-color";
 
-export const castThemeType = (themeType: any): ThemeType => {
-  if (themeType === "light" || themeType === "dark") {
-    return themeType;
+export const [ThemeStateContextProvider, useThemeStateContext] = constate(
+  () => {
+    const [themeType, setThemeType] = useState<ThemeType>("system");
+    const [themeColor, setThemeColor] = useState<ThemeColor>("green");
+
+    const setThemeColorPersisted = (themeColor: ThemeColor) => {
+      localStorage.setItem(THEME_COLOR_KEY, themeColor);
+      setThemeColor(themeColor);
+    };
+
+    const setThemeTypePersisted = (themeType: ThemeType) => {
+      localStorage.setItem(THEME_TYPE_KEY, themeType);
+      setThemeType(themeType);
+    };
+
+    useEffect(() => {
+      const themeType = castThemeType(
+        localStorage.getItem(THEME_TYPE_KEY) ?? "system"
+      );
+      const themeColor = castThemeColor(
+        localStorage.getItem(THEME_COLOR_KEY) ?? "green"
+      );
+
+      setThemeType(themeType);
+      setThemeColor(themeColor);
+    }, []);
+
+    return {
+      themeType,
+      themeColor,
+      setThemeType: setThemeTypePersisted,
+      setThemeColor: setThemeColorPersisted,
+    };
   }
-  throw new Error("failed to cast theme type");
-};
-
-export const useThemeState = () => {
-  const THEME_TYPE_KEY = "theme-type";
-
-  const [themeType, setThemeType] = useState<ThemeType>("dark");
-
-  const setThemeTypePersisted = (themeType: ThemeType) => {
-    localStorage.setItem(THEME_TYPE_KEY, themeType);
-    setThemeType(themeType);
-  };
-
-  useEffect(() => {
-    const themeType = castThemeType(
-      localStorage.getItem(THEME_TYPE_KEY) || "light"
-    );
-    setThemeType(themeType);
-  }, []);
-
-  const toggleThemeType = () => {
-    setThemeTypePersisted(themeType === "dark" ? "light" : "dark");
-  };
-
-  return {
-    themeType,
-    setThemeType: setThemeTypePersisted,
-    toggleThemeType,
-  };
-};
-
-export function ThemeTypeToggleButton() {
-  const { themeType, toggleThemeType } = useThemeState();
-
-  return (
-    <IconButton onClick={toggleThemeType}>
-      {themeType === "light" && <WbSunnyIcon />}
-      {themeType === "dark" && <Brightness2Icon />}
-    </IconButton>
-  );
-}
+);

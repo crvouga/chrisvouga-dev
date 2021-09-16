@@ -1,6 +1,7 @@
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import React from "react";
-import ThemeProvider from "../src/theme/theme-provider";
+import { ThemeProvider } from "../src/theme/theme-provider";
+import { ThemeStateContextProvider } from "../src/theme/theme-state";
 import { useServerSideStyles } from "../src/theme/use-server-side-styles";
 
 const App = (props: AppProps) => {
@@ -9,9 +10,11 @@ const App = (props: AppProps) => {
   useServerSideStyles();
 
   return (
-    <ThemeProvider>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <ThemeStateContextProvider>
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </ThemeStateContextProvider>
   );
 };
 

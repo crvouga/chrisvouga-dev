@@ -1,20 +1,27 @@
 import {
   createTheme as createMuiTheme,
   responsiveFontSizes,
+  Theme,
 } from "@material-ui/core/styles";
-import green from "@material-ui/core/colors/green";
+import { ThemeColor, themeColorToColor, THEME_COLORS } from "./theme-color";
 
 const OPEN_NEW_TAB_PROPS = {
   rel: "noopener noreferrer",
   target: "_blank",
 };
 
-const createTheme = ({ mode }: { mode: "light" | "dark" }) => {
+export const createTheme = ({
+  color,
+  mode,
+}: {
+  color: ThemeColor;
+  mode: "light" | "dark";
+}) => {
   return responsiveFontSizes(
     createMuiTheme({
       palette: {
         type: mode,
-        primary: green,
+        primary: themeColorToColor(color),
       },
 
       typography: {
@@ -56,6 +63,20 @@ const createTheme = ({ mode }: { mode: "light" | "dark" }) => {
   );
 };
 
-export const lightTheme = createTheme({ mode: "light" });
+type ThemeMap = {
+  [themeColor in ThemeColor]: {
+    light: Theme;
+    dark: Theme;
+  };
+};
 
-export const darkTheme = createTheme({ mode: "dark" });
+export const THEME_MAP = THEME_COLORS.reduce<{}>(
+  (allThemes, themeColor) => ({
+    ...allThemes,
+    [themeColor]: {
+      light: createTheme({ color: themeColor, mode: "light" }),
+      dark: createTheme({ color: themeColor, mode: "dark" }),
+    },
+  }),
+  {}
+) as ThemeMap;

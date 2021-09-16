@@ -13,6 +13,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
     "chrome-aws-lambda": "^10.1.0",
+    "constate": "^3.3.0",
     "next": "10.0.4",
     "node-fetch": "^2.6.1",
     "puppeteer-core": "^10.2.0",
