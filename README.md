@@ -1,3 +1,3 @@
 # [chrisvouga.dev](https://chrisvouga.dev/)
 
-# Personal Website
+- [vercel deployment dashboard](https://vercel.com/crvouga/chrisvouga-dev)
