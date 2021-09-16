@@ -1,8 +1,9 @@
 import { blue, green, purple, red, yellow } from "@material-ui/core/colors";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import MenuItem from "@material-ui/core/MenuItem";
-import Select, { SelectProps } from "@material-ui/core/Select";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
+import ToggleButton from "@material-ui/lab/ToggleButton";
+import ToggleButtonGroup, {
+  ToggleButtonGroupProps,
+} from "@material-ui/lab/ToggleButtonGroup";
 import { useThemeStateContext } from "./theme-state";
 
 export type ThemeColor = "red" | "blue" | "green" | "purple" | "yellow";
@@ -51,31 +52,26 @@ export const themeColorToColor = (themeColor: ThemeColor) => {
   }
 };
 
-export const ThemeColorSelect = (props: SelectProps) => {
+export const ThemeColorSelect = (props: ToggleButtonGroupProps) => {
   const themeState = useThemeStateContext();
+
   return (
-    <Select
-      id="theme-color-select"
-      variant="outlined"
+    <ToggleButtonGroup
       value={themeState.themeColor}
-      onChange={(event) => {
-        const value = event.target.value;
-        const themeColor = castThemeColor(value);
-        themeState.setThemeColor(themeColor);
+      exclusive
+      onChange={(_event, value) => {
+        const themeType = castThemeColor(value);
+        themeState.setThemeColor(themeType);
       }}
       {...props}
     >
       {THEME_COLORS.map((themeColor) => (
-        <MenuItem key={themeColor} value={themeColor}>
-          <ListItemIcon>
-            <FiberManualRecordIcon
-              style={{ color: themeColorToColor(themeColor)[500] }}
-            />
-          </ListItemIcon>
-
-          {themeColor}
-        </MenuItem>
+        <ToggleButton key={themeColor} value={themeColor}>
+          <FiberManualRecordIcon
+            style={{ color: themeColorToColor(themeColor)[500] }}
+          />
+        </ToggleButton>
       ))}
-    </Select>
+    </ToggleButtonGroup>
   );
 };

@@ -1,9 +1,10 @@
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import MenuItem from "@material-ui/core/MenuItem";
-import Select, { SelectProps } from "@material-ui/core/Select";
 import Brightness2Icon from "@material-ui/icons/Brightness2";
 import DesktopMacIcon from "@material-ui/icons/DesktopMac";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
+import ToggleButton from "@material-ui/lab/ToggleButton";
+import ToggleButtonGroup, {
+  ToggleButtonGroupProps,
+} from "@material-ui/lab/ToggleButtonGroup";
 import { useThemeStateContext } from "./theme-state";
 
 export type ThemeType = "light" | "dark" | "system";
@@ -28,26 +29,24 @@ export const castThemeType = (themeType: any): ThemeType => {
   return "system";
 };
 
-export const ThemeTypeSelect = (props: SelectProps) => {
+export const ThemeTypeSelect = (props: ToggleButtonGroupProps) => {
   const themeState = useThemeStateContext();
+
   return (
-    <Select
-      id="theme-type-select"
-      variant="outlined"
+    <ToggleButtonGroup
       value={themeState.themeType}
-      onChange={(event) => {
-        const value = event.target.value;
+      exclusive
+      onChange={(_event, value) => {
         const themeType = castThemeType(value);
         themeState.setThemeType(themeType);
       }}
       {...props}
     >
       {THEME_TYPES.map((themeType) => (
-        <MenuItem key={themeType} value={themeType}>
-          <ListItemIcon>{themeTypeToIcon(themeType)}</ListItemIcon>
-          {themeType}
-        </MenuItem>
+        <ToggleButton key={themeType} value={themeType}>
+          {themeTypeToIcon(themeType)}
+        </ToggleButton>
       ))}
-    </Select>
+    </ToggleButtonGroup>
   );
 };

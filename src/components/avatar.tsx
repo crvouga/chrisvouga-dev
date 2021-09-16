@@ -1,13 +1,21 @@
 import React from "react";
-import MuiAvatar, { AvatarProps } from "@material-ui/core/Avatar";
+import MuiAvatar, {
+  AvatarProps as MuiAvatarProps,
+} from "@material-ui/core/Avatar";
 import Image from "next/image";
+
+export type AvatarProps = MuiAvatarProps;
 
 export const Avatar = ({
   alt,
   src,
   priority,
   ...avatarProps
-}: { priority?: boolean; alt: string; src: string } & AvatarProps) => {
+}: {
+  priority?: boolean;
+  alt: string;
+  src: string;
+} & MuiAvatarProps) => {
   return (
     <MuiAvatar {...avatarProps}>
       <Image

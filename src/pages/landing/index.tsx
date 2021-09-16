@@ -15,6 +15,8 @@ import { SkillsCard, SummaryCard } from "./about";
 import { Logo } from "./logo";
 import { ProjectCardGrid } from "./projects";
 import { SocialMediaButtons } from "./social-media";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
 
 export type ILandingPageData = {
   projectsResponse: {
@@ -50,76 +52,110 @@ const Gutter = () => {
 
 export const LandingPage = ({ data }: ILandingPageProps) => {
   return (
-    <Container maxWidth="lg">
-      <Meta meta={data.meta} />
+    <>
+      <AppBar position="sticky" color="inherit">
+        <Container maxWidth="md" disableGutters>
+          <Toolbar>
+            <Box marginRight={2}>
+              <Logo style={{ backgroundColor: "#efefef" }} />
+            </Box>
+            <Box>
+              <Typography variant="h6">Chris Vouga</Typography>
 
-      <Gutter />
+              <Typography variant="subtitle2" color="primary">
+                Software Engineer
+              </Typography>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+      <Container maxWidth="md">
+        <Meta meta={data.meta} />
 
-      <Box
-        width="100%"
-        display="flex"
-        justifyContent="center"
-        paddingBottom={1}
-      >
-        <Logo />
-      </Box>
-
-      <Typography align="center" variant="h1">
-        Chris Vouga
-      </Typography>
-
-      <Typography align="center" variant="h2" color="primary">
-        Software Engineer
-      </Typography>
-
-      <Gutter />
-
-      <Container maxWidth="xs" disableGutters>
-        <SocialMediaButtons socialMedia={data.socialMedia} />
-      </Container>
-
-      <Gutter />
-
-      <Typography variant="h3" align="center" gutterBottom>
-        About
-      </Typography>
-
-      <Grid container justifyContent="center">
-        <Grid item xs={12} sm={6}>
-          <SummaryCard summary={data.aboutMe.overview} />
-        </Grid>
-        {data.topGithubTopics.length > 0 && (
-          <Grid item xs={12} sm={6}>
-            <SkillsCard topTopics={data.topGithubTopics} />
-          </Grid>
-        )}
-      </Grid>
-
-      <Gutter />
-
-      {data.projectsResponse.data && (
-        <>
-          <Typography variant="h3" align="center" gutterBottom>
-            Projects
-          </Typography>
-          <ProjectCardGrid projects={data.projectsResponse.data} />
-        </>
-      )}
-
-      <Gutter />
-
-      <Typography variant="h4" align="center" gutterBottom>
-        Theme
-      </Typography>
-
-      <Container maxWidth="xs" disableGutters>
-        <Box marginBottom={2}>
-          <ThemeTypeSelect fullWidth />
+        {/* 
+        <Gutter />
+        <Box
+          width="100%"
+          display="flex"
+          justifyContent="center"
+          paddingBottom={1}
+        >
+          <Logo
+            style={{
+              backgroundColor: "#efefef",
+              width: "150px",
+              height: "150px",
+            }}
+          />
         </Box>
-        <ThemeColorSelect fullWidth />
-      </Container>
 
-      <Gutter />
-    </Container>
+        <Typography align="center" variant="h1">
+          Chris Vouga
+        </Typography>
+
+        <Typography align="center" variant="h2" color="primary">
+          Software Engineer
+        </Typography> */}
+
+        <Gutter />
+
+        <Container maxWidth="xs" disableGutters>
+          <SocialMediaButtons socialMedia={data.socialMedia} />
+        </Container>
+
+        <Gutter />
+
+        <Typography variant="h3" align="center" gutterBottom>
+          About
+        </Typography>
+
+        <Grid container justifyContent="center">
+          <Grid item xs={12} sm={6}>
+            <SummaryCard summary={data.aboutMe.overview} />
+          </Grid>
+          {data.topGithubTopics.length > 0 && (
+            <Grid item xs={12} sm={6}>
+              <SkillsCard topTopics={data.topGithubTopics} />
+            </Grid>
+          )}
+        </Grid>
+
+        <Gutter />
+
+        {data.projectsResponse.data && (
+          <>
+            <Typography variant="h3" align="center" gutterBottom>
+              Projects
+            </Typography>
+            <ProjectCardGrid projects={data.projectsResponse.data} />
+          </>
+        )}
+
+        <Gutter />
+
+        <Typography variant="h4" align="center" gutterBottom>
+          Theme
+        </Typography>
+
+        <Container
+          maxWidth="xs"
+          disableGutters
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Box marginBottom={2}>
+            <ThemeTypeSelect />
+          </Box>
+          <Box marginBottom={2}>
+            <ThemeColorSelect />
+          </Box>
+        </Container>
+
+        <Gutter />
+      </Container>
+    </>
   );
 };
