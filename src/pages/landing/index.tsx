@@ -84,7 +84,7 @@ export const LandingPage = ({
         <Gutter />
 
         <Typography variant="h3" align="center" gutterBottom>
-          Contact
+          Socials
         </Typography>
 
         <Container maxWidth="xs" disableGutters>

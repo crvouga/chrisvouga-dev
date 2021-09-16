@@ -140,7 +140,7 @@ export const SocialMediaButtons = ({
             target="_blank"
             rel="noopener noreferrer"
             href={url}
-            variant="contained"
+            variant="outlined"
             fullWidth
             size="large"
             startIcon={<SocialMediaIcon name={name} />}
