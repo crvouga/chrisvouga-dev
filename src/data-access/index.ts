@@ -1,21 +1,12 @@
-import { AboutMeDataStore, IAboutMeDataStore } from "./about-me";
-import { IMetaDataStore, MetaDataStore } from "./meta";
-import { IProjectDataStore, ProjectDataStore } from "./projects";
-import { ISocialMediaDataStore, SocialMediaDataStore } from "./social-media";
+import content from "../../content";
+import { ProjectDataStore } from "./projects";
 
-export type IDataStore = {
-  projects: IProjectDataStore;
-  socialMedia: ISocialMediaDataStore;
-  aboutMe: IAboutMeDataStore;
-  meta: IMetaDataStore;
-};
-
-export const DataStore = (): IDataStore => {
+export const DataStore = () => {
   return {
-    socialMedia: SocialMediaDataStore(),
     projects: ProjectDataStore(),
-    aboutMe: AboutMeDataStore(),
-    meta: MetaDataStore(),
+    async getContent() {
+      return content;
+    },
   };
 };
 

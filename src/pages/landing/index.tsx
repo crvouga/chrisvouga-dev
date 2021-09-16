@@ -1,78 +1,41 @@
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
-import projectIds from "../../../data/project-ids";
 import { Meta } from "../../components/meta";
 import { dataStore } from "../../data-access";
-import { IAboutMe } from "../../data-access/about-me";
-import { IMeta } from "../../data-access/meta";
-import { IProject } from "../../data-access/projects";
-import { ISocialMedia } from "../../data-access/social-media";
-import { ThemeTypeSelect, ThemeColorSelect } from "../../theme";
-import { SkillsCard, SummaryCard } from "./about";
+import { ThemeColorSelect, ThemeTypeSelect } from "../../theme";
 import { Logo } from "./logo";
 import { ProjectCardGrid } from "./projects";
 import { SocialMediaButtons } from "./social-media";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 
-export type ILandingPageData = {
-  projectsResponse: {
-    data?: IProject[];
-    errors: { message: string }[];
-  };
-  topGithubTopics: string[];
-  socialMedia: ISocialMedia[];
-  aboutMe: IAboutMe;
-  meta: IMeta;
-};
-
-export const getLandingPageData = async (): Promise<ILandingPageData> => {
+export const getLandingPageProps = async () => {
+  const content = await dataStore.getContent();
   return {
-    aboutMe: await dataStore.aboutMe.get(),
-    projectsResponse: await dataStore.projects.getAll(projectIds),
-    topGithubTopics: await dataStore.projects.getTopTopics({
-      projectIds,
-      topicCount: 20,
-    }),
-    socialMedia: await dataStore.socialMedia.getAll(),
-    meta: await dataStore.meta.get(),
+    content,
+    projectsResponse: await dataStore.projects.getAll(content.projectIds),
   };
-};
-
-export type ILandingPageProps = {
-  data: ILandingPageData;
 };
 
 const Gutter = () => {
   return <Box width="100%" p={2} />;
 };
 
-export const LandingPage = ({ data }: ILandingPageProps) => {
+type Unpromise<T extends Promise<any>> = T extends Promise<infer U> ? U : never;
+
+export type ILandingPageProps = Unpromise<
+  ReturnType<typeof getLandingPageProps>
+>;
+
+export const LandingPage = ({
+  content,
+  projectsResponse,
+}: ILandingPageProps) => {
   return (
     <>
-      <AppBar position="sticky" color="inherit">
-        <Container maxWidth="md" disableGutters>
-          <Toolbar>
-            <Box marginRight={2}>
-              <Logo style={{ backgroundColor: "#efefef" }} />
-            </Box>
-            <Box>
-              <Typography variant="h6">Chris Vouga</Typography>
+      <Meta {...content.meta} />
 
-              <Typography variant="subtitle2" color="primary">
-                Software Engineer
-              </Typography>
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
       <Container maxWidth="md">
-        <Meta meta={data.meta} />
-
-        {/* 
         <Gutter />
         <Box
           width="100%"
@@ -89,47 +52,44 @@ export const LandingPage = ({ data }: ILandingPageProps) => {
           />
         </Box>
 
-        <Typography align="center" variant="h1">
-          Chris Vouga
+        <Typography align="center" variant="h2" component="h1">
+          {content.title}
         </Typography>
 
-        <Typography align="center" variant="h2" color="primary">
-          Software Engineer
-        </Typography> */}
-
-        <Gutter />
-
-        <Container maxWidth="xs" disableGutters>
-          <SocialMediaButtons socialMedia={data.socialMedia} />
-        </Container>
-
-        <Gutter />
-
-        <Typography variant="h3" align="center" gutterBottom>
-          About
+        <Typography
+          align="center"
+          variant="h3"
+          color="primary"
+          gutterBottom
+          component="h2"
+        >
+          {content.subtitle}
         </Typography>
 
-        <Grid container justifyContent="center">
-          <Grid item xs={12} sm={6}>
-            <SummaryCard summary={data.aboutMe.overview} />
-          </Grid>
-          {data.topGithubTopics.length > 0 && (
-            <Grid item xs={12} sm={6}>
-              <SkillsCard topTopics={data.topGithubTopics} />
-            </Grid>
-          )}
-        </Grid>
+        <Typography component="div" color="textSecondary">
+          <div dangerouslySetInnerHTML={{ __html: content.aboutMe }} />
+        </Typography>
 
         <Gutter />
 
-        {data.projectsResponse.data && (
+        {projectsResponse.data && (
           <>
             <Typography variant="h3" align="center" gutterBottom>
               Projects
             </Typography>
-            <ProjectCardGrid projects={data.projectsResponse.data} />
+            <ProjectCardGrid projects={projectsResponse.data} />
           </>
         )}
+
+        <Gutter />
+
+        <Typography variant="h3" align="center" gutterBottom>
+          Contact
+        </Typography>
+
+        <Container maxWidth="xs" disableGutters>
+          <SocialMediaButtons socialMedia={content.socialMedia} />
+        </Container>
 
         <Gutter />
 

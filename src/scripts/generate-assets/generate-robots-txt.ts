@@ -22,9 +22,9 @@ const objectToString = <T>(object: T) => {
 };
 
 export const generateRobotsTxt = async () => {
-  const meta = await dataStore.meta.get();
+  const content = await dataStore.getContent();
 
-  const robotTxt = toRobotsTxt(meta.siteUrl);
+  const robotTxt = toRobotsTxt(content.meta.siteUrl);
 
   fs.writeFileSync(path.join("public", FILE_NAME), objectToString(robotTxt));
 };
