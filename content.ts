@@ -85,12 +85,5 @@ export default {
         repositoryName: "simon-says",
       },
     },
-    {
-      title: "Personal Website",
-      github: {
-        ownerName: "crvouga",
-        repositoryName: "personal-website",
-      },
-    },
   ],
 };
