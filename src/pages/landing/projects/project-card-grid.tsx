@@ -7,7 +7,7 @@ export const ProjectCardGrid = ({ projects }: { projects: IProject[] }) => {
   return (
     <Grid container>
       {projects.map((project) => (
-        <Grid key={project.liveSiteUrl} item xs={12} sm={6} md={4}>
+        <Grid key={project.liveSiteUrl} item xs={12} sm={6}>
           <ProjectCard project={project} />
         </Grid>
       ))}

@@ -38,10 +38,6 @@ export const createTheme = ({
           color: "textPrimary",
           ...OPEN_NEW_TAB_PROPS,
         },
-        MuiCard: {
-          // elevation: 6,
-          variant: "outlined",
-        },
       },
 
       overrides: {

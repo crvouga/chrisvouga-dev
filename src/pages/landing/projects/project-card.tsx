@@ -42,7 +42,7 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
   });
 
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} variant="outlined">
       <Link
         href={liveSiteUrl}
         style={{
@@ -130,10 +130,14 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
 
       <CardActions>
         <Link href={sourceCodeUrl}>
-          <Button color="primary">Code</Button>
+          <Button size="large" color="primary">
+            Code
+          </Button>
         </Link>
         <Link href={liveSiteUrl}>
-          <Button color="primary">Live Site</Button>
+          <Button size="large" color="primary">
+            Live Site
+          </Button>
         </Link>
       </CardActions>
     </Card>
