@@ -85,11 +85,14 @@ export default {
         repositoryName: "simon-says",
       },
     },
+    // DANGER
+    // Adding this causes the screenshot logic to go into an infinite loop.
+
     // {
     //   title: "Personal Website",
     //   github: {
     //     ownerName: "crvouga",
-    //     repositoryName: "personal-website",
+    //     repositoryName: "chrisvouga-dev",
     //   },
     // },
   ],
