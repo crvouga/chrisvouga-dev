@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getScreenshotSrc } from "../services/screenshot";
+import { getScreenshotSrc } from "./get-screenshot";
 
 export const useScreenshot = ({
   timeout,
@@ -20,9 +20,9 @@ export const useScreenshot = ({
       targetUrl,
       timeout,
     })
-      .then((src) => {
-        setSrc(src);
-        setState("success");
+      .then(({ src }) => {
+        setSrc(src ?? null);
+        setState(src ? "success" : "error");
       })
       .catch(() => {
         setState("error");

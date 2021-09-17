@@ -1,4 +1,3 @@
-import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -7,18 +6,11 @@ import CardContent from "@material-ui/core/CardContent";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import BrokenImageIcon from "@material-ui/icons/BrokenImage";
-import Skeleton from "@material-ui/lab/Skeleton";
 import React from "react";
 import { IProject } from "../../../data-access/projects";
-import { useScreenshot } from "../../../screenshot/screenshot";
+import { Screenshot } from "../../../screenshot/screenshot";
 
 const useStyles = makeStyles(() => ({
-  media: {
-    position: "relative",
-    height: 0,
-    paddingTop: "75%",
-  },
   card: {
     display: "flex",
     flexDirection: "column",
@@ -35,11 +27,6 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
   const { title, description, liveSiteUrl, sourceCodeUrl } = project;
 
   const classes = useStyles();
-
-  const screenshot = useScreenshot({
-    targetUrl: liveSiteUrl,
-    timeout: 2000,
-  });
 
   return (
     <Card className={classes.card} variant="outlined">
@@ -62,59 +49,7 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
             justifyContent: "space-between",
           }}
         >
-          <Box className={classes.media} width="100%" height="100%">
-            {screenshot.state === "success" && screenshot.src && (
-              <img
-                src={screenshot.src}
-                alt={title}
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                }}
-              />
-            )}
-
-            {screenshot.state === "loading" && (
-              <Box
-                position="absolute"
-                top={0}
-                left={0}
-                width="100%"
-                height="100%"
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Skeleton
-                  animation="wave"
-                  width="100%"
-                  height="100%"
-                  variant="rect"
-                />
-              </Box>
-            )}
-
-            {screenshot.state === "error" && (
-              <Box
-                position="absolute"
-                top={0}
-                left={0}
-                width="100%"
-                height="100%"
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-                color="text.secondary"
-              >
-                <BrokenImageIcon />
-              </Box>
-            )}
-          </Box>
+          <Screenshot targetUrl={liveSiteUrl} timeout={3000} alt={title} />
 
           <CardContent className={classes.content}>
             <Typography gutterBottom variant="h5" component="h2">
