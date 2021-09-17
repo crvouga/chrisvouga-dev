@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { Meta } from "../../components/meta";
 import { dataStore } from "../../data-access";
-import { ThemeColorSelect, ThemeTypeSelect } from "../../theme";
+import { ThemeTypeSelect } from "../../theme";
 import { Logo } from "./logo";
 import { ProjectCardGrid } from "./projects";
 import { SocialMediaButtons } from "./social-media";

@@ -10,7 +10,7 @@ export const [ThemeStateContextProvider, useThemeStateContext] = constate(
     const [themeType, setThemeType] = useState<ThemeType>("system");
     const [themeColor] = useState<ThemeColor>("blue");
 
-    const setThemeColorPersisted = () => {};
+    const setThemeColorPersisted = (_themeColor: ThemeColor) => {};
 
     const setThemeTypePersisted = (themeType: ThemeType) => {
       localStorage.setItem(THEME_TYPE_KEY, themeType);
