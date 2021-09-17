@@ -92,7 +92,7 @@ export default {
         ownerName: "crvouga",
         repositoryName: "chrisvouga-dev",
       },
-      liveSiteUrl: "http://localhost:3000",
+      // liveSiteUrl: "http://localhost:3000",
     },
   ],
 };
