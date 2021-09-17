@@ -1,4 +1,3 @@
-Sitemap: https:/chrisvouga.dev/api/sitemap
 User-agent: *
 Allow: /*
 Disallow: /api/*

@@ -28,11 +28,7 @@ const useTheme = () => {
   }, [themeType, themeColor, darkMode.value]);
 };
 
-interface IThemeProviderProps extends PropsWithChildren<{}> {}
-
-export const ThemeProvider = (props: IThemeProviderProps) => {
-  const { children } = props;
-
+export const ThemeProvider = ({ children }: PropsWithChildren<{}>) => {
   const theme = useTheme();
 
   return (
