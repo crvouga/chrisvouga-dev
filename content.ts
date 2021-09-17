@@ -3,7 +3,7 @@ const SITE_URL = "https://chrisvouga.dev";
 const LOGO_URL = `${SITE_URL}/logo.png`;
 
 const ABOUT_ME = `
-  Hello, my name is Chris Vouga. I'm a software developer based in the
+  Hello, my name is Chris Vouga. I'm a software engineer based in the
   Phoenix Valley. I find it a lot of fun to create things that live on
   the web. A random fact about me is that I play the drums. I have achieved
   a Bachelor of Science degree in Mathematics and Statistics from Arizona State University.
@@ -12,7 +12,7 @@ const ABOUT_ME = `
 export default {
   title: "Chris Vouga",
 
-  subtitle: "Sofware Engineer",
+  subtitle: "Software Engineer",
 
   aboutMe: ABOUT_ME,
 
@@ -85,15 +85,13 @@ export default {
         repositoryName: "simon-says",
       },
     },
-    // DANGER
-    // Adding this causes the screenshot logic to go into an infinite loop.
 
-    // {
-    //   title: "Personal Website",
-    //   github: {
-    //     ownerName: "crvouga",
-    //     repositoryName: "chrisvouga-dev",
-    //   },
-    // },
+    {
+      title: "Personal Website",
+      github: {
+        ownerName: "crvouga",
+        repositoryName: "chrisvouga-dev",
+      },
+    },
   ],
 };
