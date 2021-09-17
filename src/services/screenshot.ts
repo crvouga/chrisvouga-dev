@@ -1,5 +1,5 @@
-// const ROOT = "https://crvouga-screenshot-service.herokuapp.com";
-const ROOT = "http://localhost:8000"; //
+const ROOT = "https://crvouga-screenshot-service.herokuapp.com";
+// const ROOT = "http://localhost:8000"; //
 
 export const getScreenshotSrc = async ({
   targetUrl,
