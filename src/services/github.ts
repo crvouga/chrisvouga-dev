@@ -3,12 +3,12 @@ import { capitalize } from "@material-ui/core";
 
 // source: https://github.com/settings/tokens
 const getGithubPersonalAccessToken = () => {
-  const token = process.env.NEXT_PUBLIC_GITHUB_PERSONAL_ACCESS_TOKEN;
+  const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
   if (token) {
     return token;
   }
   throw new Error(
-    "process.env.NEXT_PUBLIC_GITHUB_PERSONAL_ACCESS_TOKEN is undefined"
+    "process.env.GITHUB_PERSONAL_ACCESS_TOKEN is undefined",
   );
 };
 
