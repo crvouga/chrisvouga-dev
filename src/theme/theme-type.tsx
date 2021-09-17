@@ -43,7 +43,7 @@ export const ThemeTypeSelect = (props: ToggleButtonGroupProps) => {
       {...props}
     >
       {THEME_TYPES.map((themeType) => (
-        <ToggleButton key={themeType} value={themeType}>
+        <ToggleButton key={themeType} value={themeType} aria-label={themeType}>
           {themeTypeToIcon(themeType)}
         </ToggleButton>
       ))}

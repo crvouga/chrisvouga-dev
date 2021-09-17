@@ -109,9 +109,6 @@ export const LandingPage = ({
           <Box marginBottom={2}>
             <ThemeTypeSelect />
           </Box>
-          <Box marginBottom={2}>
-            <ThemeColorSelect />
-          </Box>
         </Container>
 
         <Gutter />
