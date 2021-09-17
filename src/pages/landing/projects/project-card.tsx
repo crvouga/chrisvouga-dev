@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { IProject } from "../../../data-access/projects";
-import { Screenshot } from "../../../screenshot/screenshot";
+// import { Screenshot } from "../../../screenshot/screenshot";
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -49,7 +49,7 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
             justifyContent: "space-between",
           }}
         >
-          <Screenshot targetUrl={liveSiteUrl} timeout={3000} alt={title} />
+          {/* <Screenshot targetUrl={liveSiteUrl} timeout={3000} alt={title} /> */}
 
           <CardContent className={classes.content}>
             <Typography gutterBottom variant="h5" component="h2">
