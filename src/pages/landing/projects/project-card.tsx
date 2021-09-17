@@ -7,6 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import BrokenImageIcon from "@material-ui/icons/BrokenImage";
 import Skeleton from "@material-ui/lab/Skeleton";
 import React from "react";
 import { IProject } from "../../../data-access/projects";
