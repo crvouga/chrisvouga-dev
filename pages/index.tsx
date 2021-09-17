@@ -8,6 +8,7 @@ import {
 export const getStaticProps: GetStaticProps<ILandingPageProps> = async () => {
   return {
     props: await getLandingPageProps(),
+    revalidate: 60,
   };
 };
 

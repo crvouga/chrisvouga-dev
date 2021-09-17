@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+const ROOT = "";
+
 export const getScreenshotSrc = async ({
   targetUrl,
   timeout,
@@ -7,7 +9,8 @@ export const getScreenshotSrc = async ({
   targetUrl: string;
   timeout: number;
 }) => {
-  const apiEndpoint = `/api/screenshot?targetUrl=${targetUrl}&timeout=${timeout}.png`;
+  const apiEndpoint =
+    `${ROOT}/api/screenshot?targetUrl=${targetUrl}&timeout=${timeout}.png`;
 
   const response = await fetch(apiEndpoint);
 
@@ -27,7 +30,7 @@ export const useScreenshot = ({
 }) => {
   const [src, setSrc] = useState<string | null>(null);
   const [state, setState] = useState<"loading" | "success" | "error">(
-    "loading"
+    "loading",
   );
 
   useEffect(() => {
