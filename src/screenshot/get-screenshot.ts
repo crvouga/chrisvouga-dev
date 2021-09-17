@@ -14,12 +14,18 @@ export const getScreenshotSrc = async ({
 
     const response = await fetch(url);
 
-    const blob = await response.blob();
+    if (response.ok) {
+      const blob = await response.blob();
 
-    const src = URL.createObjectURL(blob);
+      const src = URL.createObjectURL(blob);
+
+      return {
+        src,
+      };
+    }
 
     return {
-      src,
+      src: undefined,
     };
   } catch (errors) {
     return {
