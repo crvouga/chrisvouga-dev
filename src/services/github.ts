@@ -1,16 +1,6 @@
 import fetch from "node-fetch";
 import { capitalize } from "@material-ui/core";
-
-// source: https://github.com/settings/tokens
-const getGithubPersonalAccessToken = () => {
-  const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
-  if (token) {
-    return token;
-  }
-  throw new Error(
-    "process.env.GITHUB_PERSONAL_ACCESS_TOKEN is undefined",
-  );
-};
+import { getGithubPersonalAccessToken } from "../../env";
 
 export const BASE_URL = `https://api.github.com`;
 
