@@ -11,3 +11,7 @@ export const getGithubPersonalAccessToken = () => {
     "process.env.GITHUB_PERSONAL_ACCESS_TOKEN is undefined",
   );
 };
+
+export const SCREENSHOT_SERVICE_ROOT_URL =
+  "https://crvouga-screenshot-service.herokuapp.com";
+// export const SCREENSHOT_SERVICE_ROOT_URL = "http://localhost:8000";

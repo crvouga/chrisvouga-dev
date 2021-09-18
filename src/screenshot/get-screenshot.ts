@@ -1,5 +1,4 @@
-const ROOT = "https://crvouga-screenshot-service.herokuapp.com";
-// const ROOT = "http://localhost:8000"; //
+import { SCREENSHOT_SERVICE_ROOT_URL } from "../../env";
 
 export const getScreenshotSrc = async ({
   targetUrl,
@@ -10,7 +9,7 @@ export const getScreenshotSrc = async ({
 }) => {
   try {
     const url =
-      `${ROOT}/api/screenshot?url=${targetUrl}&timeout=${timeout}.png`;
+      `${SCREENSHOT_SERVICE_ROOT_URL}/api/screenshot?url=${targetUrl}&timeout=${timeout}`;
 
     const response = await fetch(url);
 

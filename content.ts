@@ -57,6 +57,7 @@ export default {
         repositoryName: "pickflix",
       },
     },
+
     {
       title: "Alibi Official Site",
       github: {
@@ -64,6 +65,7 @@ export default {
         repositoryName: "thebandalibi-com",
       },
     },
+
     {
       title: "Connect Four",
       github: {
@@ -71,6 +73,7 @@ export default {
         repositoryName: "connect-four",
       },
     },
+
     {
       title: "Match Three",
       github: {
@@ -78,6 +81,7 @@ export default {
         repositoryName: "match-three",
       },
     },
+
     {
       title: "Simon Says",
       github: {
