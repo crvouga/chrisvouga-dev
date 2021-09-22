@@ -1,6 +1,5 @@
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Link from "@material-ui/core/Link";
@@ -32,40 +31,23 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
     <Card className={classes.card} variant="outlined">
       <Link
         href={liveSiteUrl}
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-        }}
       >
-        <CardActionArea
-          style={{
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-          }}
-        >
-          <Screenshot
-            targetUrl={liveSiteUrl}
-            timeout={3000}
-            alt={title}
-          />
-
-          <CardContent className={classes.content}>
-            <Typography gutterBottom variant="h5" component="h2">
-              {title}
-            </Typography>
-
-            <Typography variant="body1" color="textSecondary">
-              {description}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+        <Screenshot
+          targetUrl={liveSiteUrl}
+          timeout={3000}
+          alt={title}
+        />
       </Link>
+
+      <CardContent className={classes.content}>
+        <Typography gutterBottom variant="h5" component="h2">
+          {title}
+        </Typography>
+
+        <Typography variant="body1" color="textSecondary">
+          {description}
+        </Typography>
+      </CardContent>
 
       <CardActions>
         <Link href={sourceCodeUrl}>
