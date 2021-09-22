@@ -116,7 +116,9 @@ export const SocialMediaCardGrid = ({
 }) => {
   return (
     <Grid container>
-      {socialMedia.map(({ name, url }) => (
+      {socialMedia.map((
+        { name, url },
+      ) => (
         <Grid item xs={6} sm={3} md={2} key={url}>
           <Link href={url}>
             <SocialMediaCard name={name} />
@@ -134,13 +136,15 @@ export const SocialMediaButtons = ({
 }) => {
   return (
     <Box display="flex" flexDirection="column" width="100%">
-      {socialMedia.map(({ name, url }) => (
+      {socialMedia.map((
+        { name, url },
+      ) => (
         <Box key={url} width="100%" paddingBottom={2}>
           <Button
             target="_blank"
             rel="noopener noreferrer"
             href={url}
-            variant="outlined"
+            variant="contained"
             fullWidth
             size="large"
             startIcon={<SocialMediaIcon name={name} />}

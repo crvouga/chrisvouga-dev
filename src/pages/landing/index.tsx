@@ -72,6 +72,16 @@ export const LandingPage = ({
 
         <Gutter />
 
+        <Typography variant="h3" align="center" gutterBottom>
+          Socials
+        </Typography>
+
+        <Container maxWidth="xs" disableGutters>
+          <SocialMediaButtons socialMedia={content.socialMedia} />
+        </Container>
+
+        <Gutter />
+
         {projectsResponse.data && (
           <>
             <Typography variant="h3" align="center" gutterBottom>
@@ -80,16 +90,6 @@ export const LandingPage = ({
             <ProjectCardGrid projects={projectsResponse.data} />
           </>
         )}
-
-        <Gutter />
-
-        <Typography variant="h3" align="center" gutterBottom>
-          Socials
-        </Typography>
-
-        <Container maxWidth="xs" disableGutters>
-          <SocialMediaButtons socialMedia={content.socialMedia} />
-        </Container>
 
         <Gutter />
 
