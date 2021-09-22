@@ -94,10 +94,6 @@ export const LandingPage = ({
 
         <Gutter />
 
-        <Typography variant="h4" align="center" gutterBottom>
-          Theme
-        </Typography>
-
         <Container
           maxWidth="xs"
           disableGutters
@@ -107,9 +103,7 @@ export const LandingPage = ({
             alignItems: "center",
           }}
         >
-          <Box marginBottom={2}>
-            <ThemeTypeSelect />
-          </Box>
+          <ThemeTypeSelect />
         </Container>
 
         <Gutter />
