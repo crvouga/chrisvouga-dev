@@ -5,9 +5,10 @@ import {
 import { castUrl } from "../utility";
 import { descend } from "../utility/sort";
 
-export type IProjectId = Partial<IProject> & {
+export type IProjectConfig = {
   title: string;
-  screenshotTimeout: number;
+  screenshotTimeout?: number;
+  liveSiteUrl?: string;
   github: {
     repositoryName: string;
     ownerName: string;
@@ -15,7 +16,7 @@ export type IProjectId = Partial<IProject> & {
 };
 
 export type IProject = {
-  projectId: IProjectId;
+  projectId: IProjectConfig;
   title: string;
   liveSiteUrl: string;
   screenshotTimeout: number;
@@ -26,13 +27,13 @@ export type IProject = {
 
 export type IProjectDataStore = {
   getOne: (
-    id: IProjectId
+    id: IProjectConfig
   ) => Promise<{ data?: IProject; errors: { message: string }[] }>;
   getAll: (
-    ids: IProjectId[]
+    ids: IProjectConfig[]
   ) => Promise<{ data?: IProject[]; errors: { message: string }[] }>;
   getTopTopics: (params: {
-    projectIds: IProjectId[];
+    projectIds: IProjectConfig[];
     topicCount: number;
   }) => Promise<string[]>;
 };
@@ -46,13 +47,14 @@ const getOneProject: IProjectDataStore["getOne"] = async (projectId) => {
   if (repositoryResponse.data && repositoryTopicsResponse.data) {
     return {
       data: {
+        projectId,
         liveSiteUrl:
           projectId.liveSiteUrl ?? castUrl(repositoryResponse.data.homepage),
         description: repositoryResponse.data.description ?? "",
         sourceCodeUrl: castUrl(repositoryResponse.data.html_url),
         title: projectId.title,
         topics: repositoryTopicsResponse.data.names ?? [],
-        screenshotTimeout: projectId.screenshotTimeout,
+        screenshotTimeout: projectId.screenshotTimeout ?? 0,
       },
       errors: [],
     };
