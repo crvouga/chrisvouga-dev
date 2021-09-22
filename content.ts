@@ -103,12 +103,22 @@ export default {
     {
       screenshotTimeout: 1000,
       variant: "screenshot",
+      title: "Screenshot Service",
+      github: {
+        ownerName: "crvouga",
+        repositoryName: "screenshot-service",
+      },
+    },
+
+    {
+      screenshotTimeout: 1000,
+      variant: "screenshot",
       title: "Personal Website",
       github: {
         ownerName: "crvouga",
         repositoryName: "chrisvouga-dev",
       },
-      liveSiteUrl: "http://localhost:3000",
+      // liveSiteUrl: "http://localhost:3000",
     },
   ],
 };
