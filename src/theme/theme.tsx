@@ -25,8 +25,8 @@ export const createTheme = ({
       },
 
       typography: {
-        // fontWeightRegular: "bold",
-        fontFamily: "Inter",
+        fontWeightRegular: "bold",
+        fontFamily: "monospace",
       },
 
       props: {
@@ -46,6 +46,7 @@ export const createTheme = ({
             fontWeight: "bold",
           },
         },
+
         MuiCssBaseline: {
           "@global": {
             html: {
