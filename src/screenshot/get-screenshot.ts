@@ -1,4 +1,4 @@
-import { SCREENSHOT_SERVICE_ROOT_URL } from "../../env";
+import { getScreenshotServiceRootUrl } from "../../env";
 
 export const getScreenshotSrc = async ({
   targetUrl,
@@ -8,8 +8,7 @@ export const getScreenshotSrc = async ({
   timeout: number;
 }) => {
   try {
-    const url =
-      `${SCREENSHOT_SERVICE_ROOT_URL}/api/screenshot?url=${targetUrl}&timeout=${timeout}`;
+    const url = `${getScreenshotServiceRootUrl()}/api/screenshot?url=${targetUrl}&timeout=${timeout}`;
 
     const response = await fetch(url);
 

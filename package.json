@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "get-dotenv": "vercel env pull"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.2",

@@ -7,11 +7,17 @@ export const getGithubPersonalAccessToken = () => {
     return token;
   }
 
-  throw new Error(
-    "process.env.GITHUB_PERSONAL_ACCESS_TOKEN is undefined",
-  );
+  throw new Error("process.env.GITHUB_PERSONAL_ACCESS_TOKEN is undefined");
 };
 
-export const SCREENSHOT_SERVICE_ROOT_URL =
-  "https://crvouga-screenshot-service.herokuapp.com";
-// export const SCREENSHOT_SERVICE_ROOT_URL = "http://localhost:8000";
+// source: https://github.com/crvouga/screenshot-service
+
+export const getScreenshotServiceRootUrl = () => {
+  const token = process.env.SCREENSHOT_SERVICE_ROOT_URL;
+
+  if (token) {
+    return token;
+  }
+
+  throw new Error("process.env.SCREENSHOT_SERVICE_ROOT_URL is undefined");
+};
