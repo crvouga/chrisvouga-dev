@@ -7,6 +7,7 @@ import { descend } from "../utility/sort";
 
 export type IProjectId = Partial<IProject> & {
   title: string;
+  screenshotTimeout: number;
   github: {
     repositoryName: string;
     ownerName: string;
@@ -17,6 +18,7 @@ export type IProject = {
   projectId: IProjectId;
   title: string;
   liveSiteUrl: string;
+  screenshotTimeout: number;
   sourceCodeUrl: string;
   topics: string[];
   description: string;
@@ -24,10 +26,10 @@ export type IProject = {
 
 export type IProjectDataStore = {
   getOne: (
-    id: IProjectId,
+    id: IProjectId
   ) => Promise<{ data?: IProject; errors: { message: string }[] }>;
   getAll: (
-    ids: IProjectId[],
+    ids: IProjectId[]
   ) => Promise<{ data?: IProject[]; errors: { message: string }[] }>;
   getTopTopics: (params: {
     projectIds: IProjectId[];
@@ -42,22 +44,15 @@ const getOneProject: IProjectDataStore["getOne"] = async (projectId) => {
   ]);
 
   if (repositoryResponse.data && repositoryTopicsResponse.data) {
-    const liveSiteUrl = projectId.liveSiteUrl ?? castUrl(
-      repositoryResponse.data.homepage,
-    );
-    const description = repositoryResponse.data.description ?? "";
-    const sourceCodeUrl = castUrl(repositoryResponse.data.html_url);
-    const title = projectId.title;
-    const topics = repositoryTopicsResponse.data.names ?? [];
-
     return {
       data: {
-        projectId,
-        liveSiteUrl,
-        description,
-        sourceCodeUrl,
-        title,
-        topics,
+        liveSiteUrl:
+          projectId.liveSiteUrl ?? castUrl(repositoryResponse.data.homepage),
+        description: repositoryResponse.data.description ?? "",
+        sourceCodeUrl: castUrl(repositoryResponse.data.html_url),
+        title: projectId.title,
+        topics: repositoryTopicsResponse.data.names ?? [],
+        screenshotTimeout: projectId.screenshotTimeout,
       },
       errors: [],
     };
@@ -69,7 +64,7 @@ const getOneProject: IProjectDataStore["getOne"] = async (projectId) => {
 };
 
 export const getAllProjects: IProjectDataStore["getAll"] = async (
-  projectIds,
+  projectIds
 ) => {
   const projectResponses = await Promise.all(projectIds.map(getOneProject));
 
@@ -103,7 +98,7 @@ export const getTopProjectTopics: IProjectDataStore["getTopTopics"] = async ({
         ...frequencies,
         [topic]: topic in frequencies ? frequencies[topic] + 1 : 1,
       }),
-      {},
+      {}
     );
 
   const topTopics = Object.keys(topicFrequencies)

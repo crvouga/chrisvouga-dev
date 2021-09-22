@@ -10,7 +10,9 @@ export const useScreenshot = () => {
   const fetch = async ({
     timeout,
     targetUrl,
+    imageType,
   }: {
+    imageType: string;
     timeout: number;
     targetUrl: string;
   }) => {
@@ -18,6 +20,7 @@ export const useScreenshot = () => {
 
     try {
       const { src } = await getScreenshotSrc({
+        imageType,
         targetUrl,
         timeout,
       });

@@ -23,18 +23,23 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const ProjectCard = ({ project }: { project: IProject }) => {
-  const { title, description, liveSiteUrl, sourceCodeUrl } = project;
+  const {
+    title,
+    description,
+    liveSiteUrl,
+    screenshotTimeout,
+    sourceCodeUrl,
+  } = project;
 
   const classes = useStyles();
 
   return (
     <Card className={classes.card} variant="outlined">
-      <Link
-        href={liveSiteUrl}
-      >
+      <Link href={liveSiteUrl}>
         <Screenshot
+          imageType="jpeg"
           targetUrl={liveSiteUrl}
-          timeout={3000}
+          timeout={screenshotTimeout}
           alt={title}
         />
       </Link>

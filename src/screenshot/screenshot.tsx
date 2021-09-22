@@ -8,8 +8,10 @@ export const Screenshot = ({
   alt,
   targetUrl,
   timeout,
+  imageType,
 }: {
   alt: string;
+  imageType: string;
   targetUrl: string;
   timeout: number;
 }) => {
@@ -17,10 +19,11 @@ export const Screenshot = ({
 
   useEffect(() => {
     screenshot.fetch({
+      imageType,
       targetUrl,
       timeout,
     });
-  }, [targetUrl, timeout]);
+  }, [imageType, targetUrl, timeout]);
 
   return (
     <Box position="relative" height="0" paddingTop="75%" width="100%">

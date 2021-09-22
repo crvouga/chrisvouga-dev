@@ -51,6 +51,7 @@ export default {
 
   projectIds: [
     {
+      screenshotTimeout: 3000,
       title: "Pickflix",
       github: {
         ownerName: "crvouga",
@@ -59,6 +60,7 @@ export default {
     },
 
     {
+      screenshotTimeout: 1000,
       title: "Alibi Official Site",
       github: {
         ownerName: "crvouga",
@@ -67,6 +69,7 @@ export default {
     },
 
     {
+      screenshotTimeout: 1000,
       title: "Connect Four",
       github: {
         ownerName: "crvouga",
@@ -75,6 +78,8 @@ export default {
     },
 
     {
+      screenshotTimeout: 1000,
+
       title: "Match Three",
       github: {
         ownerName: "crvouga",
@@ -83,6 +88,8 @@ export default {
     },
 
     {
+      screenshotTimeout: 1000,
+
       title: "Simon Says",
       github: {
         ownerName: "crvouga",
@@ -91,12 +98,14 @@ export default {
     },
 
     {
+      screenshotTimeout: 1000,
+
       title: "Personal Website",
       github: {
         ownerName: "crvouga",
         repositoryName: "chrisvouga-dev",
       },
-      // liveSiteUrl: "http://localhost:3000",
+      liveSiteUrl: "http://localhost:3000",
     },
   ],
 };
