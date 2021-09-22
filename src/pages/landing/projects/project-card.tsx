@@ -29,20 +29,23 @@ export const ProjectCard = ({ project }: { project: IProject }) => {
     liveSiteUrl,
     screenshotTimeout,
     sourceCodeUrl,
+    variant,
   } = project;
 
   const classes = useStyles();
 
   return (
     <Card className={classes.card} variant="outlined">
-      <Link href={liveSiteUrl}>
-        <Screenshot
-          imageType="jpeg"
-          targetUrl={liveSiteUrl}
-          timeout={screenshotTimeout}
-          alt={title}
-        />
-      </Link>
+      {variant !== "no-screenshot" && (
+        <Link href={liveSiteUrl}>
+          <Screenshot
+            imageType="jpeg"
+            targetUrl={liveSiteUrl}
+            timeout={screenshotTimeout}
+            alt={title}
+          />
+        </Link>
+      )}
 
       <CardContent className={classes.content}>
         <Typography gutterBottom variant="h5" component="h2">

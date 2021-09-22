@@ -13,7 +13,7 @@ export const Screenshot = ({
   alt: string;
   imageType: string;
   targetUrl: string;
-  timeout: number;
+  timeout?: number;
 }) => {
   const screenshot = useScreenshot();
 

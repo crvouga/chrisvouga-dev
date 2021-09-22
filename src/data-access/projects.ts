@@ -7,6 +7,7 @@ import { descend } from "../utility/sort";
 
 export type IProjectConfig = {
   title: string;
+  variant?: string;
   screenshotTimeout?: number;
   liveSiteUrl?: string;
   github: {
@@ -15,14 +16,28 @@ export type IProjectConfig = {
   };
 };
 
+type IProjectVariant = "no-screenshot" | "screenshot";
+
+export const castProductVariant = (variant: unknown) => {
+  if (
+    typeof variant === "string" &&
+    (variant === "no-screenshot" || variant === "screenshot")
+  ) {
+    return variant as IProjectVariant;
+  }
+
+  throw new Error("failed to cast product variant");
+};
+
 export type IProject = {
+  variant: "no-screenshot" | "screenshot";
   projectId: IProjectConfig;
   title: string;
   liveSiteUrl: string;
-  screenshotTimeout: number;
   sourceCodeUrl: string;
   topics: string[];
   description: string;
+  screenshotTimeout?: number;
 };
 
 export type IProjectDataStore = {
@@ -47,14 +62,14 @@ const getOneProject: IProjectDataStore["getOne"] = async (projectId) => {
   if (repositoryResponse.data && repositoryTopicsResponse.data) {
     return {
       data: {
+        ...projectId,
         projectId,
         liveSiteUrl:
           projectId.liveSiteUrl ?? castUrl(repositoryResponse.data.homepage),
         description: repositoryResponse.data.description ?? "",
         sourceCodeUrl: castUrl(repositoryResponse.data.html_url),
-        title: projectId.title,
         topics: repositoryTopicsResponse.data.names ?? [],
-        screenshotTimeout: projectId.screenshotTimeout ?? 0,
+        variant: castProductVariant(projectId.variant),
       },
       errors: [],
     };

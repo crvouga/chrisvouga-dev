@@ -13,7 +13,7 @@ export const useScreenshot = () => {
     imageType,
   }: {
     imageType: string;
-    timeout: number;
+    timeout?: number;
     targetUrl: string;
   }) => {
     setState("loading");

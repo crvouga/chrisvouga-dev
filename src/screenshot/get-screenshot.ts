@@ -2,12 +2,12 @@ import { getScreenshotServiceRootUrl } from "../../dotenv";
 
 export const getScreenshotSrc = async ({
   targetUrl,
-  timeout,
+  timeout = 0,
   imageType,
 }: {
   imageType: string;
   targetUrl: string;
-  timeout: number;
+  timeout?: number;
 }) => {
   try {
     const url = `${getScreenshotServiceRootUrl()}/api/screenshot?url=${targetUrl}&timeout=${timeout}&type=${imageType}`;
