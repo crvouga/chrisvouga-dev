@@ -3,7 +3,7 @@ import {
   responsiveFontSizes,
   Theme,
 } from "@material-ui/core/styles";
-import { ThemeColor, themeColorToColor, THEME_COLORS } from "./theme-color";
+import { THEME_COLORS, ThemeColor, themeColorToColor } from "./theme-color";
 
 const OPEN_NEW_TAB_PROPS = {
   rel: "noopener noreferrer",
@@ -25,8 +25,8 @@ export const createTheme = ({
       },
 
       typography: {
-        fontWeightRegular: "bold",
-        fontFamily: "monospace",
+        // fontWeightRegular: "bold",
+        fontFamily: "Inter",
       },
 
       props: {
@@ -55,7 +55,7 @@ export const createTheme = ({
           },
         },
       },
-    })
+    }),
   );
 };
 
@@ -74,5 +74,5 @@ export const THEME_MAP = THEME_COLORS.reduce<{}>(
       dark: createTheme({ color: themeColor, mode: "dark" }),
     },
   }),
-  {}
+  {},
 ) as ThemeMap;

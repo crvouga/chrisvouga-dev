@@ -8,6 +8,23 @@ import Document, {
 } from "next/document";
 import React from "react";
 
+const GoogleFontLinks = () => {
+  return (
+    <>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="true"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap"
+        rel="stylesheet"
+      />
+    </>
+  );
+};
+
 export default class extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     //why?: https://itnext.io/next-js-with-material-ui-7a7f6485f671
@@ -34,7 +51,9 @@ export default class extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <GoogleFontLinks />
+        </Head>
         <body>
           <script src="noflash.js" />
           <Main />
