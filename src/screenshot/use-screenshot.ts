@@ -1,36 +1,36 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getScreenshotSrc } from "./get-screenshot";
 
-export const useScreenshot = ({
-  timeout,
-  targetUrl,
-}: {
-  timeout: number;
-  targetUrl: string;
-}) => {
+export const useScreenshot = () => {
   const [src, setSrc] = useState<string | null>(null);
   const [state, setState] = useState<"loading" | "success" | "error">(
-    "loading",
+    "loading"
   );
 
-  useEffect(() => {
+  const fetch = async ({
+    timeout,
+    targetUrl,
+  }: {
+    timeout: number;
+    targetUrl: string;
+  }) => {
     setState("loading");
 
-    getScreenshotSrc({
-      targetUrl,
-      timeout,
-    })
-      .then(({ src }) => {
-        setSrc(src ?? null);
-        setState(src ? "success" : "error");
-      })
-      .catch(() => {
-        setState("error");
+    try {
+      const { src } = await getScreenshotSrc({
+        targetUrl,
+        timeout,
       });
-  }, [targetUrl]);
+      setSrc(src ?? null);
+      setState(src ? "success" : "error");
+    } catch (_error) {
+      setState("error");
+    }
+  };
 
   return {
     src,
     state,
+    fetch,
   };
 };

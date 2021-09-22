@@ -1,4 +1,4 @@
-import { getScreenshotServiceRootUrl } from "../../env";
+import { getScreenshotServiceRootUrl } from "../../dotenv";
 
 export const getScreenshotSrc = async ({
   targetUrl,
@@ -26,8 +26,7 @@ export const getScreenshotSrc = async ({
       src: undefined,
     };
   } catch (errors) {
-    return {
-      src: undefined,
-    };
+    console.error(errors);
+    throw errors;
   }
 };

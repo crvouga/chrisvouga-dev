@@ -35,8 +35,9 @@ export const LandingPage = ({
     <>
       <Meta {...content.meta} />
 
-      <Container maxWidth="md">
-        <Gutter />
+      <Gutter />
+
+      <Container maxWidth="sm">
         <Box
           width="100%"
           display="flex"
@@ -46,8 +47,8 @@ export const LandingPage = ({
           <Logo
             style={{
               backgroundColor: "#efefef",
-              width: "150px",
-              height: "150px",
+              width: "120px",
+              height: "120px",
             }}
           />
         </Box>
@@ -76,12 +77,12 @@ export const LandingPage = ({
           Socials
         </Typography>
 
-        <Container maxWidth="xs" disableGutters>
-          <SocialMediaButtons socialMedia={content.socialMedia} />
-        </Container>
+        <SocialMediaButtons socialMedia={content.socialMedia} />
 
         <Gutter />
+      </Container>
 
+      <Container maxWidth="md">
         {projectsResponse.data && (
           <>
             <Typography variant="h3" align="center" gutterBottom>

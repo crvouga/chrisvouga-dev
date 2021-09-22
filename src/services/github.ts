@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 import { capitalize } from "@material-ui/core";
-import { getGithubPersonalAccessToken } from "../../env";
+import { getGithubPersonalAccessToken } from "../../dotenv";
 
 export const BASE_URL = `https://api.github.com`;
 

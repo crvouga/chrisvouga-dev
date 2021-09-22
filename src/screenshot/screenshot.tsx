@@ -1,32 +1,29 @@
 import Box from "@material-ui/core/Box";
 import BrokenImageIcon from "@material-ui/icons/BrokenImage";
 import Skeleton from "@material-ui/lab/Skeleton";
-import React from "react";
+import React, { useEffect } from "react";
 import { useScreenshot } from "./use-screenshot";
 
-export const Screenshot = (
-  {
-    alt,
-    targetUrl,
-    timeout,
-  }: {
-    alt: string;
-    targetUrl: string;
-    timeout: number;
-  },
-) => {
-  const screenshot = useScreenshot({
-    targetUrl,
-    timeout,
-  });
+export const Screenshot = ({
+  alt,
+  targetUrl,
+  timeout,
+}: {
+  alt: string;
+  targetUrl: string;
+  timeout: number;
+}) => {
+  const screenshot = useScreenshot();
+
+  useEffect(() => {
+    screenshot.fetch({
+      targetUrl,
+      timeout,
+    });
+  }, [targetUrl, timeout]);
 
   return (
-    <Box
-      position="relative"
-      height="0"
-      paddingTop="75%"
-      width="100%"
-    >
+    <Box position="relative" height="0" paddingTop="75%" width="100%">
       {screenshot.state === "success" && (
         <img
           src={screenshot.src ?? ""}
