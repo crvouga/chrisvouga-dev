@@ -83,6 +83,16 @@ export default {
     {
       screenshotTimeout: 1000,
       variant: "screenshot",
+      title: "Screenshot Service",
+      github: {
+        ownerName: "crvouga",
+        repositoryName: "screenshot-service",
+      },
+    },
+
+    {
+      screenshotTimeout: 1000,
+      variant: "screenshot",
       title: "Match Three",
       github: {
         ownerName: "crvouga",
@@ -98,27 +108,6 @@ export default {
         ownerName: "crvouga",
         repositoryName: "simon-says",
       },
-    },
-
-    {
-      screenshotTimeout: 1000,
-      variant: "screenshot",
-      title: "Screenshot Service",
-      github: {
-        ownerName: "crvouga",
-        repositoryName: "screenshot-service",
-      },
-    },
-
-    {
-      screenshotTimeout: 1000,
-      variant: "screenshot",
-      title: "Personal Website",
-      github: {
-        ownerName: "crvouga",
-        repositoryName: "chrisvouga-dev",
-      },
-      // liveSiteUrl: "http://localhost:3000",
     },
   ],
 };
