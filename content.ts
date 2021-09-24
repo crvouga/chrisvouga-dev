@@ -3,7 +3,7 @@ const SITE_URL = "https://chrisvouga.dev";
 const LOGO_URL = `${SITE_URL}/logo.png`;
 
 const ABOUT_ME = `
-  Hello, my name is Chris Vouga. I'm a software engineer based in the
+  Hello, my name is Chris Vouga. I'm a software developer based in the
   Phoenix Valley. I find it a lot of fun to create things that live on
   the web. A random fact about me is that I play the drums. I have achieved
   a Bachelor of Science degree in Mathematics and Statistics from Arizona State University.
@@ -12,12 +12,12 @@ const ABOUT_ME = `
 export default {
   title: "Chris Vouga",
 
-  subtitle: "Software Engineer",
+  subtitle: "Software Developer",
 
   aboutMe: ABOUT_ME,
 
   meta: {
-    title: "Chris Vouga • Software Engineer",
+    title: "Chris Vouga • Software Developer",
     description: ABOUT_ME,
     author: "Chris Vouga",
     siteUrl: SITE_URL,
