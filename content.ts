@@ -81,6 +81,16 @@ export default {
     },
 
     {
+      screenshotTimeout: 3000,
+      variant: "screenshot",
+      title: "Cheese 🧀",
+      github: {
+        ownerName: "crvouga",
+        repositoryName: "fake-id",
+      },
+    },
+
+    {
       screenshotTimeout: 1000,
       variant: "screenshot",
       title: "Screenshot Service",
@@ -107,16 +117,6 @@ export default {
       github: {
         ownerName: "crvouga",
         repositoryName: "simon-says",
-      },
-    },
-
-    {
-      screenshotTimeout: 3000,
-      variant: "screenshot",
-      title: "Fake ID",
-      github: {
-        ownerName: "crvouga",
-        repositoryName: "fake-id",
       },
     },
   ],
