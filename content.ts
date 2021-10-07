@@ -109,5 +109,15 @@ export default {
         repositoryName: "simon-says",
       },
     },
+
+    {
+      screenshotTimeout: 3000,
+      variant: "screenshot",
+      title: "Fake ID",
+      github: {
+        ownerName: "crvouga",
+        repositoryName: "fake-id",
+      },
+    },
   ],
 };
