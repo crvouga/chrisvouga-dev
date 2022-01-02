@@ -110,7 +110,7 @@ function ProjectCard({
 
 function Links() {
   return (
-    <div className="mx-auto flex items-center justify-center my-12">
+    <div className="mx-auto flex items-center justify-center">
       <a
         target="_blank"
         rel="noopener noreferrer"
@@ -146,49 +146,51 @@ function Links() {
 
 export default function Index() {
   return (
-    <>
-      <div
-        className="relative overflow-hidden bg-gradient-to-r from-zinc-800 to-zinc-900"
-      >
-        <main className="mt-16 mx-auto max-w-3xl px-4 sm:mt-24 text-center">
-          <h1
-            className="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl"
+    <div
+      className="relative overflow-hidden bg-gradient-to-r from-zinc-800 to-zinc-900"
+    >
+      <div className="px-4 m-auto max-w-6xl w-full">
+        <div
+          className="flex flex-col md:flex-row items-center justify-center mx-auto my-12 "
+        >
+          <div
+            className="mb-8 flex-1 w-full text-4xl font-extrabold sm:text-5xl md:text-6xl"
           >
-            <span className="block xl:inline text-gray-200">
-              Hi, I'm Chris Vouga
-            </span>{" "}
-            <span className="block text-lime-500 xl:inline">
+            <div className="text-xl text-gray-400 mb-2">
+              {"Hi, my name is"}
+            </div>
+            <div className="block text-gray-200 tracking-tight">
+              Chris Vouga
+            </div>
+            <div className="block text-lime-500 tracking - tight;">
               web developer
-            </span>
-          </h1>
-        </main>
-
-        <Links />
-
-        <div className="m-auto max-w-6xl text-center w-full">
-          <h2
-            className="text-gray-200 mb-2 text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl"
-          >
-            Projects
-          </h2>
-
-          <ol
-            className="w-full overflow-hidden grid p-4 gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-          >
-            {data.projects.map((
-              project,
-            ) => <ProjectCard key={project.url} {...project} />)}
-          </ol>
+            </div>
+          </div>
+          <Links />
         </div>
 
-        <footer>
-          <div
-            className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8"
-          >
-            <Links />
-          </div>
-        </footer>
+        <h2
+          className="text-gray-200 mb-4 text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl"
+        >
+          Projects
+        </h2>
+
+        <ol
+          className="w-full overflow-hidden grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {data.projects.map((
+            project,
+          ) => <ProjectCard key={project.url} {...project} />)}
+        </ol>
       </div>
-    </>
+
+      <footer>
+        <div
+          className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8"
+        >
+          <Links />
+        </div>
+      </footer>
+    </div>
   );
 }
