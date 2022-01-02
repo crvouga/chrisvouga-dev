@@ -1,8 +1,7 @@
+import { CodeIcon, ExternalLinkIcon, MailIcon } from "@heroicons/react/solid";
 import { useEffect } from "react";
-import { CodeIcon, ExternalLinkIcon } from "@heroicons/react/solid";
 import data from "../../data.json";
 import { useQueryScreenshot } from "../screenshot";
-import { MailIcon, PhoneIcon } from "@heroicons/react/solid";
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -23,7 +22,10 @@ function LinkedinIcon({ className }: { className?: string }) {
       viewBox="0 0 50 50"
       className={className}
     >
-      <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
+      <path
+        d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
+      >
+      </path>
     </svg>
   );
 }
@@ -44,38 +46,45 @@ function ProjectCard({
   }, []);
 
   return (
-    <a target="_blank" rel="noopener noreferrer" href={url}>
-      <li className="col-span-1 flex flex-col text-center bg-zinc-300 rounded-sm shadow-lg divide-y divide-gray-200">
+    <li
+      className="col-span-1 flex flex-col text-center bg-zinc-700 text-gray-200 rounded-md shadow-lg divide-y divide-gray-200"
+    >
+      <a key={url} target="_blank" rel="noopener noreferrer" href={url}>
         <div>
-          <h1 className="text-left p-4 text-gray-700 text-2xl font-semibold">
+          <h1 className="text-left p-4 text-2xl font-semibold">
             {title}
           </h1>
 
-          {query.state === "success" && (
-            <img className="aspect-video object-cover" src={query.src} />
-          )}
-          {query.state === "error" && (
-            <div className="aspect-video bg-gray-300 grid items-center text-gray-600">
-              Failed to get screenshot
-            </div>
-          )}
-          {query.state === "loading" && (
-            <div className="aspect-video w-full animate-pulse bg-zinc-500"></div>
-          )}
+          {query.state === "success" &&
+            <img className="aspect-video object-cover" src={query.src} />}
 
-          <div className="-mt-px flex divide-x divide-zinc-400 ">
+          {query.state === "error" &&
+            (
+              <div
+                className="aspect-video grid items-center text-gray-400"
+              >
+                Failed to load screenshot
+              </div>
+            )}
+          {query.state === "loading" &&
+            (
+              <div className="aspect-video w-full animate-pulse bg-zinc-600">
+              </div>
+            )}
+
+          <div className="-mt-px flex divide-x divide-zinc-600 ">
             <div className="w-0 flex-1 flex">
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href={url}
-                className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm font-medium border border-transparent rounded-bl-lg text-gray-700 "
+                className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 font-medium border border-transparent rounded-bl-l hover:opacity-50"
               >
                 <ExternalLinkIcon
-                  className="text-inherit w-5 h-5 text-gray-400"
+                  className="text-inherit w-5 h-5"
                   aria-hidden="true"
                 />
-                <span className="ml-3">Live Site</span>
+                <span className="ml-3">Deployment</span>
               </a>
             </div>
             <div className="-ml-px w-0 flex-1 flex">
@@ -83,10 +92,10 @@ function ProjectCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 href={codeUrl}
-                className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500"
+                className="relative w-0 flex-1 inline-flex items-center justify-center py-4  font-medium border border-transparent rounded-br-lg hover:opacity-50"
               >
                 <CodeIcon
-                  className="w-5 h-5 text-gray-400"
+                  className="w-5 h-5"
                   aria-hidden="true"
                 />
                 <span className="ml-3">Code</span>
@@ -94,19 +103,29 @@ function ProjectCard({
             </div>
           </div>
         </div>
-      </li>
-    </a>
+      </a>
+    </li>
   );
 }
 
 function Links() {
   return (
     <div className="mx-auto flex items-center justify-center my-12">
-      <a target="_blank" rel="noopener noreferrer" href={data.Github.url}>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={data.Github.url}
+        className="hover:opacity-50"
+      >
         <GithubIcon className="fill-white h-12 w-12 mr-8" aria-hidden="true" />
       </a>
 
-      <a target="_blank" rel="noopener noreferrer" href={data.Linkedin.url}>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={data.Linkedin.url}
+        className="hover:opacity-50"
+      >
         <LinkedinIcon
           className="fill-white h-12 w-12 mr-8"
           aria-hidden="true"
@@ -117,6 +136,7 @@ function Links() {
         target="_blank"
         rel="noopener noreferrer"
         href={`mailto:${data.emailAddress}`}
+        className="hover:opacity-50"
       >
         <MailIcon className="fill-white h-16 w-16" />
       </a>
@@ -127,14 +147,18 @@ function Links() {
 export default function Index() {
   return (
     <>
-      <div className="relative overflow-hidden bg-gradient-to-r from-zinc-800 to-zinc-900">
+      <div
+        className="relative overflow-hidden bg-gradient-to-r from-zinc-800 to-zinc-900"
+      >
         <main className="mt-16 mx-auto max-w-3xl px-4 sm:mt-24 text-center">
-          <h1 className="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
+          <h1
+            className="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl"
+          >
             <span className="block xl:inline text-gray-200">
               Hi, I'm Chris Vouga
             </span>{" "}
             <span className="block text-lime-500 xl:inline">
-              software developer
+              web developer
             </span>
           </h1>
         </main>
@@ -142,19 +166,25 @@ export default function Index() {
         <Links />
 
         <div className="m-auto max-w-6xl text-center w-full">
-          <h2 className="text-gray-200 mb-2 text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
+          <h2
+            className="text-gray-200 mb-2 text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl"
+          >
             Projects
           </h2>
 
-          <li className="w-full overflow-hidden grid p-4 gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {data.projects.map((project) => (
-              <ProjectCard key={project.url} {...project} />
-            ))}
-          </li>
+          <ol
+            className="w-full overflow-hidden grid p-4 gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {data.projects.map((
+              project,
+            ) => <ProjectCard key={project.url} {...project} />)}
+          </ol>
         </div>
 
         <footer>
-          <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
+          <div
+            className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8"
+          >
             <Links />
           </div>
         </footer>
