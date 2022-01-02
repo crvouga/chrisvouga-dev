@@ -29,15 +29,21 @@
     },
 
     {
+      "title": "Screenshot Service",
+      "url": "https://crvouga-screenshot-service.herokuapp.com/",
+      "codeUrl": "https://github.com/crvouga/screenshot-service"
+    },
+
+    {
       "title": "Cheese",
       "url": "https://cheese.chrisvouga.dev/",
       "codeUrl": "https://github.com/crvouga/cheese"
     },
 
     {
-      "title": "Screenshot Service",
-      "url": "https://crvouga-screenshot-service.herokuapp.com/",
-      "codeUrl": "https://github.com/crvouga/screenshot-service"
+      "title": "Snake",
+      "url": "https://snake.chrisvouga.dev/",
+      "codeUrl": "https://github.com/crvouga/snake"
     },
 
     {
