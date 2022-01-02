@@ -1,0 +1,55 @@
+{
+  "emailAddress": "crvouga@gmail.com",
+
+  "Github": {
+    "url": "https://github.com/crvouga"
+  },
+
+  "Linkedin": {
+    "url": "https://www.linkedin.com/in/chris-vouga"
+  },
+
+  "projects": [
+    {
+      "title": "Pickflix",
+      "url": "https://crvouga-pickflix.herokuapp.com/",
+      "codeUrl": "https://github.com/crvouga/pickflix"
+    },
+
+    {
+      "title": "thebandalibi.com",
+      "url": "https://www.thebandalibi.com/",
+      "codeUrl": "https://github.com/crvouga/thebandalibi-com"
+    },
+
+    {
+      "title": "Connect Four",
+      "url": "https://crvouga-connect-four.herokuapp.com/",
+      "codeUrl": "https://github.com/crvouga/connect-four"
+    },
+
+    {
+      "title": "Cheese",
+      "url": "https://cheese.chrisvouga.dev/",
+      "codeUrl": "https://github.com/crvouga/cheese"
+    },
+
+    {
+      "title": "Screenshot Service",
+      "url": "https://crvouga-screenshot-service.herokuapp.com/",
+      "codeUrl": "https://github.com/crvouga/screenshot-service"
+    },
+
+    {
+      "title": "Match Three",
+      "url": "https://matchthree.chrisvouga.dev/",
+      "codeUrl": "https://github.com/crvouga/match-three"
+    },
+
+    {
+      "title": "Simon Says",
+      "url": "https://simonsays.chrisvouga.dev/",
+      "codeUrl": "https://github.com/crvouga/simon-says"
+    }
+  ]
+}
