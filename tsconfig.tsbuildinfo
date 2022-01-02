@@ -871,19 +871,14 @@
         "signature": "9269d492817e359123ac64c8205e5d05dab63d71a3a7a229e68b5d9a0e8150bf",
         "affectsGlobalScope": false
       },
-      "./src/pages/api/hello.ts": {
-        "version": "2af2a2b6fde676184e741377d2fa62ac60d3fae071982eef5c4c617ed6490ce0",
-        "signature": "885dfb5a2c1ca92413cce4502441a345832df9926791150a77f1a838f20d467d",
-        "affectsGlobalScope": false
-      },
-      "./src/screenshot/index.ts": {
+      "./src/screenshot.ts": {
         "version": "0408617c04a4598b2f2124001d45b6aee4e45e4bb1cf745aa90e52f80e82caf0",
         "signature": "274f78e292aa3767307f4de32be8f6c58478bda8055beb80af0f26a1e947fd98",
         "affectsGlobalScope": false
       },
-      "./src/components/loadingimage.tsx": {
-        "version": "bc995d9e131fd0d9b083ef8cb0f46c2aea7c6340becb4959db446505f42075e8",
-        "signature": "eefdc522347da35bd34c722e0d6486754a0a30ec4e7d84777621c73449dc1cf7",
+      "./src/pages/api/hello.ts": {
+        "version": "2af2a2b6fde676184e741377d2fa62ac60d3fae071982eef5c4c617ed6490ce0",
+        "signature": "885dfb5a2c1ca92413cce4502441a345832df9926791150a77f1a838f20d467d",
         "affectsGlobalScope": false
       },
       "./src/pages/_app.tsx": {
@@ -4099,9 +4094,6 @@
         "./node_modules/@types/react/index.d.ts",
         "./node_modules/next/types/index.d.ts"
       ],
-      "./src/components/loadingimage.tsx": [
-        "./node_modules/@types/node/util.d.ts"
-      ],
       "./src/pages/_app.tsx": [
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/next/app.d.ts",
@@ -4120,9 +4112,9 @@
         "./node_modules/@heroicons/react/solid/index.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/react/index.d.ts",
-        "./src/screenshot/index.ts"
+        "./src/screenshot.ts"
       ],
-      "./src/screenshot/index.ts": [
+      "./src/screenshot.ts": [
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/react/index.d.ts"
       ],
@@ -6818,12 +6810,11 @@
       "./node_modules/next/types/global.d.ts",
       "./node_modules/next/types/index.d.ts",
       "./node_modules/styled-jsx/index.d.ts",
-      "./src/components/loadingimage.tsx",
       "./src/pages/_app.tsx",
       "./src/pages/_document.tsx",
       "./src/pages/api/hello.ts",
       "./src/pages/index.tsx",
-      "./src/screenshot/index.ts",
+      "./src/screenshot.ts",
       "../node_modules/@types/estree/index.d.ts",
       "../node_modules/@types/fs-extra/index.d.ts",
       "../node_modules/@types/glob/index.d.ts",
@@ -9406,6 +9397,10 @@
         1
       ],
       [
+        "./src/index.ts",
+        1
+      ],
+      [
         "./src/pages/_app.tsx",
         1
       ],
@@ -9419,6 +9414,10 @@
       ],
       [
         "./src/pages/index.tsx",
+        1
+      ],
+      [
+        "./src/screenshot.ts",
         1
       ],
       [
