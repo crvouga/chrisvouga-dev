@@ -1,4 +1,9 @@
-import { CodeIcon, ExternalLinkIcon, MailIcon } from "@heroicons/react/solid";
+import {
+  CodeIcon,
+  ExternalLinkIcon,
+  MailIcon,
+  PhoneIcon,
+} from "@heroicons/react/solid";
 import { useEffect } from "react";
 import data from "../../data.json";
 import { useQueryScreenshot } from "../screenshot";
@@ -110,24 +115,26 @@ function ProjectCard({
 
 function Links() {
   return (
-    <div className="mx-auto flex items-center justify-center">
+    <div
+      className="grid grid-cols-4 grid-flow-row gap-8 mx-auto"
+    >
       <a
         target="_blank"
         rel="noopener noreferrer"
         href={data.Github.url}
-        className="hover:opacity-50"
+        className="hover:opacity-50 block"
       >
-        <GithubIcon className="fill-white h-12 w-12 mr-8" aria-hidden="true" />
+        <GithubIcon className="fill-white h-12 w-12" aria-hidden="true" />
       </a>
 
       <a
         target="_blank"
         rel="noopener noreferrer"
         href={data.Linkedin.url}
-        className="hover:opacity-50"
+        className="hover:opacity-50 block"
       >
         <LinkedinIcon
-          className="fill-white h-12 w-12 mr-8"
+          className="fill-white h-12 w-12"
           aria-hidden="true"
         />
       </a>
@@ -136,9 +143,18 @@ function Links() {
         target="_blank"
         rel="noopener noreferrer"
         href={`mailto:${data.emailAddress}`}
-        className="hover:opacity-50"
+        className="hover:opacity-50 block"
       >
-        <MailIcon className="fill-white h-16 w-16" />
+        <MailIcon className="fill-white h-12 w-12" />
+      </a>
+
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={`callto:${data.phoneNumber}`}
+        className="hover:opacity-50 block;"
+      >
+        <PhoneIcon className="fill-white h-12 w-12" />
       </a>
     </div>
   );
