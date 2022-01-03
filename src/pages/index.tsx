@@ -52,7 +52,7 @@ function ProjectCard({
 
   return (
     <li
-      className="col-span-1 flex flex-col text-center bg-zinc-700 text-gray-200 rounded-md shadow-lg divide-y divide-gray-200"
+      className="col-span-1 flex flex-col text-center bg-zinc-700 text-gray-200 rounded-md  divide-y divide-gray-200"
     >
       <div>
         <h1 className="text-left p-4 text-2xl font-semibold">
