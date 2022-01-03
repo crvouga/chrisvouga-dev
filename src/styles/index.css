@@ -1,3 +1,9 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+body {
+  @apply bg-gradient-to-r;
+  @apply from-zinc-800;
+  @apply to-zinc-900;
+}

@@ -59,9 +59,19 @@ function ProjectCard({
           {title}
         </h1>
 
-        <a key={url} target="_blank" rel="noopener noreferrer" href={url}>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={url}
+          className="block overflow-hidden"
+        >
           {query.state === "success" &&
-            <img className="aspect-video object-cover" src={query.src} />}
+            (
+              <img
+                className="hover:scale-105 aspect-video object-cover"
+                src={query.src}
+              />
+            )}
 
           {query.state === "error" &&
             (
@@ -77,19 +87,19 @@ function ProjectCard({
               </div>
             )}
         </a>
-        <div className="-mt-px flex divide-x divide-zinc-600 ">
+        <div className="-mt-px flex divide-x divide-zinc-600 text-gray-300 ">
           <div className="w-0 flex-1 flex">
             <a
               target="_blank"
               rel="noopener noreferrer"
               href={url}
-              className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 font-medium border border-transparent rounded-bl-l hover:opacity-50"
+              className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 font-medium border border-transparent rounded-bl-l hover:scale-105"
             >
               <ExternalLinkIcon
                 className="w-5 h-5"
                 aria-hidden="true"
               />
-              <span className="ml-3">Deployment</span>
+              <span className="ml-3">Live</span>
             </a>
           </div>
           <div className="-ml-px w-0 flex-1 flex">
@@ -97,7 +107,7 @@ function ProjectCard({
               target="_blank"
               rel="noopener noreferrer"
               href={codeUrl}
-              className="relative w-0 flex-1 inline-flex items-center justify-center py-4  font-medium border border-transparent rounded-br-lg hover:opacity-50"
+              className="relative w-0 flex-1 inline-flex items-center justify-center py-4  font-medium border border-transparent rounded-br-lg hover:scale-105"
             >
               <CodeIcon
                 className="w-5 h-5"
@@ -113,6 +123,12 @@ function ProjectCard({
 }
 
 function Links() {
+  const classes = {
+    icon: "fill-gray-200 h-12 w-12 mb-1",
+    a: "hover:scale-105 block flex flex-col justify-center items-center",
+    span: "text-gray-400 text-sm font-light",
+  };
+
   return (
     <div
       className="grid grid-cols-4 grid-flow-row gap-8 mx-auto"
@@ -121,39 +137,52 @@ function Links() {
         target="_blank"
         rel="noopener noreferrer"
         href={data.Github.url}
-        className="hover:opacity-50 block"
+        className={classes.a}
       >
-        <GithubIcon className="fill-white h-12 w-12" aria-hidden="true" />
+        <GithubIcon
+          className={classes.icon}
+          aria-hidden="true"
+        />
+        <span className={classes.span}>Github</span>
       </a>
 
       <a
         target="_blank"
         rel="noopener noreferrer"
         href={data.Linkedin.url}
-        className="hover:opacity-50 block"
+        className={classes.a}
       >
         <LinkedinIcon
-          className="fill-white h-12 w-12"
+          className={classes.icon}
           aria-hidden="true"
         />
+        <span className={classes.span}>
+          Linkedin
+        </span>
       </a>
 
       <a
         target="_blank"
         rel="noopener noreferrer"
         href={`mailto:${data.emailAddress}`}
-        className="hover:opacity-50 block"
+        className={classes.a}
       >
-        <MailIcon className="fill-white h-12 w-12" />
+        <MailIcon className={classes.icon} />
+        <span className={classes.span}>
+          Email
+        </span>
       </a>
 
       <a
         target="_blank"
         rel="noopener noreferrer"
         href={`callto:${data.phoneNumber}`}
-        className="hover:opacity-50 block;"
+        className={classes.a}
       >
         <PhoneIcon className="fill-white h-12 w-12" />
+        <span className={classes.span}>
+          Phone
+        </span>
       </a>
     </div>
   );
@@ -162,8 +191,15 @@ function Links() {
 export default function Index() {
   return (
     <div
-      className="relative overflow-hidden bg-gradient-to-r from-zinc-800 to-zinc-900"
+      className="overflow-hidden bg-gradient-to-r from-zinc-800 to-zinc-900"
     >
+      <style jsx global>
+        {`
+          body {
+            background-color: rgb(24 24 27);
+          }
+        `}
+      </style>;
       <div className="px-4 m-auto max-w-6xl w-full">
         <div
           className="flex flex-col md:flex-row items-center justify-center mx-auto my-12 "
@@ -174,7 +210,7 @@ export default function Index() {
             <div className="text-xl text-gray-400 mb-2">
               {"Hi, my name is"}
             </div>
-            <div className="block text-gray-200 tracking-tight">
+            <div className="block text-gray-200 tracking-tight mb-1">
               Chris Vouga
             </div>
             <div className="block text-lime-500 tracking - tight;">
@@ -185,7 +221,7 @@ export default function Index() {
         </div>
 
         <h2
-          className="text-gray-200 mb-4 text-4xl font-extrabold sm:text-5xl md:text-6xl"
+          className="text-gray-200 mb-6 text-3xl font-extrabold sm:text-4xl md:text-5xl"
         >
           Projects
         </h2>
@@ -199,7 +235,7 @@ export default function Index() {
         </ol>
       </div>
 
-      <footer className="p-8 my-12">
+      <footer className="p-8 my-12 flex">
         <Links />
       </footer>
     </div>
