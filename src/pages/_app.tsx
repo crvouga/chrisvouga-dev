@@ -3,7 +3,7 @@ import { AppProps } from "next/app";
 import "../styles/index.css";
 import data from "../../data.json";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
@@ -16,4 +16,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default CustomApp;
