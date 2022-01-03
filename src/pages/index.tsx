@@ -54,12 +54,12 @@ function ProjectCard({
     <li
       className="col-span-1 flex flex-col text-center bg-zinc-700 text-gray-200 rounded-md shadow-lg divide-y divide-gray-200"
     >
-      <a key={url} target="_blank" rel="noopener noreferrer" href={url}>
-        <div>
-          <h1 className="text-left p-4 text-2xl font-semibold">
-            {title}
-          </h1>
+      <div>
+        <h1 className="text-left p-4 text-2xl font-semibold">
+          {title}
+        </h1>
 
+        <a key={url} target="_blank" rel="noopener noreferrer" href={url}>
           {query.state === "success" &&
             <img className="aspect-video object-cover" src={query.src} />}
 
@@ -76,39 +76,38 @@ function ProjectCard({
               <div className="aspect-video w-full animate-pulse bg-zinc-600">
               </div>
             )}
-
-          <div className="-mt-px flex divide-x divide-zinc-600 ">
-            <div className="w-0 flex-1 flex">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={url}
-                className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 font-medium border border-transparent rounded-bl-l hover:opacity-50"
-              >
-                <ExternalLinkIcon
-                  className="text-inherit w-5 h-5"
-                  aria-hidden="true"
-                />
-                <span className="ml-3">Deployment</span>
-              </a>
-            </div>
-            <div className="-ml-px w-0 flex-1 flex">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={codeUrl}
-                className="relative w-0 flex-1 inline-flex items-center justify-center py-4  font-medium border border-transparent rounded-br-lg hover:opacity-50"
-              >
-                <CodeIcon
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                />
-                <span className="ml-3">Code</span>
-              </a>
-            </div>
+        </a>
+        <div className="-mt-px flex divide-x divide-zinc-600 ">
+          <div className="w-0 flex-1 flex">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={url}
+              className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 font-medium border border-transparent rounded-bl-l hover:opacity-50"
+            >
+              <ExternalLinkIcon
+                className="w-5 h-5"
+                aria-hidden="true"
+              />
+              <span className="ml-3">Deployment</span>
+            </a>
+          </div>
+          <div className="-ml-px w-0 flex-1 flex">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={codeUrl}
+              className="relative w-0 flex-1 inline-flex items-center justify-center py-4  font-medium border border-transparent rounded-br-lg hover:opacity-50"
+            >
+              <CodeIcon
+                className="w-5 h-5"
+                aria-hidden="true"
+              />
+              <span className="ml-3">Code</span>
+            </a>
           </div>
         </div>
-      </a>
+      </div>
     </li>
   );
 }
@@ -186,7 +185,7 @@ export default function Index() {
         </div>
 
         <h2
-          className="text-gray-200 mb-4 text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl"
+          className="text-gray-200 mb-4 text-4xl font-extrabold sm:text-5xl md:text-6xl"
         >
           Projects
         </h2>
@@ -200,12 +199,8 @@ export default function Index() {
         </ol>
       </div>
 
-      <footer>
-        <div
-          className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8"
-        >
-          <Links />
-        </div>
+      <footer className="p-8 my-12">
+        <Links />
       </footer>
     </div>
   );

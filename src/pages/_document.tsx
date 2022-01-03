@@ -9,7 +9,6 @@ export default class CustomDocument extends Document {
           <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         </Head>
         <body>
-          <script src="noflash.js" />
           <Main />
           <NextScript />
         </body>
