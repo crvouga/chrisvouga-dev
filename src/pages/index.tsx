@@ -64,7 +64,9 @@ function ProjectCard({
       style={{ paddingTop: "100%" }}
     >
       <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col text-center bg-zinc-700 text-gray-200 rounded-md">
-        <h1 className="text-left p-4 text-2xl font-semibold">{title}</h1>
+        <h1 className="text-left p-4 text-xl md:text-2xl font-semibold">
+          {title}
+        </h1>
 
         <a
           target="_blank"
