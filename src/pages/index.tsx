@@ -210,7 +210,8 @@ export default function Index() {
             background-color: rgb(24 24 27);
           }
         `}
-      </style>;
+      </style>
+
       <div className="px-4 m-auto max-w-6xl w-full">
         <div
           className="flex flex-col md:flex-row items-center justify-center mx-auto my-12 "
