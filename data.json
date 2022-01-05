@@ -29,7 +29,7 @@
     },
 
     {
-      "title": "Connect Four",
+      "title": "Multiplayer Connect Four",
       "url": "https://crvouga-connect-four.herokuapp.com/",
       "codeUrl": "https://github.com/crvouga/connect-four"
     },

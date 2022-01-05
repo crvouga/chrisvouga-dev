@@ -52,11 +52,11 @@ function ProjectCard({
   codeUrl: string;
   title: string;
 }) {
-  const query = useQueryThumbnail({ targetUrl: url });
+  const query = useQueryScreenshot();
 
-  // useEffect(() => {
-  //   query.fetch({ targetUrl: url, timeout: 2000, imageType: "png" });
-  // }, []);
+  useEffect(() => {
+    query.fetch({ targetUrl: url, timeout: 2000, imageType: "png" });
+  }, []);
 
   return (
     <div
@@ -74,7 +74,7 @@ function ProjectCard({
         >
           {query.state === "success" && (
             <div className="relative w-full h-full hover:opacity-80">
-              <Image layout="fill" src={query.src} />
+              <Image objectFit="cover" layout="fill" src={query.src} />
             </div>
           )}
 
