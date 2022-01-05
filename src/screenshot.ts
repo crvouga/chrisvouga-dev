@@ -8,7 +8,7 @@ export const getRootUrl = () => {
   }
 
   throw new Error(
-    "process.env.NEXT_PUBLIC_SCREENSHOT_SERVICE_URL is undefined"
+    "process.env.NEXT_PUBLIC_SCREENSHOT_SERVICE_URL is undefined",
   );
 };
 
@@ -22,7 +22,8 @@ export const getScreenshotSrc = async ({
   timeout?: number;
 }) => {
   try {
-    const url = `${getRootUrl()}/api/screenshot?url=${targetUrl}&timeout=${timeout}&type=${imageType}`;
+    const url =
+      `${getRootUrl()}/api/screenshot?url=${targetUrl}&timeout=${timeout}&type=${imageType}`;
 
     const response = await fetch(url);
 
@@ -48,7 +49,7 @@ export const getScreenshotSrc = async ({
 export const useQueryScreenshot = () => {
   const [src, setSrc] = useState<string | null>(null);
   const [state, setState] = useState<"loading" | "success" | "error">(
-    "loading"
+    "loading",
   );
 
   const fetch = async ({

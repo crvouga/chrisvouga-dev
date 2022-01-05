@@ -38,7 +38,10 @@ function LinkedinIcon({ className }: { className?: string }) {
       viewBox="0 0 50 50"
       className={className}
     >
-      <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
+      <path
+        d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
+      >
+      </path>
     </svg>
   );
 }
@@ -63,7 +66,9 @@ function ProjectCard({
       className="relative col-span-1 h-0 overflow-hidden"
       style={{ paddingTop: "100%" }}
     >
-      <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col text-center bg-zinc-700 text-gray-200 rounded-md">
+      <div
+        className="absolute top-0 left-0 right-0 bottom-0 flex flex-col text-center bg-zinc-700 text-gray-200 rounded-md"
+      >
         <h1 className="text-left p-4 text-xl md:text-2xl font-semibold">
           {title}
         </h1>
@@ -74,21 +79,30 @@ function ProjectCard({
           href={url}
           className="block overflow-hidden w-full flex-1"
         >
-          {query.state === "success" && (
-            <div className="relative w-full h-full hover:opacity-80">
-              <Image objectFit="cover" layout="fill" src={query.src} />
-            </div>
-          )}
+          {query.state === "success" &&
+            (
+              <div
+                className="relative animate-fade w-full h-full hover:opacity-80"
+              >
+                <Image objectFit="cover" layout="fill" src={query.src} />
+              </div>
+            )}
 
-          {query.state === "error" && (
-            <div className="w-full h-full grid items-center text-gray-400">
-              Failed to load screenshot
-            </div>
-          )}
+          {query.state === "error" &&
+            (
+              <div className="w-full h-full grid items-center text-gray-400">
+                Failed to load screenshot
+              </div>
+            )}
 
-          {query.state === "loading" && (
-            <div className="w-full h-full animate-pulse bg-zinc-600"></div>
-          )}
+          {query.state === "loading" &&
+            (
+              <div
+                className="w-full h-full animate-pulse grid items-center text-gray-400"
+              >
+                Loading screenshot...
+              </div>
+            )}
         </a>
         <div className="-mt-px flex divide-x divide-zinc-600 text-gray-300 ">
           <div className="w-0 flex-1 flex">
@@ -183,32 +197,46 @@ export default function Index() {
       </style>
 
       <div className="px-4 m-auto max-w-6xl w-full">
-        <div className="flex flex-col md:flex-row items-center justify-center mx-auto my-12 ">
-          <div className="flex-1 w-full text-4xl font-extrabold sm:text-5xl md:text-6xl">
-            <div className="text-xl text-gray-400 mb-2">{"Hi, my name is"}</div>
+        <div
+          className="flex flex-col md:flex-row items-center justify-center mx-auto my-12 "
+        >
+          <div
+            className="flex-1 w-full text-4xl font-extrabold sm:text-5xl md:text-6xl"
+          >
+            <div className="text-xl text-gray-400 mb-2">
+              {"Hi, my name is"}
+            </div>
             <div className="block text-gray-200 tracking-tight mb-1">
               Chris Vouga
             </div>
 
             <span
-              onClick={(event) => restartAnimations(event.currentTarget)}
+              onClick={(event) =>
+                restartAnimations(event.currentTarget)}
               className="cursor-pointer inline-flex h-20 pt-2 overflow-x-hidden animate-type group-hover:animate-type-reverse whitespace-nowrap text-brand-accent will-change text-lime-500 "
             >
               web developer
             </span>
-            <span className="box-border inline-block w-1 h-10 ml-2 -mb-2 bg-lime-500 md:-mb-4 md:h-16 animate-cursor will-change"></span>
+            <span
+              className="box-border inline-block w-1 h-10 ml-2 -mb-2 bg-lime-500 md:-mb-4 md:h-16 animate-cursor will-change"
+            >
+            </span>
           </div>
           <Links />
         </div>
 
-        <h2 className="text-gray-200 mb-6 text-3xl font-extrabold sm:text-4xl md:text-5xl">
+        <h2
+          className="text-gray-200 mb-6 text-3xl font-extrabold sm:text-4xl md:text-5xl"
+        >
           Projects
         </h2>
 
-        <div className="w-full overflow-hidden grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {data.projects.map((project) => (
-            <ProjectCard key={project.url} {...project} />
-          ))}
+        <div
+          className="w-full overflow-hidden grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {data.projects.map((
+            project,
+          ) => <ProjectCard key={project.url} {...project} />)}
         </div>
       </div>
 
