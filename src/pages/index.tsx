@@ -68,7 +68,7 @@ function ProjectCard({
           {query.state === "success" &&
             (
               <img
-                className="hover:scale-105 aspect-video object-cover"
+                className="hover:opacity-80 aspect-video object-cover"
                 src={query.src}
               />
             )}
@@ -94,7 +94,7 @@ function ProjectCard({
               target="_blank"
               rel="noopener noreferrer"
               href={url}
-              className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 font-medium border border-transparent rounded-bl-l hover:scale-105"
+              className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 font-medium border border-transparent rounded-bl-l hover:opacity-80"
             >
               <ExternalLinkIcon
                 className="w-5 h-5"
@@ -108,7 +108,7 @@ function ProjectCard({
               target="_blank"
               rel="noopener noreferrer"
               href={codeUrl}
-              className="relative w-0 flex-1 inline-flex items-center justify-center py-4  font-medium border border-transparent rounded-br-lg hover:scale-105"
+              className="relative w-0 flex-1 inline-flex items-center justify-center py-4  font-medium border border-transparent rounded-br-lg hover:opacity-80"
             >
               <CodeIcon
                 className="w-5 h-5"
@@ -126,7 +126,7 @@ function ProjectCard({
 function Links() {
   const classes = {
     icon: "fill-gray-200 h-12 w-12 mb-1",
-    a: "hover:scale-105 block flex flex-col justify-center items-center",
+    a: "hover:opacity-80 block flex flex-col justify-center items-center",
     span: "text-gray-400 text-sm font-light",
   };
 

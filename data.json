@@ -41,12 +41,6 @@
     },
 
     {
-      "title": "Cheese",
-      "url": "https://cheese.chrisvouga.dev/",
-      "codeUrl": "https://github.com/crvouga/cheese"
-    },
-
-    {
       "title": "Snake",
       "url": "https://snake.chrisvouga.dev/",
       "codeUrl": "https://github.com/crvouga/snake"
@@ -56,6 +50,12 @@
       "title": "Match Three",
       "url": "https://matchthree.chrisvouga.dev/",
       "codeUrl": "https://github.com/crvouga/match-three"
+    },
+
+    {
+      "title": "Cheese",
+      "url": "https://cheese.chrisvouga.dev/",
+      "codeUrl": "https://github.com/crvouga/cheese"
     },
 
     {
