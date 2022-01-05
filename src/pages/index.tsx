@@ -7,6 +7,7 @@ import {
 import { useEffect } from "react";
 import data from "../../data.json";
 import { useQueryScreenshot } from "../screenshot";
+import Typewriter from "../Typewriter";
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -52,71 +53,69 @@ function ProjectCard({
 
   return (
     <li
-      className="col-span-1 flex flex-col text-center bg-zinc-700 text-gray-200 rounded-md  divide-y divide-gray-200"
+      className="aspect-square col-span-1 flex flex-col text-center bg-zinc-700 text-gray-200 rounded-md"
     >
-      <div>
-        <h1 className="text-left p-4 text-2xl font-semibold">
-          {title}
-        </h1>
+      <h1 className="text-left p-4 text-2xl font-semibold">
+        {title}
+      </h1>
 
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href={url}
-          className="block overflow-hidden"
-        >
-          {query.state === "success" &&
-            (
-              <img
-                className="hover:opacity-80 aspect-video object-cover"
-                src={query.src}
-              />
-            )}
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={url}
+        className="block overflow-hidden w-full flex-1"
+      >
+        {query.state === "success" &&
+          (
+            <img
+              className="w-full h-full hover:opacity-80 object-cover"
+              src={query.src}
+            />
+          )}
 
-          {query.state === "error" &&
-            (
-              <div
-                className="aspect-video grid items-center text-gray-400"
-              >
-                Failed to load screenshot
-              </div>
-            )}
-
-          {query.state === "loading" &&
-            (
-              <div className="aspect-video animate-pulse bg-zinc-600">
-              </div>
-            )}
-        </a>
-        <div className="-mt-px flex divide-x divide-zinc-600 text-gray-300 ">
-          <div className="w-0 flex-1 flex">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={url}
-              className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 font-medium border border-transparent rounded-bl-l hover:opacity-80"
+        {query.state === "error" &&
+          (
+            <div
+              className="w-full h-full grid items-center text-gray-400"
             >
-              <ExternalLinkIcon
-                className="w-5 h-5"
-                aria-hidden="true"
-              />
-              <span className="ml-3">Live</span>
-            </a>
-          </div>
-          <div className="-ml-px w-0 flex-1 flex">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={codeUrl}
-              className="relative w-0 flex-1 inline-flex items-center justify-center py-4  font-medium border border-transparent rounded-br-lg hover:opacity-80"
-            >
-              <CodeIcon
-                className="w-5 h-5"
-                aria-hidden="true"
-              />
-              <span className="ml-3">Code</span>
-            </a>
-          </div>
+              Failed to load screenshot
+            </div>
+          )}
+
+        {query.state === "loading" &&
+          (
+            <div className="w-full h-full animate-pulse bg-zinc-600">
+            </div>
+          )}
+      </a>
+      <div className="-mt-px flex divide-x divide-zinc-600 text-gray-300 ">
+        <div className="w-0 flex-1 flex">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={url}
+            className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 font-medium border border-transparent rounded-bl-l hover:opacity-80"
+          >
+            <ExternalLinkIcon
+              className="w-5 h-5"
+              aria-hidden="true"
+            />
+            <span className="ml-3">Live</span>
+          </a>
+        </div>
+        <div className="-ml-px w-0 flex-1 flex">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={codeUrl}
+            className="relative w-0 flex-1 inline-flex items-center justify-center py-4  font-medium border border-transparent rounded-br-lg hover:opacity-80"
+          >
+            <CodeIcon
+              className="w-5 h-5"
+              aria-hidden="true"
+            />
+            <span className="ml-3">Code</span>
+          </a>
         </div>
       </div>
     </li>
@@ -206,7 +205,7 @@ export default function Index() {
           className="flex flex-col md:flex-row items-center justify-center mx-auto my-12 "
         >
           <div
-            className="mb-8 flex-1 w-full text-4xl font-extrabold sm:text-5xl md:text-6xl"
+            className="flex-1 w-full text-4xl font-extrabold sm:text-5xl md:text-6xl"
           >
             <div className="text-xl text-gray-400 mb-2">
               {"Hi, my name is"}
@@ -214,9 +213,16 @@ export default function Index() {
             <div className="block text-gray-200 tracking-tight mb-1">
               Chris Vouga
             </div>
-            <div className="block text-lime-500 tracking - tight;">
+
+            <span
+              className="inline-flex h-20 pt-2 overflow-x-hidden animate-type group-hover:animate-type-reverse whitespace-nowrap text-brand-accent will-change text-lime-500 "
+            >
               web developer
-            </div>
+            </span>
+            <span
+              className="box-border inline-block w-1 h-10 ml-2 -mb-2 bg-lime-500 md:-mb-4 md:h-16 animate-cursor will-change"
+            >
+            </span>
           </div>
           <Links />
         </div>
