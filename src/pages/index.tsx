@@ -7,7 +7,16 @@ import {
 import { useEffect } from "react";
 import data from "../../data.json";
 import { useQueryScreenshot } from "../screenshot";
-import Typewriter from "../Typewriter";
+import Image from "next/image";
+
+const restartAnimations = (element: Element): void => {
+  for (const animation of document.getAnimations()) {
+    if (element.contains((animation.effect as KeyframeEffect).target)) {
+      animation.cancel();
+      animation.play();
+    }
+  }
+};
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -67,10 +76,12 @@ function ProjectCard({
       >
         {query.state === "success" &&
           (
-            <img
-              className="w-full h-full hover:opacity-80 object-cover"
-              src={query.src}
-            />
+            <div className="relative w-full h-full hover:opacity-80">
+              <Image
+                layout="fill"
+                src={query.src}
+              />
+            </div>
           )}
 
         {query.state === "error" &&
@@ -215,7 +226,8 @@ export default function Index() {
             </div>
 
             <span
-              className="inline-flex h-20 pt-2 overflow-x-hidden animate-type group-hover:animate-type-reverse whitespace-nowrap text-brand-accent will-change text-lime-500 "
+              onClick={(event) => restartAnimations(event.currentTarget)}
+              className="cursor-pointer inline-flex h-20 pt-2 overflow-x-hidden animate-type group-hover:animate-type-reverse whitespace-nowrap text-brand-accent will-change text-lime-500 "
             >
               web developer
             </span>
