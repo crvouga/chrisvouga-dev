@@ -10,6 +10,8 @@ module.exports = {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
       },
+      
+      /* type animation source: https://vanntile.com/blog/composited-typing-animation */
       animation: {
         cursor: "cursor .6s linear infinite alternate",
         type: "type 1.8s ease-out .8s 1 normal both",
