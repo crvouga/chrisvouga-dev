@@ -81,9 +81,10 @@ function ProjectCard({
                 Failed to load screenshot
               </div>
             )}
+
           {query.state === "loading" &&
             (
-              <div className="aspect-video w-full animate-pulse bg-zinc-600">
+              <div className="aspect-video animate-pulse bg-zinc-600">
               </div>
             )}
         </a>
@@ -179,7 +180,7 @@ function Links() {
         href={`callto:${data.phoneNumber}`}
         className={classes.a}
       >
-        <PhoneIcon className="fill-white h-12 w-12" />
+        <PhoneIcon className={classes.icon} />
         <span className={classes.span}>
           Phone
         </span>
