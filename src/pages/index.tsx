@@ -61,75 +61,80 @@ function ProjectCard({
   }, []);
 
   return (
-    <li
-      className="aspect-square col-span-1 flex flex-col text-center bg-zinc-700 text-gray-200 rounded-md"
+    <div
+      className="relative col-span-1 h-0 overflow-hidden"
+      style={{ paddingTop: "100%" }}
     >
-      <h1 className="text-left p-4 text-2xl font-semibold">
-        {title}
-      </h1>
-
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href={url}
-        className="block overflow-hidden w-full flex-1"
+      <div
+        className="absolute top-0 left-0 right-0 bottom-0 flex flex-col text-center bg-zinc-700 text-gray-200 rounded-md"
       >
-        {query.state === "success" &&
-          (
-            <div className="relative w-full h-full hover:opacity-80">
-              <Image
-                layout="fill"
-                src={query.src}
-              />
-            </div>
-          )}
+        <h1 className="text-left p-4 text-2xl font-semibold">
+          {title}
+        </h1>
 
-        {query.state === "error" &&
-          (
-            <div
-              className="w-full h-full grid items-center text-gray-400"
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={url}
+          className="block overflow-hidden w-full flex-1"
+        >
+          {query.state === "success" &&
+            (
+              <div className="relative w-full h-full hover:opacity-80">
+                <Image
+                  layout="fill"
+                  src={query.src}
+                />
+              </div>
+            )}
+
+          {query.state === "error" &&
+            (
+              <div
+                className="w-full h-full grid items-center text-gray-400"
+              >
+                Failed to load screenshot
+              </div>
+            )}
+
+          {query.state === "loading" &&
+            (
+              <div className="w-full h-full animate-pulse bg-zinc-600">
+              </div>
+            )}
+        </a>
+        <div className="-mt-px flex divide-x divide-zinc-600 text-gray-300 ">
+          <div className="w-0 flex-1 flex">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={url}
+              className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 font-medium border border-transparent rounded-bl-l hover:opacity-80"
             >
-              Failed to load screenshot
-            </div>
-          )}
-
-        {query.state === "loading" &&
-          (
-            <div className="w-full h-full animate-pulse bg-zinc-600">
-            </div>
-          )}
-      </a>
-      <div className="-mt-px flex divide-x divide-zinc-600 text-gray-300 ">
-        <div className="w-0 flex-1 flex">
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href={url}
-            className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 font-medium border border-transparent rounded-bl-l hover:opacity-80"
-          >
-            <ExternalLinkIcon
-              className="w-5 h-5"
-              aria-hidden="true"
-            />
-            <span className="ml-3">Live</span>
-          </a>
-        </div>
-        <div className="-ml-px w-0 flex-1 flex">
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href={codeUrl}
-            className="relative w-0 flex-1 inline-flex items-center justify-center py-4  font-medium border border-transparent rounded-br-lg hover:opacity-80"
-          >
-            <CodeIcon
-              className="w-5 h-5"
-              aria-hidden="true"
-            />
-            <span className="ml-3">Code</span>
-          </a>
+              <ExternalLinkIcon
+                className="w-5 h-5"
+                aria-hidden="true"
+              />
+              <span className="ml-3">Live</span>
+            </a>
+          </div>
+          <div className="-ml-px w-0 flex-1 flex">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={codeUrl}
+              className="relative w-0 flex-1 inline-flex items-center justify-center py-4  font-medium border border-transparent rounded-br-lg hover:opacity-80"
+            >
+              <CodeIcon
+                className="w-5 h-5"
+                aria-hidden="true"
+              />
+              <span className="ml-3">Code</span>
+            </a>
+          </div>
         </div>
       </div>
-    </li>
+    </div>
   );
 }
 
@@ -246,13 +251,13 @@ export default function Index() {
           Projects
         </h2>
 
-        <ol
+        <div
           className="w-full overflow-hidden grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
         >
           {data.projects.map((
             project,
           ) => <ProjectCard key={project.url} {...project} />)}
-        </ol>
+        </div>
       </div>
 
       <footer className="p-8 my-12 flex">
