@@ -6,15 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "load-env": "vercel env pull"
+    "vercel:env": "vercel pull"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
     "next": "12.0.7",
     "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "thum.io": "^1.0.9"
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.4.0",
@@ -25,6 +24,7 @@
     "postcss": "^8.4.5",
     "postcss-import": "^14.0.2",
     "tailwindcss": "^3.0.5",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "vercel": "^24.0.0"
   }
 }
