@@ -3,6 +3,9 @@ import { green } from "@mui/material/colors";
 
 const theme = responsiveFontSizes(
   createTheme({
+    typography: {
+      fontFamily: '"Inter", sans-serif',
+    },
     palette: {
       mode: "dark",
       primary: green,

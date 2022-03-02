@@ -1,25 +1,17 @@
-import LanguageIcon from "@mui/icons-material/Language";
 import CodeIcon from "@mui/icons-material/Code";
-
+import LanguageIcon from "@mui/icons-material/Language";
 import {
+  Box,
   Button,
   Card,
-  CardActions,
-  Box,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Skeleton,
-  Typography,
-  Alert,
-  Divider,
   CardActionArea,
+  CardActions,
+  CardContent,
+  Divider,
   Tooltip,
+  Typography,
 } from "@mui/material";
-import Image from "next/image";
-import { useEffect } from "react";
-import data from "../data.json";
-import { useQueryScreenshot } from "../src/screenshot";
+import ProjectScreenshot from "./ProjectScreenshot";
 
 export default function ProjectCard({
   url,
@@ -32,12 +24,6 @@ export default function ProjectCard({
   description: string;
   title: string;
 }) {
-  const query = useQueryScreenshot();
-
-  useEffect(() => {
-    query.fetch({ targetUrl: url, timeoutMs: 2000, imageType: "png" });
-  }, []);
-
   return (
     <Card
       variant="outlined"
@@ -50,35 +36,7 @@ export default function ProjectCard({
           rel={"noreferrer noopener"}
         >
           <Box sx={{ paddingTop: `${(9 / 16) * 100}%`, position: "relative" }}>
-            <Box
-              sx={{
-                position: "absolute",
-                left: 0,
-                top: 0,
-                width: "100%",
-                height: "100%",
-              }}
-            >
-              {query.state === "loading" && (
-                <Skeleton variant="rectangular" width="100%" height="100%" />
-              )}
-              {query.state === "success" && (
-                <Image layout="fill" src={query.src} objectFit="cover" />
-              )}
-              {query.state === "error" && (
-                <Alert
-                  sx={{
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "100%",
-                    height: "100%",
-                  }}
-                  severity="error"
-                >
-                  Failed to load screenshot
-                </Alert>
-              )}
-            </Box>
+            <ProjectScreenshot url={url} />
           </Box>
         </CardActionArea>
       </Tooltip>
