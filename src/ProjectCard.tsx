@@ -1,5 +1,6 @@
 import CodeIcon from "@mui/icons-material/Code";
-import LanguageIcon from "@mui/icons-material/Language";
+import WebIcon from "@mui/icons-material/Web";
+import PreviewIcon from "@mui/icons-material/Preview";
 import {
   Box,
   Button,
@@ -42,7 +43,7 @@ export default function ProjectCard({
       </Tooltip>
       <Divider />
       <CardContent sx={{ flex: 1 }}>
-        <Typography variant="h6" color="text.primary">
+        <Typography variant="h6" fontWeight={600} color="text.primary">
           {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -56,13 +57,18 @@ export default function ProjectCard({
             rel={"noreferrer noopener"}
             href={url}
             size="small"
-            startIcon={<LanguageIcon />}
+            startIcon={<WebIcon />}
           >
             Deployment
           </Button>
         </Tooltip>
-        <Tooltip title="Open source code">
+        <Tooltip
+          title={
+            Boolean(codeUrl) ? "Open source code" : "Source code not available"
+          }
+        >
           <Button
+            disabled={!Boolean(codeUrl)}
             target={"_blank"}
             rel={"noreferrer noopener"}
             href={codeUrl}
