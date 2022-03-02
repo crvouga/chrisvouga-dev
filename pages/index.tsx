@@ -12,6 +12,7 @@ import {
 import data from "../data.json";
 import { ContactLink } from "../src/ContactLink";
 import ProjectCard from "../src/ProjectCard";
+import Typed from "react-typed";
 
 function SocialLinks() {
   return (
@@ -48,7 +49,10 @@ export default function Index() {
             Chris Vouga
           </Typography>
           <Typography variant="h4" color="primary.main" fontWeight={600}>
-            Web Developer
+            <Typed
+              strings={["Web", "Web Developer", "Web Developer."]}
+              typeSpeed={70}
+            />
           </Typography>
         </Box>
         <Box sx={{ display: "flex", alignItems: "center" }}>
