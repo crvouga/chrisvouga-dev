@@ -9,21 +9,18 @@
     "vercel:env": "vercel pull"
   },
   "dependencies": {
-    "@headlessui/react": "^1.4.2",
-    "@heroicons/react": "^1.0.5",
+    "@emotion/react": "^11.8.1",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.8.1",    
+    "@mui/icons-material": "^5.4.4",
+    "@mui/material": "^5.4.4",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.4.0",
-    "@tailwindcss/typography": "^0.5.0",
     "@types/node": "^17.0.0",
     "@types/react": "^17.0.37",
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.5",
-    "postcss-import": "^14.0.2",
-    "tailwindcss": "^3.0.5",
     "typescript": "^4.5.4",
     "vercel": "^24.0.0"
   }
