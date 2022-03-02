@@ -19,55 +19,62 @@
     {
       "title": "Pickflix",
       "url": "https://crvouga-pickflix.herokuapp.com/",
-      "codeUrl": "https://github.com/crvouga/pickflix"
+      "codeUrl": "https://github.com/crvouga/pickflix",
+      "description": "Watch trailer, write reviews and make movie lists with your friends"
     },
 
     {
       "title": "thebandalibi.com",
       "url": "https://www.thebandalibi.com/",
-      "codeUrl": "https://github.com/crvouga/thebandalibi-com"
+      "codeUrl": "https://github.com/crvouga/thebandalibi-com",
+      "description": "Official website for the band alibi"
     },
 
     {
       "title": "Multiplayer Connect Four",
       "url": "https://crvouga-connect-four.herokuapp.com/",
-      "codeUrl": "https://github.com/crvouga/connect-four"
+      "codeUrl": "https://github.com/crvouga/connect-four",
+      "description": "Play the game Connect Four online with your friends"
     },
 
     {
       "title": "Cactus Couriers",
-      "url": "https://cactus-couriers-website.vercel.app/"
+      "url": "https://cactus-couriers-website.vercel.app/",
+      "description": "Website for Cactus Couriers hospice delivery company"
     },
-
-
     {
       "title": "Screenshot Service",
       "url": "https://crvouga-screenshot-service.herokuapp.com/",
-      "codeUrl": "https://github.com/crvouga/screenshot-service"
+      "codeUrl": "https://github.com/crvouga/screenshot-service",
+      "description": "A service the generates of websites for this website"
     },
 
     {
       "title": "Snake",
       "url": "https://snake.chrisvouga.dev/",
-      "codeUrl": "https://github.com/crvouga/snake"
+      "codeUrl": "https://github.com/crvouga/snake",
+      "description": "Play the game Snake. Eat apples without eating yourself"
     },
 
     {
       "title": "Match Three",
       "url": "https://matchthree.chrisvouga.dev/",
-      "codeUrl": "https://github.com/crvouga/match-three"
+      "codeUrl": "https://github.com/crvouga/match-three",
+      "description": "Match Three is a Candy Crush type game"
     },
 
     {
       "title": "Cheese",
       "url": "https://cheese.chrisvouga.dev/",
-      "codeUrl": "https://github.com/crvouga/cheese"
+      "codeUrl": "https://github.com/crvouga/cheese",
+      "description": "Cheese lets people make fake ids to sneak into GCU"
     },
 
     {
       "title": "Simon Says",
       "url": "https://simonsays.chrisvouga.dev/",
-      "codeUrl": "https://github.com/crvouga/simon-says"
+      "codeUrl": "https://github.com/crvouga/simon-says",
+      "description": "Simon says is memory test game"
     }
   ]
 }

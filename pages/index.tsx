@@ -16,14 +16,22 @@ import ProjectCard from "../src/ProjectCard";
 function SocialLinks() {
   return (
     <>
-      <Tooltip title="Github">
-        <IconButton href={data.Github.url}>
+      <Tooltip title="Open Github">
+        <IconButton
+          target={"_blank"}
+          rel={"noreferrer noopener"}
+          href={data.Github.url}
+        >
           <GitHub />
         </IconButton>
       </Tooltip>
 
-      <Tooltip title="LinkedIn">
-        <IconButton href={data.Linkedin.url}>
+      <Tooltip title="Open LinkedIn">
+        <IconButton
+          target={"_blank"}
+          rel={"noreferrer noopener"}
+          href={data.Linkedin.url}
+        >
           <LinkedIn />
         </IconButton>
       </Tooltip>
