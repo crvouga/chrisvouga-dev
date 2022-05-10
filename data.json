@@ -22,6 +22,13 @@
       "codeUrl": "https://github.com/crvouga/pickflix",
       "description": "Watch trailer, write reviews and make movie lists with your friends"
     },
+    
+     {
+      "title": "Screenshot Service",
+      "url": "https://screenshotservice.chrisvouga.dev/",
+      "codeUrl": "https://github.com/crvouga/screenshot-service",
+      "description": "A service that generates screenshots of websites. It's used for this website"
+    },
 
     {
       "title": "Alibi Band Website",
@@ -42,13 +49,7 @@
       "url": "https://gps-couriers-website.vercel.app/",
       "description": "Website for a hospice courier company"
     },
-    {
-      "title": "Screenshot Service",
-      "url": "https://crvouga-screenshot-service.herokuapp.com/",
-      "codeUrl": "https://github.com/crvouga/screenshot-service",
-      "description": "A service that generates screenshots of websites. It's used for this website"
-    },
-
+    
     {
       "title": "Snake Game",
       "url": "https://snake.chrisvouga.dev/",
