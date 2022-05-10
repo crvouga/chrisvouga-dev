@@ -25,16 +25,9 @@
     
      {
       "title": "Screenshot Service",
-      "url": "https://screenshotservice.chrisvouga.dev/",
+      "url": "https://crvouga-screenshot-service.herokuapp.com",
       "codeUrl": "https://github.com/crvouga/screenshot-service",
       "description": "A service that generates screenshots of websites. It's used for this website"
-    },
-
-    {
-      "title": "Alibi Band Website",
-      "url": "https://www.thebandalibi.com/",
-      "codeUrl": "https://github.com/crvouga/thebandalibi-com",
-      "description": "Official website for the band alibi"
     },
 
     {
@@ -44,6 +37,13 @@
       "description": "Play the game Connect Four online with your friends"
     },
 
+    {
+      "title": "Alibi Band Website",
+      "url": "https://www.thebandalibi.com/",
+      "codeUrl": "https://github.com/crvouga/thebandalibi-com",
+      "description": "Official website for the band alibi"
+    },
+    
     {
       "title": "Courier Company Website",
       "url": "https://gps-couriers-website.vercel.app/",
