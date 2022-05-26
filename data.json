@@ -32,7 +32,7 @@
 
     {
       "title": "Multiplayer Connect Four",
-      "url": "https://crvouga-connect-four.herokuapp.com/",
+      "url": "https://connectfour.chrisvouga.dev/",
       "codeUrl": "https://github.com/crvouga/connect-four",
       "description": "Play the game Connect Four online with your friends"
     },
