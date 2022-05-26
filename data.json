@@ -25,7 +25,7 @@
     
      {
       "title": "Screenshot Service",
-      "url": "https://crvouga-screenshot-service.herokuapp.com",
+      "url": "https://screenshotservice.chrisvouga.dev",
       "codeUrl": "https://github.com/crvouga/screenshot-service",
       "description": "A service that generates screenshots of websites. It's used for this website"
     },
