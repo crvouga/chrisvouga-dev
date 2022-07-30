@@ -1,9 +1,8 @@
 import * as ScreenshotService from "@crvouga/screenshot-service";
 import { Alert, Box, Skeleton, Typography } from "@mui/material";
-import { keyframes } from '@mui/system';
 import { useEffect, useRef, useState } from "react";
+import data from "../data.json";
 import { useIsInViewport } from "./use-is-in-viewport";
-import data from "../data.json"
 
 const screenshotServiceClient = ScreenshotService.makeClient({})
 
@@ -52,12 +51,12 @@ export default function ProjectScreenshot({ url }: { url: string }) {
 
     screenshotServiceClient.store.dispatch(ScreenshotService.CaptureScreenshotRequest.Action.Start({
       clientId,
-      delaySec: 2,
+      delaySec: 3,
       imageType: "jpeg",
       originUrl: originUrl.value,
       projectId: projectId.value,
       requestId: requestId,
-      strategy: "CacheFirst",
+      strategy: "NetworkFirst",
       targetUrl: targetUrl.value
     }))
   }
@@ -97,7 +96,7 @@ export default function ProjectScreenshot({ url }: { url: string }) {
       {state.type === 'Connected' && (
         <>
           {(requestState.type === 'Loading' || requestState.type === 'Cancelled' || requestState.type === 'Cancelling' || requestState.type === 'Idle') &&
-            <Log message={requestState.logs[requestState.logs.length - 1]?.message ?? "connecting..."} />}
+            <Log message={requestState.logs[requestState.logs.length - 1]?.message ?? "loading..."} />}
 
           {requestState.type === 'Failed' && (
             <Alert severity="error" sx={{ width: "100%", height: "100%", alignItems: "center", justifyContent: "center" }}>
@@ -115,20 +114,6 @@ export default function ProjectScreenshot({ url }: { url: string }) {
   );
 }
 
-
-const pulse = keyframes`
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-
-
 const Log = ({ message }: { message: string }) => {
   return (
     <>
@@ -144,7 +129,7 @@ const Log = ({ message }: { message: string }) => {
 
         <Skeleton variant="rectangular" sx={{ position: "absolute", top: 0, left: 0, width: '100%', height: "100%" }} />
 
-        <Typography sx={{
+        <Typography variant="subtitle2" sx={{
           textTransform: "lowercase",
           // animation: `${pulse} 0.8s infinite ease`
         }} color="text.secondary">
