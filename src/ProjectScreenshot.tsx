@@ -92,7 +92,6 @@ export default function ProjectScreenshot({ url }: { url: string }) {
         height: "100%",
       }}
     >
-      <div ref={ref} />
       {state.type === "Connecting" && (<Log message="connecting..." />)}
 
       {state.type === 'Connected' && (
@@ -111,6 +110,7 @@ export default function ProjectScreenshot({ url }: { url: string }) {
           )}
         </>
       )}
+      <div id="in-view-element" ref={ref} />
     </Box>
   );
 }
