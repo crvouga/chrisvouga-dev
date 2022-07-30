@@ -1,13 +1,23 @@
-import { Email, GitHub, LinkedIn, Phone } from "@mui/icons-material";
+import { Code, Email, GitHub, LinkedIn, Phone, Web } from "@mui/icons-material";
 import {
   alpha,
-  Box, Button, Container,
-  Grid, List, Typography,
+  Box,
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  Container,
+  Divider,
+  Grid,
+  List,
+  Tooltip,
+  Typography,
   useTheme
 } from "@mui/material";
 import data from "../data.json";
 import { ContactLink } from "../src/ContactLink";
-import ProjectCard from "../src/ProjectCard";
+import ProjectScreenshot from "../src/ProjectScreenshot";
 
 export default function Index() {
   const theme = useTheme();
@@ -55,7 +65,54 @@ export default function Index() {
         <Grid container spacing={2} sx={{ marginBottom: 4 }}>
           {data.projects.map((project) => (
             <Grid key={project.url} item xs={12} sm={6} md={4}>
-              <ProjectCard {...project} />
+              <Card
+                variant="outlined"
+                sx={{ height: "100%", display: "flex", flexDirection: "column" }}
+              >
+                <Tooltip title="Open deployment">
+                  <CardActionArea
+                    href={project.url}
+                    target={"_blank"}
+                    rel={"noreferrer noopener"}
+                  >
+                    <Box sx={{ paddingTop: `${(9 / 16) * 100}%`, position: "relative" }}>
+                      <ProjectScreenshot url={project.url} />
+                    </Box>
+                  </CardActionArea>
+                </Tooltip>
+                <Divider />
+                <CardContent sx={{ flex: 1 }}>
+                  <Typography variant="h6" fontWeight={600} color="text.primary">
+                    {project.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {project.description}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+
+                  <Button
+                    target={"_blank"}
+                    rel={"noreferrer noopener"}
+                    href={project.url}
+                    size="small"
+                    startIcon={<Web />}
+                  >
+                    Deployment
+                  </Button>
+
+                  <Button
+                    disabled={!Boolean(project.codeUrl)}
+                    target={"_blank"}
+                    rel={"noreferrer noopener"}
+                    href={project.codeUrl}
+                    size="small"
+                    startIcon={<Code />}
+                  >
+                    Source Code
+                  </Button>
+                </CardActions>
+              </Card>
             </Grid>
           ))}
         </Grid>
@@ -101,7 +158,8 @@ function SocialLinks() {
         size="large"
         target={"_blank"}
         rel={"noreferrer noopener"}
-        variant="outlined"
+        variant="contained"
+        fullWidth
         href={data.Github.url}
         startIcon={<GitHub />}
         sx={{ marginBottom: 2 }}
@@ -110,8 +168,9 @@ function SocialLinks() {
         GitHub
       </Button>
       <Button
+        fullWidth
         size="large"
-        variant="outlined"
+        variant="contained"
         target={"_blank"}
         rel={"noreferrer noopener"}
         href={data.Linkedin.url}
