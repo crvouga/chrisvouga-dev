@@ -1,10 +1,7 @@
 import { Email, GitHub, LinkedIn, Phone } from "@mui/icons-material";
 import {
-  Alert,
   alpha,
-  Box,
-  Button,
-  Container,
+  Box, Container,
   Grid,
   IconButton,
   List,
@@ -35,7 +32,7 @@ export default function Index() {
           maxWidth="lg"
           sx={{ display: "flex", width: "100%", paddingY: 8 }}
         >
-          <Box sx={{ flex: 1, zIndex: 2 }}>
+          <Box sx={{ flex: 1, zIndex: 2, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
             <Typography variant="h2" fontWeight={600}>
               Chris Vouga
             </Typography>
@@ -53,31 +50,9 @@ export default function Index() {
       </Box>
 
       <Container maxWidth="lg" sx={{ paddingY: 2, marginY: 4 }}>
-        <Typography fontWeight={600} variant="h3" gutterBottom>
+        <Typography fontWeight={600} variant="h3" sx={{ marginBottom: 2 }} align="center">
           Projects
         </Typography>
-
-        <Alert
-          severity="info"
-          sx={{ marginBottom: 3, maxWidth: theme.breakpoints.values.sm }}
-        >
-          <Box sx={{ marginBottom: 1 }}>
-            Some projects are hosted on Heroku's free tier so there may be slow
-            startup times.
-          </Box>
-          <Tooltip title="Open link">
-            <Button
-              href={"https://blog.heroku.com/app_sleeping_on_heroku"}
-              sx={{ marginLeft: -1 }}
-              color="inherit"
-              size="small"
-              target={"_blank"}
-              rel={"noreferrer noopener"}
-            >
-              Read More
-            </Button>
-          </Tooltip>
-        </Alert>
 
         <Grid container spacing={2} sx={{ marginBottom: 4 }}>
           {data.projects.map((project) => (
@@ -123,7 +98,7 @@ export default function Index() {
 
 function SocialLinks() {
   return (
-    <>
+    <Box sx={{ display: 'flex' }}>
       <Tooltip title="Open Github">
         <IconButton
           target={"_blank"}
@@ -143,6 +118,6 @@ function SocialLinks() {
           <LinkedIn sx={{ fontSize: "3rem" }} />
         </IconButton>
       </Tooltip>
-    </>
+    </Box>
   );
 }
