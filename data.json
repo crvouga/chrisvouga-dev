@@ -3,7 +3,7 @@
 
   "metaTitle": "Chris Vouga • Web Developer",
 
-  "metaDescription": "Hello, my name is Chris Vouga. I'm web developer that lives in Phoenix, Arizona.",
+  "metaDescription": "Hello, my name is Chris Vouga and I'm a web developer.",
 
   "emailAddress": "crvouga@gmail.com",
 
@@ -26,7 +26,7 @@
     },
 
     {
-      "title": "Screenshot Service",
+      "title": "Screenshots as a Service",
       "url": "https://screenshotservice.chrisvouga.dev",
       "codeUrl": "https://github.com/crvouga/screenshot-service",
       "description": "A service that generates screenshots of websites. It's used for this website"
