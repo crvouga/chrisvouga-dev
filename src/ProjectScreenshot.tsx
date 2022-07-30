@@ -56,7 +56,7 @@ export default function ProjectScreenshot({ url }: { url: string }) {
       originUrl: originUrl.value,
       projectId: projectId.value,
       requestId: requestId,
-      strategy: "NetworkFirst",
+      strategy: "CacheFirst",
       targetUrl: targetUrl.value
     }))
   }
