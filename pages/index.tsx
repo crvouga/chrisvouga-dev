@@ -40,7 +40,7 @@ export default function Index() {
                 marginBottom: 4
               }}
             >
-              Web Developer.
+              Web Developer
             </Typography>
             <SocialLinks />
           </Box>
