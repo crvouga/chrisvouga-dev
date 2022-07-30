@@ -1,6 +1,7 @@
 import * as ScreenshotService from "@crvouga/screenshot-service";
-import { Alert, Box, Skeleton, Typography } from "@mui/material";
-import { MutableRefObject, Ref, useEffect, useMemo, useRef, useState } from "react";
+import { Alert, Box, Typography } from "@mui/material";
+import { keyframes } from '@mui/system';
+import { useEffect, useRef, useState } from "react";
 import { useIsInViewport } from "./use-is-in-viewport";
 
 const screenshotServiceClient = ScreenshotService.makeClient({})
@@ -23,7 +24,7 @@ export default function ProjectScreenshot({ url }: { url: string }) {
       return
     }
 
-    if (requestState.type !== 'Idle') {
+    if (requestState.type === 'Loading' || requestState.type === 'Succeeded' || requestState.type === 'Failed') {
       return
     }
 
@@ -117,11 +118,33 @@ export default function ProjectScreenshot({ url }: { url: string }) {
 }
 
 
+const pulse = keyframes`
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+
 const Log = ({ message }: { message: string }) => {
   return (
     <>
-      <Box sx={{ zIndex: 1000, width: "100%", height: "100%", display: 'flex', alignItems: "center", justifyContent: "center" }}>
-        <Typography color="text.secondary">
+      <Box sx={{
+        width: "100%",
+        height: "100%",
+        display: 'flex',
+        alignItems: "center",
+        justifyContent: "center",
+        textTransform: "lowercase"
+      }}>
+        <Typography sx={{
+          animation: `${pulse} 0.8s infinite ease`
+        }} color="text.secondary">
           {message}
         </Typography>
       </Box>
