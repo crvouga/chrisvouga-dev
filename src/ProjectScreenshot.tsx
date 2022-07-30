@@ -1,5 +1,5 @@
 import * as ScreenshotService from "@crvouga/screenshot-service";
-import { Alert, Box, Typography } from "@mui/material";
+import { Alert, Box, Skeleton, Typography } from "@mui/material";
 import { keyframes } from '@mui/system';
 import { useEffect, useRef, useState } from "react";
 import { useIsInViewport } from "./use-is-in-viewport";
@@ -132,16 +132,21 @@ const pulse = keyframes`
 const Log = ({ message }: { message: string }) => {
   return (
     <>
+
       <Box sx={{
         width: "100%",
         height: "100%",
         display: 'flex',
         alignItems: "center",
         justifyContent: "center",
-        textTransform: "lowercase"
+        position: "relative",
       }}>
+
+        <Skeleton variant="rectangular" sx={{ position: "absolute", top: 0, left: 0, width: '100%', height: "100%" }} />
+
         <Typography sx={{
-          animation: `${pulse} 0.8s infinite ease`
+          textTransform: "lowercase",
+          // animation: `${pulse} 0.8s infinite ease`
         }} color="text.secondary">
           {message}
         </Typography>
