@@ -1,6 +1,4 @@
-import CodeIcon from "@mui/icons-material/Code";
-import WebIcon from "@mui/icons-material/Web";
-import PreviewIcon from "@mui/icons-material/Preview";
+import { Web, Code } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -57,7 +55,7 @@ export default function ProjectCard({
             rel={"noreferrer noopener"}
             href={url}
             size="small"
-            startIcon={<WebIcon />}
+            startIcon={<Web />}
           >
             Deployment
           </Button>
@@ -73,7 +71,7 @@ export default function ProjectCard({
             rel={"noreferrer noopener"}
             href={codeUrl}
             size="small"
-            startIcon={<CodeIcon />}
+            startIcon={<Code />}
           >
             Source Code
           </Button>

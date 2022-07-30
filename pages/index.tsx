@@ -1,7 +1,6 @@
 import { Email, GitHub, LinkedIn, Phone } from "@mui/icons-material";
 import {
   Alert,
-  AlertTitle,
   alpha,
   Box,
   Button,
@@ -11,9 +10,8 @@ import {
   List,
   Tooltip,
   Typography,
-  useTheme,
+  useTheme
 } from "@mui/material";
-import Typed from "react-typed";
 import data from "../data.json";
 import { ContactLink } from "../src/ContactLink";
 import ProjectCard from "../src/ProjectCard";
@@ -47,10 +45,7 @@ export default function Index() {
               fontWeight={600}
               gutterBottom
             >
-              <Typed
-                strings={["Web", "Web Developer", "Web Developer."]}
-                typeSpeed={70}
-              />
+              Web Developer.
             </Typography>
             <SocialLinks />
           </Box>
@@ -66,7 +61,6 @@ export default function Index() {
           severity="info"
           sx={{ marginBottom: 3, maxWidth: theme.breakpoints.values.sm }}
         >
-          {/* <AlertTitle>Heads up</AlertTitle> */}
           <Box sx={{ marginBottom: 1 }}>
             Some projects are hosted on Heroku's free tier so there may be slow
             startup times.

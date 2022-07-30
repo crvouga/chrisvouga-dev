@@ -9,20 +9,20 @@
     "vercel:env": "vercel pull"
   },
   "dependencies": {
+    "@crvouga/screenshot-service": "^0.0.8",
     "@emotion/react": "^11.8.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.4.4",
     "@mui/material": "^5.4.4",
-    "next": "12.0.7",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-typed": "^1.2.0"
+    "next": "^12.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.0",
-    "@types/react": "^17.0.37",
+    "@types/react": "^18.0.15",
     "typescript": "^4.5.4",
-    "vercel": "^24.0.0"
+    "vercel": "^19.1.2"
   }
 }

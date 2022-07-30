@@ -1,14 +1,69 @@
-import { Alert, Box, Skeleton } from "@mui/material";
+import { Alert, Box, Skeleton, Typography } from "@mui/material";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useQueryScreenshot } from "./screenshot";
+import * as ScreenshotService from "@crvouga/screenshot-service"
+
+const screenshotServiceClient = ScreenshotService.makeClient({})
+
+const rawProjectId = "968b217e-5143-4406-84e8-d2137705a2e4"
 
 export default function ProjectScreenshot({ url }: { url: string }) {
-  const query = useQueryScreenshot();
+  const [state, setState] = useState(screenshotServiceClient.store.getState)
+
+
+  const start = () => {
+
+    if (state.type === 'Connecting') {
+      return
+    }
+
+    const clientId = state.clientId
+
+    const originUrl = ScreenshotService.Data.Url.decode(window.location.origin)
+
+    if (originUrl.type === 'Err') {
+      return
+    }
+
+    const projectId = ScreenshotService.Data.ProjectId.decode(rawProjectId)
+
+    if (projectId.type === 'Err') {
+      return
+    }
+
+    const requestId = ScreenshotService.Data.RequestId.generate()
+
+    const targetUrl = ScreenshotService.Data.TargetUrl.decode(url)
+
+    if (targetUrl.type === 'Err') {
+      return
+    }
+
+    screenshotServiceClient.store.dispatch(ScreenshotService.CaptureScreenshotRequest.Action.Start({
+      clientId,
+      delaySec: 3,
+      imageType: "jpeg",
+      originUrl: originUrl.value,
+      projectId: projectId.value,
+      requestId: requestId,
+      strategy: "NetworkFirst",
+      targetUrl: targetUrl.value
+    }))
+  }
 
   useEffect(() => {
-    query.fetch({ targetUrl: url, timeoutMs: 2000, imageType: "png" });
+    const unsubscribe = screenshotServiceClient.store.subscribe(() => {
+      setState(screenshotServiceClient.store.getState)
+    })
+
+    start()
+
+    return () => {
+      unsubscribe()
+    }
   }, []);
+
 
   return (
     <Box
@@ -20,25 +75,20 @@ export default function ProjectScreenshot({ url }: { url: string }) {
         height: "100%",
       }}
     >
-      {query.state === "loading" && (
-        <Skeleton variant="rectangular" width="100%" height="100%" />
+      {state.type === "Connecting" && (
+        <Skeleton variant="rectangular" width="100%" height="100%" >
+          <Typography>
+            Connecting...
+          </Typography>
+        </Skeleton>
       )}
-      {query.state === "success" && (
-        <Image layout="fill" src={query.src} objectFit="cover" />
+
+      {state.type === 'Connected' && (
+        <pre>
+          {JSON.stringify(state, null, 4)}
+        </pre>
       )}
-      {query.state === "error" && (
-        <Alert
-          sx={{
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-            height: "100%",
-          }}
-          severity="error"
-        >
-          Failed to load screenshot
-        </Alert>
-      )}
+
     </Box>
   );
 }
