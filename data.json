@@ -29,14 +29,13 @@
       "title": "Screenshots as a Service",
       "url": "https://screenshotservice.chrisvouga.dev",
       "codeUrl": "https://github.com/crvouga/screenshot-service",
-      "description": "A software as a service that generates screenshots for developers to use on their websites. It's used on this website"
+      "description": "A software as a service app that lets developers generate screenshots for their websites. It's used on this website"
     },
 
     {
-      "title": "Multiplayer Connect Four",
-      "url": "https://connectfour.chrisvouga.dev/",
-      "codeUrl": "https://github.com/crvouga/connect-four",
-      "description": "Play the game Connect Four online with your friends"
+      "title": "Gamezilla",
+      "url": "https://gamezilla.chrisvouga.dev/",
+      "description": "A work in progress multiplayer gaming app. Source code is private"
     },
 
     {
@@ -49,7 +48,14 @@
     {
       "title": "Courier Company Website",
       "url": "https://gps-couriers-website.vercel.app/",
-      "description": "Website for a hospice courier company"
+      "description": "Website for a hospice courier company. Source code is private"
+    },
+
+    {
+      "title": "Multiplayer Connect Four",
+      "url": "https://connectfour.chrisvouga.dev/",
+      "codeUrl": "https://github.com/crvouga/connect-four",
+      "description": "Play the game Connect Four online with your friends"
     },
 
     {

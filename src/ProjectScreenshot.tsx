@@ -93,12 +93,12 @@ export default function ProjectScreenshot({ url }: { url: string }) {
       }}
     >
       <div ref={ref} />
-      {state.type === "Connecting" && (<Log message="Connecting to screenshot service..." />)}
+      {state.type === "Connecting" && (<Log message="connecting..." />)}
 
       {state.type === 'Connected' && (
         <>
           {(requestState.type === 'Loading' || requestState.type === 'Cancelled' || requestState.type === 'Cancelling' || requestState.type === 'Idle') &&
-            <Log message={requestState.logs[requestState.logs.length - 1]?.message ?? "Connecting to screenshot service..."} />}
+            <Log message={requestState.logs[requestState.logs.length - 1]?.message ?? "connecting..."} />}
 
           {requestState.type === 'Failed' && (
             <Alert severity="error" sx={{ width: "100%", height: "100%", alignItems: "center", justifyContent: "center" }}>
