@@ -9,7 +9,7 @@
     "vercel:env": "vercel pull"
   },
   "dependencies": {
-    "@crvouga/screenshot-service": "^0.0.8",
+    "@crvouga/screenshot-service": "^0.0.9",
     "@emotion/react": "^11.8.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.8.1",
