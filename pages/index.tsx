@@ -1,12 +1,8 @@
 import { Email, GitHub, LinkedIn, Phone } from "@mui/icons-material";
 import {
   alpha,
-  Box, Container,
-  Grid,
-  IconButton,
-  List,
-  Tooltip,
-  Typography,
+  Box, Button, Container,
+  Grid, List, Typography,
   useTheme
 } from "@mui/material";
 import data from "../data.json";
@@ -40,7 +36,9 @@ export default function Index() {
               variant="h3"
               color="primary.main"
               fontWeight={600}
-              gutterBottom
+              sx={{
+                marginBottom: 4
+              }}
             >
               Web Developer.
             </Typography>
@@ -98,26 +96,29 @@ export default function Index() {
 
 function SocialLinks() {
   return (
-    <Box sx={{ display: 'flex' }}>
-      <Tooltip title="Open Github">
-        <IconButton
-          target={"_blank"}
-          rel={"noreferrer noopener"}
-          href={data.Github.url}
-        >
-          <GitHub sx={{ fontSize: "3rem" }} />
-        </IconButton>
-      </Tooltip>
+    <Box sx={{ display: 'flex', flexDirection: "column" }}>
+      <Button
+        size="large"
+        target={"_blank"}
+        rel={"noreferrer noopener"}
+        variant="outlined"
+        href={data.Github.url}
+        startIcon={<GitHub />}
+        sx={{ marginBottom: 2 }}
+      >
 
-      <Tooltip title="Open LinkedIn">
-        <IconButton
-          target={"_blank"}
-          rel={"noreferrer noopener"}
-          href={data.Linkedin.url}
-        >
-          <LinkedIn sx={{ fontSize: "3rem" }} />
-        </IconButton>
-      </Tooltip>
+        GitHub
+      </Button>
+      <Button
+        size="large"
+        variant="outlined"
+        target={"_blank"}
+        rel={"noreferrer noopener"}
+        href={data.Linkedin.url}
+        startIcon={<LinkedIn />}
+      >
+        LinkedIn
+      </Button>
     </Box>
   );
 }

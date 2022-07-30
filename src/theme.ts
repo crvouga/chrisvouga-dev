@@ -13,6 +13,11 @@ const theme = responsiveFontSizes(
     components: {
       MuiButton: {
         defaultProps: {},
+        styleOverrides: {
+          root: {
+            textTransform: "capitalize",
+          },
+        },
       },
     },
   })

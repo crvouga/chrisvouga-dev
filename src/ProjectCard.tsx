@@ -49,36 +49,27 @@ export default function ProjectCard({
         </Typography>
       </CardContent>
       <CardActions>
-        <Tooltip title="Open deployment">
-          <Button
-            target={"_blank"}
-            rel={"noreferrer noopener"}
-            href={url}
-            size="small"
-            startIcon={<Web />}
-          >
-            Deployment
-          </Button>
-        </Tooltip>
-        <Tooltip
-          title={
-            Boolean(codeUrl) ? "Open source code" : "Source code is private"
-          }
+
+        <Button
+          target={"_blank"}
+          rel={"noreferrer noopener"}
+          href={url}
+          size="small"
+          startIcon={<Web />}
         >
-          {/* added span becuase tooltip throws does not like disabled buttons */}
-          <span>
-            <Button
-              disabled={!Boolean(codeUrl)}
-              target={"_blank"}
-              rel={"noreferrer noopener"}
-              href={codeUrl}
-              size="small"
-              startIcon={<Code />}
-            >
-              Source Code
-            </Button>
-          </span>
-        </Tooltip>
+          Deployment
+        </Button>
+
+        <Button
+          disabled={!Boolean(codeUrl)}
+          target={"_blank"}
+          rel={"noreferrer noopener"}
+          href={codeUrl}
+          size="small"
+          startIcon={<Code />}
+        >
+          Source Code
+        </Button>
       </CardActions>
     </Card>
   );
