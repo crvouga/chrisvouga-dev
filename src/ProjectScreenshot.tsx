@@ -1,6 +1,7 @@
 import * as ScreenshotService from "@crvouga/screenshot-service";
 import { Alert, Box, Skeleton, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { MutableRefObject, Ref, useEffect, useMemo, useRef, useState } from "react";
+import { useIsInViewport } from "./use-is-in-viewport";
 
 const screenshotServiceClient = ScreenshotService.makeClient({})
 
@@ -9,11 +10,20 @@ const rawProjectId = "968b217e-5143-4406-84e8-d2137705a2e4"
 
 export default function ProjectScreenshot({ url }: { url: string }) {
   const [state, setState] = useState(screenshotServiceClient.store.getState)
-
   const [requestId, setRequestId] = useState<ScreenshotService.Data.RequestId.RequestId | null>(null)
+
+  const requestState: ScreenshotService.CaptureScreenshotRequest.RequestState =
+    requestId && state.type === 'Connected'
+      ? ScreenshotService.CaptureScreenshotRequest.toRequest(requestId, state.captureScreenshotRequest)
+      : { type: "Idle", logs: [] }
+
 
   const start = () => {
     if (state.type === 'Connecting') {
+      return
+    }
+
+    if (requestState.type !== 'Idle') {
       return
     }
 
@@ -62,15 +72,16 @@ export default function ProjectScreenshot({ url }: { url: string }) {
     }
   }, []);
 
+  const ref = useRef<HTMLDivElement | null>(null)
+
+  const isInViewport = useIsInViewport(ref)
+
+
   useEffect(() => {
-    start()
-  }, [state.type])
-
-
-  const requestState: ScreenshotService.CaptureScreenshotRequest.RequestState =
-    requestId && state.type === 'Connected'
-      ? ScreenshotService.CaptureScreenshotRequest.toRequest(requestId, state.captureScreenshotRequest)
-      : { type: "Idle", logs: [] }
+    if (isInViewport) {
+      start()
+    }
+  }, [isInViewport, state.type])
 
   return (
     <Box
@@ -82,12 +93,13 @@ export default function ProjectScreenshot({ url }: { url: string }) {
         height: "100%",
       }}
     >
-      {state.type === "Connecting" && (<Log message="Connecting..." />)}
+      <div ref={ref} />
+      {state.type === "Connecting" && (<Log message="Connecting to screenshot service..." />)}
 
       {state.type === 'Connected' && (
         <>
           {(requestState.type === 'Loading' || requestState.type === 'Cancelled' || requestState.type === 'Cancelling' || requestState.type === 'Idle') &&
-            <Log message={requestState.logs[requestState.logs.length - 1]?.message ?? "Connecting..."} />}
+            <Log message={requestState.logs[requestState.logs.length - 1]?.message ?? "Connecting to screenshot service..."} />}
 
           {requestState.type === 'Failed' && (
             <Alert severity="error" sx={{ width: "100%", height: "100%", alignItems: "center", justifyContent: "center" }}>
@@ -116,3 +128,4 @@ const Log = ({ message }: { message: string }) => {
     </>
   )
 }
+
