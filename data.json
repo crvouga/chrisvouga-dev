@@ -1,4 +1,6 @@
 {
+  "screenshotServiceProjectId": "3e158ff9-0b37-41d1-84d0-cae1397adf4b",
+
   "metaTitle": "Chris Vouga • Web Developer",
 
   "metaDescription": "Hello, my name is Chris Vouga. I'm web developer that lives in Phoenix, Arizona.",
@@ -22,8 +24,8 @@
       "codeUrl": "https://github.com/crvouga/pickflix",
       "description": "Watch trailer, write reviews and make movie lists with your friends"
     },
-    
-     {
+
+    {
       "title": "Screenshot Service",
       "url": "https://screenshotservice.chrisvouga.dev",
       "codeUrl": "https://github.com/crvouga/screenshot-service",
@@ -43,13 +45,13 @@
       "codeUrl": "https://github.com/crvouga/thebandalibi-com",
       "description": "Official website for the band alibi"
     },
-    
+
     {
       "title": "Courier Company Website",
       "url": "https://gps-couriers-website.vercel.app/",
       "description": "Website for a hospice courier company"
     },
-    
+
     {
       "title": "Snake Game",
       "url": "https://snake.chrisvouga.dev/",

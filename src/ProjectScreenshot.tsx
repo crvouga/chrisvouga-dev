@@ -3,11 +3,9 @@ import { Alert, Box, Typography } from "@mui/material";
 import { keyframes } from '@mui/system';
 import { useEffect, useRef, useState } from "react";
 import { useIsInViewport } from "./use-is-in-viewport";
+import data from "../data.json"
 
 const screenshotServiceClient = ScreenshotService.makeClient({})
-
-// source: https://screenshotservice.chrisvouga.dev/
-const rawProjectId = "968b217e-5143-4406-84e8-d2137705a2e4"
 
 export default function ProjectScreenshot({ url }: { url: string }) {
   const [state, setState] = useState(screenshotServiceClient.store.getState)
@@ -36,7 +34,7 @@ export default function ProjectScreenshot({ url }: { url: string }) {
       return
     }
 
-    const projectId = ScreenshotService.Data.ProjectId.decode(rawProjectId)
+    const projectId = ScreenshotService.Data.ProjectId.decode(data.screenshotServiceProjectId)
 
     if (projectId.type === 'Err') {
       return
