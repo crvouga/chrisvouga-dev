@@ -19,6 +19,12 @@
 
   "projects": [
     {
+      "title": "Gamezilla",
+      "url": "https://gamezilla.chrisvouga.dev/",
+      "description": "A work in progress multiplayer gaming app. Source code is private"
+    },
+
+    {
       "title": "Pickflix",
       "url": "https://crvouga-pickflix.herokuapp.com/",
       "codeUrl": "https://github.com/crvouga/pickflix",
@@ -33,16 +39,10 @@
     },
 
     {
-      "title": "Gamezilla",
-      "url": "https://gamezilla.chrisvouga.dev/",
-      "description": "A work in progress multiplayer gaming app. Source code is private"
-    },
-
-    {
       "title": "Alibi Band Website",
-      "url": "https://www.thebandalibi.com/",
+      "url": "https://thebandalibi.chrisvouga.dev/",
       "codeUrl": "https://github.com/crvouga/thebandalibi-com",
-      "description": "Official website for the band alibi"
+      "description": "Official website for the band alibi."
     },
 
     {
@@ -59,10 +59,10 @@
     },
 
     {
-      "title": "Snake Game",
+      "title": "Smooth Snake Game",
       "url": "https://snake.chrisvouga.dev/",
       "codeUrl": "https://github.com/crvouga/snake",
-      "description": "Play the game Snake. Eat apples without eating yourself"
+      "description": "Pure functional implementation of the classic game Snake with smooth snake movement"
     },
 
     {
