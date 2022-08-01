@@ -6,14 +6,37 @@ import { useIsInViewport } from "./use-is-in-viewport";
 
 const screenshotServiceClient = ScreenshotService.makeClient({})
 
+type State = ReturnType<typeof screenshotServiceClient.store.getState>
+
 export default function ProjectScreenshot({ url }: { url: string }) {
-  const [state, setState] = useState(screenshotServiceClient.store.getState)
+  const [state, setState] = useState<State>({ type: "Connecting" })
   const [requestId, setRequestId] = useState<ScreenshotService.Data.RequestId.RequestId | null>(null)
 
   const requestState: ScreenshotService.CaptureScreenshotRequest.RequestState =
     requestId && state.type === 'Connected'
       ? ScreenshotService.CaptureScreenshotRequest.toRequest(requestId, state.captureScreenshotRequest)
       : { type: "Idle", logs: [] }
+
+
+  useEffect(() => {
+    const unsubscribe = screenshotServiceClient.store.subscribe(() => {
+      setState(screenshotServiceClient.store.getState)
+    })
+    return () => {
+      unsubscribe()
+    }
+  }, []);
+
+  const ref = useRef<HTMLDivElement | null>(null)
+
+  const isInViewport = useIsInViewport(ref)
+
+
+  useEffect(() => {
+    if (isInViewport) {
+      start()
+    }
+  }, [isInViewport, state.type])
 
 
   const start = () => {
@@ -61,28 +84,10 @@ export default function ProjectScreenshot({ url }: { url: string }) {
     }))
   }
 
-  useEffect(() => {
-    const unsubscribe = screenshotServiceClient.store.subscribe(() => {
-      setState(screenshotServiceClient.store.getState)
-    })
-    return () => {
-      unsubscribe()
-    }
-  }, []);
-
-  const ref = useRef<HTMLDivElement | null>(null)
-
-  const isInViewport = useIsInViewport(ref)
-
-
-  useEffect(() => {
-    if (isInViewport) {
-      start()
-    }
-  }, [isInViewport, state.type])
 
   return (
     <Box
+      ref={ref}
       sx={{
         position: "absolute",
         left: 0,
@@ -91,12 +96,12 @@ export default function ProjectScreenshot({ url }: { url: string }) {
         height: "100%",
       }}
     >
-      {state.type === "Connecting" && (<Log message="connecting..." />)}
+      {state.type === "Connecting" && (<Log id={`${url}-connecting`} message="connecting..." />)}
 
       {state.type === 'Connected' && (
         <>
           {(requestState.type === 'Loading' || requestState.type === 'Cancelled' || requestState.type === 'Cancelling' || requestState.type === 'Idle') &&
-            <Log message={requestState.logs[requestState.logs.length - 1]?.message ?? "loading..."} />}
+            <Log id={`${url}-${requestState.type}`} message={requestState.logs[requestState.logs.length - 1]?.message ?? "loading..."} />}
 
           {requestState.type === 'Failed' && (
             <Alert severity="error" sx={{ width: "100%", height: "100%", alignItems: "center", justifyContent: "center" }}>
@@ -109,34 +114,32 @@ export default function ProjectScreenshot({ url }: { url: string }) {
           )}
         </>
       )}
-      <div id="in-view-element" ref={ref} />
     </Box>
   );
 }
 
-const Log = ({ message }: { message: string }) => {
+const Log = ({ id, message }: { id: string, message: string }) => {
   return (
-    <>
+    <Box id={id} sx={{
+      width: "100%",
+      height: "100%",
+      display: 'flex',
+      alignItems: "flex-end",
+      justifyContent: 'flex-start',
+      position: "relative",
+      p: 1,
+    }}>
 
-      <Box sx={{
-        width: "100%",
-        height: "100%",
-        display: 'flex',
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-      }}>
+      <Skeleton variant="rectangular" sx={{ position: "absolute", top: 0, left: 0, width: '100%', height: "100%" }} />
 
-        <Skeleton variant="rectangular" sx={{ position: "absolute", top: 0, left: 0, width: '100%', height: "100%" }} />
+      <Typography variant="caption" sx={{
+        textTransform: "lowercase",
+        // animation: `${pulse} 0.8s infinite ease`
+      }} color="text.secondary">
+        {message}
+      </Typography>
+    </Box>
 
-        <Typography variant="subtitle2" sx={{
-          textTransform: "lowercase",
-          // animation: `${pulse} 0.8s infinite ease`
-        }} color="text.secondary">
-          {message}
-        </Typography>
-      </Box>
-    </>
   )
 }
 
