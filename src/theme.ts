@@ -4,7 +4,7 @@ import { green } from "@mui/material/colors";
 const theme = responsiveFontSizes(
   createTheme({
     typography: {
-      fontFamily: '"Fredoka", sans-serif',
+      fontFamily: '"Montserrat", sans-serif',
     },
     palette: {
       mode: "dark",

@@ -21,69 +21,89 @@
     {
       "title": "Gamezilla",
       "url": "https://gamezilla.chrisvouga.dev/",
-      "description": "A work in progress multiplayer gaming app. Source code is private"
+      "description": "A work in progress multiplayer gaming app. Source code is private",
+      "imageSrc": "/gamezilla.png",
+      "youTubeVideoId": "VSLpdPvHbD4"
     },
 
     {
       "title": "Pickflix",
       "url": "https://crvouga-pickflix.herokuapp.com/",
       "codeUrl": "https://github.com/crvouga/pickflix",
-      "description": "Watch trailer, write reviews and make movie lists with your friends"
+      "description": "Watch trailer, write reviews and make movie lists with your friends",
+      "imageSrc": "/pickflix.png",
+      "youTubeVideoId": "-atthbuMFIM"
     },
 
     {
       "title": "Screenshots as a Service",
       "url": "https://screenshotservice.chrisvouga.dev",
       "codeUrl": "https://github.com/crvouga/screenshot-service",
-      "description": "A software as a service app that lets developers generate screenshots for their websites. It's used on this website"
+      "description": "A software as a service app that lets developers generate screenshots for their websites. It was used for this website.",
+      "imageSrc": "/screenshot-service.png",
+      "youTubeVideoId": "lCEzYGJ0rN8"
     },
 
     {
-      "title": "Alibi Band Website",
+      "title": "Band Website with E-commerce",
       "url": "https://thebandalibi.chrisvouga.dev/",
       "codeUrl": "https://github.com/crvouga/thebandalibi-com",
-      "description": "Official website for the band alibi."
+      "description": "Official website and e-commerce store for the band alibi.",
+      "imageSrc": "/band.png",
+      "youTubeVideoId": "vChYAGXsLuI"
     },
 
     {
       "title": "Courier Company Website",
       "url": "https://gps-couriers-website.vercel.app/",
-      "description": "Website for a hospice courier company. Source code is private"
+      "description": "Website for a hospice courier company. Source code is private",
+      "imageSrc": "/courier.png",
+      "youTubeVideoId": "kFwPTJcM6I0"
     },
 
     {
       "title": "Multiplayer Connect Four",
       "url": "https://connectfour.chrisvouga.dev/",
       "codeUrl": "https://github.com/crvouga/connect-four",
-      "description": "Play the game Connect Four online with your friends"
+      "description": "Play the game Connect Four online with your friends",
+      "imageSrc": "/connect-four.png",
+      "youTubeVideoId": "9_TbyftkaQw"
     },
 
     {
       "title": "Smooth Snake Game",
       "url": "https://snake.chrisvouga.dev/",
       "codeUrl": "https://github.com/crvouga/snake",
-      "description": "Pure functional implementation of the classic game Snake with smooth snake movement"
+      "description": "Pure functional implementation of the classic game Snake with smooth snake movement",
+      "imageSrc": "/snake.png",
+      "youTubeVideoId": "7El3RdkzlHs"
     },
 
     {
       "title": "Match Three",
       "url": "https://matchthree.chrisvouga.dev/",
       "codeUrl": "https://github.com/crvouga/match-three",
-      "description": "Match Three is a Candy Crush type game"
+      "description": "Match Three is a Candy Crush type game",
+      "imageSrc": "/match-three.png",
+      "youTubeVideoId": "VBrlDgmXSoA"
     },
 
     {
       "title": "Cheese",
       "url": "https://cheese.chrisvouga.dev/",
       "codeUrl": "https://github.com/crvouga/cheese",
-      "description": "Cheese lets people make fake ids to sneak into GCU"
+      "description": "Cheese is an that lets people make fake GCU ids.",
+      "imageSrc": "/cheese.png",
+      "youTubeVideoId": "hv3tRBHF7w4"
     },
 
     {
       "title": "Simon Says",
       "url": "https://simonsays.chrisvouga.dev/",
       "codeUrl": "https://github.com/crvouga/simon-says",
-      "description": "Simon says is memory test game"
+      "description": "Simon says is memory test game",
+      "imageSrc": "/simon-says.png",
+      "youTubeVideoId": "WrUFzlKL0E0"
     }
   ]
 }

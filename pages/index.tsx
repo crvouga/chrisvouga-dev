@@ -4,23 +4,24 @@ import {
   Box,
   Button,
   Card,
-  CardActionArea,
   CardActions,
   CardContent,
   Container,
   Divider,
   Grid,
   List,
-  Tooltip,
   Typography,
-  useTheme
+  useTheme,
 } from "@mui/material";
+import Image from "next/image";
+import { useRef } from "react";
 import data from "../data.json";
 import { ContactLink } from "../src/ContactLink";
-import ProjectScreenshot from "../src/ProjectScreenshot";
+import YouTube from "react-youtube";
 
 export default function Index() {
   const theme = useTheme();
+  // const [openedProjectUrl, setOpenedProjectUrl] = useState("");
   return (
     <>
       <Box
@@ -38,7 +39,16 @@ export default function Index() {
           maxWidth="lg"
           sx={{ display: "flex", width: "100%", paddingY: 8 }}
         >
-          <Box sx={{ flex: 1, zIndex: 2, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
+          <Box
+            sx={{
+              flex: 1,
+              zIndex: 2,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
+          >
             <Typography variant="h2" fontWeight={600}>
               Chris Vouga
             </Typography>
@@ -47,7 +57,7 @@ export default function Index() {
               color="primary.main"
               fontWeight={600}
               sx={{
-                marginBottom: 4
+                marginBottom: 4,
               }}
             >
               Web Developer
@@ -58,7 +68,12 @@ export default function Index() {
       </Box>
 
       <Container maxWidth="lg" sx={{ paddingY: 2, marginY: 4 }}>
-        <Typography fontWeight={600} variant="h3" sx={{ marginBottom: 2 }} align="center">
+        <Typography
+          fontWeight={600}
+          variant="h3"
+          sx={{ marginBottom: 2 }}
+          align="center"
+        >
           Projects
         </Typography>
 
@@ -67,22 +82,65 @@ export default function Index() {
             <Grid key={project.url} item xs={12} sm={6} md={4}>
               <Card
                 variant="outlined"
-                sx={{ height: "100%", display: "flex", flexDirection: "column" }}
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
               >
-                <Tooltip title="Open deployment">
-                  <CardActionArea
-                    href={project.url}
-                    target={"_blank"}
-                    rel={"noreferrer noopener"}
-                  >
-                    <Box sx={{ paddingTop: `${(9 / 16) * 100}%`, position: "relative" }}>
-                      <ProjectScreenshot url={project.url} />
-                    </Box>
-                  </CardActionArea>
-                </Tooltip>
+                <Box
+                  // onClick={() => setOpenedProjectUrl(project.url)}
+                  sx={{
+                    paddingTop: `${(9 / 16) * 100}%`,
+                    position: "relative",
+                  }}
+                >
+                  {project.youTubeVideoId ? (
+                    <YouTube
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                      }}
+                      videoId={project.youTubeVideoId}
+                      onReady={(event) => {
+                        event.target.playVideo();
+                      }}
+                      opts={{
+                        width: "100%",
+                        height: "100%",
+                        muted: true,
+                        playerVars: {
+                          // https://developers.google.com/youtube/player_parameters
+                          autoPlay: 1,
+                          loop: 1,
+                          mute: 1,
+                          playlist: project.youTubeVideoId,
+                          color: "white",
+                          enablejsapi: 1,
+                          modestbranding: 1,
+                          playsinline: 1,
+                        },
+                      }}
+                    />
+                  ) : (
+                    <Image
+                      src={project.imageSrc}
+                      layout="fill"
+                      objectFit="fill"
+                    />
+                  )}
+                </Box>
+
                 <Divider />
                 <CardContent sx={{ flex: 1 }}>
-                  <Typography variant="h6" fontWeight={600} color="text.primary">
+                  <Typography
+                    variant="h6"
+                    fontWeight={600}
+                    color="text.primary"
+                  >
                     {project.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
@@ -90,7 +148,6 @@ export default function Index() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-
                   <Button
                     target={"_blank"}
                     rel={"noreferrer noopener"}
@@ -113,6 +170,79 @@ export default function Index() {
                   </Button>
                 </CardActions>
               </Card>
+
+              {/* <Dialog
+                open={openedProjectUrl === project.url}
+                onClose={() => setOpenedProjectUrl("")}
+                PaperProps={{ sx: { width: "100vw", maxWidth: "720px" } }}
+              >
+                <Box
+                  sx={{
+                    width: "100%",
+                    paddingTop: `${(9 / 16) * 100}%`,
+                    position: "relative",
+                  }}
+                >
+                  {project.videoSrc ? (
+                    <video
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                      }}
+                      src={project.videoSrc}
+                      autoPlay
+                      controls
+                      width="100%"
+                    />
+                  ) : (
+                    <Image
+                      src={project.imageSrc}
+                      layout="fill"
+                      objectFit="fill"
+                    />
+                  )}
+                </Box>
+                <Box sx={{ p: 2 }}>
+                  <Typography variant="h5" sx={{ marginBottom: 1 }}>
+                    {project.title}
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    color="text.secondary"
+                    sx={{ marginBottom: 1 }}
+                  >
+                    {project.description}
+                  </Typography>
+
+                  <Box sx={{ display: "flex" }}>
+                    <Button
+                      target={"_blank"}
+                      rel={"noreferrer noopener"}
+                      href={project.url}
+                      size="large"
+                      startIcon={<Web />}
+                      sx={{ marginRight: 1 }}
+                    >
+                      Deployment
+                    </Button>
+
+                    <Button
+                      disabled={!Boolean(project.codeUrl)}
+                      target={"_blank"}
+                      rel={"noreferrer noopener"}
+                      href={project.codeUrl}
+                      size="large"
+                      startIcon={<Code />}
+                    >
+                      Source Code
+                    </Button>
+                  </Box>
+                </Box>
+              </Dialog> */}
             </Grid>
           ))}
         </Grid>
@@ -151,9 +281,33 @@ export default function Index() {
   );
 }
 
+function Video({ src }: { src: string }) {
+  const ref = useRef<HTMLVideoElement | null>(null);
+
+  return (
+    <video
+      ref={ref}
+      style={{
+        cursor: "pointer",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+      }}
+      preload="metadata"
+      src={src}
+      loop
+      autoPlay
+      controls
+      width="100%"
+    />
+  );
+}
+
 function SocialLinks() {
   return (
-    <Box sx={{ display: 'flex', flexDirection: "column" }}>
+    <Box sx={{ display: "flex", flexDirection: "column" }}>
       <Button
         size="large"
         target={"_blank"}
@@ -164,7 +318,6 @@ function SocialLinks() {
         startIcon={<GitHub />}
         sx={{ marginBottom: 2 }}
       >
-
         GitHub
       </Button>
       <Button
