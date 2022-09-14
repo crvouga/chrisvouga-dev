@@ -1,7 +1,7 @@
 import * as ScreenshotService from "@crvouga/screenshot-service";
 import { Alert, Box, Skeleton, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
-import data from "../data";
+import { data } from "../data";
 import { useIsInViewport } from "./use-is-in-viewport";
 
 const screenshotServiceClient = ScreenshotService.makeClient({});
