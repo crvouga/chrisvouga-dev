@@ -2,7 +2,7 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import data from "../data.json";
+import { data } from "../data";
 import createEmotionCache from "../src/createEmotionCache";
 import theme from "../src/theme";
 
