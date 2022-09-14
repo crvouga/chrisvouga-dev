@@ -15,9 +15,9 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import { useRef } from "react";
+import Player from "react-player";
 import data from "../data.json";
 import { ContactLink } from "../src/ContactLink";
-import YouTube from "react-youtube";
 
 export default function Index() {
   const theme = useTheme();
@@ -96,34 +96,21 @@ export default function Index() {
                   }}
                 >
                   {project.youTubeVideoId ? (
-                    <YouTube
+                    <Player
+                      controls
+                      loop
+                      muted
                       style={{
                         position: "absolute",
                         top: 0,
                         left: 0,
-                        right: 0,
-                        bottom: 0,
                       }}
-                      videoId={project.youTubeVideoId}
-                      onReady={(event) => {
-                        event.target.playVideo();
-                      }}
-                      opts={{
-                        width: "100%",
-                        height: "100%",
-                        muted: true,
-                        playerVars: {
-                          // https://developers.google.com/youtube/player_parameters
-                          autoPlay: 1,
-                          loop: 1,
-                          mute: 1,
-                          playlist: project.youTubeVideoId,
-                          color: "white",
-                          enablejsapi: 1,
-                          modestbranding: 1,
-                          playsinline: 1,
-                        },
-                      }}
+                      width="100%"
+                      height="100%"
+                      light={project.imageSrc}
+                      url={toYouTubeVideoUrl({
+                        youTubeVideoId: project.youTubeVideoId,
+                      })}
                     />
                   ) : (
                     <Image
@@ -152,10 +139,10 @@ export default function Index() {
                     target={"_blank"}
                     rel={"noreferrer noopener"}
                     href={project.url}
-                    size="small"
+                    size="large"
                     startIcon={<Web />}
                   >
-                    Deployment
+                    Live
                   </Button>
 
                   <Button
@@ -163,10 +150,10 @@ export default function Index() {
                     target={"_blank"}
                     rel={"noreferrer noopener"}
                     href={project.codeUrl}
-                    size="small"
+                    size="large"
                     startIcon={<Code />}
                   >
-                    Source Code
+                    Code
                   </Button>
                 </CardActions>
               </Card>
@@ -333,4 +320,8 @@ function SocialLinks() {
       </Button>
     </Box>
   );
+}
+
+function toYouTubeVideoUrl({ youTubeVideoId }: { youTubeVideoId: string }) {
+  return `https://www.youtube.com/watch?v=${youTubeVideoId}`;
 }
