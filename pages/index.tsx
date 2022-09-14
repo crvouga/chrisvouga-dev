@@ -1,22 +1,25 @@
 import { Code, Email, GitHub, LinkedIn, Phone, Web } from "@mui/icons-material";
 import {
   alpha,
+  Avatar,
   Box,
   Button,
   Card,
   CardActions,
   CardContent,
+  Chip,
   Container,
   Divider,
   Grid,
   List,
+  Tooltip,
   Typography,
   useTheme,
 } from "@mui/material";
 import Image from "next/image";
 import { useRef } from "react";
 import Player from "react-player";
-import data from "../data.json";
+import { data, Topic, topicToImageSrc } from "../data";
 import { ContactLink } from "../src/ContactLink";
 
 export default function Index() {
@@ -130,9 +133,31 @@ export default function Index() {
                   >
                     {project.title}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ marginBottom: 2 }}
+                  >
                     {project.description}
                   </Typography>
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                    {project.topics.sort().map((topic) => {
+                      const src = topicToImageSrc[topic];
+                      return (
+                        <Chip
+                          size="small"
+                          key={topic}
+                          avatar={
+                            src ? (
+                              <Avatar variant="square" src={src} />
+                            ) : undefined
+                          }
+                          label={topic}
+                          variant="outlined"
+                        />
+                      );
+                    })}
+                  </Box>
                 </CardContent>
                 <CardActions>
                   <Button
@@ -145,16 +170,22 @@ export default function Index() {
                     Live
                   </Button>
 
-                  <Button
-                    disabled={!Boolean(project.codeUrl)}
-                    target={"_blank"}
-                    rel={"noreferrer noopener"}
-                    href={project.codeUrl}
-                    size="large"
-                    startIcon={<Code />}
+                  <Tooltip
+                    title={
+                      !Boolean(project.codeUrl) ? "" : "Source code is private"
+                    }
                   >
-                    Code
-                  </Button>
+                    <Button
+                      disabled={!Boolean(project.codeUrl)}
+                      target={"_blank"}
+                      rel={"noreferrer noopener"}
+                      href={project.codeUrl}
+                      size="large"
+                      startIcon={<Code />}
+                    >
+                      Code
+                    </Button>
+                  </Tooltip>
                 </CardActions>
               </Card>
 
@@ -324,4 +355,14 @@ function SocialLinks() {
 
 function toYouTubeVideoUrl({ youTubeVideoId }: { youTubeVideoId: string }) {
   return `https://www.youtube.com/watch?v=${youTubeVideoId}`;
+}
+
+function Topic({ topic }: { topic: Topic }) {
+  const src = topicToImageSrc[topic];
+
+  if (!src) {
+    return <></>;
+  }
+
+  return <Chip avatar={<Avatar src={src} />} label={topic} />;
 }
