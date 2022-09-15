@@ -11,6 +11,11 @@ const theme = responsiveFontSizes(
       primary: green,
     },
     components: {
+      MuiTooltip: {
+        defaultProps: {
+          enterTouchDelay: 0,
+        },
+      },
       MuiButton: {
         defaultProps: {},
         styleOverrides: {

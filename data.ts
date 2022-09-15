@@ -1,9 +1,8 @@
 const projects: Project[] = [
   {
     title: "Gamezilla",
-    url: "https://gamezilla.chrisvouga.dev/",
-    description:
-      "A work in progress multiplayer gaming app. Source code is private",
+    liveUrl: "https://gamezilla.chrisvouga.dev/",
+    description: "A work in progress multiplayer gaming app.",
     imageSrc: "/gamezilla.png",
     youTubeVideoId: "VSLpdPvHbD4",
     topics: [
@@ -22,7 +21,7 @@ const projects: Project[] = [
 
   {
     title: "Pickflix",
-    url: "https://crvouga-pickflix.herokuapp.com/",
+    liveUrl: "https://crvouga-pickflix.herokuapp.com/",
     codeUrl: "https://github.com/crvouga/pickflix",
     description:
       "Watch trailers, write reviews and make movie lists with your friends",
@@ -47,7 +46,7 @@ const projects: Project[] = [
 
   {
     title: "Screenshots as a Service",
-    url: "https://screenshotservice.chrisvouga.dev",
+    // liveUrl: "https://screenshotservice.chrisvouga.dev",
     codeUrl: "https://github.com/crvouga/screenshot-service",
     description:
       "A software as a service app that lets developers generate screenshots for their websites. It was used for this website.",
@@ -69,9 +68,10 @@ const projects: Project[] = [
 
   {
     title: "Band Website with E-commerce",
-    url: "https://thebandalibi.chrisvouga.dev/",
+    liveUrl: "https://thebandalibi.chrisvouga.dev/",
     codeUrl: "https://github.com/crvouga/thebandalibi-com",
-    description: "Official website and e-commerce store for the band alibi.",
+    description:
+      "The official website and e-commerce store for the band alibi.",
     imageSrc: "/band.png",
     youTubeVideoId: "vChYAGXsLuI",
     topics: [
@@ -89,9 +89,8 @@ const projects: Project[] = [
 
   {
     title: "Courier Company Website",
-    url: "https://gps-couriers-website.vercel.app/",
-    description:
-      "Website for a hospice courier company. Source code is private",
+    liveUrl: "https://gps-couriers-website.vercel.app/",
+    description: "A marketing website for a hospice courier company.",
     imageSrc: "/courier.png",
     youTubeVideoId: "kFwPTJcM6I0",
     topics: ["css", "material-ui", "nextjs", "react", "typescript"],
@@ -99,7 +98,7 @@ const projects: Project[] = [
 
   {
     title: "Multiplayer Connect Four",
-    url: "https://connectfour.chrisvouga.dev/",
+    liveUrl: "https://connectfour.chrisvouga.dev/",
     codeUrl: "https://github.com/crvouga/connect-four",
     description: "Play the game Connect Four online with your friends",
     imageSrc: "/connect-four.png",
@@ -120,7 +119,7 @@ const projects: Project[] = [
 
   {
     title: "Smooth Snake Game",
-    url: "https://snake.chrisvouga.dev/",
+    liveUrl: "https://snake.chrisvouga.dev/",
     codeUrl: "https://github.com/crvouga/snake",
     description:
       "Pure functional implementation of the classic game Snake with smooth snake movement",
@@ -131,7 +130,7 @@ const projects: Project[] = [
 
   {
     title: "Match Three",
-    url: "https://matchthree.chrisvouga.dev/",
+    liveUrl: "https://matchthree.chrisvouga.dev/",
     codeUrl: "https://github.com/crvouga/match-three",
     description: "Match Three is a Candy Crush type game",
     imageSrc: "/match-three.png",
@@ -141,7 +140,7 @@ const projects: Project[] = [
 
   {
     title: "Cheese",
-    url: "https://cheese.chrisvouga.dev/",
+    liveUrl: "https://cheese.chrisvouga.dev/",
     codeUrl: "https://github.com/crvouga/cheese",
     description: "Cheese is an app that lets people make fake GCU ids.",
     imageSrc: "/cheese.png",
@@ -151,7 +150,7 @@ const projects: Project[] = [
 
   {
     title: "Simon Says",
-    url: "https://simonsays.chrisvouga.dev/",
+    liveUrl: "https://simonsays.chrisvouga.dev/",
     codeUrl: "https://github.com/crvouga/simon-says",
     description: "An implementation of the classic memory game Simon Says.",
     imageSrc: "/simon-says.png",
@@ -177,6 +176,14 @@ export const data = {
   Linkedin: {
     url: "https://www.linkedin.com/in/chris-vouga",
   },
+
+  aboutMe: `
+    I'm a programmer based in the Phoenix Valley. 
+    I graduated from ASU with a Bachelor's degree in Mathematics. 
+    This probably explains why I'm such a big fan of the functional programming paradigm. 
+    Right now, I'm focused on web development, but I'll learn whatever is thrown at me.
+    A random fact about me is that I play the drums in a band.
+  `,
 
   phoneNumber: "4802098698",
 
@@ -227,7 +234,7 @@ export function topics(topics: Topic[]): Topic[] {
 
 type Project = {
   title: string;
-  url: string;
+  liveUrl?: string;
   codeUrl?: string;
   description: string;
   imageSrc: string;

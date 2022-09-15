@@ -1,4 +1,12 @@
-import { Code, Email, GitHub, LinkedIn, Phone, Web } from "@mui/icons-material";
+import {
+  Code,
+  Email,
+  GitHub,
+  InfoOutlined,
+  LinkedIn,
+  Phone,
+  Web,
+} from "@mui/icons-material";
 import {
   alpha,
   Avatar,
@@ -12,14 +20,12 @@ import {
   Divider,
   Grid,
   List,
-  Tooltip,
   Typography,
   useTheme,
 } from "@mui/material";
 import Image from "next/image";
-import { useRef } from "react";
 import Player from "react-player";
-import { data, Topic, topicToImageSrc } from "../data";
+import { data, topicToImageSrc } from "../data";
 import { ContactLink } from "../src/ContactLink";
 
 export default function Index() {
@@ -74,7 +80,7 @@ export default function Index() {
         <Typography
           fontWeight={600}
           variant="h3"
-          sx={{ marginBottom: 2 }}
+          sx={{ marginBottom: 3 }}
           align="center"
         >
           Projects
@@ -82,7 +88,7 @@ export default function Index() {
 
         <Grid container spacing={2} sx={{ marginBottom: 4 }}>
           {data.projects.map((project) => (
-            <Grid key={project.url} item xs={12} sm={6} md={4}>
+            <Grid key={project.liveUrl} item xs={12} sm={6} md={4}>
               <Card
                 variant="outlined"
                 sx={{
@@ -125,7 +131,9 @@ export default function Index() {
                 </Box>
 
                 <Divider />
-                <CardContent sx={{ flex: 1 }}>
+                <CardContent
+                  sx={{ flex: 1, display: "flex", flexDirection: "column" }}
+                >
                   <Typography
                     variant="h6"
                     fontWeight={600}
@@ -158,34 +166,73 @@ export default function Index() {
                       );
                     })}
                   </Box>
+
+                  <Box sx={{ flex: 1 }} />
                 </CardContent>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 1,
+                    color: "warning.main",
+                    marginBottom: -1,
+                  }}
+                >
+                  {!Boolean(project.liveUrl) && (
+                    <Box
+                      sx={{
+                        paddingX: 2,
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <InfoOutlined
+                        sx={{ width: 18, height: 18, marginRight: 1 }}
+                      />
+                      <Typography variant="caption">
+                        Project is not deployed
+                      </Typography>
+                    </Box>
+                  )}
+                  {!Boolean(project.codeUrl) && (
+                    <Box
+                      sx={{
+                        paddingX: 2,
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <InfoOutlined
+                        sx={{ width: 18, height: 18, marginRight: 1 }}
+                      />
+                      <Typography variant="caption">
+                        Source code is private
+                      </Typography>
+                    </Box>
+                  )}
+                </Box>
                 <CardActions>
                   <Button
                     target={"_blank"}
                     rel={"noreferrer noopener"}
-                    href={project.url}
+                    href={project.liveUrl}
                     size="large"
                     startIcon={<Web />}
+                    disabled={!Boolean(project.liveUrl)}
                   >
                     Live
                   </Button>
 
-                  <Tooltip
-                    title={
-                      !Boolean(project.codeUrl) ? "" : "Source code is private"
-                    }
+                  <Button
+                    disabled={!Boolean(project.codeUrl)}
+                    target={"_blank"}
+                    rel={"noreferrer noopener"}
+                    href={project.codeUrl}
+                    size="large"
+                    startIcon={<Code />}
                   >
-                    <Button
-                      disabled={!Boolean(project.codeUrl)}
-                      target={"_blank"}
-                      rel={"noreferrer noopener"}
-                      href={project.codeUrl}
-                      size="large"
-                      startIcon={<Code />}
-                    >
-                      Code
-                    </Button>
-                  </Tooltip>
+                    Code
+                  </Button>
                 </CardActions>
               </Card>
 
@@ -265,35 +312,51 @@ export default function Index() {
           ))}
         </Grid>
 
-        <Box sx={{ display: "flex", marginBottom: 4 }}>
-          <List>
-            <ContactLink
-              icon={<Email />}
-              href={`mailTo:${data.emailAddress}`}
-              hrefLabel={`Email`}
-              label="Email"
-              value={data.emailAddress}
-            />
+        <Container disableGutters maxWidth="sm" sx={{ paddingY: 6 }}>
+          <Typography variant="h4" align="center" sx={{ marginBottom: 1 }}>
+            A little about me...
+          </Typography>
 
-            <ContactLink
-              icon={<Phone />}
-              href={`tel:${data.phoneNumber}`}
-              hrefLabel={`Call`}
-              label="Phone"
-              value={formatPhoneNumber(data.phoneNumber)}
-            />
-          </List>
-          <Box
-            sx={{
-              flex: 1,
-              justifyContent: "flex-end",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <SocialLinks />
+          <Typography variant="body1" align="center" color="text.secondary">
+            {data.aboutMe}
+          </Typography>
+        </Container>
+
+        <Container disableGutters maxWidth="sm" sx={{ paddingY: 6 }}>
+          <Typography variant="h4" align="center" sx={{ marginBottom: 1 }}>
+            Let's get in touch.
+          </Typography>
+
+          <Box sx={{ display: "flex" }}>
+            <List>
+              <ContactLink
+                icon={<Email />}
+                href={`mailTo:${data.emailAddress}`}
+                hrefLabel={`Email`}
+                label="Email"
+                value={data.emailAddress}
+              />
+
+              <ContactLink
+                icon={<Phone />}
+                href={`tel:${data.phoneNumber}`}
+                hrefLabel={`Call`}
+                label="Phone"
+                value={formatPhoneNumber(data.phoneNumber)}
+              />
+            </List>
+            <Box
+              sx={{
+                flex: 1,
+                justifyContent: "flex-end",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <SocialLinks />
+            </Box>
           </Box>
-        </Box>
+        </Container>
       </Container>
     </>
   );
@@ -314,30 +377,6 @@ function formatPhoneNumber(s: string): string {
     s[8],
     s[9],
   ].join("");
-}
-
-function Video({ src }: { src: string }) {
-  const ref = useRef<HTMLVideoElement | null>(null);
-
-  return (
-    <video
-      ref={ref}
-      style={{
-        cursor: "pointer",
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-      }}
-      preload="metadata"
-      src={src}
-      loop
-      autoPlay
-      controls
-      width="100%"
-    />
-  );
 }
 
 function SocialLinks() {
@@ -372,14 +411,4 @@ function SocialLinks() {
 
 function toYouTubeVideoUrl({ youTubeVideoId }: { youTubeVideoId: string }) {
   return `https://www.youtube.com/watch?v=${youTubeVideoId}`;
-}
-
-function Topic({ topic }: { topic: Topic }) {
-  const src = topicToImageSrc[topic];
-
-  if (!src) {
-    return <></>;
-  }
-
-  return <Chip avatar={<Avatar src={src} />} label={topic} />;
 }
