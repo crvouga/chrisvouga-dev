@@ -280,7 +280,7 @@ export default function Index() {
               href={`tel:${data.phoneNumber}`}
               hrefLabel={`Call`}
               label="Phone"
-              value={data.phoneNumber}
+              value={formatPhoneNumber(data.phoneNumber)}
             />
           </List>
           <Box
@@ -297,6 +297,23 @@ export default function Index() {
       </Container>
     </>
   );
+}
+
+function formatPhoneNumber(s: string): string {
+  return [
+    s[0],
+    s[1],
+    s[2],
+    ".",
+    s[3],
+    s[4],
+    s[5],
+    ".",
+    s[6],
+    s[7],
+    s[8],
+    s[9],
+  ].join("");
 }
 
 function Video({ src }: { src: string }) {
