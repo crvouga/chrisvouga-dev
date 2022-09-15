@@ -46,7 +46,7 @@ const projects: Project[] = [
 
   {
     title: "Screenshots as a Service",
-    // liveUrl: "https://screenshotservice.chrisvouga.dev",
+    liveUrl: "https://screenshotservice.chrisvouga.dev",
     codeUrl: "https://github.com/crvouga/screenshot-service",
     description:
       "A software as a service app that lets developers generate screenshots for their websites. It was used for this website.",
