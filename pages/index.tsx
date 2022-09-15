@@ -20,6 +20,7 @@ import {
   Divider,
   Grid,
   List,
+  Paper,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -135,20 +136,28 @@ export default function Index() {
                   sx={{ flex: 1, display: "flex", flexDirection: "column" }}
                 >
                   <Typography
-                    variant="h6"
-                    fontWeight={600}
+                    variant="h5"
                     color="text.primary"
+                    sx={{ marginBottom: 1 }}
                   >
                     {project.title}
                   </Typography>
                   <Typography
-                    variant="body2"
+                    variant="body1"
                     color="text.secondary"
                     sx={{ marginBottom: 2 }}
                   >
                     {project.description}
                   </Typography>
-                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: 1,
+                      paddingY: 1,
+                    }}
+                    // variant="outlined"
+                  >
                     {project.topics.sort().map((topic) => {
                       const src = topicToImageSrc[topic];
                       return (
