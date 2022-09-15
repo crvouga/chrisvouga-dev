@@ -159,13 +159,20 @@ const projects: Project[] = [
   },
 ];
 
+const aboutMe = `
+    I'm a programmer living in the Phoenix Valley. 
+    I graduated from ASU with a Bachelor's degree in Mathematics. 
+    This probably explains why I'm such a big fan of the functional programming paradigm. 
+    Right now, I'm focused on web development, but I'll learn whatever is thrown at me.
+    A random fact about me is that I play the drums in a band.
+  `;
+
 export const data = {
   screenshotServiceProjectId: "3e158ff9-0b37-41d1-84d0-cae1397adf4b",
 
   metaTitle: "Chris Vouga • Web Developer",
 
-  metaDescription:
-    "Hello, my name is Chris Vouga. I have achieved a Bachelors of Science from ASU and am a web developer based in the Phoenix valley.",
+  metaDescription: aboutMe,
 
   emailAddress: "crvouga@gmail.com",
 
@@ -177,13 +184,7 @@ export const data = {
     url: "https://www.linkedin.com/in/chris-vouga",
   },
 
-  aboutMe: `
-    I'm a programmer based in the Phoenix Valley. 
-    I graduated from ASU with a Bachelor's degree in Mathematics. 
-    This probably explains why I'm such a big fan of the functional programming paradigm. 
-    Right now, I'm focused on web development, but I'll learn whatever is thrown at me.
-    A random fact about me is that I play the drums in a band.
-  `,
+  aboutMe,
 
   phoneNumber: "4802098698",
 
