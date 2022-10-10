@@ -2,6 +2,7 @@ const projects: Project[] = [
   {
     title: "Gamezilla",
     liveUrl: "https://gamezilla.chrisvouga.dev/",
+
     description: "A work in progress multiplayer gaming app.",
     imageSrc: "/gamezilla.png",
     youTubeVideoId: "VSLpdPvHbD4",
@@ -16,6 +17,7 @@ const projects: Project[] = [
       "rxjs",
       "css",
       "socket-io",
+      "docker",
     ],
   },
 
@@ -162,7 +164,7 @@ const projects: Project[] = [
 const aboutMe = `
     I'm a programmer living in the Phoenix Valley. 
     I graduated from ASU with a Bachelor's degree in Mathematics. 
-    This probably explains why I'm such a big fan of the functional programming paradigm. 
+    My go to style of programming is the functional paradigm. 
     Right now, I'm focused on web development, but I'll learn whatever is thrown at me.
     A random fact about me is that I play the drums in a band.
   `;
@@ -208,6 +210,7 @@ export const topicToImageSrc = {
   ramda: "/ramda.svg",
   react: "/react.svg",
   firebase: "/firebase.svg",
+  docker: "/docker-icon.svg",
   supabase: "/supabase-icon.svg",
   postgres: "/postgresql.svg",
   "material-ui": "/material-ui.svg",
@@ -237,6 +240,7 @@ type Project = {
   title: string;
   liveUrl?: string;
   codeUrl?: string;
+  storybookUrl?: string;
   description: string;
   imageSrc: string;
   youTubeVideoId: string;

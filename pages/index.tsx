@@ -43,12 +43,10 @@ export default function Index() {
           backgroundRepeat: "repeat-x",
           position: "relative",
           overflow: "hidden",
-        }}
-      >
+        }}>
         <Container
           maxWidth="lg"
-          sx={{ display: "flex", width: "100%", paddingY: 8 }}
-        >
+          sx={{ display: "flex", width: "100%", paddingY: 8 }}>
           <Box
             sx={{
               flex: 1,
@@ -57,8 +55,7 @@ export default function Index() {
               alignItems: "center",
               justifyContent: "center",
               flexDirection: "column",
-            }}
-          >
+            }}>
             <Typography variant="h2" fontWeight={600}>
               Chris Vouga
             </Typography>
@@ -68,8 +65,7 @@ export default function Index() {
               fontWeight={600}
               sx={{
                 marginBottom: 4,
-              }}
-            >
+              }}>
               Web Developer
             </Typography>
             <SocialLinks />
@@ -82,8 +78,7 @@ export default function Index() {
           fontWeight={600}
           variant="h3"
           sx={{ marginBottom: 3 }}
-          align="center"
-        >
+          align="center">
           Projects
         </Typography>
 
@@ -96,15 +91,13 @@ export default function Index() {
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
-                }}
-              >
+                }}>
                 <Box
                   // onClick={() => setOpenedProjectUrl(project.url)}
                   sx={{
                     paddingTop: `${(9 / 16) * 100}%`,
                     position: "relative",
-                  }}
-                >
+                  }}>
                   {project.youTubeVideoId ? (
                     <Player
                       controls
@@ -133,20 +126,17 @@ export default function Index() {
 
                 <Divider />
                 <CardContent
-                  sx={{ flex: 1, display: "flex", flexDirection: "column" }}
-                >
+                  sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
                   <Typography
                     variant="h5"
                     color="text.primary"
-                    sx={{ marginBottom: 1 }}
-                  >
+                    sx={{ marginBottom: 1 }}>
                     {project.title}
                   </Typography>
                   <Typography
                     variant="body1"
                     color="text.secondary"
-                    sx={{ marginBottom: 2 }}
-                  >
+                    sx={{ marginBottom: 2 }}>
                     {project.description}
                   </Typography>
                   <Box
@@ -185,16 +175,14 @@ export default function Index() {
                     gap: 1,
                     color: "warning.main",
                     marginBottom: -1,
-                  }}
-                >
+                  }}>
                   {!Boolean(project.liveUrl) && (
                     <Box
                       sx={{
                         paddingX: 2,
                         display: "flex",
                         alignItems: "center",
-                      }}
-                    >
+                      }}>
                       <InfoOutlined
                         sx={{ width: 18, height: 18, marginRight: 1 }}
                       />
@@ -209,8 +197,7 @@ export default function Index() {
                         paddingX: 2,
                         display: "flex",
                         alignItems: "center",
-                      }}
-                    >
+                      }}>
                       <InfoOutlined
                         sx={{ width: 18, height: 18, marginRight: 1 }}
                       />
@@ -227,8 +214,7 @@ export default function Index() {
                     href={project.liveUrl}
                     size="large"
                     startIcon={<Web />}
-                    disabled={!Boolean(project.liveUrl)}
-                  >
+                    disabled={!Boolean(project.liveUrl)}>
                     Live
                   </Button>
 
@@ -238,8 +224,7 @@ export default function Index() {
                     rel={"noreferrer noopener"}
                     href={project.codeUrl}
                     size="large"
-                    startIcon={<Code />}
-                  >
+                    startIcon={<Code />}>
                     Code
                   </Button>
                 </CardActions>
@@ -333,7 +318,7 @@ export default function Index() {
 
         <Container disableGutters maxWidth="sm" sx={{ paddingY: 6 }}>
           <Typography variant="h4" align="center" sx={{ marginBottom: 1 }}>
-            Let's get in touch.
+            Let's get in touch!
           </Typography>
 
           <Box sx={{ display: "flex" }}>
@@ -360,8 +345,7 @@ export default function Index() {
                 justifyContent: "flex-end",
                 display: "flex",
                 alignItems: "center",
-              }}
-            >
+              }}>
               <SocialLinks />
             </Box>
           </Box>
@@ -399,8 +383,7 @@ function SocialLinks() {
         fullWidth
         href={data.Github.url}
         startIcon={<GitHub />}
-        sx={{ marginBottom: 2 }}
-      >
+        sx={{ marginBottom: 2 }}>
         GitHub
       </Button>
       <Button
@@ -410,8 +393,7 @@ function SocialLinks() {
         target={"_blank"}
         rel={"noreferrer noopener"}
         href={data.Linkedin.url}
-        startIcon={<LinkedIn />}
-      >
+        startIcon={<LinkedIn />}>
         LinkedIn
       </Button>
     </Box>
