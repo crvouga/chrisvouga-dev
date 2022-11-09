@@ -60,6 +60,7 @@ const projects: Project[] = [
       "javascript",
       "tailwind",
       "nodejs",
+      "mongodb",
     ],
   },
 
@@ -247,6 +248,7 @@ export const topicToImageSrc = {
   javascript: "/javascript.svg",
   vue: "/vue.svg",
   tailwind: "/tailwindcss.svg",
+  mongodb: "/mongodb-icon.svg",
 };
 
 export type Topic = keyof typeof topicToImageSrc;
