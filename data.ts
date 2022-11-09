@@ -47,6 +47,23 @@ const projects: Project[] = [
   },
 
   {
+    title: "Fullstack Todo App",
+    liveUrl: "https://todo.chrisvouga.dev",
+    codeUrl: "https://github.com/crvouga/todo",
+    description: "Fullstack todo app. Sign in and start tracking things todo.",
+    imageSrc: "/todo.png",
+    topics: [
+      "typescript",
+      "vue",
+      "css",
+      "express",
+      "javascript",
+      "tailwind",
+      "nodejs",
+    ],
+  },
+
+  {
     title: "Screenshots as a Service",
     liveUrl: "https://screenshotservice.chrisvouga.dev",
     codeUrl: "https://github.com/crvouga/screenshot-service",
@@ -228,6 +245,8 @@ export const topicToImageSrc = {
   "react-query": "react-query-icon.svg",
   greensock: "/greensock-icon.svg",
   javascript: "/javascript.svg",
+  vue: "/vue.svg",
+  tailwind: "/tailwindcss.svg",
 };
 
 export type Topic = keyof typeof topicToImageSrc;
@@ -243,6 +262,6 @@ type Project = {
   storybookUrl?: string;
   description: string;
   imageSrc: string;
-  youTubeVideoId: string;
+  youTubeVideoId?: string;
   topics: Topic[];
 };
