@@ -108,6 +108,23 @@ const projects: Project[] = [
   },
 
   {
+    title: "Anime Blog",
+    description: "A jamstack blog about anime.",
+    imageSrc: "/anime.png",
+    topics: [
+      "css",
+      "javascript",
+      "sanity",
+      "vue",
+      "bootstrap",
+      "graphql",
+      "gridsome",
+    ],
+    liveUrl: "https://anime.chrisvouga.dev/",
+    codeUrl: "https://github.com/crvouga/anime",
+  },
+
+  {
     title: "Courier Company Website",
     liveUrl: "https://gps-couriers-website.vercel.app/",
     description: "A marketing website for a hospice courier company.",
@@ -249,6 +266,9 @@ export const topicToImageSrc = {
   vue: "/vue.svg",
   tailwind: "/tailwindcss.svg",
   mongodb: "/mongodb-icon.svg",
+  bootstrap: "/bootstrap.svg",
+  graphql: "/graphql.svg",
+  gridsome: "/gridsome-icon.svg",
 };
 
 export type Topic = keyof typeof topicToImageSrc;
