@@ -31,7 +31,6 @@ import { ContactLink } from "../src/ContactLink";
 
 export default function Index() {
   const theme = useTheme();
-  // const [openedProjectUrl, setOpenedProjectUrl] = useState("");
   return (
     <>
       <Box
@@ -68,7 +67,10 @@ export default function Index() {
               }}>
               Web Developer
             </Typography>
-            <SocialLinks />
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              <GitHubButton />
+              <LinkedInButton />
+            </Box>
           </Box>
         </Container>
       </Box>
@@ -86,14 +88,13 @@ export default function Index() {
           {data.projects.map((project) => (
             <Grid key={project.liveUrl} item xs={12} sm={6} md={4}>
               <Card
-                variant="outlined"
+                // variant="outlined"
                 sx={{
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
                 }}>
                 <Box
-                  // onClick={() => setOpenedProjectUrl(project.url)}
                   sx={{
                     paddingTop: `${(9 / 16) * 100}%`,
                     position: "relative",
@@ -229,127 +230,61 @@ export default function Index() {
                   </Button>
                 </CardActions>
               </Card>
-
-              {/* <Dialog
-                open={openedProjectUrl === project.url}
-                onClose={() => setOpenedProjectUrl("")}
-                PaperProps={{ sx: { width: "100vw", maxWidth: "720px" } }}
-              >
-                <Box
-                  sx={{
-                    width: "100%",
-                    paddingTop: `${(9 / 16) * 100}%`,
-                    position: "relative",
-                  }}
-                >
-                  {project.videoSrc ? (
-                    <video
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                      }}
-                      src={project.videoSrc}
-                      autoPlay
-                      controls
-                      width="100%"
-                    />
-                  ) : (
-                    <Image
-                      src={project.imageSrc}
-                      layout="fill"
-                      objectFit="fill"
-                    />
-                  )}
-                </Box>
-                <Box sx={{ p: 2 }}>
-                  <Typography variant="h5" sx={{ marginBottom: 1 }}>
-                    {project.title}
-                  </Typography>
-
-                  <Typography
-                    variant="body1"
-                    color="text.secondary"
-                    sx={{ marginBottom: 1 }}
-                  >
-                    {project.description}
-                  </Typography>
-
-                  <Box sx={{ display: "flex" }}>
-                    <Button
-                      target={"_blank"}
-                      rel={"noreferrer noopener"}
-                      href={project.url}
-                      size="large"
-                      startIcon={<Web />}
-                      sx={{ marginRight: 1 }}
-                    >
-                      Deployment
-                    </Button>
-
-                    <Button
-                      disabled={!Boolean(project.codeUrl)}
-                      target={"_blank"}
-                      rel={"noreferrer noopener"}
-                      href={project.codeUrl}
-                      size="large"
-                      startIcon={<Code />}
-                    >
-                      Source Code
-                    </Button>
-                  </Box>
-                </Box>
-              </Dialog> */}
             </Grid>
           ))}
         </Grid>
 
-        <Container disableGutters maxWidth="sm" sx={{ paddingY: 6 }}>
-          <Typography variant="h4" align="center" sx={{ marginBottom: 1 }}>
-            A little about me...
-          </Typography>
+        <Container disableGutters maxWidth="sm" sx={{ marginTop: 6 }}>
+          <Card>
+            <CardContent sx={{ padding: 4 }}>
+              <Typography
+                variant="h4"
+                // align="center"
+                sx={{ marginBottom: 1 }}>
+                A little about me...
+              </Typography>
 
-          <Typography variant="body1" align="center" color="text.secondary">
-            {data.aboutMe}
-          </Typography>
+              <Typography
+                variant="body1"
+                // align="center"
+                color="text.secondary">
+                {data.aboutMe}
+              </Typography>
+            </CardContent>
+          </Card>
         </Container>
 
-        <Container disableGutters maxWidth="sm" sx={{ paddingY: 6 }}>
-          <Typography variant="h4" align="center" sx={{ marginBottom: 1 }}>
-            Let's get in touch!
-          </Typography>
+        <Container disableGutters maxWidth="xs" sx={{ marginTop: 6 }}>
+          <Card>
+            <CardContent sx={{ padding: 4 }}>
+              <Typography variant="h4" sx={{ marginBottom: 1 }}>
+                Let's get in touch!
+              </Typography>
 
-          <Box sx={{ display: "flex" }}>
-            <List>
-              <ContactLink
-                icon={<Email />}
-                href={`mailTo:${data.emailAddress}`}
-                hrefLabel={`Email`}
-                label="Email"
-                value={data.emailAddress}
-              />
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <ContactLink
+                  icon={<Email />}
+                  href={`mailTo:${data.emailAddress}`}
+                  hrefLabel={`Email`}
+                  label="Email"
+                  value={data.emailAddress}
+                />
 
-              <ContactLink
-                icon={<Phone />}
-                href={`tel:${data.phoneNumber}`}
-                hrefLabel={`Call`}
-                label="Phone"
-                value={formatPhoneNumber(data.phoneNumber)}
-              />
-            </List>
-            <Box
-              sx={{
-                flex: 1,
-                justifyContent: "flex-end",
-                display: "flex",
-                alignItems: "center",
-              }}>
-              <SocialLinks />
-            </Box>
-          </Box>
+                <ContactLink
+                  icon={<Phone />}
+                  href={`tel:${data.phoneNumber}`}
+                  hrefLabel={`Call`}
+                  label="Phone"
+                  value={formatPhoneNumber(data.phoneNumber)}
+                />
+                <GitHubButton />
+                <LinkedInButton />
+              </Box>
+            </CardContent>
+          </Card>
         </Container>
+
+        <Box sx={{ marginTop: 6 }}></Box>
       </Container>
     </>
   );
@@ -372,31 +307,33 @@ function formatPhoneNumber(s: string): string {
   ].join("");
 }
 
-function SocialLinks() {
+function GitHubButton() {
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <Button
-        size="large"
-        target={"_blank"}
-        rel={"noreferrer noopener"}
-        variant="contained"
-        fullWidth
-        href={data.Github.url}
-        startIcon={<GitHub />}
-        sx={{ marginBottom: 2 }}>
-        GitHub
-      </Button>
-      <Button
-        fullWidth
-        size="large"
-        variant="contained"
-        target={"_blank"}
-        rel={"noreferrer noopener"}
-        href={data.Linkedin.url}
-        startIcon={<LinkedIn />}>
-        LinkedIn
-      </Button>
-    </Box>
+    <Button
+      size="large"
+      target={"_blank"}
+      rel={"noreferrer noopener"}
+      variant="contained"
+      fullWidth
+      href={data.Github.url}
+      startIcon={<GitHub />}>
+      GitHub
+    </Button>
+  );
+}
+
+function LinkedInButton() {
+  return (
+    <Button
+      fullWidth
+      size="large"
+      variant="contained"
+      target={"_blank"}
+      rel={"noreferrer noopener"}
+      href={data.Linkedin.url}
+      startIcon={<LinkedIn />}>
+      LinkedIn
+    </Button>
   );
 }
 
