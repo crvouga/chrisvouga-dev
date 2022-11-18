@@ -31,15 +31,13 @@ export function ContactLink({
       <Snackbar
         open={status === "copied"}
         onClose={() => setStatus("idle")}
-        autoHideDuration={3000}
-      >
+        autoHideDuration={3000}>
         <Alert
           sx={{ width: "100%" }}
-          severity="info"
-        >{`Copied ${value} to clipboard`}</Alert>
+          severity="info">{`Copied ${value} to clipboard`}</Alert>
       </Snackbar>
 
-      <ListItem>
+      <ListItem component="div" disableGutters disablePadding>
         <Tooltip title={status === "copied" ? "Copied" : `Click to copy`}>
           <ListItemText
             onClick={onClipboardCopy}
