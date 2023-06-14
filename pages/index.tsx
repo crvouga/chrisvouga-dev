@@ -164,25 +164,20 @@ export default function Index() {
           Side Projects
         </Typography>
 
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-          <Grid container spacing={3}>
-            {data.projects.slice(0, MIN_PROJECT_COUNT).map((project, index) => (
+        <Grid container spacing={3}>
+          {data.projects.slice(0, MIN_PROJECT_COUNT).map((project, index) => (
+            <Grid key={index} item xs={12} sm={6} md={4}>
+              <ProjectCard project={project} />
+            </Grid>
+          ))}
+
+          {showAll &&
+            data.projects.slice(MIN_PROJECT_COUNT).map((project, index) => (
               <Grid key={index} item xs={12} sm={6} md={4}>
                 <ProjectCard project={project} />
               </Grid>
             ))}
-          </Grid>
-
-          <Collapse in={showAll} mountOnEnter={false}>
-            <Grid container spacing={3}>
-              {data.projects.slice(MIN_PROJECT_COUNT).map((project, index) => (
-                <Grid key={index} item xs={12} sm={6} md={4}>
-                  <ProjectCard project={project} />
-                </Grid>
-              ))}
-            </Grid>
-          </Collapse>
-        </Box>
+        </Grid>
 
         <Box
           sx={{

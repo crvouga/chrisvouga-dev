@@ -1,5 +1,5 @@
 import { createTheme, responsiveFontSizes } from "@mui/material";
-import { green } from "@mui/material/colors";
+import { blue } from "@mui/material/colors";
 
 const theme = responsiveFontSizes(
   createTheme({
@@ -8,7 +8,7 @@ const theme = responsiveFontSizes(
     },
     palette: {
       mode: "dark",
-      primary: green,
+      primary: blue,
     },
     components: {
       MuiTooltip: {
@@ -22,6 +22,11 @@ const theme = responsiveFontSizes(
           root: {
             textTransform: "capitalize",
           },
+        },
+      },
+      MuiPaper: {
+        defaultProps: {
+          elevation: 2,
         },
       },
     },
