@@ -1,9 +1,6 @@
 import {
-  Box,
   Alert,
-  Button,
   ListItem,
-  ListItemSecondaryAction,
   ListItemText,
   Snackbar,
   Tooltip,
@@ -29,12 +26,13 @@ export function ContactLink({
   return (
     <>
       <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         open={status === "copied"}
         onClose={() => setStatus("idle")}
         autoHideDuration={3000}>
-        <Alert
-          sx={{ width: "100%" }}
-          severity="info">{`Copied ${value} to clipboard`}</Alert>
+        <Alert sx={{ width: "100%" }} severity="info">
+          {`Copied ${value} to clipboard`}
+        </Alert>
       </Snackbar>
 
       <ListItem component="div" disableGutters disablePadding>

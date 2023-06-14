@@ -8,7 +8,6 @@ import {
   Web,
 } from "@mui/icons-material";
 import {
-  alpha,
   Avatar,
   Box,
   Button,
@@ -19,14 +18,13 @@ import {
   Container,
   Divider,
   Grid,
-  List,
-  Paper,
   Typography,
+  alpha,
   useTheme,
 } from "@mui/material";
 import Image from "next/image";
 import Player from "react-player";
-import { data, topicToImageSrc } from "../data";
+import { data, topicToImageSrc, topicToName } from "../data";
 import { ContactLink } from "../src/ContactLink";
 
 export default function Index() {
@@ -67,7 +65,7 @@ export default function Index() {
               }}>
               Web Developer
             </Typography>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
               <GitHubButton />
               <LinkedInButton />
             </Box>
@@ -81,7 +79,7 @@ export default function Index() {
           variant="h3"
           sx={{ marginBottom: 3 }}
           align="center">
-          Projects
+          Side Projects
         </Typography>
 
         <Grid container spacing={2} sx={{ marginBottom: 4 }}>
@@ -138,7 +136,10 @@ export default function Index() {
                     variant="body1"
                     color="text.secondary"
                     sx={{ marginBottom: 2 }}>
-                    {project.description}
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: project.description,
+                      }}></p>
                   </Typography>
                   <Box
                     sx={{
@@ -160,7 +161,7 @@ export default function Index() {
                               <Avatar variant="square" src={src} />
                             ) : undefined
                           }
-                          label={topic}
+                          label={topicToName[topic]}
                           variant="outlined"
                         />
                       );
@@ -188,7 +189,7 @@ export default function Index() {
                         sx={{ width: 18, height: 18, marginRight: 1 }}
                       />
                       <Typography variant="caption">
-                        Project is not deployed
+                        Project is not deployed anymore
                       </Typography>
                     </Box>
                   )}
@@ -214,6 +215,7 @@ export default function Index() {
                     rel={"noreferrer noopener"}
                     href={project.liveUrl}
                     size="large"
+                    fullWidth
                     startIcon={<Web />}
                     disabled={!Boolean(project.liveUrl)}>
                     Live
@@ -222,6 +224,7 @@ export default function Index() {
                   <Button
                     disabled={!Boolean(project.codeUrl)}
                     target={"_blank"}
+                    fullWidth
                     rel={"noreferrer noopener"}
                     href={project.codeUrl}
                     size="large"
@@ -248,7 +251,7 @@ export default function Index() {
                 variant="body1"
                 // align="center"
                 color="text.secondary">
-                {data.aboutMe}
+                <p dangerouslySetInnerHTML={{ __html: data.aboutMe }}></p>
               </Typography>
             </CardContent>
           </Card>
@@ -277,8 +280,11 @@ export default function Index() {
                   label="Phone"
                   value={formatPhoneNumber(data.phoneNumber)}
                 />
-                <GitHubButton />
-                <LinkedInButton />
+                <Box
+                  sx={{ display: "flex", alignItems: "center", gap: 2, mt: 1 }}>
+                  <GitHubButton />
+                  <LinkedInButton />
+                </Box>
               </Box>
             </CardContent>
           </Card>

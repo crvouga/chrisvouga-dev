@@ -1,32 +1,53 @@
+const bandHref = "https://www.instagram.com/thebandalibi/";
+
+const lamderaHref = "https://lamdera.com/";
+
+const anchor = (href: string, text: string) => {
+  return `<a style="color: white;" target="_blank" rel="noreferrer noopener" href="${href}">${text}</a>`;
+};
+
+const work: Work[] = [
+  {
+    companyImage: "/one-origin.png",
+    companyName: "One Origin",
+    companyUrl: "https://oneorigin.us/",
+    role: "Software Developer",
+    jobDescription: `I work as full-stack developer developing web applications for clients. Primarily working on EdTech apps for ASU.`,
+    startDate: new Date("2022-11-01"),
+    endDate: "Present",
+  },
+];
+
 const projects: Project[] = [
   {
     title: "Gamezilla",
     liveUrl: "https://gamezilla.chrisvouga.dev/",
 
-    description: "A work in progress multiplayer gaming app.",
+    description: `A work-in-progress multiplayer gaming app. Implemented using a full-stack variant of the Elm architecture in TypeScript. Copied from the ${anchor(
+      lamderaHref,
+      "Lamdera"
+    )} platform.`,
     imageSrc: "/gamezilla.png",
     youTubeVideoId: "VSLpdPvHbD4",
-    topics: [
-      "typescript",
-      "material-ui",
-      "react",
-      "nodejs",
-      "postgres",
-      "supabase",
-      "elm",
-      "rxjs",
-      "css",
-      "socket-io",
-      "docker",
-    ],
+    topics: ["typescript", "react", "nodejs", "mysql", "tailwind", "socket-io"],
+  },
+
+  {
+    title: "headless-combobox",
+    liveUrl: "https://headless-combobox-demo-svelte.vercel.app",
+    codeUrl: "https://github.com/crvouga/headless-combobox",
+    imageSrc: "https://github.com/crvouga/headless-combobox/raw/main/demo.gif",
+    description:
+      "Purely functional, headless, framework agnostic, zero dependency, TypeScript combobox library. Used to create comboboxes in any UI framework.",
+    topics: ["typescript"],
   },
 
   {
     title: "Pickflix",
-    liveUrl: "https://crvouga-pickflix.herokuapp.com/",
+    // liveUrl: "https://crvouga-pickflix.herokuapp.com/",
     codeUrl: "https://github.com/crvouga/pickflix",
     description:
-      "Watch trailers, write reviews and make movie lists with your friends",
+      "Watch trailers, write reviews and make movie lists with your friends.",
     imageSrc: "/pickflix.png",
     youTubeVideoId: "-atthbuMFIM",
     topics: [
@@ -48,7 +69,7 @@ const projects: Project[] = [
 
   {
     title: "Fullstack Todo App",
-    liveUrl: "https://todo.chrisvouga.dev",
+    // liveUrl: "https://todo.chrisvouga.dev",
     codeUrl: "https://github.com/crvouga/todo",
     description: "Fullstack todo app. Sign in and start tracking things todo.",
     imageSrc: "/todo.png",
@@ -66,7 +87,7 @@ const projects: Project[] = [
 
   {
     title: "Screenshots as a Service",
-    liveUrl: "https://screenshotservice.chrisvouga.dev",
+    // liveUrl: "https://screenshotservice.chrisvouga.dev",
     codeUrl: "https://github.com/crvouga/screenshot-service",
     description:
       "A software as a service app that lets developers generate screenshots for their websites. It was used for this website.",
@@ -197,36 +218,14 @@ const projects: Project[] = [
 ];
 
 const aboutMe = `
-    I'm a programmer living in the Phoenix Valley. 
-    I graduated from ASU with a Bachelor's degree in Mathematics. 
-    My go to style of programming is the functional paradigm. 
-    Right now, I'm focused on web development, but I'll learn whatever is thrown at me.
-    A random fact about me is that I play the drums in a band.
-  `;
-
-export const data = {
-  screenshotServiceProjectId: "3e158ff9-0b37-41d1-84d0-cae1397adf4b",
-
-  metaTitle: "Chris Vouga • Web Developer",
-
-  metaDescription: aboutMe,
-
-  emailAddress: "crvouga@gmail.com",
-
-  Github: {
-    url: "https://github.com/crvouga",
-  },
-
-  Linkedin: {
-    url: "https://www.linkedin.com/in/chris-vouga",
-  },
-
-  aboutMe,
-
-  phoneNumber: "4802098698",
-
-  projects,
-};
+I'm a software developer living in the Phoenix Valley.
+I graduated from ASU with a bachelor's degree in mathematics and statistics.
+My go-to style of programming is functional programming.
+Right now, I'm primarily doing web development, but I'm open to other kinds of development.
+A random fact about me is that I play the drums in a ${anchor(
+  bandHref,
+  "band"
+)}.`;
 
 //
 //
@@ -269,6 +268,42 @@ export const topicToImageSrc = {
   bootstrap: "/bootstrap.svg",
   graphql: "/graphql.svg",
   gridsome: "/gridsome-icon.svg",
+  mysql: "/mysql.svg",
+};
+
+export const topicToName = {
+  typescript: "TypeScript",
+  heroku: "Heroku",
+  jest: "Jest",
+  "redux-saga": "Redux Saga",
+  ramda: "Ramda",
+  react: "React",
+  firebase: "Firebase",
+  docker: "Docker",
+  supabase: "Supabase",
+  postgres: "Postgres",
+  "material-ui": "Material UI",
+  nextjs: "Next.js",
+  "socket-io": "Socket.io",
+  express: "Express",
+  css: "CSS",
+  shopify: "Shopify",
+  sanity: "Sanity",
+  nodejs: "Node.js",
+  puppeteer: "Puppeteer",
+  redux: "Redux",
+  rxjs: "RxJS",
+  elm: "Elm",
+  "react-query": "React Query",
+  greensock: "Greensock",
+  javascript: "JavaScript",
+  vue: "Vue",
+  tailwind: "Tailwind",
+  mongodb: "MongoDB",
+  bootstrap: "Bootstrap",
+  graphql: "GraphQL",
+  gridsome: "Gridsome",
+  mysql: "MySQL",
 };
 
 export type Topic = keyof typeof topicToImageSrc;
@@ -286,4 +321,48 @@ type Project = {
   imageSrc: string;
   youTubeVideoId?: string;
   topics: Topic[];
+};
+
+type Work = {
+  companyName: string;
+  companyImage: string;
+  companyUrl: string;
+  role: string;
+  jobDescription: string;
+  startDate: Date;
+  endDate: Date | "Present";
+};
+
+//
+//
+//
+//
+//
+//
+//
+
+export const data = {
+  screenshotServiceProjectId: "3e158ff9-0b37-41d1-84d0-cae1397adf4b",
+
+  metaTitle: "Chris Vouga • Web Developer",
+
+  metaDescription: aboutMe,
+
+  emailAddress: "crvouga@gmail.com",
+
+  Github: {
+    url: "https://github.com/crvouga",
+  },
+
+  Linkedin: {
+    url: "https://www.linkedin.com/in/chris-vouga",
+  },
+
+  aboutMe,
+
+  phoneNumber: "4802098698",
+
+  projects,
+
+  work,
 };
