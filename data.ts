@@ -2,7 +2,7 @@ const bandHref = "https://www.instagram.com/thebandalibi/";
 
 const lamderaHref = "https://lamdera.com/";
 
-const anchor = (href: string, text: string) => {
+const a = (href: string, text: string) => {
   return `<a style="color: white;" target="_blank" rel="noreferrer noopener" href="${href}">${text}</a>`;
 };
 
@@ -24,7 +24,7 @@ const projects: Project[] = [
     title: "Gamezilla",
     liveUrl: "https://gamezilla.chrisvouga.dev/",
 
-    description: `A work-in-progress multiplayer gaming app. Implemented using a full-stack variant of the Elm architecture in TypeScript. Copied from the ${anchor(
+    description: `A work-in-progress multiplayer gaming app. Implemented using a full-stack variant of the Elm architecture in TypeScript. Copied from the ${a(
       lamderaHref,
       "Lamdera"
     )} platform.`,
@@ -38,8 +38,7 @@ const projects: Project[] = [
     liveUrl: "https://headless-combobox-demo-svelte.vercel.app",
     codeUrl: "https://github.com/crvouga/headless-combobox",
     imageSrc: "https://github.com/crvouga/headless-combobox/raw/main/demo.gif",
-    description:
-      "Purely functional, headless, framework agnostic, zero dependency, accessible, TypeScript combobox library. Used to create comboboxes in any UI framework.",
+    description: `Purely functional, headless, framework-agnostic, zero dependency, accessible, TypeScript combobox library Used to create comboboxes in any UI framework.`,
     topics: ["typescript"],
   },
 
@@ -90,8 +89,7 @@ const projects: Project[] = [
     title: "Screenshots as a Service",
     // liveUrl: "https://screenshotservice.chrisvouga.dev",
     codeUrl: "https://github.com/crvouga/screenshot-service",
-    description:
-      "A software as a service app that lets developers generate screenshots for their websites. It was used for this website.",
+    description: `A software-as-a service app that lets developers generate screenshots for their websites. It was used for this website.`,
     imageSrc: "/screenshot-service.png",
     youTubeVideoId: "lCEzYGJ0rN8",
     topics: [
@@ -223,10 +221,7 @@ I'm a software developer living in the Phoenix Valley.
 I graduated from ASU with a bachelor's degree in mathematics and statistics.
 My go-to style of programming is functional programming.
 Right now, I'm primarily doing web development, but I'm open to other kinds of development.
-A random fact about me is that I play the drums in a ${anchor(
-  bandHref,
-  "band"
-)}.`;
+A random fact about me is that I play the drums in a ${a(bandHref, "band")}.`;
 
 //
 //
@@ -313,7 +308,7 @@ export function topics(topics: Topic[]): Topic[] {
   return topics;
 }
 
-type Project = {
+export type Project = {
   title: string;
   liveUrl?: string;
   codeUrl?: string;
@@ -324,7 +319,7 @@ type Project = {
   topics: Topic[];
 };
 
-type Work = {
+export type Work = {
   companyName: string;
   companyImage: string;
   companyImageBackgroundColor?: string;
