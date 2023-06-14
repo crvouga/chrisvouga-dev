@@ -9,10 +9,11 @@ const anchor = (href: string, text: string) => {
 const work: Work[] = [
   {
     companyImage: "/one-origin.png",
+    companyImageBackgroundColor: "#ffffff",
     companyName: "One Origin",
     companyUrl: "https://oneorigin.us/",
-    role: "Software Developer",
-    jobDescription: `I work as full-stack developer developing web applications for clients. Primarily working on EdTech apps for ASU.`,
+    jobTitle: "Software Developer",
+    jobDescription: `Working as a full-stack software developer. Mentoring junior developers. Mainly developing EdTech products for clients at ASU`,
     startDate: new Date("2022-11-01"),
     endDate: "Present",
   },
@@ -38,7 +39,7 @@ const projects: Project[] = [
     codeUrl: "https://github.com/crvouga/headless-combobox",
     imageSrc: "https://github.com/crvouga/headless-combobox/raw/main/demo.gif",
     description:
-      "Purely functional, headless, framework agnostic, zero dependency, TypeScript combobox library. Used to create comboboxes in any UI framework.",
+      "Purely functional, headless, framework agnostic, zero dependency, accessible, TypeScript combobox library. Used to create comboboxes in any UI framework.",
     topics: ["typescript"],
   },
 
@@ -326,8 +327,9 @@ type Project = {
 type Work = {
   companyName: string;
   companyImage: string;
+  companyImageBackgroundColor?: string;
   companyUrl: string;
-  role: string;
+  jobTitle: string;
   jobDescription: string;
   startDate: Date;
   endDate: Date | "Present";

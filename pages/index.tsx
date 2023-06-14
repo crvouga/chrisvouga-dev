@@ -60,10 +60,8 @@ export default function Index() {
               variant="h3"
               color="primary.main"
               fontWeight={600}
-              sx={{
-                marginBottom: 4,
-              }}>
-              Web Developer
+              sx={{ mb: 4 }}>
+              Software Developer
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
               <GitHubButton />
@@ -74,17 +72,94 @@ export default function Index() {
       </Box>
 
       <Container maxWidth="lg" sx={{ paddingY: 2, marginY: 4 }}>
-        <Typography
-          fontWeight={600}
-          variant="h3"
-          sx={{ marginBottom: 3 }}
-          align="center">
+        <Typography fontWeight={600} variant="h3" sx={{ mb: 3 }} align="center">
+          Work
+        </Typography>
+        <Grid
+          container
+          spacing={2}
+          sx={{ mb: 6 }}
+          alignItems={"center"}
+          justifyContent={"center"}>
+          {data.work.map((work, index) => (
+            <Grid key={index} item xs={12} sm={6} md={4}>
+              <Card
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}>
+                <Box
+                  component={"a"}
+                  target={"_blank"}
+                  rel={"noreferrer noopener"}
+                  href={work.companyUrl}
+                  sx={{
+                    paddingTop: `${(9 / 16) * 100}%`,
+                    position: "relative",
+                    background: work.companyImageBackgroundColor,
+                  }}>
+                  <img
+                    src={work.companyImage}
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
+                </Box>
+
+                <CardContent
+                  sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
+                  <Typography
+                    component="a"
+                    variant="h5"
+                    color="text.primary"
+                    target={"_blank"}
+                    rel={"noreferrer noopener"}
+                    href={work.companyUrl}
+                    sx={{ mb: 1, textDecoration: "underline" }}>
+                    {work.companyName}
+                  </Typography>
+
+                  <Typography
+                    sx={{ display: "flex", items: "center" }}
+                    variant="subtitle1">
+                    {work.jobTitle}
+                  </Typography>
+                  <Typography
+                    sx={{ display: "flex", items: "center", mb: 2 }}
+                    color="text.secondary"
+                    variant="subtitle2">
+                    {`${work.startDate.getFullYear()} - ${
+                      work.endDate === "Present"
+                        ? "Present"
+                        : work.endDate.getFullYear()
+                    }`}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    color="text.secondary"
+                    sx={{ mb: 2 }}
+                    dangerouslySetInnerHTML={{
+                      __html: work.jobDescription,
+                    }}></Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+
+        <Typography fontWeight={600} variant="h3" sx={{ mb: 3 }} align="center">
           Side Projects
         </Typography>
 
-        <Grid container spacing={2} sx={{ marginBottom: 4 }}>
-          {data.projects.map((project) => (
-            <Grid key={project.liveUrl} item xs={12} sm={6} md={4}>
+        <Grid container spacing={2} sx={{ mb: 4 }}>
+          {data.projects.map((project, index) => (
+            <Grid key={index} item xs={12} sm={6} md={4}>
               <Card
                 // variant="outlined"
                 sx={{
@@ -114,6 +189,19 @@ export default function Index() {
                         youTubeVideoId: project.youTubeVideoId,
                       })}
                     />
+                  ) : project.liveUrl || project.codeUrl ? (
+                    <Box
+                      component="a"
+                      target={"_blank"}
+                      rel={"noreferrer noopener"}
+                      href={project.liveUrl ?? project.codeUrl}
+                      sx={{ position: "absolute", inset: 0 }}>
+                      <Image
+                        src={project.imageSrc}
+                        layout="fill"
+                        objectFit="fill"
+                      />
+                    </Box>
                   ) : (
                     <Image
                       src={project.imageSrc}
@@ -124,23 +212,19 @@ export default function Index() {
                 </Box>
 
                 <Divider />
+
                 <CardContent
                   sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
-                  <Typography
-                    variant="h5"
-                    color="text.primary"
-                    sx={{ marginBottom: 1 }}>
+                  <Typography variant="h5" color="text.primary" sx={{ mb: 1 }}>
                     {project.title}
                   </Typography>
                   <Typography
                     variant="body1"
                     color="text.secondary"
-                    sx={{ marginBottom: 2 }}>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: project.description,
-                      }}></p>
-                  </Typography>
+                    sx={{ mb: 2 }}
+                    dangerouslySetInnerHTML={{
+                      __html: project.description,
+                    }}></Typography>
                   <Box
                     sx={{
                       display: "flex",
@@ -176,7 +260,7 @@ export default function Index() {
                     flexDirection: "column",
                     gap: 1,
                     color: "warning.main",
-                    marginBottom: -1,
+                    mb: -1,
                   }}>
                   {!Boolean(project.liveUrl) && (
                     <Box
@@ -215,21 +299,19 @@ export default function Index() {
                     rel={"noreferrer noopener"}
                     href={project.liveUrl}
                     size="large"
-                    fullWidth
                     startIcon={<Web />}
                     disabled={!Boolean(project.liveUrl)}>
-                    Live
+                    Live Demo
                   </Button>
 
                   <Button
                     disabled={!Boolean(project.codeUrl)}
                     target={"_blank"}
-                    fullWidth
                     rel={"noreferrer noopener"}
                     href={project.codeUrl}
                     size="large"
                     startIcon={<Code />}>
-                    Code
+                    Source Code
                   </Button>
                 </CardActions>
               </Card>
@@ -240,19 +322,16 @@ export default function Index() {
         <Container disableGutters maxWidth="sm" sx={{ marginTop: 6 }}>
           <Card>
             <CardContent sx={{ padding: 4 }}>
-              <Typography
-                variant="h4"
-                // align="center"
-                sx={{ marginBottom: 1 }}>
+              <Typography variant="h4" sx={{ mb: 1 }}>
                 A little about me...
               </Typography>
 
               <Typography
                 variant="body1"
-                // align="center"
-                color="text.secondary">
-                <p dangerouslySetInnerHTML={{ __html: data.aboutMe }}></p>
-              </Typography>
+                color="text.secondary"
+                dangerouslySetInnerHTML={{
+                  __html: data.aboutMe,
+                }}></Typography>
             </CardContent>
           </Card>
         </Container>
@@ -260,7 +339,7 @@ export default function Index() {
         <Container disableGutters maxWidth="xs" sx={{ marginTop: 6 }}>
           <Card>
             <CardContent sx={{ padding: 4 }}>
-              <Typography variant="h4" sx={{ marginBottom: 1 }}>
+              <Typography variant="h4" sx={{ mb: 1 }}>
                 Let's get in touch!
               </Typography>
 
