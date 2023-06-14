@@ -161,7 +161,6 @@ export default function Index() {
           {data.projects.map((project, index) => (
             <Grid key={index} item xs={12} sm={6} md={4}>
               <Card
-                // variant="outlined"
                 sx={{
                   height: "100%",
                   display: "flex",
@@ -215,9 +214,25 @@ export default function Index() {
 
                 <CardContent
                   sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
-                  <Typography variant="h5" color="text.primary" sx={{ mb: 1 }}>
-                    {project.title}
-                  </Typography>
+                  {project.liveUrl || project.codeUrl ? (
+                    <Typography
+                      component="a"
+                      target={"_blank"}
+                      rel={"noreferrer noopener"}
+                      href={project.liveUrl ?? project.codeUrl}
+                      variant="h5"
+                      color="text.primary"
+                      sx={{ mb: 1, textDecoration: "underline" }}>
+                      {project.title}
+                    </Typography>
+                  ) : (
+                    <Typography
+                      variant="h5"
+                      color="text.primary"
+                      sx={{ mb: 1 }}>
+                      {project.title}
+                    </Typography>
+                  )}
                   <Typography
                     variant="body1"
                     color="text.secondary"
