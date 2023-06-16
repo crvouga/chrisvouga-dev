@@ -45,7 +45,7 @@ const projects: Project[] = [
   {
     title: "Pickflix",
     // liveUrl: "https://crvouga-pickflix.herokuapp.com/",
-    codeUrl: "https://github.com/crvouga/pickflix",
+    codeUrl: "https://github.com/crvouga/pickflix-v1",
     description:
       "Watch trailers, write reviews and make movie lists with your friends.",
     imageSrc: "/pickflix.png",
