@@ -13,7 +13,7 @@ const work: Work[] = [
     companyName: "One Origin",
     companyUrl: "https://oneorigin.us/",
     jobTitle: "Software Developer",
-    jobDescription: `Working as a full-stack software developer. Mentoring junior developers. Mainly developing EdTech products for clients at ASU`,
+    jobDescription: `Working as a full-stack software developer. Helping Jr developers. Mainly developing EdTech products for clients at ASU`,
     startDate: new Date("2022-11-01"),
     endDate: "Present",
   },
