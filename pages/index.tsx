@@ -1,4 +1,4 @@
-import { App } from "../src/my-app";
+import { App } from "../src/app";
 
 
 export default function Index() {
