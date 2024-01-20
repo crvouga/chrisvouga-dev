@@ -38,13 +38,14 @@ export function App() {
     <>
       <Box
         sx={{
-          backgroundImage: `linear-gradient(to bottom, ${alpha(
-            theme.palette.background.paper,
-            0
-          )}, ${alpha("#212121", 1)} 100%)`,
+          // backgroundImage: `linear-gradient(to bottom, ${alpha(
+          //   theme.palette.background.paper,
+          //   0
+          // )}, ${alpha("#212121", 1)} 100%)`,
           backgroundRepeat: "repeat-x",
           position: "relative",
           overflow: "hidden",
+          borderBottom: `1px solid ${theme.palette.divider}`,
         }}>
         <Container
           maxWidth="lg"
@@ -54,7 +55,7 @@ export function App() {
               flex: 1,
               zIndex: 2,
               display: "flex",
-              alignItems: "center",
+              alignItems: "start",
               justifyContent: "center",
               flexDirection: "column",
             }}>
@@ -77,15 +78,15 @@ export function App() {
       </Box>
 
       <Container maxWidth="lg" sx={{ paddingY: 2, marginY: 4 }}>
-        <Typography fontWeight={600} variant="h3" sx={{ mb: 3 }} align="center">
+        <Typography fontWeight={600} variant="h3" sx={{ mb: 3 }} align="left">
           Work
         </Typography>
         <Grid
           container
           spacing={2}
           sx={{ mb: 6 }}
-          alignItems={"center"}
-          justifyContent={"center"}>
+          alignItems="start"
+          justifyContent="start">
           {data.work.map((work, index) => (
             <Grid key={index} item xs={12} sm={6} md={4}>
               <Card
@@ -157,7 +158,7 @@ export function App() {
           ))}
         </Grid>
 
-        <Typography fontWeight={600} variant="h3" sx={{ mb: 3 }} align="center">
+        <Typography fontWeight={600} variant="h3" sx={{ mb: 3 }} align="left">
           Side Projects
         </Typography>
 
