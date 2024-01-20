@@ -19,7 +19,7 @@ const work: Work[] = [
   },
 ];
 
-const projects: Project[] = [
+const sideProjects: Project[] = [
   {
     title: "Gamezilla",
     liveUrl: "https://gamezilla.chrisvouga.dev/",
@@ -359,7 +359,7 @@ export const data = {
 
   phoneNumber: "4802098698",
 
-  projects,
+  projects: sideProjects,
 
   work,
 };

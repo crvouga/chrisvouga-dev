@@ -1,13 +1,11 @@
 import {
+  ArrowDownward,
+  ArrowUpward,
   Code,
   Email,
-  GitHub,
   InfoOutlined,
-  LinkedIn,
   Phone,
-  Web,
-  ArrowUpward,
-  ArrowDownward,
+  Web
 } from "@mui/icons-material";
 import {
   Avatar,
@@ -17,19 +15,19 @@ import {
   CardActions,
   CardContent,
   Chip,
-  Collapse,
   Container,
   Divider,
   Grid,
   Typography,
   alpha,
-  useTheme,
+  useTheme
 } from "@mui/material";
 import Image from "next/image";
 import { useState } from "react";
 import Player from "react-player";
 import { Project, data, topicToImageSrc, topicToName } from "../data";
-import { ContactLink } from "./ContactLink";
+import { GitHubButton, LinkedInButton } from "./Socials";
+import { ContactLink } from "./contact-link";
 
 const MIN_PROJECT_COUNT = 9;
 
@@ -68,7 +66,7 @@ export function App() {
               color="primary.main"
               fontWeight={600}
               sx={{ mb: 4 }}>
-              Software Developer
+              Software Engineer
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
               <GitHubButton />
@@ -421,35 +419,6 @@ function formatPhoneNumber(s: string): string {
   ].join("");
 }
 
-function GitHubButton() {
-  return (
-    <Button
-      size="large"
-      target={"_blank"}
-      rel={"noreferrer noopener"}
-      variant="contained"
-      fullWidth
-      href={data.Github.url}
-      startIcon={<GitHub />}>
-      GitHub
-    </Button>
-  );
-}
-
-function LinkedInButton() {
-  return (
-    <Button
-      fullWidth
-      size="large"
-      variant="contained"
-      target={"_blank"}
-      rel={"noreferrer noopener"}
-      href={data.Linkedin.url}
-      startIcon={<LinkedIn />}>
-      LinkedIn
-    </Button>
-  );
-}
 
 function toYouTubeVideoUrl({ youTubeVideoId }: { youTubeVideoId: string }) {
   return `https://www.youtube.com/watch?v=${youTubeVideoId}`;
