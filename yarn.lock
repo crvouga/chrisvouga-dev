@@ -51,11 +51,6 @@
     "@babel/helper-validator-identifier" "^7.22.5"
     to-fast-properties "^2.0.0"
 
-"@crvouga/screenshot-service@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@crvouga/screenshot-service/-/screenshot-service-0.0.9.tgz#4eb92457b84a70c96516af2043bcb775d150e894"
-  integrity sha512-/2luCI1RiQUmzPo4TfCw1ZOYOThRXAECXrKExijeV+YWgvdmhWg2KUYtgqGiC6Ztu1/dFf9/j1zEyHSdPBpLMw==
-
 "@emotion/babel-plugin@^11.11.0":
   version "11.11.0"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.11.0.tgz#c2d872b6a7767a9d176d007f5b31f7d504bb5d6c"

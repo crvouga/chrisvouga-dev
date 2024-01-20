@@ -26,7 +26,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Player from "react-player";
 import { Project, data, topicToImageSrc, topicToName } from "../data";
-import { GitHubButton, LinkedInButton } from "./Socials";
+import { GitHubButton, LinkedInButton } from "./socials";
 import { ContactLink } from "./contact-link";
 
 const MIN_PROJECT_COUNT = 9;

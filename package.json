@@ -6,10 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "vercel:env": "vercel pull"
+    "vercel:env": "vercel pull",
+    "tc": "tsc -w"
   },
   "dependencies": {
-    "@crvouga/screenshot-service": "^0.0.9",
     "@emotion/react": "^11.8.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.8.1",
