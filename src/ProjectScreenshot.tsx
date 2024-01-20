@@ -16,9 +16,9 @@ export default function ProjectScreenshot({ url }: { url: string }) {
   const requestState: ScreenshotService.CaptureScreenshotRequest.RequestState =
     requestId && state.type === "Connected"
       ? ScreenshotService.CaptureScreenshotRequest.toRequest(
-          requestId,
-          state.captureScreenshotRequest
-        )
+        requestId,
+        state.captureScreenshotRequest
+      )
       : { type: "Idle", logs: [] };
 
   useEffect(() => {
@@ -114,14 +114,14 @@ export default function ProjectScreenshot({ url }: { url: string }) {
             requestState.type === "Cancelled" ||
             requestState.type === "Cancelling" ||
             requestState.type === "Idle") && (
-            <Log
-              id={`${url}-${requestState.type}`}
-              message={
-                requestState.logs[requestState.logs.length - 1]?.message ??
-                "loading..."
-              }
-            />
-          )}
+              <Log
+                id={`${url}-${requestState.type}`}
+                message={
+                  requestState.logs[requestState.logs.length - 1]?.message ??
+                  "loading..."
+                }
+              />
+            )}
 
           {requestState.type === "Failed" && (
             <Alert
