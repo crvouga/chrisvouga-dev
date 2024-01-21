@@ -36,7 +36,7 @@ export function ContactLink({
       </Snackbar>
 
       <ListItem component="div" disableGutters disablePadding>
-        <Tooltip title={status === "copied" ? "Copied" : `Click to copy`}>
+        <Tooltip placement="bottom-start" title={status === "copied" ? "Copied" : `Click to copy`}>
           <ListItemText
             onClick={onClipboardCopy}
             sx={{ cursor: "pointer" }}

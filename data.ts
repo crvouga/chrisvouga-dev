@@ -1,3 +1,5 @@
+import theme from "./src/theme";
+
 const bandHref = "https://www.instagram.com/thebandalibi/";
 
 const lamderaHref = "https://lamdera.com/";
@@ -9,13 +11,65 @@ const a = (href: string, text: string) => {
 const work: Work[] = [
   {
     companyImage: "/one-origin.png",
-    companyImageBackgroundColor: "#ffffff",
+    companyImageBackgroundColor: "#fdfdfd",
     companyName: "One Origin",
     companyUrl: "https://oneorigin.us/",
     jobTitle: "Software Developer",
-    jobDescription: `Working as a full-stack software developer. Helping Jr developers. Mainly developing EdTech products for clients at ASU`,
+    jobDescription: `Working as a full-stack software developer. Helping Jr developers. Mainly developing products for clients at ASU`,
     startDate: new Date("2022-11-01"),
     endDate: "Present",
+  },
+  {
+    companyName: "Freelancing",
+    companyImageBackgroundColor: `linear-gradient(45deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
+    jobTitle: "Frontend Developer",
+    jobDescription: `Worked as a frontend developer. Mainly developing static stites for small businesses`,
+    startDate: new Date("2020-01-01"),
+    endDate: new Date("2022-11-01"),
+  },
+];
+
+const workProjects: Project[] = [
+  {
+    title: "Triangulator",
+    liveUrl: "https://gostudyhall.com/",
+    description:
+      "Triangulator is a ASU product for universities to create novel course transfers between universities",
+    imageSrc: "/orchard.png",
+    topics: [
+      "typescript",
+      "vue",
+      "tailwind",
+      "nuxt",
+      "postgres",
+      "python",
+      "graphql",
+      "aws",
+    ],
+  },
+  {
+    title: "Study Hall",
+    liveUrl: "https://gostudyhall.com/",
+    description:
+      "Orchard is a ASU product where teachers can create custom courses",
+    imageSrc: "/orchard.png",
+    topics: ["typescript", "react", "material-ui", "nextjs", "supabase"],
+  },
+  {
+    title: "Orchard",
+    liveUrl: "https://asuorchard.asu.edu/",
+    description:
+      "Orchard is a ASU product where teachers can create custom courses",
+    imageSrc: "/orchard.png",
+    topics: ["typescript", "react", "material-ui", "nextjs", "supabase"],
+  },
+  {
+    title: "Courier Company Website",
+    liveUrl: "https://gps-couriers-website.vercel.app/",
+    description: "A marketing website for a hospice courier company.",
+    imageSrc: "/courier.png",
+    youTubeVideoId: "kFwPTJcM6I0",
+    topics: ["css", "material-ui", "nextjs", "react", "typescript"],
   },
 ];
 
@@ -145,15 +199,6 @@ const sideProjects: Project[] = [
   },
 
   {
-    title: "Courier Company Website",
-    liveUrl: "https://gps-couriers-website.vercel.app/",
-    description: "A marketing website for a hospice courier company.",
-    imageSrc: "/courier.png",
-    youTubeVideoId: "kFwPTJcM6I0",
-    topics: ["css", "material-ui", "nextjs", "react", "typescript"],
-  },
-
-  {
     title: "Multiplayer Connect Four",
     liveUrl: "https://connectfour.chrisvouga.dev/",
     codeUrl: "https://github.com/crvouga/connect-four",
@@ -265,6 +310,9 @@ export const topicToImageSrc = {
   graphql: "/graphql.svg",
   gridsome: "/gridsome-icon.svg",
   mysql: "/mysql.svg",
+  nuxt: "/nuxt-icon.svg",
+  python: "/python.svg",
+  aws: "/aws.svg",
 };
 
 export const topicToName = {
@@ -300,6 +348,9 @@ export const topicToName = {
   graphql: "GraphQL",
   gridsome: "Gridsome",
   mysql: "MySQL",
+  nuxt: "Nuxt",
+  python: "Python",
+  aws: "AWS",
 };
 
 export type Topic = keyof typeof topicToImageSrc;
@@ -321,9 +372,9 @@ export type Project = {
 
 export type Work = {
   companyName: string;
-  companyImage: string;
+  companyImage?: string;
   companyImageBackgroundColor?: string;
-  companyUrl: string;
+  companyUrl?: string;
   jobTitle: string;
   jobDescription: string;
   startDate: Date;
@@ -359,7 +410,9 @@ export const data = {
 
   phoneNumber: "4802098698",
 
-  projects: sideProjects,
+  sideProjects,
+
+  workProjects,
 
   work,
 };

@@ -10,11 +10,13 @@
     "tc": "tsc -w"
   },
   "dependencies": {
+    "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.8.1",
-    "@emotion/server": "^11.4.0",
+    "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.4.4",
     "@mui/material": "^5.4.4",
+    "@mui/material-nextjs": "^5.15.5",
     "next": "^12.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
