@@ -1,3 +1,4 @@
+// TODO replace next js with this https://github.com/Daydreamer-riri/vite-react-ssg
 import theme from "./src/theme";
 
 const bandHref = "https://www.instagram.com/thebandalibi/";
@@ -70,6 +71,26 @@ const workProjects: Project[] = [
     imageSrc: "/courier.png",
     youTubeVideoId: "kFwPTJcM6I0",
     topics: ["css", "material-ui", "nextjs", "react", "typescript"],
+  },
+  {
+    title: "Band Website with E-commerce",
+    liveUrl: "https://thebandalibi.chrisvouga.dev/",
+    codeUrl: "https://github.com/crvouga/thebandalibi-com",
+    description:
+      "The official website and e-commerce store for the band alibi.",
+    imageSrc: "/band.png",
+    youTubeVideoId: "vChYAGXsLuI",
+    topics: [
+      "css",
+      "firebase",
+      "material-ui",
+      "nextjs",
+      "react-query",
+      "react",
+      "sanity",
+      "shopify",
+      "typescript",
+    ],
   },
 ];
 
@@ -157,27 +178,6 @@ const sideProjects: Project[] = [
       "react-query",
       "typescript",
       "supabase",
-    ],
-  },
-
-  {
-    title: "Band Website with E-commerce",
-    liveUrl: "https://thebandalibi.chrisvouga.dev/",
-    codeUrl: "https://github.com/crvouga/thebandalibi-com",
-    description:
-      "The official website and e-commerce store for the band alibi.",
-    imageSrc: "/band.png",
-    youTubeVideoId: "vChYAGXsLuI",
-    topics: [
-      "css",
-      "firebase",
-      "material-ui",
-      "nextjs",
-      "react-query",
-      "react",
-      "sanity",
-      "shopify",
-      "typescript",
     ],
   },
 

@@ -10,14 +10,14 @@ import {
   Container,
   Divider,
   Grid,
-  Typography
+  Typography,
 } from "@mui/material";
-import Image from "next/image";
 import Player from "react-player";
 import { Project, Work, data, topicToImageSrc, topicToName } from "../data";
 import { ContactLink } from "./contact-link";
 import { GitHubButton, LinkedInButton } from "./socials";
 import theme from "./theme";
+import { ClientOnly } from "vite-react-ssg/single-page";
 
 export function App() {
   return (
@@ -26,15 +26,10 @@ export function App() {
       sx={{ paddingY: 8, gap: 8, display: "flex", flexDirection: "column" }}
     >
       <Header />
-
       <WorkSection />
-
       <WorkProjectsSection />
-
       <SideProjectsSection />
-
       <AboutMeSection />
-
       <ContactSection />
     </Container>
   );
@@ -65,11 +60,7 @@ function Header() {
         <Typography variant="h2" fontWeight={600}>
           Chris Vouga
         </Typography>
-        <Typography
-          variant="h3"
-          color="primary.main"
-          fontWeight={600}
-        >
+        <Typography variant="h3" color="primary.main" fontWeight={600}>
           Software Developer
         </Typography>
       </Box>
@@ -78,7 +69,7 @@ function Header() {
         <LinkedInButton />
       </Box>
     </Box>
-  )
+  );
 }
 
 function WorkSection() {
@@ -100,7 +91,7 @@ function WorkSection() {
         ))}
       </Grid>
     </Box>
-  )
+  );
 }
 
 function WorkProjectsSection() {
@@ -116,7 +107,7 @@ function WorkProjectsSection() {
         ))}
       </Grid>
     </Box>
-  )
+  );
 }
 
 function SideProjectsSection() {
@@ -132,7 +123,7 @@ function SideProjectsSection() {
         ))}
       </Grid>
     </Box>
-  )
+  );
 }
 
 function AboutMeSection() {
@@ -150,15 +141,22 @@ function AboutMeSection() {
         }}
       />
     </Box>
-  )
+  );
 }
 
 function ContactSection() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
       <SectionTitle title="Let's get in touch!" />
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 2, maxWidth: theme.breakpoints.values.sm }}>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2, }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+          maxWidth: theme.breakpoints.values.sm,
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <ContactLink
             icon={<Email />}
             href={`mailTo:${data.emailAddress}`}
@@ -175,13 +173,13 @@ function ContactSection() {
             value={formatPhoneNumber(data.phoneNumber)}
           />
         </Box>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2, }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <GitHubButton />
           <LinkedInButton />
         </Box>
       </Box>
     </Box>
-  )
+  );
 }
 
 function SectionTitle({ title }: { title: string }) {
@@ -282,37 +280,41 @@ function ProjectCard({ project }: { project: Project }) {
         sx={{
           paddingTop: `${(9 / 16) * 100}%`,
           position: "relative",
+          overflow: "hidden",
         }}
       >
         {project.youTubeVideoId ? (
-          <Player
-            controls
-            loop
-            muted
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-            }}
-            width="100%"
-            height="100%"
-            light={project.imageSrc}
-            url={toYouTubeVideoUrl({
-              youTubeVideoId: project.youTubeVideoId,
-            })}
-          />
+          <ClientOnly>
+            {() => (
+              <Player
+                controls
+                loop
+                muted
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                }}
+                width="100%"
+                height="100%"
+                light={project.imageSrc}
+                url={toYouTubeVideoUrl({
+                  youTubeVideoId: project.youTubeVideoId!,
+                })}
+              />
+            )}
+          </ClientOnly>
         ) : project.liveUrl || project.codeUrl ? (
           <Box
             component="a"
             target={"_blank"}
             rel={"noreferrer noopener"}
             href={project.liveUrl ?? project.codeUrl}
-            sx={{ position: "absolute", inset: 0 }}
           >
-            <Image src={project.imageSrc} layout="fill" objectFit="fill" />
+            <img src={project.imageSrc} width="100%" height="100%" style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} />
           </Box>
         ) : (
-          <Image src={project.imageSrc} layout="fill" objectFit="fill" />
+          <img src={project.imageSrc} width="100%" height="100%" style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} />
         )}
       </Box>
 
@@ -322,8 +324,8 @@ function ProjectCard({ project }: { project: Project }) {
         {project.liveUrl || project.codeUrl ? (
           <Typography
             component="a"
-            target={"_blank"}
-            rel={"noreferrer noopener"}
+            target="_blank"
+            rel="noreferrer noopener"
             href={project.liveUrl ?? project.codeUrl}
             variant="h5"
             color="text.primary"
@@ -407,8 +409,8 @@ function ProjectCard({ project }: { project: Project }) {
       </Box>
       <CardActions>
         <Button
-          target={"_blank"}
-          rel={"noreferrer noopener"}
+          // target={"_blank"}
+          // rel={"noreferrer noopener"}
           href={project.liveUrl}
           size="large"
           startIcon={<Web />}
@@ -419,8 +421,8 @@ function ProjectCard({ project }: { project: Project }) {
 
         <Button
           disabled={!Boolean(project.codeUrl)}
-          target={"_blank"}
-          rel={"noreferrer noopener"}
+          // target={"_blank"}
+          // rel={"noreferrer noopener"}
           href={project.codeUrl}
           size="large"
           startIcon={<Code />}
