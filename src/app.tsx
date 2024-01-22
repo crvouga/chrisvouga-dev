@@ -30,7 +30,7 @@ import myTheme from "./theme";
 export function App() {
   return (
     <Container maxWidth="lg">
-      <Stack direction="column" gap={6} py={8}>
+      <Stack direction="column" gap={6} py={8} overflow="hidden">
         <Heading />
         <WorkSection />
         <WorkProjectsSection />
@@ -143,44 +143,48 @@ function AboutMeSection() {
   );
 }
 
+function Contacts() {
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        maxWidth: myTheme.breakpoints.values.sm,
+        flexDirection: { xs: "column", md: "row" },
+        gap: 4,
+      }}
+    >
+      <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+        <ContactLink
+          icon={<Email />}
+          href={`mailTo:${data.emailAddress}`}
+          hrefLabel={`Email`}
+          label="Email"
+          value={data.emailAddress}
+        />
+
+        <ContactLink
+          icon={<Phone />}
+          href={`tel:${data.phoneNumber}`}
+          hrefLabel={`Call`}
+          label="Phone"
+          value={formatPhoneNumber(data.phoneNumber)}
+        />
+      </Box>
+      <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+        <GitHubButton />
+
+        <LinkedInButton />
+      </Box>
+    </Box>
+  );
+}
+
 function ContactSection() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
       <SectionTitle title="Let's get in touch!" />
-      <Box
-        sx={{
-          display: "flex",
-          // flexDirection: "column",
-          // gap: 2,
-          maxWidth: myTheme.breakpoints.values.sm,
-          flexDirection: { sm: "column", md: "row" },
-          gap: { xs: 1, sm: 2, md: 4 }
-        }}
-      >
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-          <ContactLink
-            icon={<Email />}
-            href={`mailTo:${data.emailAddress}`}
-            hrefLabel={`Email`}
-            label="Email"
-            value={data.emailAddress}
-          />
-
-          <ContactLink
-            icon={<Phone />}
-            href={`tel:${data.phoneNumber}`}
-            hrefLabel={`Call`}
-            label="Phone"
-            value={formatPhoneNumber(data.phoneNumber)}
-          />
-        </Box>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2, }}>
-          <GitHubButton />
-
-          <LinkedInButton />
-        </Box>
-      </Box>
-    </Box >
+      <Contacts />
+    </Box>
   );
 }
 
@@ -221,8 +225,9 @@ function WorkCard({ work }: { work: Work }) {
           sx={{ display: "flex", items: "center", mb: 2 }}
           level="title-sm"
         >
-          {`${work.startDate.getFullYear()} - ${work.endDate === "Present" ? "Present" : work.endDate.getFullYear()
-            }`}
+          {`${work.startDate.getFullYear()} - ${
+            work.endDate === "Present" ? "Present" : work.endDate.getFullYear()
+          }`}
         </Typography>
 
         <Typography level="body-md" sx={{ mb: 2 }}>
@@ -311,14 +316,14 @@ function ProjectCard({ project }: { project: Project }) {
           level="h3"
           {...(linkHref
             ? {
-              component: "a",
-              target: "_blank",
-              href: linkHref,
-              sx: { mb: 1, textDecoration: "underline" },
-            }
+                component: "a",
+                target: "_blank",
+                href: linkHref,
+                sx: { mb: 1, textDecoration: "underline" },
+              }
             : {
-              sx: { mb: 1, textDecoration: "underline" },
-            })}
+                sx: { mb: 1, textDecoration: "underline" },
+              })}
         >
           {project.title}
         </Typography>
@@ -356,7 +361,10 @@ function ProjectCard({ project }: { project: Project }) {
       <Stack direction="column" gap={1}>
         {project.deployment.t === "not-deployed-anymore" && (
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <InfoOutlined color="warning" sx={{ width: 18, height: 18, marginRight: 1 }} />
+            <InfoOutlined
+              color="warning"
+              sx={{ width: 18, height: 18, marginRight: 1 }}
+            />
             <Typography color="warning" level="body-xs">
               Project is no longer deployed
             </Typography>
@@ -365,7 +373,10 @@ function ProjectCard({ project }: { project: Project }) {
 
         {project.deployment.t === "private" && (
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <InfoOutlined color="warning" sx={{ width: 18, height: 18, marginRight: 1 }} />
+            <InfoOutlined
+              color="warning"
+              sx={{ width: 18, height: 18, marginRight: 1 }}
+            />
             <Typography color="warning" level="body-xs">
               Deployment is private
             </Typography>
@@ -386,7 +397,11 @@ function ProjectCard({ project }: { project: Project }) {
           component="a"
           target="_blank"
           rel="noreferrer noopener"
-          href={project.deployment.t === "public" ? project.deployment.url : undefined}
+          href={
+            project.deployment.t === "public"
+              ? project.deployment.url
+              : undefined
+          }
           startDecorator={<Web />}
           variant="soft"
           disabled={project.deployment.t !== "public"}
@@ -394,19 +409,17 @@ function ProjectCard({ project }: { project: Project }) {
           Live Deployment
         </Button>
 
-
         <Button
           component="a"
           disabled={project.code.t !== "public"}
           variant="plain"
           target="_blank"
           rel="noreferrer noopener"
-          href={project.code.t === 'public' ? project.code.url : undefined}
+          href={project.code.t === "public" ? project.code.url : undefined}
           startDecorator={<Code />}
         >
           Source Code
         </Button>
-
       </CardActions>
     </Card>
   );
