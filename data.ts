@@ -71,7 +71,7 @@ const workProjects: Project[] = [
 
 const sideProjects: Project[] = [
   {
-    title: "Gamezilla",
+    title: "gamezilla.app",
     deployment: {
       t: "public",
       url: "https://gamezilla.app/",
@@ -320,7 +320,8 @@ const sideProjects: Project[] = [
       t: "public",
       url: "https://github.com/crvouga/cheese",
     },
-    description: "Cheese is an app that lets people make fake GCU ids.",
+    description:
+      "Cheese is an app that lets people make fake GCU ids so they can sneak into GCU events.",
     imageSrc: "/cheese.png",
     youTubeVideoId: "hv3tRBHF7w4",
     topics: ["css", "typescript", "material-ui", "react", "firebase"],
