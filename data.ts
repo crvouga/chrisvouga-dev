@@ -85,7 +85,7 @@ const sideProjects: Project[] = [
     )} platform.`,
     imageSrc: "/gamezilla.png",
     youTubeVideoId: "VSLpdPvHbD4",
-    topics: ["typescript", "react", "nodejs", "mysql", "tailwind", "socket-io"],
+    topics: ["typescript", "react", "postgres", "tailwind", "socket-io", "bun"],
   },
 
   {
@@ -396,9 +396,14 @@ export const topicToImageSrc = {
   nuxt: "/nuxt-icon.svg",
   python: "/python.svg",
   aws: "/aws.svg",
+  bun: "/bun.svg",
 };
 
-export const topicToName = {
+export type Topic = keyof typeof topicToImageSrc;
+
+export const topicToName: {
+  [key in Topic]: string;
+} = {
   typescript: "TypeScript",
   heroku: "Heroku",
   jest: "Jest",
@@ -434,9 +439,8 @@ export const topicToName = {
   nuxt: "Nuxt",
   python: "Python",
   aws: "AWS",
+  bun: "Bun",
 };
-
-export type Topic = keyof typeof topicToImageSrc;
 
 export function topics(topics: Topic[]): Topic[] {
   return topics;
