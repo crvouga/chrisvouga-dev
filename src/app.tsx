@@ -16,7 +16,14 @@ import {
 } from "@mui/joy";
 import Player from "react-player";
 import { ClientOnly } from "vite-react-ssg/single-page";
-import { Project, Work, data, topicToImageSrc, topicToName } from "../data";
+import {
+  Project,
+  Work,
+  data,
+  projectToLinkHref,
+  topicToImageSrc,
+  topicToName,
+} from "../data";
 import { ContactLink } from "./contact-link";
 import myTheme from "./theme";
 
@@ -49,7 +56,16 @@ function Heading() {
           Software Developer
         </Typography>
       </Stack>
-      <Stack direction="row">
+
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent={{
+          xs: "flex-start",
+          sm: "flex-end",
+        }}
+        spacing={2}
+      >
         <GitHubButton />
 
         <LinkedInButton />
@@ -106,7 +122,6 @@ function SideProjectsSection() {
   );
 }
 
-
 function AboutMeSection() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
@@ -119,7 +134,7 @@ function AboutMeSection() {
       >
         <span
           dangerouslySetInnerHTML={{
-            __html: data.aboutMe
+            __html: data.aboutMe,
           }}
         />
       </Typography>
@@ -182,43 +197,16 @@ function WorkCard({ work }: { work: Work }) {
         flexDirection: "column",
       }}
     >
-      <CardOverflow
-        component="a"
-        target="_blank"
-        rel="noreferrer noopener"
-        href={work.companyUrl}
-        sx={{
-          position: "relative",
-          background: work.companyImageBackgroundColor,
-        }}
-      >
-        <AspectRatio ratio={16 / 9}>
-          {work.companyImage && (
-            <img
-              src={work.companyImage}
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "contain",
-              }}
-            />
-          )}
-        </AspectRatio>
-      </CardOverflow>
-
       <CardContent sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <Typography
           component="a"
-          level="title-sm"
-          target={"_blank"}
-          rel={"noreferrer noopener"}
-          href={work.companyUrl}
+          level="h3"
+          target="_blank"
+          rel="noreferrer noopener"
+          href={work.infoUrl}
           sx={{ mb: 1, textDecoration: "underline" }}
         >
-          {work.companyName}
+          {work.name}
         </Typography>
 
         <Typography sx={{ display: "flex", items: "center" }} level="title-sm">
@@ -242,6 +230,7 @@ function WorkCard({ work }: { work: Work }) {
 }
 
 function ProjectCard({ project }: { project: Project }) {
+  const linkHref = projectToLinkHref(project);
   return (
     <Card
       sx={{
@@ -278,12 +267,12 @@ function ProjectCard({ project }: { project: Project }) {
                 />
               )}
             </ClientOnly>
-          ) : project.liveUrl || project.codeUrl ? (
+          ) : linkHref ? (
             <Box
               component="a"
               target={"_blank"}
               rel={"noreferrer noopener"}
-              href={project.liveUrl ?? project.codeUrl}
+              href={linkHref}
             >
               <img
                 src={project.imageSrc}
@@ -314,24 +303,27 @@ function ProjectCard({ project }: { project: Project }) {
       </CardOverflow>
 
       <CardContent sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
-        {project.liveUrl || project.codeUrl ? (
-          <Typography
-            component="a"
-            target="_blank"
-            rel="noreferrer noopener"
-            href={project.liveUrl ?? project.codeUrl}
-            level="title-md"
-            sx={{ mb: 1, textDecoration: "underline" }}
-          >
-            {project.title}
-          </Typography>
-        ) : (
-          <Typography level="title-md" sx={{ mb: 1 }}>
-            {project.title}
-          </Typography>
-        )}
+        <Typography
+          level="h3"
+          {...(linkHref
+            ? {
+              component: "a",
+              target: "_blank",
+              href: linkHref,
+              sx: { mb: 1, textDecoration: "underline" },
+            }
+            : {
+              sx: { mb: 1, textDecoration: "underline" },
+            })}
+        >
+          {project.title}
+        </Typography>
         <Typography level="body-md" sx={{ mb: 2 }}>
-          {project.description}
+          <span
+            dangerouslySetInnerHTML={{
+              __html: project.description,
+            }}
+          />
         </Typography>
         <Box
           sx={{
@@ -347,7 +339,7 @@ function ProjectCard({ project }: { project: Project }) {
               <Chip
                 key={topic}
                 size="sm"
-                startDecorator={src ? <Avatar src={src} /> : undefined}
+                startDecorator={<Avatar src={src} />}
                 variant="outlined"
               >
                 {topicToName[topic]}
@@ -355,60 +347,60 @@ function ProjectCard({ project }: { project: Project }) {
             );
           })}
         </Box>
-
-        <Box sx={{ flex: 1 }} />
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 1,
-            color: "warning.main",
-            mb: -1,
-          }}
-        >
-          {!Boolean(project.liveUrl) && (
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <InfoOutlined sx={{ width: 18, height: 18, marginRight: 1 }} />
-              <Typography level="body-xs">
-                Project is not deployed anymore
-              </Typography>
-            </Box>
-          )}
-          {!Boolean(project.codeUrl) && (
-            <Stack direction="row" gap={1}>
-              <InfoOutlined sx={{ width: 18, height: 18, }} />
-              <Typography level="body-xs">Source code is private</Typography>
-            </Stack>
-          )}
-        </Box>
       </CardContent>
+      <Box flex={1} />
+      <Stack direction="column" gap={1}>
+        {project.deployment.t === "not-deployed-anymore" && (
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <InfoOutlined color="warning" sx={{ width: 18, height: 18, marginRight: 1 }} />
+            <Typography color="warning" level="body-xs">
+              Project is no longer deployed
+            </Typography>
+          </Box>
+        )}
+
+        {project.deployment.t === "private" && (
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <InfoOutlined color="warning" sx={{ width: 18, height: 18, marginRight: 1 }} />
+            <Typography color="warning" level="body-xs">
+              Deployment is private
+            </Typography>
+          </Box>
+        )}
+
+        {project.code.t === "private" && (
+          <Stack direction="row" gap={1}>
+            <InfoOutlined color="warning" sx={{ width: 18, height: 18 }} />
+            <Typography color="warning" level="body-xs">
+              Source code is private
+            </Typography>
+          </Stack>
+        )}
+      </Stack>
       <CardActions>
         <Button
           target="_blank"
           rel="noreferrer noopener"
-          href={project.liveUrl}
+          href={project.deployment.t === "public" ? project.deployment.url : undefined}
           startDecorator={<Web />}
           variant="soft"
-          disabled={!Boolean(project.liveUrl)}
+          disabled={project.deployment.t !== "public"}
         >
-          Live Demo
+          Live Deployment
         </Button>
 
+
         <Button
-          disabled={!Boolean(project.codeUrl)}
+          disabled={project.code.t !== "public"}
           variant="plain"
           target="_blank"
           rel="noreferrer noopener"
-          href={project.codeUrl}
+          href={project.code.t === 'public' ? project.code.url : undefined}
           startDecorator={<Code />}
         >
           Source Code
         </Button>
+
       </CardActions>
     </Card>
   );
@@ -440,11 +432,10 @@ import { GitHub, LinkedIn } from "@mui/icons-material";
 function GitHubButton() {
   return (
     <Button
-      size="lg"
       target="_blank"
       rel="noreferrer noopener"
-      // variant="contained"
-      fullWidth
+      variant="soft"
+      size="lg"
       href={data.Github.url}
       startDecorator={<GitHub />}
     >
@@ -456,11 +447,11 @@ function GitHubButton() {
 function LinkedInButton() {
   return (
     <Button
-      fullWidth
       size="lg"
       target="_blank"
       rel="noreferrer noopener"
       href={data.Linkedin.url}
+      variant="soft"
       startDecorator={<LinkedIn />}
     >
       LinkedIn

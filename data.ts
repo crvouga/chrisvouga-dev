@@ -1,30 +1,20 @@
-// TODO replace next js with this https://github.com/Daydreamer-riri/vite-react-ssg
-import myTheme from "./src/theme";
-
 const bandHref = "https://www.instagram.com/thebandalibi/";
 
 const lamderaHref = "https://lamdera.com/";
 
-const a = (href: string, text: string) => {
-  return `<a style="color: white;" target="_blank" rel="noreferrer noopener" href="${href}">${text}</a>`;
-};
-
 const work: Work[] = [
   {
-    companyImage: "/one-origin.png",
-    companyImageBackgroundColor: "#fdfdfd",
-    companyName: "One Origin",
-    companyUrl: "https://oneorigin.us/",
-    jobTitle: "Software Developer",
-    jobDescription: `Working as a full-stack software developer. Helping Jr developers. Mainly developing products for clients at ASU`,
+    name: "One Origin",
+    infoUrl: "https://oneorigin.us/",
+    jobTitle: "Senior Software Developer",
+    jobDescription: `Working as a full-stack software developer. Guiding junior developers. Developing products for clients at ASU`,
     startDate: new Date("2022-11-01"),
     endDate: "Present",
   },
   {
-    companyName: "Freelancing",
-    companyImageBackgroundColor: `linear-gradient(45deg, ${myTheme.palette.primary.main} 0%, ${myTheme.palette.primary.dark} 100%)`,
+    name: "Freelancing",
     jobTitle: "Frontend Developer",
-    jobDescription: `Worked as a frontend developer. Mainly developing static stites for small businesses`,
+    jobDescription: `Worked as a frontend developer. Mainly developed static sites for small businesses`,
     startDate: new Date("2020-01-01"),
     endDate: new Date("2022-11-01"),
   },
@@ -33,7 +23,8 @@ const work: Work[] = [
 const workProjects: Project[] = [
   {
     title: "Triangulator",
-    liveUrl: "https://gostudyhall.com/",
+    deployment: { t: "private" },
+    code: { t: "private" },
     description:
       "Triangulator is a ASU product for universities to create novel course transfers between universities",
     imageSrc: "/orchard.png",
@@ -50,7 +41,13 @@ const workProjects: Project[] = [
   },
   {
     title: "Study Hall",
-    liveUrl: "https://gostudyhall.com/",
+    deployment: {
+      t: "public",
+      url: "https://gostudyhall.com/",
+    },
+    code: {
+      t: "private",
+    },
     description:
       "Orchard is a ASU product where teachers can create custom courses",
     imageSrc: "/orchard.png",
@@ -58,47 +55,30 @@ const workProjects: Project[] = [
   },
   {
     title: "Orchard",
-    liveUrl: "https://asuorchard.asu.edu/",
+    code: {
+      t: "private",
+    },
+    deployment: {
+      t: "public",
+      url: "https://asuorchard.asu.edu/",
+    },
     description:
       "Orchard is a ASU product where teachers can create custom courses",
     imageSrc: "/orchard.png",
     topics: ["typescript", "react", "material-ui", "nextjs", "supabase"],
-  },
-  {
-    title: "Courier Company Website",
-    liveUrl: "https://gps-couriers-website.vercel.app/",
-    description: "A marketing website for a hospice courier company.",
-    imageSrc: "/courier.png",
-    youTubeVideoId: "kFwPTJcM6I0",
-    topics: ["css", "material-ui", "nextjs", "react", "typescript"],
-  },
-  {
-    title: "Band Website with E-commerce",
-    liveUrl: "https://thebandalibi.chrisvouga.dev/",
-    codeUrl: "https://github.com/crvouga/thebandalibi-com",
-    description:
-      "The official website and e-commerce store for the band alibi.",
-    imageSrc: "/band.png",
-    youTubeVideoId: "vChYAGXsLuI",
-    topics: [
-      "css",
-      "firebase",
-      "material-ui",
-      "nextjs",
-      "react-query",
-      "react",
-      "sanity",
-      "shopify",
-      "typescript",
-    ],
   },
 ];
 
 const sideProjects: Project[] = [
   {
     title: "Gamezilla",
-    liveUrl: "https://gamezilla.chrisvouga.dev/",
-
+    deployment: {
+      t: "public",
+      url: "https://gamezilla.app/",
+    },
+    code: {
+      t: "private",
+    },
     description: `A work-in-progress multiplayer gaming app. Implemented using a full-stack variant of the Elm architecture in TypeScript. Copied from the ${a(
       lamderaHref,
       "Lamdera"
@@ -110,8 +90,14 @@ const sideProjects: Project[] = [
 
   {
     title: "headless-combobox",
-    liveUrl: "https://headless-combobox-demo-svelte.vercel.app",
-    codeUrl: "https://github.com/crvouga/headless-combobox",
+    deployment: {
+      t: "public",
+      url: "https://headless-combobox-demo-svelte.vercel.app",
+    },
+    code: {
+      t: "public",
+      url: "https://github.com/crvouga/headless-combobox",
+    },
     imageSrc: "https://github.com/crvouga/headless-combobox/raw/main/demo.gif",
     description: `Purely functional, headless, framework-agnostic, zero dependency, accessible, TypeScript combobox library Used to create comboboxes in any UI framework.`,
     topics: ["typescript"],
@@ -119,8 +105,14 @@ const sideProjects: Project[] = [
 
   {
     title: "Pickflix",
-    // liveUrl: "https://crvouga-pickflix.herokuapp.com/",
-    codeUrl: "https://github.com/crvouga/pickflix-v1",
+    deployment: {
+      t: "not-deployed-anymore",
+      // url: "https://crvouga-pickflix.herokuapp.com/",
+    },
+    code: {
+      t: "public",
+      url: "https://github.com/crvouga/pickflix-v1",
+    },
     description:
       "Watch trailers, write reviews and make movie lists with your friends.",
     imageSrc: "/pickflix.png",
@@ -144,8 +136,14 @@ const sideProjects: Project[] = [
 
   {
     title: "Fullstack Todo App",
-    // liveUrl: "https://todo.chrisvouga.dev",
-    codeUrl: "https://github.com/crvouga/todo",
+    code: {
+      t: "public",
+      url: "https://github.com/crvouga/todo",
+    },
+    deployment: {
+      t: "not-deployed-anymore",
+      // url: "https://todo.chrisvouga.dev",
+    },
     description: "Fullstack todo app. Sign in and start tracking things todo.",
     imageSrc: "/todo.png",
     topics: [
@@ -162,8 +160,14 @@ const sideProjects: Project[] = [
 
   {
     title: "Screenshots as a Service",
-    // liveUrl: "https://screenshotservice.chrisvouga.dev",
-    codeUrl: "https://github.com/crvouga/screenshot-service",
+    code: {
+      t: "public",
+      url: "https://github.com/crvouga/screenshot-service",
+    },
+    deployment: {
+      t: "not-deployed-anymore",
+      // url: "https://screenshotservice.chrisvouga.dev",
+    },
     description: `A software-as-a service app that lets developers generate screenshots for their websites. It was used for this website.`,
     imageSrc: "/screenshot-service.png",
     youTubeVideoId: "lCEzYGJ0rN8",
@@ -182,6 +186,48 @@ const sideProjects: Project[] = [
   },
 
   {
+    title: "Courier Company Website",
+    deployment: {
+      t: "public",
+      url: "https://gps-couriers-website.vercel.app/",
+    },
+    code: {
+      t: "private",
+    },
+    description: "A marketing website for a hospice courier company.",
+    imageSrc: "/courier.png",
+    youTubeVideoId: "kFwPTJcM6I0",
+    topics: ["css", "material-ui", "nextjs", "react", "typescript"],
+  },
+
+  {
+    title: "Band Website with E-commerce",
+    deployment: {
+      t: "public",
+      url: "https://thebandalibi.chrisvouga.dev/",
+    },
+    code: {
+      t: "public",
+      url: "https://github.com/crvouga/thebandalibi-com",
+    },
+    description:
+      "The official website and e-commerce store for the band alibi.",
+    imageSrc: "/band.png",
+    youTubeVideoId: "vChYAGXsLuI",
+    topics: [
+      "css",
+      "firebase",
+      "material-ui",
+      "nextjs",
+      "react-query",
+      "react",
+      "sanity",
+      "shopify",
+      "typescript",
+    ],
+  },
+
+  {
     title: "Anime Blog",
     description: "A jamstack blog about anime.",
     imageSrc: "/anime.png",
@@ -194,14 +240,26 @@ const sideProjects: Project[] = [
       "graphql",
       "gridsome",
     ],
-    liveUrl: "https://anime.chrisvouga.dev/",
-    codeUrl: "https://github.com/crvouga/anime",
+    deployment: {
+      t: "public",
+      url: "https://anime.chrisvouga.dev/",
+    },
+    code: {
+      t: "public",
+      url: "https://github.com/crvouga/anime",
+    },
   },
 
   {
     title: "Multiplayer Connect Four",
-    liveUrl: "https://connectfour.chrisvouga.dev/",
-    codeUrl: "https://github.com/crvouga/connect-four",
+    deployment: {
+      t: "public",
+      url: "https://connectfour.chrisvouga.dev/",
+    },
+    code: {
+      t: "public",
+      url: "https://github.com/crvouga/connect-four",
+    },
     description: "Play the game Connect Four online with your friends",
     imageSrc: "/connect-four.png",
     youTubeVideoId: "9_TbyftkaQw",
@@ -221,8 +279,14 @@ const sideProjects: Project[] = [
 
   {
     title: "Smooth Snake Game",
-    liveUrl: "https://snake.chrisvouga.dev/",
-    codeUrl: "https://github.com/crvouga/snake",
+    deployment: {
+      t: "public",
+      url: "https://snake.chrisvouga.dev/",
+    },
+    code: {
+      t: "public",
+      url: "https://github.com/crvouga/snake",
+    },
     description:
       "Pure functional implementation of the classic game Snake with smooth snake movement",
     imageSrc: "/snake.png",
@@ -232,8 +296,14 @@ const sideProjects: Project[] = [
 
   {
     title: "Match Three",
-    liveUrl: "https://matchthree.chrisvouga.dev/",
-    codeUrl: "https://github.com/crvouga/match-three",
+    deployment: {
+      url: "https://matchthree.chrisvouga.dev/",
+      t: "public",
+    },
+    code: {
+      t: "public",
+      url: "https://github.com/crvouga/match-three",
+    },
     description: "Match Three is a Candy Crush type game",
     imageSrc: "/match-three.png",
     youTubeVideoId: "VBrlDgmXSoA",
@@ -242,8 +312,14 @@ const sideProjects: Project[] = [
 
   {
     title: "Cheese",
-    liveUrl: "https://cheese.chrisvouga.dev/",
-    codeUrl: "https://github.com/crvouga/cheese",
+    deployment: {
+      t: "public",
+      url: "https://cheese.chrisvouga.dev/",
+    },
+    code: {
+      t: "public",
+      url: "https://github.com/crvouga/cheese",
+    },
     description: "Cheese is an app that lets people make fake GCU ids.",
     imageSrc: "/cheese.png",
     youTubeVideoId: "hv3tRBHF7w4",
@@ -252,8 +328,14 @@ const sideProjects: Project[] = [
 
   {
     title: "Simon Says",
-    liveUrl: "https://simonsays.chrisvouga.dev/",
-    codeUrl: "https://github.com/crvouga/simon-says",
+    deployment: {
+      t: "public",
+      url: "https://simonsays.chrisvouga.dev/",
+    },
+    code: {
+      t: "public",
+      url: "https://github.com/crvouga/simon-says",
+    },
     description: "An implementation of the classic memory game Simon Says.",
     imageSrc: "/simon-says.png",
     youTubeVideoId: "WrUFzlKL0E0",
@@ -262,10 +344,10 @@ const sideProjects: Project[] = [
 ];
 
 const aboutMe = `
-I'm a software developer living in the Phoenix Valley.
+My name is Chris Vouga. I'm a software developer living in the Phoenix Valley.
 I graduated from ASU with a bachelor's degree in mathematics and statistics.
-My go-to style of programming is functional programming.
-Right now, I'm primarily doing web development, but I'm open to other kinds of development.
+Software development is also a hobby for me. I enjoy consuming techinal content and developing apps in my free time.
+Right now, I'm primarily doing web development, but I would be interested in other types of development.
 A random fact about me is that I play the drums in a ${a(bandHref, "band")}.`;
 
 //
@@ -359,22 +441,50 @@ export function topics(topics: Topic[]): Topic[] {
   return topics;
 }
 
+type Code =
+  | {
+      t: "private";
+    }
+  | {
+      t: "public";
+      url: string;
+    };
+
+type Deployment =
+  | {
+      t: "public";
+      url: string;
+    }
+  | {
+      t: "not-deployed-anymore";
+    }
+  | {
+      t: "private";
+    };
+
 export type Project = {
   title: string;
-  liveUrl?: string;
-  codeUrl?: string;
-  storybookUrl?: string;
+  deployment: Deployment;
+  code: Code;
   description: string;
   imageSrc: string;
   youTubeVideoId?: string;
   topics: Topic[];
 };
 
+export const projectToLinkHref = (project: Project) => {
+  if (project.deployment.t === "public") {
+    return project.deployment.url;
+  }
+  if (project.code.t === "public") {
+    return project.code.url;
+  }
+  return null;
+};
+
 export type Work = {
-  companyName: string;
-  companyImage?: string;
-  companyImageBackgroundColor?: string;
-  companyUrl?: string;
+  name: string;
+  infoUrl?: string;
   jobTitle: string;
   jobDescription: string;
   startDate: Date;
@@ -416,3 +526,7 @@ export const data = {
 
   work,
 };
+
+function a(href: string, text: string) {
+  return `<a style="color: white;" target="_blank" rel="noreferrer noopener" href="${href}">${text}</a>`;
+}
