@@ -37,6 +37,9 @@ const workProjects: Project[] = [
       "python",
       "graphql",
       "aws",
+      "graphene",
+      "flask",
+      "neo4j",
     ],
   },
   {
@@ -49,9 +52,18 @@ const workProjects: Project[] = [
       t: "private",
     },
     description:
-      "Orchard is a ASU product where teachers can create custom courses",
+      "Study Hall is a partnership product between the Study Hall youtube channel and ASU where students can enroll in courses offered by the Study Hall youtube channel and be able to transfer credits from those courses to ASU credits",
     imageSrc: "/orchard.png",
-    topics: ["typescript", "react", "material-ui", "nextjs", "supabase"],
+    topics: [
+      "javascript",
+      "vue",
+      "bootstrap",
+      "aws",
+      "dynamodb",
+      "salesforce",
+      "express",
+      "nodejs",
+    ],
   },
   {
     title: "Orchard",
@@ -65,7 +77,7 @@ const workProjects: Project[] = [
     description:
       "Orchard is a ASU product where teachers can create custom courses",
     imageSrc: "/orchard.png",
-    topics: ["typescript", "react", "material-ui", "nextjs", "supabase"],
+    topics: ["php", "mysql", "drupal", "bootstrap", "javascript"],
   },
 ];
 
@@ -351,97 +363,6 @@ Software development is also a hobby for me. I enjoy consuming techinal content 
 Right now, I'm primarily doing web development, but I would be interested in other types of development.
 A random fact about me is that I play the drums in a ${a(bandHref, "band")}.`;
 
-//
-//
-//
-// Topics
-// source: https://svgporn.com/
-//
-//
-//
-
-export const topicToImageSrc = {
-  typescript: "/typescript-icon.svg",
-  heroku: "/heroku-icon.svg",
-  jest: "/jest.svg",
-  "redux-saga": "/redux-saga.svg",
-  ramda: "/ramda.svg",
-  react: "/react.svg",
-  firebase: "/firebase.svg",
-  docker: "/docker-icon.svg",
-  supabase: "/supabase-icon.svg",
-  postgres: "/postgresql.svg",
-  "material-ui": "/material-ui.svg",
-  nextjs: "/nextjs.svg",
-  "socket-io": "/socket.io.svg",
-  express: "/express.svg",
-  css: "/css-3.svg",
-  shopify: "/shopify.svg",
-  sanity: "/sanity.svg",
-  nodejs: "/nodejs-icon.svg",
-  puppeteer: "/puppeteer.svg",
-  redux: "/redux.svg",
-  rxjs: "/rxjs.svg",
-  elm: "/elm.svg",
-  "react-query": "react-query-icon.svg",
-  greensock: "/greensock-icon.svg",
-  javascript: "/javascript.svg",
-  vue: "/vue.svg",
-  tailwind: "/tailwindcss.svg",
-  mongodb: "/mongodb-icon.svg",
-  bootstrap: "/bootstrap.svg",
-  graphql: "/graphql.svg",
-  gridsome: "/gridsome-icon.svg",
-  mysql: "/mysql.svg",
-  nuxt: "/nuxt-icon.svg",
-  python: "/python.svg",
-  aws: "/aws.svg",
-  bun: "/bun.svg",
-};
-
-export type Topic = keyof typeof topicToImageSrc;
-
-export const topicToName: {
-  [key in Topic]: string;
-} = {
-  typescript: "TypeScript",
-  heroku: "Heroku",
-  jest: "Jest",
-  "redux-saga": "Redux Saga",
-  ramda: "Ramda",
-  react: "React",
-  firebase: "Firebase",
-  docker: "Docker",
-  supabase: "Supabase",
-  postgres: "Postgres",
-  "material-ui": "Material UI",
-  nextjs: "Next.js",
-  "socket-io": "Socket.io",
-  express: "Express",
-  css: "CSS",
-  shopify: "Shopify",
-  sanity: "Sanity",
-  nodejs: "Node.js",
-  puppeteer: "Puppeteer",
-  redux: "Redux",
-  rxjs: "RxJS",
-  elm: "Elm",
-  "react-query": "React Query",
-  greensock: "Greensock",
-  javascript: "JavaScript",
-  vue: "Vue",
-  tailwind: "Tailwind",
-  mongodb: "MongoDB",
-  bootstrap: "Bootstrap",
-  graphql: "GraphQL",
-  gridsome: "Gridsome",
-  mysql: "MySQL",
-  nuxt: "Nuxt",
-  python: "Python",
-  aws: "AWS",
-  bun: "Bun",
-};
-
 export function topics(topics: Topic[]): Topic[] {
   return topics;
 }
@@ -535,3 +456,108 @@ export const data = {
 function a(href: string, text: string) {
   return `<a style="color: white;" target="_blank" rel="noreferrer noopener" href="${href}">${text}</a>`;
 }
+
+//
+//
+//
+// Topics
+// source: https://svgporn.com/
+//
+//
+//
+
+export const topicToImageSrc = {
+  neo4j: "/neo4j.svg",
+  graphene: "/graphene.svg",
+  flask: "/flask.svg",
+  salesforce: "/salesforce.svg",
+  dynamodb: "/aws-dynamodb.svg",
+  php: "/php.svg",
+  drupal: "/drupal-icon.svg",
+  typescript: "/typescript-icon.svg",
+  heroku: "/heroku-icon.svg",
+  jest: "/jest.svg",
+  "redux-saga": "/redux-saga.svg",
+  ramda: "/ramda.svg",
+  react: "/react.svg",
+  firebase: "/firebase.svg",
+  docker: "/docker-icon.svg",
+  supabase: "/supabase-icon.svg",
+  postgres: "/postgresql.svg",
+  "material-ui": "/material-ui.svg",
+  nextjs: "/nextjs.svg",
+  "socket-io": "/socket.io.svg",
+  express: "/express.svg",
+  css: "/css-3.svg",
+  shopify: "/shopify.svg",
+  sanity: "/sanity.svg",
+  nodejs: "/nodejs-icon.svg",
+  puppeteer: "/puppeteer.svg",
+  redux: "/redux.svg",
+  rxjs: "/rxjs.svg",
+  elm: "/elm.svg",
+  "react-query": "react-query-icon.svg",
+  greensock: "/greensock-icon.svg",
+  javascript: "/javascript.svg",
+  vue: "/vue.svg",
+  tailwind: "/tailwindcss.svg",
+  mongodb: "/mongodb-icon.svg",
+  bootstrap: "/bootstrap.svg",
+  graphql: "/graphql.svg",
+  gridsome: "/gridsome-icon.svg",
+  mysql: "/mysql.svg",
+  nuxt: "/nuxt-icon.svg",
+  python: "/python.svg",
+  aws: "/aws.svg",
+  bun: "/bun.svg",
+};
+
+export type Topic = keyof typeof topicToImageSrc;
+
+export const topicToName: {
+  [key in Topic]: string;
+} = {
+  neo4j: "Neo4j",
+  flask: "Flask",
+  graphene: "Graphene",
+  salesforce: "Salesforce",
+  dynamodb: "DynamoDB",
+  drupal: "Drupal",
+  php: "PHP",
+  typescript: "TypeScript",
+  heroku: "Heroku",
+  jest: "Jest",
+  "redux-saga": "Redux Saga",
+  ramda: "Ramda",
+  react: "React",
+  firebase: "Firebase",
+  docker: "Docker",
+  supabase: "Supabase",
+  postgres: "Postgres",
+  "material-ui": "Material UI",
+  nextjs: "Next.js",
+  "socket-io": "Socket.io",
+  express: "Express",
+  css: "CSS",
+  shopify: "Shopify",
+  sanity: "Sanity",
+  nodejs: "Node.js",
+  puppeteer: "Puppeteer",
+  redux: "Redux",
+  rxjs: "RxJS",
+  elm: "Elm",
+  "react-query": "React Query",
+  greensock: "Greensock",
+  javascript: "JavaScript",
+  vue: "Vue",
+  tailwind: "Tailwind",
+  mongodb: "MongoDB",
+  bootstrap: "Bootstrap",
+  graphql: "GraphQL",
+  gridsome: "Gridsome",
+  mysql: "MySQL",
+  nuxt: "Nuxt",
+  python: "Python",
+  aws: "AWS",
+  bun: "Bun",
+};
