@@ -361,7 +361,7 @@ const sideProjects: Project[] = [
 const aboutMe = `
 My name is Chris Vouga. I'm a software developer living in the Phoenix Valley.
 I graduated from ASU with a bachelor's degree in mathematics and statistics.
-Software development is also a hobby for me. I enjoy consuming techinal content and developing apps in my free time.
+Software development is also a hobby for me. I enjoy consuming technical content and developing apps in my free time.
 Right now, I'm primarily doing web development, but I would be interested in other types of development.
 A random fact about me is that I play the drums in a ${a(bandHref, "band")}.`;
 
