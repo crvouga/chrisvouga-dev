@@ -26,7 +26,7 @@ const workProjects: Project[] = [
     deployment: { t: "private" },
     code: { t: "private" },
     description:
-      "Triangulator is a ASU product for universities to create novel course transfers between universities",
+      "Triangulator is a product developed by ASU that aims to automate the process of course transfers between universities. My contributions include being one of the leading developers on the project.",
     imageSrc: "/triangulator.png",
     topics: [
       "typescript",
@@ -52,11 +52,12 @@ const workProjects: Project[] = [
       t: "private",
     },
     description:
-      "Study Hall is a partnership product between the Study Hall youtube channel and ASU where students can enroll in courses offered by the Study Hall youtube channel and be able to transfer credits from those courses to ASU credits",
+      "Study Hall is an education platform created by the Study Hall YouTube channel and ASU. My contributions include refactoring the payment system to increase reliability.",
     imageSrc: "/studyhall.png",
     topics: [
       "javascript",
       "vue",
+      "nuxt",
       "bootstrap",
       "aws",
       "dynamodb",
@@ -75,23 +76,24 @@ const workProjects: Project[] = [
       url: "https://asuorchard.asu.edu/",
     },
     description:
-      "Orchard is a ASU product where teachers can create custom courses",
+      "Orchard is a learning tool developed by ASU that enables teachers to create highly customizable assignments for their students. My contributions include integrating Orchard with ASU's LMS using LTI 1.3.",
     imageSrc: "/orchard.png",
     topics: ["php", "mysql", "drupal", "bootstrap", "javascript"],
   },
 ];
 
+const gamezillaHref = "https://gamezilla.app/";
 const sideProjects: Project[] = [
   {
     title: "gamezilla.app",
     deployment: {
       t: "public",
-      url: "https://gamezilla.app/",
+      url: gamezillaHref,
     },
     code: {
       t: "private",
     },
-    description: `A work-in-progress multiplayer gaming app. Implemented using a full-stack variant of the Elm architecture in TypeScript. Copied from the ${a(
+    description: `${a(gamezillaHref, 'gamezilla.app')} is work-in-progress multiplayer gaming app. Implemented using a full-stack variant of the Elm architecture in TypeScript. Copied from the ${a(
       lamderaHref,
       "Lamdera"
     )} platform.`,
@@ -104,14 +106,14 @@ const sideProjects: Project[] = [
     title: "headless-combobox",
     deployment: {
       t: "public",
-      url: "https://headless-combobox-demo-svelte.vercel.app",
+      url: "https://www.npmjs.com/package/headless-combobox",
     },
     code: {
       t: "public",
       url: "https://github.com/crvouga/headless-combobox",
     },
     imageSrc: "https://github.com/crvouga/headless-combobox/raw/main/demo.gif",
-    description: `Purely functional, headless, framework-agnostic, zero dependency, accessible, TypeScript combobox library Used to create comboboxes in any UI framework.`,
+    description: `Purely functional, headless, framework-agnostic, zero dependency, accessible, TypeScript combobox library. Used to create comboboxes in any UI framework.`,
     topics: ["typescript"],
   },
 
