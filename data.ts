@@ -27,7 +27,7 @@ const workProjects: Project[] = [
     code: { t: "private" },
     description:
       "Triangulator is a ASU product for universities to create novel course transfers between universities",
-    imageSrc: "/orchard.png",
+    imageSrc: "/triangulator.png",
     topics: [
       "typescript",
       "vue",
@@ -53,7 +53,7 @@ const workProjects: Project[] = [
     },
     description:
       "Study Hall is a partnership product between the Study Hall youtube channel and ASU where students can enroll in courses offered by the Study Hall youtube channel and be able to transfer credits from those courses to ASU credits",
-    imageSrc: "/orchard.png",
+    imageSrc: "/studyhall.png",
     topics: [
       "javascript",
       "vue",
