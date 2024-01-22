@@ -1,5 +1,5 @@
 // TODO replace next js with this https://github.com/Daydreamer-riri/vite-react-ssg
-import theme from "./src/theme";
+import myTheme from "./src/theme";
 
 const bandHref = "https://www.instagram.com/thebandalibi/";
 
@@ -22,7 +22,7 @@ const work: Work[] = [
   },
   {
     companyName: "Freelancing",
-    companyImageBackgroundColor: `linear-gradient(45deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
+    companyImageBackgroundColor: `linear-gradient(45deg, ${myTheme.palette.primary.main} 0%, ${myTheme.palette.primary.dark} 100%)`,
     jobTitle: "Frontend Developer",
     jobDescription: `Worked as a frontend developer. Mainly developing static stites for small businesses`,
     startDate: new Date("2020-01-01"),

@@ -1,34 +1,20 @@
-import { createTheme, responsiveFontSizes } from "@mui/material";
+import { extendTheme } from "@mui/joy";
 
-const theme = responsiveFontSizes(
-  createTheme({
-    typography: {
-      fontFamily: '"Montserrat", sans-serif',
-    },
-    palette: {
-      mode: "dark",
-    },
-    components: {
-      MuiTooltip: {
-        defaultProps: {
-          enterTouchDelay: 0,
-        },
-      },
-      MuiButton: {
-        defaultProps: {},
-        styleOverrides: {
-          root: {
-            textTransform: "capitalize",
-          },
-        },
-      },
-      MuiPaper: {
-        defaultProps: {
-          elevation: 2,
-        },
-      },
-    },
-  })
-);
+const myTheme = extendTheme({
+  fontFamily: {
+    body: [
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(","),
+  },
+});
 
-export default theme;
+export default myTheme;

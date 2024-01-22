@@ -1,10 +1,10 @@
 import {
   Alert,
-  ListItem,
-  ListItemText,
+  Box,
   Snackbar,
   Tooltip,
-} from "@mui/material";
+  Typography,
+} from "@mui/joy";
 import { useState } from "react";
 
 export function ContactLink({
@@ -30,29 +30,21 @@ export function ContactLink({
         open={status === "copied"}
         onClose={() => setStatus("idle")}
         autoHideDuration={3000}>
-        <Alert sx={{ width: "100%" }} severity="info">
+        <Alert sx={{ width: "100%" }} variant="soft">
           {`Copied ${value} to clipboard`}
         </Alert>
       </Snackbar>
 
-      <ListItem component="div" disableGutters disablePadding>
-        <Tooltip placement="bottom-start" title={status === "copied" ? "Copied" : `Click to copy`}>
-          <ListItemText
-            onClick={onClipboardCopy}
-            sx={{ cursor: "pointer" }}
-            primaryTypographyProps={{
-              color: "text.secondary",
-              variant: "body2",
-            }}
-            primary={label}
-            secondaryTypographyProps={{
-              color: "text.primary",
-              variant: "body1",
-            }}
-            secondary={value}
-          />
-        </Tooltip>
-      </ListItem>
+      <Tooltip placement="bottom-start" title={status === "copied" ? "Copied" : `Click to copy`}>
+        <Box onClick={onClipboardCopy}>
+          <Typography>
+            {label}
+          </Typography>
+          <Typography>
+            {value}
+          </Typography>
+        </Box>
+      </Tooltip>
     </>
   );
 }

@@ -11,12 +11,12 @@ import {
   Divider,
   Grid,
   Typography,
-} from "@mui/material";
+} from "@mui/joy";
 import Player from "react-player";
 import { Project, Work, data, topicToImageSrc, topicToName } from "../data";
 import { ContactLink } from "./contact-link";
 import { GitHubButton, LinkedInButton } from "./socials";
-import theme from "./theme";
+import myTheme from "./theme";
 import { ClientOnly } from "vite-react-ssg/single-page";
 
 export function App() {
@@ -57,10 +57,10 @@ function Header() {
           flexDirection: "column",
         }}
       >
-        <Typography variant="h2" fontWeight={600}>
+        <Typography level="h2" fontWeight={600}>
           Chris Vouga
         </Typography>
-        <Typography variant="h3" color="primary.main" fontWeight={600}>
+        <Typography level="h3" fontWeight={600}>
           Software Developer
         </Typography>
       </Box>
@@ -85,7 +85,7 @@ function WorkSection() {
         justifyContent="start"
       >
         {data.work.map((work, index) => (
-          <Grid key={index} item xs={12} sm={6} md={4}>
+          <Grid key={index} xs={12} sm={6} md={4}>
             <WorkCard work={work} />
           </Grid>
         ))}
@@ -101,7 +101,7 @@ function WorkProjectsSection() {
 
       <Grid container spacing={3}>
         {data.workProjects.map((project, index) => (
-          <Grid key={index} item xs={12} sm={6} md={4}>
+          <Grid key={index} xs={12} sm={6} md={4}>
             <ProjectCard project={project} />
           </Grid>
         ))}
@@ -117,7 +117,7 @@ function SideProjectsSection() {
 
       <Grid container spacing={3}>
         {data.sideProjects.map((project, index) => (
-          <Grid key={index} item xs={12} sm={6} md={4}>
+          <Grid key={index} xs={12} sm={6} md={4}>
             <ProjectCard project={project} />
           </Grid>
         ))}
@@ -131,15 +131,14 @@ function AboutMeSection() {
     <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
       <SectionTitle title="A little about me..." />
       <Typography
-        variant="body1"
-        color="text.secondary"
+        level="body-md"
         sx={{
-          maxWidth: theme.breakpoints.values.md,
+          maxWidth: myTheme.breakpoints.values.md,
         }}
-        dangerouslySetInnerHTML={{
-          __html: data.aboutMe,
-        }}
-      />
+
+      >
+        {data.aboutMe}
+      </Typography>
     </Box>
   );
 }
@@ -153,7 +152,7 @@ function ContactSection() {
           display: "flex",
           flexDirection: "column",
           gap: 2,
-          maxWidth: theme.breakpoints.values.sm,
+          maxWidth: myTheme.breakpoints.values.sm,
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
@@ -184,7 +183,7 @@ function ContactSection() {
 
 function SectionTitle({ title }: { title: string }) {
   return (
-    <Typography fontWeight={600} variant="h3" sx={{ pb: 3 }} align="left">
+    <Typography level="h3" sx={{ pb: 3, fontWeight: 600, textAlign: 'left' }}>
       {title}
     </Typography>
   );
@@ -228,8 +227,7 @@ function WorkCard({ work }: { work: Work }) {
       <CardContent sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <Typography
           component="a"
-          variant="h5"
-          color="text.primary"
+          level="title-sm"
           target={"_blank"}
           rel={"noreferrer noopener"}
           href={work.companyUrl}
@@ -240,28 +238,27 @@ function WorkCard({ work }: { work: Work }) {
 
         <Typography
           sx={{ display: "flex", items: "center" }}
-          variant="subtitle1"
+          level="title-sm"
         >
           {work.jobTitle}
         </Typography>
 
         <Typography
           sx={{ display: "flex", items: "center", mb: 2 }}
-          color="text.secondary"
-          variant="subtitle2"
+          level="title-sm"
+
         >
           {`${work.startDate.getFullYear()} - ${work.endDate === "Present" ? "Present" : work.endDate.getFullYear()
             }`}
         </Typography>
 
         <Typography
-          variant="body1"
-          color="text.secondary"
+          level="body-md"
           sx={{ mb: 2 }}
-          dangerouslySetInnerHTML={{
-            __html: work.jobDescription,
-          }}
-        />
+
+        >
+          {work.jobDescription}
+        </Typography>
       </CardContent>
     </Card>
   );
@@ -324,28 +321,26 @@ function ProjectCard({ project }: { project: Project }) {
         {project.liveUrl || project.codeUrl ? (
           <Typography
             component="a"
+
             target="_blank"
             rel="noreferrer noopener"
             href={project.liveUrl ?? project.codeUrl}
-            variant="h5"
-            color="text.primary"
+            level="title-md"
             sx={{ mb: 1, textDecoration: "underline" }}
           >
             {project.title}
           </Typography>
         ) : (
-          <Typography variant="h5" color="text.primary" sx={{ mb: 1 }}>
+          <Typography level="title-md" sx={{ mb: 1 }}>
             {project.title}
           </Typography>
         )}
         <Typography
-          variant="body1"
-          color="text.secondary"
+          level="body-md"
           sx={{ mb: 2 }}
-          dangerouslySetInnerHTML={{
-            __html: project.description,
-          }}
-        ></Typography>
+        >
+          {project.description}
+        </Typography>
         <Box
           sx={{
             display: "flex",
@@ -359,12 +354,14 @@ function ProjectCard({ project }: { project: Project }) {
             const src = topicToImageSrc[topic];
             return (
               <Chip
-                size="small"
                 key={topic}
-                avatar={src ? <Avatar variant="square" src={src} /> : undefined}
-                label={topicToName[topic]}
+                size="sm"
+                startDecorator={src ? <Avatar src={src} /> : undefined}
                 variant="outlined"
-              />
+
+              >
+                {topicToName[topic]}
+              </Chip>
             );
           })}
         </Box>
@@ -389,7 +386,7 @@ function ProjectCard({ project }: { project: Project }) {
             }}
           >
             <InfoOutlined sx={{ width: 18, height: 18, marginRight: 1 }} />
-            <Typography variant="caption">
+            <Typography level="body-xs">
               Project is not deployed anymore
             </Typography>
           </Box>
@@ -403,7 +400,7 @@ function ProjectCard({ project }: { project: Project }) {
             }}
           >
             <InfoOutlined sx={{ width: 18, height: 18, marginRight: 1 }} />
-            <Typography variant="caption">Source code is private</Typography>
+            <Typography level="body-xs">Source code is private</Typography>
           </Box>
         )}
       </Box>
@@ -412,8 +409,8 @@ function ProjectCard({ project }: { project: Project }) {
           // target={"_blank"}
           // rel={"noreferrer noopener"}
           href={project.liveUrl}
-          size="large"
-          startIcon={<Web />}
+          size="lg"
+          startDecorator={<Web />}
           disabled={!Boolean(project.liveUrl)}
         >
           Live Demo
@@ -424,13 +421,13 @@ function ProjectCard({ project }: { project: Project }) {
           // target={"_blank"}
           // rel={"noreferrer noopener"}
           href={project.codeUrl}
-          size="large"
-          startIcon={<Code />}
+          size="lg"
+          startDecorator={<Code />}
         >
           Source Code
         </Button>
       </CardActions>
-    </Card>
+    </Card >
   );
 }
 
