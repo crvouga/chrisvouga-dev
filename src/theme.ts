@@ -3,6 +3,7 @@ import { extendTheme } from "@mui/joy";
 const myTheme = extendTheme({
   fontFamily: {
     body: [
+      "Inter",
       "-apple-system",
       "BlinkMacSystemFont",
       '"Segoe UI"',

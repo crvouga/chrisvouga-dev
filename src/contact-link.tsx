@@ -1,9 +1,8 @@
 import {
-  Alert,
   Box,
   Snackbar,
   Tooltip,
-  Typography,
+  Typography
 } from "@mui/joy";
 import { useState } from "react";
 
@@ -29,10 +28,9 @@ export function ContactLink({
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         open={status === "copied"}
         onClose={() => setStatus("idle")}
-        autoHideDuration={3000}>
-        <Alert sx={{ width: "100%" }} variant="soft">
-          {`Copied ${value} to clipboard`}
-        </Alert>
+        autoHideDuration={3000}
+        variant="soft">
+        {`Copied ${value} to clipboard`}
       </Snackbar>
 
       <Tooltip placement="bottom-start" title={status === "copied" ? "Copied" : `Click to copy`}>

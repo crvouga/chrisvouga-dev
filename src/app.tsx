@@ -1,74 +1,60 @@
 import { Code, Email, InfoOutlined, Phone, Web } from "@mui/icons-material";
 import {
+  AspectRatio,
   Avatar,
   Box,
   Button,
   Card,
   CardActions,
   CardContent,
+  CardOverflow,
   Chip,
   Container,
-  Divider,
   Grid,
+  Stack,
   Typography,
 } from "@mui/joy";
 import Player from "react-player";
+import { ClientOnly } from "vite-react-ssg/single-page";
 import { Project, Work, data, topicToImageSrc, topicToName } from "../data";
 import { ContactLink } from "./contact-link";
-import { GitHubButton, LinkedInButton } from "./socials";
 import myTheme from "./theme";
-import { ClientOnly } from "vite-react-ssg/single-page";
 
 export function App() {
   return (
-    <Container
-      maxWidth="lg"
-      sx={{ paddingY: 8, gap: 8, display: "flex", flexDirection: "column" }}
-    >
-      <Header />
-      <WorkSection />
-      <WorkProjectsSection />
-      <SideProjectsSection />
-      <AboutMeSection />
-      <ContactSection />
+    <Container maxWidth="lg">
+      <Stack direction="column" gap={6} py={8}>
+        <Heading />
+        <WorkSection />
+        <WorkProjectsSection />
+        <SideProjectsSection />
+        <AboutMeSection />
+        <ContactSection />
+      </Stack>
     </Container>
   );
 }
 
-function Header() {
+function Heading() {
   return (
-    <Box
-      sx={{
-        flex: 1,
-        zIndex: 2,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "row",
-      }}
+    <Stack
+      direction={{ xs: "column", sm: "row" }}
+      spacing={{ xs: 1, sm: 2, md: 4 }}
     >
-      <Box
-        sx={{
-          flex: 1,
-          zIndex: 2,
-          display: "flex",
-          alignItems: "start",
-          justifyContent: "center",
-          flexDirection: "column",
-        }}
-      >
-        <Typography level="h2" fontWeight={600}>
+      <Stack flex={1}>
+        <Typography level="h1" fontWeight={900}>
           Chris Vouga
         </Typography>
-        <Typography level="h3" fontWeight={600}>
+        <Typography level="h1" color="primary" fontWeight={900}>
           Software Developer
         </Typography>
-      </Box>
-      <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
+      </Stack>
+      <Stack direction="row">
         <GitHubButton />
+
         <LinkedInButton />
-      </Box>
-    </Box>
+      </Stack>
+    </Stack>
   );
 }
 
@@ -77,13 +63,7 @@ function WorkSection() {
     <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
       <SectionTitle title="Work" />
 
-      <Grid
-        container
-        spacing={2}
-        sx={{ mb: 6 }}
-        alignItems="start"
-        justifyContent="start"
-      >
+      <Grid container spacing={3}>
         {data.work.map((work, index) => (
           <Grid key={index} xs={12} sm={6} md={4}>
             <WorkCard work={work} />
@@ -126,6 +106,7 @@ function SideProjectsSection() {
   );
 }
 
+
 function AboutMeSection() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
@@ -135,9 +116,12 @@ function AboutMeSection() {
         sx={{
           maxWidth: myTheme.breakpoints.values.md,
         }}
-
       >
-        {data.aboutMe}
+        <span
+          dangerouslySetInnerHTML={{
+            __html: data.aboutMe
+          }}
+        />
       </Typography>
     </Box>
   );
@@ -183,7 +167,7 @@ function ContactSection() {
 
 function SectionTitle({ title }: { title: string }) {
   return (
-    <Typography level="h3" sx={{ pb: 3, fontWeight: 600, textAlign: 'left' }}>
+    <Typography level="h2" fontWeight={900} sx={{ pb: 3, textAlign: "left" }}>
       {title}
     </Typography>
   );
@@ -198,31 +182,32 @@ function WorkCard({ work }: { work: Work }) {
         flexDirection: "column",
       }}
     >
-      <Box
-        component={"a"}
-        target={"_blank"}
-        rel={"noreferrer noopener"}
+      <CardOverflow
+        component="a"
+        target="_blank"
+        rel="noreferrer noopener"
         href={work.companyUrl}
         sx={{
-          paddingTop: `${(9 / 16) * 100}%`,
           position: "relative",
           background: work.companyImageBackgroundColor,
         }}
       >
-        {work.companyImage && (
-          <img
-            src={work.companyImage}
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "contain",
-            }}
-          />
-        )}
-      </Box>
+        <AspectRatio ratio={16 / 9}>
+          {work.companyImage && (
+            <img
+              src={work.companyImage}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+              }}
+            />
+          )}
+        </AspectRatio>
+      </CardOverflow>
 
       <CardContent sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <Typography
@@ -236,27 +221,19 @@ function WorkCard({ work }: { work: Work }) {
           {work.companyName}
         </Typography>
 
-        <Typography
-          sx={{ display: "flex", items: "center" }}
-          level="title-sm"
-        >
+        <Typography sx={{ display: "flex", items: "center" }} level="title-sm">
           {work.jobTitle}
         </Typography>
 
         <Typography
           sx={{ display: "flex", items: "center", mb: 2 }}
           level="title-sm"
-
         >
           {`${work.startDate.getFullYear()} - ${work.endDate === "Present" ? "Present" : work.endDate.getFullYear()
             }`}
         </Typography>
 
-        <Typography
-          level="body-md"
-          sx={{ mb: 2 }}
-
-        >
+        <Typography level="body-md" sx={{ mb: 2 }}>
           {work.jobDescription}
         </Typography>
       </CardContent>
@@ -273,55 +250,73 @@ function ProjectCard({ project }: { project: Project }) {
         flexDirection: "column",
       }}
     >
-      <Box
+      <CardOverflow
         sx={{
-          paddingTop: `${(9 / 16) * 100}%`,
           position: "relative",
           overflow: "hidden",
         }}
       >
-        {project.youTubeVideoId ? (
-          <ClientOnly>
-            {() => (
-              <Player
-                controls
-                loop
-                muted
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                }}
+        <AspectRatio ratio={16 / 9}>
+          {project.youTubeVideoId ? (
+            <ClientOnly>
+              {() => (
+                <Player
+                  controls
+                  loop
+                  muted
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                  }}
+                  width="100%"
+                  height="100%"
+                  light={project.imageSrc}
+                  url={toYouTubeVideoUrl({
+                    youTubeVideoId: project.youTubeVideoId!,
+                  })}
+                />
+              )}
+            </ClientOnly>
+          ) : project.liveUrl || project.codeUrl ? (
+            <Box
+              component="a"
+              target={"_blank"}
+              rel={"noreferrer noopener"}
+              href={project.liveUrl ?? project.codeUrl}
+            >
+              <img
+                src={project.imageSrc}
                 width="100%"
                 height="100%"
-                light={project.imageSrc}
-                url={toYouTubeVideoUrl({
-                  youTubeVideoId: project.youTubeVideoId!,
-                })}
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                }}
               />
-            )}
-          </ClientOnly>
-        ) : project.liveUrl || project.codeUrl ? (
-          <Box
-            component="a"
-            target={"_blank"}
-            rel={"noreferrer noopener"}
-            href={project.liveUrl ?? project.codeUrl}
-          >
-            <img src={project.imageSrc} width="100%" height="100%" style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} />
-          </Box>
-        ) : (
-          <img src={project.imageSrc} width="100%" height="100%" style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} />
-        )}
-      </Box>
-
-      <Divider />
+            </Box>
+          ) : (
+            <img
+              src={project.imageSrc}
+              width="100%"
+              height="100%"
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          )}
+        </AspectRatio>
+      </CardOverflow>
 
       <CardContent sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
         {project.liveUrl || project.codeUrl ? (
           <Typography
             component="a"
-
             target="_blank"
             rel="noreferrer noopener"
             href={project.liveUrl ?? project.codeUrl}
@@ -335,10 +330,7 @@ function ProjectCard({ project }: { project: Project }) {
             {project.title}
           </Typography>
         )}
-        <Typography
-          level="body-md"
-          sx={{ mb: 2 }}
-        >
+        <Typography level="body-md" sx={{ mb: 2 }}>
           {project.description}
         </Typography>
         <Box
@@ -348,7 +340,6 @@ function ProjectCard({ project }: { project: Project }) {
             gap: 1,
             paddingY: 1,
           }}
-        // variant="outlined"
         >
           {project.topics.sort().map((topic) => {
             const src = topicToImageSrc[topic];
@@ -358,7 +349,6 @@ function ProjectCard({ project }: { project: Project }) {
                 size="sm"
                 startDecorator={src ? <Avatar src={src} /> : undefined}
                 variant="outlined"
-
               >
                 {topicToName[topic]}
               </Chip>
@@ -367,50 +357,43 @@ function ProjectCard({ project }: { project: Project }) {
         </Box>
 
         <Box sx={{ flex: 1 }} />
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 1,
+            color: "warning.main",
+            mb: -1,
+          }}
+        >
+          {!Boolean(project.liveUrl) && (
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <InfoOutlined sx={{ width: 18, height: 18, marginRight: 1 }} />
+              <Typography level="body-xs">
+                Project is not deployed anymore
+              </Typography>
+            </Box>
+          )}
+          {!Boolean(project.codeUrl) && (
+            <Stack direction="row" gap={1}>
+              <InfoOutlined sx={{ width: 18, height: 18, }} />
+              <Typography level="body-xs">Source code is private</Typography>
+            </Stack>
+          )}
+        </Box>
       </CardContent>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 1,
-          color: "warning.main",
-          mb: -1,
-        }}
-      >
-        {!Boolean(project.liveUrl) && (
-          <Box
-            sx={{
-              paddingX: 2,
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <InfoOutlined sx={{ width: 18, height: 18, marginRight: 1 }} />
-            <Typography level="body-xs">
-              Project is not deployed anymore
-            </Typography>
-          </Box>
-        )}
-        {!Boolean(project.codeUrl) && (
-          <Box
-            sx={{
-              paddingX: 2,
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <InfoOutlined sx={{ width: 18, height: 18, marginRight: 1 }} />
-            <Typography level="body-xs">Source code is private</Typography>
-          </Box>
-        )}
-      </Box>
       <CardActions>
         <Button
-          // target={"_blank"}
-          // rel={"noreferrer noopener"}
+          target="_blank"
+          rel="noreferrer noopener"
           href={project.liveUrl}
-          size="lg"
           startDecorator={<Web />}
+          variant="soft"
           disabled={!Boolean(project.liveUrl)}
         >
           Live Demo
@@ -418,16 +401,16 @@ function ProjectCard({ project }: { project: Project }) {
 
         <Button
           disabled={!Boolean(project.codeUrl)}
-          // target={"_blank"}
-          // rel={"noreferrer noopener"}
+          variant="plain"
+          target="_blank"
+          rel="noreferrer noopener"
           href={project.codeUrl}
-          size="lg"
           startDecorator={<Code />}
         >
           Source Code
         </Button>
       </CardActions>
-    </Card >
+    </Card>
   );
 }
 
@@ -450,4 +433,37 @@ function formatPhoneNumber(s: string): string {
 
 function toYouTubeVideoUrl({ youTubeVideoId }: { youTubeVideoId: string }) {
   return `https://www.youtube.com/watch?v=${youTubeVideoId}`;
+}
+
+import { GitHub, LinkedIn } from "@mui/icons-material";
+
+function GitHubButton() {
+  return (
+    <Button
+      size="lg"
+      target="_blank"
+      rel="noreferrer noopener"
+      // variant="contained"
+      fullWidth
+      href={data.Github.url}
+      startDecorator={<GitHub />}
+    >
+      GitHub
+    </Button>
+  );
+}
+
+function LinkedInButton() {
+  return (
+    <Button
+      fullWidth
+      size="lg"
+      target="_blank"
+      rel="noreferrer noopener"
+      href={data.Linkedin.url}
+      startDecorator={<LinkedIn />}
+    >
+      LinkedIn
+    </Button>
+  );
 }
