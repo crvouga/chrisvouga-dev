@@ -14,7 +14,7 @@ const work: Work[] = [
   {
     name: "Freelancing",
     jobTitle: "Frontend Developer",
-    jobDescription: `Worked as a frontend developer. Mainly developed static sites for small businesses`,
+    jobDescription: `Worked as a frontend developer. Primarily developed static sites for small businesses`,
     startDate: new Date("2020-01-01"),
     endDate: new Date("2022-11-01"),
   },
