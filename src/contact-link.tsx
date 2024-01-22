@@ -33,9 +33,9 @@ export function ContactLink({
         {`Copied ${value} to clipboard`}
       </Snackbar>
 
-      <Tooltip placement="bottom-start" title={status === "copied" ? "Copied" : `Click to copy`}>
-        <Box onClick={onClipboardCopy}>
-          <Typography>
+      <Tooltip component="div" sx={{ flex: 1 }} placement="bottom-start" title={status === "copied" ? "Copied" : `Click to copy`}>
+        <Box component="button" sx={{ textAlign: "left", backgroundColor: "transparent", border: "none" }} onClick={onClipboardCopy}>
+          <Typography color="neutral">
             {label}
           </Typography>
           <Typography>

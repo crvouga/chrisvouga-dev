@@ -37,6 +37,7 @@ export function App() {
         <SideProjectsSection />
         <AboutMeSection />
         <ContactSection />
+        <Box sx={{ width: "100%", py: 8 }} />
       </Stack>
     </Container>
   );
@@ -149,9 +150,11 @@ function ContactSection() {
       <Box
         sx={{
           display: "flex",
-          flexDirection: "column",
-          gap: 2,
+          // flexDirection: "column",
+          // gap: 2,
           maxWidth: myTheme.breakpoints.values.sm,
+          flexDirection: { sm: "column", md: "row" },
+          gap: { xs: 1, sm: 2, md: 4 }
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
@@ -171,12 +174,13 @@ function ContactSection() {
             value={formatPhoneNumber(data.phoneNumber)}
           />
         </Box>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2, }}>
           <GitHubButton />
+
           <LinkedInButton />
         </Box>
       </Box>
-    </Box>
+    </Box >
   );
 }
 
@@ -379,6 +383,7 @@ function ProjectCard({ project }: { project: Project }) {
       </Stack>
       <CardActions>
         <Button
+          component="a"
           target="_blank"
           rel="noreferrer noopener"
           href={project.deployment.t === "public" ? project.deployment.url : undefined}
@@ -391,6 +396,7 @@ function ProjectCard({ project }: { project: Project }) {
 
 
         <Button
+          component="a"
           disabled={project.code.t !== "public"}
           variant="plain"
           target="_blank"
@@ -436,6 +442,7 @@ function GitHubButton() {
       rel="noreferrer noopener"
       variant="soft"
       size="lg"
+      component="a"
       href={data.Github.url}
       startDecorator={<GitHub />}
     >
@@ -447,6 +454,7 @@ function GitHubButton() {
 function LinkedInButton() {
   return (
     <Button
+      component="a"
       size="lg"
       target="_blank"
       rel="noreferrer noopener"
