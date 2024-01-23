@@ -67,6 +67,14 @@ function Heading() {
         }}
         spacing={2}
       >
+        <ContactLink
+          icon={<Email />}
+          href={`mailTo:${data.emailAddress}`}
+          hrefLabel={`Email`}
+          label="Email"
+          value={data.emailAddress}
+        />
+        
         <GitHubButton />
 
         <LinkedInButton />
@@ -162,13 +170,15 @@ function Contacts() {
           value={data.emailAddress}
         />
 
-        <ContactLink
-          icon={<Phone />}
-          href={`tel:${data.phoneNumber}`}
-          hrefLabel={`Call`}
-          label="Phone"
-          value={formatPhoneNumber(data.phoneNumber)}
-        />
+        {false && (
+          <ContactLink
+            icon={<Phone />}
+            href={`tel:${data.phoneNumber}`}
+            hrefLabel={`Call`}
+            label="Phone"
+            value={formatPhoneNumber(data.phoneNumber)}
+          />
+        )}
       </Box>
       <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
         <GitHubButton />
