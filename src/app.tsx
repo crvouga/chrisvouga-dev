@@ -22,7 +22,6 @@ import {
   Stack,
   Typography,
 } from "@mui/joy";
-import { Collapse } from "@mui/material";
 import { useState } from "react";
 import Player from "react-player";
 import { ClientOnly } from "vite-react-ssg/single-page";
