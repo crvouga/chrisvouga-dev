@@ -1,4 +1,12 @@
-import { Code, Email, InfoOutlined, Phone, Web } from "@mui/icons-material";
+import {
+  Code,
+  Email,
+  GitHub,
+  InfoOutlined,
+  LinkedIn,
+  Phone,
+  Web,
+} from "@mui/icons-material";
 import {
   AspectRatio,
   Avatar,
@@ -14,6 +22,8 @@ import {
   Stack,
   Typography,
 } from "@mui/joy";
+import { Collapse } from "@mui/material";
+import { useState } from "react";
 import Player from "react-player";
 import { ClientOnly } from "vite-react-ssg/single-page";
 import {
@@ -26,6 +36,8 @@ import {
 } from "../data";
 import { ContactLink } from "./contact-link";
 import myTheme from "./theme";
+
+const MAX_CARD_COUNT = 9;
 
 export function App() {
   return (
@@ -74,7 +86,7 @@ function Heading() {
           label="Email"
           value={data.emailAddress}
         />
-        
+
         <GitHubButton />
 
         <LinkedInButton />
@@ -116,17 +128,59 @@ function WorkProjectsSection() {
 }
 
 function SideProjectsSection() {
+  const [state, setState] = useState<"contracted" | "expanded">("contracted");
   return (
     <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
       <SectionTitle title="Side Projects" />
 
       <Grid container spacing={3}>
-        {data.sideProjects.map((project, index) => (
+        {data.sideProjects.slice(0, MAX_CARD_COUNT).map((project, index) => (
           <Grid key={index} xs={12} sm={6} md={4}>
             <ProjectCard project={project} />
           </Grid>
         ))}
       </Grid>
+
+      {state === "expanded" && (
+        <Grid container spacing={3}>
+          {data.sideProjects
+            .slice(MAX_CARD_COUNT, Infinity)
+            .map((project, index) => (
+              <Grid key={index} xs={12} sm={6} md={4}>
+                <ProjectCard project={project} />
+              </Grid>
+            ))}
+        </Grid>
+      )}
+
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          pt: 3,
+        }}
+      >
+        {state === "contracted" && (
+          <Button
+            variant="solid"
+            size="lg"
+            onClick={() => setState("expanded")}
+          >
+            See more
+          </Button>
+        )}
+
+        {state === "expanded" && (
+          <Button
+            variant="solid"
+            size="lg"
+            onClick={() => setState("contracted")}
+          >
+            See less
+          </Button>
+        )}
+      </Box>
     </Box>
   );
 }
@@ -222,7 +276,11 @@ function WorkCard({ work }: { work: Work }) {
           target="_blank"
           rel="noreferrer noopener"
           href={work.infoUrl}
-          sx={{ mb: 1, textDecoration: "underline" }}
+          sx={{
+            mb: 1,
+            textDecoration:
+              typeof work.infoUrl === "string" ? "underline" : undefined,
+          }}
         >
           {work.name}
         </Typography>
@@ -332,7 +390,7 @@ function ProjectCard({ project }: { project: Project }) {
                 sx: { mb: 1, textDecoration: "underline" },
               }
             : {
-                sx: { mb: 1, textDecoration: "underline" },
+                sx: { mb: 1 },
               })}
         >
           {project.title}
@@ -455,8 +513,6 @@ function formatPhoneNumber(s: string): string {
 function toYouTubeVideoUrl({ youTubeVideoId }: { youTubeVideoId: string }) {
   return `https://www.youtube.com/watch?v=${youTubeVideoId}`;
 }
-
-import { GitHub, LinkedIn } from "@mui/icons-material";
 
 function GitHubButton() {
   return (

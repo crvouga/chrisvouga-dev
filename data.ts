@@ -93,7 +93,7 @@ const sideProjects: Project[] = [
     code: {
       t: "private",
     },
-    description: `${a(gamezillaHref, 'gamezilla.app')} is work-in-progress multiplayer gaming app. Implemented using a full-stack variant of the Elm architecture in TypeScript. Copied from the ${a(
+    description: `${a(gamezillaHref, 'gamezilla.app')} is a work-in-progress multiplayer gaming app. Implemented using a full-stack variant of the Elm architecture in TypeScript. Copied from the ${a(
       lamderaHref,
       "Lamdera"
     )} platform.`,
