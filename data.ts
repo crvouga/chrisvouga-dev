@@ -93,7 +93,7 @@ const sideProjects: Project[] = [
     code: {
       t: "private",
     },
-    description: `${a(gamezillaHref, 'gamezilla.app')} is a work-in-progress multiplayer gaming app. Implemented using a full-stack variant of the Elm architecture in TypeScript. Copied from the ${a(
+    description: `${a(gamezillaHref, "gamezilla.app")} is a work-in-progress multiplayer gaming app. Implemented using a full-stack variant of the Elm architecture in TypeScript. Copied from the ${a(
       lamderaHref,
       "Lamdera"
     )} platform.`,
@@ -239,6 +239,21 @@ const sideProjects: Project[] = [
       "shopify",
       "typescript",
     ],
+  },
+
+  {
+    title: "LTI compatible quiz maker",
+    code: {
+      t: "public",
+      url: "https://github.com/crvouga/quiz-maker",
+    },
+    deployment: {
+      t: "not-deployed-anymore",
+    },
+    description:
+      "This app was built to serve as an example of LTI-compatible apps. The app itself is a quiz maker app where instructors can create quizzes and students can take them all inside of a hosting LMS.",
+    imageSrc: null,
+    topics: ["css", "express", "nodejs", "tailwind", "typescript", "vue"],
   },
 
   {
@@ -395,7 +410,7 @@ export type Project = {
   deployment: Deployment;
   code: Code;
   description: string;
-  imageSrc: string;
+  imageSrc: string | null;
   youTubeVideoId?: string;
   topics: Topic[];
 };

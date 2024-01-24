@@ -1,38 +1,11 @@
-import {
-  Code,
-  Email,
-  GitHub,
-  InfoOutlined,
-  LinkedIn,
-  Phone,
-  Web,
-} from "@mui/icons-material";
-import {
-  AspectRatio,
-  Avatar,
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardOverflow,
-  Chip,
-  Container,
-  Grid,
-  Stack,
-  Typography,
-} from "@mui/joy";
+
+
+import { Code, Email, GitHub, InfoOutlined, LinkedIn, Phone, Web } from "@mui/icons-material";
+import { AspectRatio, Avatar, Box, Button, Card, CardActions, CardContent, CardOverflow, Chip, Container, Grid, Stack, Typography } from "@mui/joy";
 import { useState } from "react";
 import Player from "react-player";
 import { ClientOnly } from "vite-react-ssg/single-page";
-import {
-  Project,
-  Work,
-  data,
-  projectToLinkHref,
-  topicToImageSrc,
-  topicToName,
-} from "../data";
+import { Project, Work, data, projectToLinkHref, topicToImageSrc, topicToName } from "../data";
 import { ContactLink } from "./contact-link";
 import myTheme from "./theme";
 
@@ -336,44 +309,49 @@ function ProjectCard({ project }: { project: Project }) {
                   }}
                   width="100%"
                   height="100%"
-                  light={project.imageSrc}
+                  light={project.imageSrc ?? undefined}
                   url={toYouTubeVideoUrl({
                     youTubeVideoId: project.youTubeVideoId!,
                   })}
                 />
               )}
             </ClientOnly>
-          ) : linkHref ? (
+          ) : (
             <Box
-              component="a"
-              target={"_blank"}
-              rel={"noreferrer noopener"}
-              href={linkHref}
+              {...(linkHref
+                ? {
+                    component: "a",
+                    target: "_blank",
+                    rel: "noreferrer noopener",
+                    href: linkHref,
+                  }
+                : {})}
             >
-              <img
-                src={project.imageSrc}
-                width="100%"
-                height="100%"
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  width: "100%",
-                  height: "100%",
-                }}
+              <Box
+                {...(project.imageSrc
+                  ? {
+                      component: "img",
+                      width: "100%",
+                      height: "100%",
+                      src: project.imageSrc,
+                      sx: {
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                      },
+                    }
+                  : {
+                      sx: {
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                        background: `linear-gradient(to right bottom, #2196f3, #8e24aa)`,
+                      },
+                    })}
               />
             </Box>
-          ) : (
-            <img
-              src={project.imageSrc}
-              width="100%"
-              height="100%"
-              style={{
-                position: "absolute",
-                inset: 0,
-                width: "100%",
-                height: "100%",
-              }}
-            />
           )}
         </AspectRatio>
       </CardOverflow>
