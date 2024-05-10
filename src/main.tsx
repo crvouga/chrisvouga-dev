@@ -1,4 +1,5 @@
-import { CssVarsProvider, getInitColorSchemeScript, CssBaseline } from "@mui/joy";
+import '@fontsource/inter';
+import { CssBaseline, CssVarsProvider, getInitColorSchemeScript } from "@mui/joy";
 import { ViteReactSSG } from "vite-react-ssg/single-page";
 import theme from "../src/theme";
 import { App } from "./app";
