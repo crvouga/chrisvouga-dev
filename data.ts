@@ -8,15 +8,15 @@ const work: Work[] = [
     infoUrl: "https://oneorigin.us/",
     jobTitle: "Senior Software Developer",
     jobDescription: `Working as a full-stack software developer. Guiding junior developers. Developing products for clients at ASU`,
-    startDate: new Date("2022-11-01"),
-    endDate: "Present",
+    yearStart: 2022,
+    yearEnd: "Present",
   },
   {
     name: "Freelancing",
     jobTitle: "Frontend Developer",
     jobDescription: `Worked as a frontend developer. Primarily developed static sites for small businesses`,
-    startDate: new Date("2020-01-01"),
-    endDate: new Date("2022-11-01"),
+    yearStart: 2020,
+    yearEnd: 2022,
   },
 ];
 
@@ -430,8 +430,8 @@ export type Work = {
   infoUrl?: string;
   jobTitle: string;
   jobDescription: string;
-  startDate: Date;
-  endDate: Date | "Present";
+  yearStart: number;
+  yearEnd: number | "Present";
 };
 
 //

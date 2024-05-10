@@ -87,7 +87,6 @@ function HeadingSoftwareDeveloper() {
         WebkitTextFillColor: 'transparent',
         color: 'transparent',  
         paddingBottom: '0.5rem', 
-        fontSize: '3rem', 
         fontWeight: 1000,
       }}
     >
@@ -282,8 +281,8 @@ function WorkCard({ work }: { work: Work }) {
           sx={{ display: "flex", items: "center", mb: 2 }}
           level="title-sm"
         >
-          {`${work.startDate.getFullYear()} - ${
-            work.endDate === "Present" ? "Present" : work.endDate.getFullYear()
+          {`${work.yearStart.getFullYear()} - ${
+            work.yearEnd === "Present" ? "Present" : work.yearEnd.getFullYear()
           }`}
         </Typography>
 
@@ -468,7 +467,7 @@ function ProjectCard({ project }: { project: Project }) {
           variant="soft"
           disabled={project.deployment.t !== "public"}
         >
-          Live Deployment
+          Deployment
         </Button>
 
         <Button
