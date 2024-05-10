@@ -43,13 +43,19 @@ function Heading() {
       </Stack>
 
       <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent={{
-          xs: "flex-start",
-          sm: "flex-end",
+        direction={{
+          sm: "column",
+          md: "row",
         }}
-        spacing={2}
+        alignItems={{
+          sm: "flex-start",
+          md: "center",
+        }}
+        justifyContent={{
+          sm: "flex-start",
+          md: "flex-end",
+        }}
+        gap={2}
       >
         <ContactLink
           icon={<Email />}
@@ -59,9 +65,11 @@ function Heading() {
           value={data.emailAddress}
         />
 
-        <GitHubButton />
+        <Stack direction="row" gap={2}>
+          <GitHubButton />
 
-        <LinkedInButton />
+          <LinkedInButton />
+        </Stack>
       </Stack>
     </Stack>
   );
@@ -106,25 +114,13 @@ function SideProjectsSection() {
       <SectionTitle title="Side Projects" />
 
       <Grid container spacing={3}>
-        {data.sideProjects.slice(0, MAX_CARD_COUNT).map((project, index) => (
+        {data.sideProjects.slice(0, state === "expanded" ? Infinity : MAX_CARD_COUNT).map((project, index) => (
           <Grid key={index} xs={12} sm={6} md={4}>
             <ProjectCard project={project} />
           </Grid>
         ))}
       </Grid>
-
-      {state === "expanded" && (
-        <Grid container spacing={3}>
-          {data.sideProjects
-            .slice(MAX_CARD_COUNT, Infinity)
-            .map((project, index) => (
-              <Grid key={index} xs={12} sm={6} md={4}>
-                <ProjectCard project={project} />
-              </Grid>
-            ))}
-        </Grid>
-      )}
-
+ 
       <Box
         sx={{
           display: "flex",
