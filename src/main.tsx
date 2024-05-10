@@ -14,6 +14,7 @@ function Root() {
             colorSchemeSelector="#demo_dark-mode-by-default"
             modeStorageKey="demo_dark-mode-by-default"
             disableNestedContext
+            defaultColorScheme="dark"
         >
             {getInitColorSchemeScript({ defaultMode: 'dark' })}
             <CssBaseline />

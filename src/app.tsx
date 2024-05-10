@@ -2,6 +2,7 @@
 
 import { Code, Email, GitHub, InfoOutlined, LinkedIn, Phone, Web } from "@mui/icons-material";
 import { AspectRatio, Avatar, Box, Button, Card, CardActions, CardContent, CardOverflow, Chip, Container, Grid, Stack, Typography } from "@mui/joy";
+import { useTheme } from '@mui/material/styles';
 import { useState } from "react";
 import Player from "react-player";
 import { ClientOnly } from "vite-react-ssg/single-page";
@@ -37,9 +38,8 @@ function Heading() {
         <Typography level="h1" fontWeight={900}>
           Chris Vouga
         </Typography>
-        <Typography level="h1" color="primary" fontWeight={900}>
-          Software Developer
-        </Typography>
+        
+        <HeadingSoftwareDeveloper />
       </Stack>
 
       <Stack
@@ -72,6 +72,35 @@ function Heading() {
         </Stack>
       </Stack>
     </Stack>
+  );
+}
+
+function HeadingSoftwareDeveloper() {
+  const theme = useTheme();
+  console.log(theme)
+
+  // @ts-expect-error
+  const start = theme?.palette?.primary?.[300];
+
+  // @ts-expect-error
+  const stop = theme?.palette?.primary?.[500];
+  
+  return (
+    <Typography
+      level="h1"
+      sx={{
+        backgroundImage: `linear-gradient(to bottom, ${start}, ${stop})`,
+        backgroundClip: 'text',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        color: 'transparent',  
+        paddingBottom: '0.5rem', 
+        fontSize: '3rem', 
+        fontWeight: 1000,
+      }}
+    >
+      Software Developer
+    </Typography>
   );
 }
 
