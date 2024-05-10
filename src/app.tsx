@@ -77,7 +77,6 @@ function Heading() {
 
 function HeadingSoftwareDeveloper() {
   const theme = useTheme();
-  console.log(theme)
 
   // @ts-expect-error
   const start = theme?.palette?.primary?.[300];
