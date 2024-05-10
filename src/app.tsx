@@ -281,9 +281,7 @@ function WorkCard({ work }: { work: Work }) {
           sx={{ display: "flex", items: "center", mb: 2 }}
           level="title-sm"
         >
-          {`${work.yearStart.getFullYear()} - ${
-            work.yearEnd === "Present" ? "Present" : work.yearEnd.getFullYear()
-          }`}
+          {`${work.yearStart} - ${work.yearEnd}`}
         </Typography>
 
         <Typography level="body-md" sx={{ mb: 2 }}>
