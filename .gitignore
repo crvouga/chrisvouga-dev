@@ -26,3 +26,5 @@ dist-ssr
 
 tsconfig.tsbuildinfo
 .vite-react-ssg-temp
+.lsp
+.clj-kondo
