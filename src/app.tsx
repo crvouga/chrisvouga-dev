@@ -1,11 +1,9 @@
-
-
 import { Code, Email, GitHub, InfoOutlined, LinkedIn, Phone, Web } from "@mui/icons-material";
 import { AspectRatio, Avatar, Box, Button, Card, CardActions, CardContent, CardOverflow, Chip, Container, Grid, Stack, Typography } from "@mui/joy";
 import { useState } from "react";
 import Player from "react-player";
 import { ClientOnly } from "vite-react-ssg/single-page";
-import { Project, Work, data, projectToLinkHref, topicToImageSrc, topicToName } from "../data";
+import { Project, Work, data, projectToLinkHref, topicToImageSrc, topicToName } from "../content";
 import { ContactLink } from "./contact-link";
 import myTheme from "./theme";
 
