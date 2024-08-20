@@ -67,6 +67,15 @@ const workProjects: Project[] = [
     ],
   },
   {
+    title: "Sun devils",
+    deployment: { t: "public", url: "https://sundevils.com/" },
+    code: { t: "private" },
+    description:
+      "The official website for the ASU Sun Devils. My contributions include developing interactive react components like a upcoming game feed and news feed",
+    imageSrc: "/sun-devils.png",
+    topics: ["bootstrap", "drupal", "javascript", "react", "css", "php"],
+  },
+  {
     title: "Orchard",
     code: {
       t: "private",
@@ -93,13 +102,16 @@ const sideProjects: Project[] = [
     code: {
       t: "private",
     },
-    description: `${a(gamezillaHref, "gamezilla.app")} is a work-in-progress multiplayer gaming app. Implemented using a full-stack variant of the Elm architecture in TypeScript. Copied from the ${a(
+    description: `${a(
+      gamezillaHref,
+      "gamezilla.app"
+    )} is a work-in-progress multiplayer gaming app. Implemented using a full-stack variant of the Elm architecture in TypeScript. Copied from the ${a(
       lamderaHref,
       "Lamdera"
     )} platform.`,
     imageSrc: "/gamezilla.png",
     youTubeVideoId: "VSLpdPvHbD4",
-    topics: ["typescript", "react", "postgres", "tailwind", "socket-io", "bun"],
+    topics: ["typescript", "react", "postgres", "tailwind", "websocket", "bun"],
   },
 
   {
@@ -146,6 +158,21 @@ const sideProjects: Project[] = [
       "css",
       "react-query",
     ],
+  },
+
+  {
+    title: "moviefinder.app",
+    deployment: {
+      t: "public",
+      url: "https://www.moviefinder.app/",
+    },
+    code: {
+      t: "public",
+      url: "https://github.com/crvouga/moviefinder.app",
+    },
+    description: "A work-in-progress movie search app with a tiktok-like UI.",
+    imageSrc: "/moviefinder-app.png",
+    topics: ["roc", "tailwind", "sqlite", "htmx", "alphinejs", "javascript"],
   },
 
   {
@@ -527,6 +554,11 @@ export const topicToImageSrc = {
   python: "/python.svg",
   aws: "/aws.svg",
   bun: "/bun.svg",
+  websocket: "/websocket.svg",
+  alphinejs: "/alpinejs-icon.svg",
+  roc: "/roc.svg",
+  htmx: "/htmx.svg",
+  sqlite: "/sqlite.svg",
 };
 
 export type Topic = keyof typeof topicToImageSrc;
@@ -577,4 +609,9 @@ export const topicToName: {
   python: "Python",
   aws: "AWS",
   bun: "Bun",
+  websocket: "Web Sockets",
+  roc: "Roc",
+  alphinejs: "Alphine.js",
+  htmx: "htmx",
+  sqlite: "SQLite",
 };
