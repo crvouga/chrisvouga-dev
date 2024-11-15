@@ -172,7 +172,15 @@ const sideProjects: Project[] = [
     },
     description: "A work-in-progress movie search app with a tiktok-like UI.",
     imageSrc: "/moviefinder-app.png",
-    topics: ["roc", "tailwind", "sqlite", "htmx", "alphinejs", "javascript"],
+    topics: [
+      "rust",
+      "tailwind",
+      "postgres",
+      "htmx",
+      "alphinejs",
+      "javascript",
+      "css",
+    ],
   },
 
   {
@@ -559,6 +567,7 @@ export const topicToImageSrc = {
   roc: "/roc.svg",
   htmx: "/htmx.svg",
   sqlite: "/sqlite.svg",
+  rust: "/rust.svg",
 };
 
 export type Topic = keyof typeof topicToImageSrc;
@@ -614,4 +623,5 @@ export const topicToName: {
   alphinejs: "Alphine.js",
   htmx: "htmx",
   sqlite: "SQLite",
+  rust: "Rust",
 };
