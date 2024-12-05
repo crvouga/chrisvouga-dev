@@ -13,7 +13,7 @@ import {
   Typography,
 } from "@mui/joy";
 import Player from "react-player";
-import { ClientOnly } from "vite-react-ssg/single-page";
+
 import {
   Project,
   projectToLinkHref,
@@ -39,26 +39,22 @@ export function ProjectCard({ project }: { project: Project }) {
       >
         <AspectRatio ratio={16 / 9}>
           {project.youTubeVideoId ? (
-            <ClientOnly>
-              {() => (
-                <Player
-                  controls
-                  loop
-                  muted
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                  }}
-                  width="100%"
-                  height="100%"
-                  light={project.imageSrc[0]}
-                  url={toYouTubeVideoUrl({
-                    youTubeVideoId: project.youTubeVideoId!,
-                  })}
-                />
-              )}
-            </ClientOnly>
+            <Player
+              controls
+              loop
+              muted
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+              }}
+              width="100%"
+              height="100%"
+              light={project.imageSrc[0]}
+              url={toYouTubeVideoUrl({
+                youTubeVideoId: project.youTubeVideoId!,
+              })}
+            />
           ) : (
             <Box
               {...(linkHref
