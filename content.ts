@@ -27,6 +27,7 @@ const workProjects: Project[] = [
     code: { t: "private" },
     description:
       "Triangulator is a product developed by ASU that aims to automate the process of course transfers between universities. My contributions include being one of the leading developers on the project.",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/triangulator.png"],
     topics: [
       "typescript",
@@ -53,6 +54,7 @@ const workProjects: Project[] = [
     },
     description:
       "Study Hall is an education platform created by the Study Hall YouTube channel and ASU. My contributions include refactoring the payment system to increase reliability.",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/studyhall.png"],
     topics: [
       "javascript",
@@ -72,6 +74,7 @@ const workProjects: Project[] = [
     code: { t: "private" },
     description:
       "The official website for the ASU Sun Devils. My contributions include developing interactive react components like a upcoming game feed and news feed",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/sun-devils.png"],
     topics: ["bootstrap", "drupal", "javascript", "react", "css", "php"],
   },
@@ -86,6 +89,7 @@ const workProjects: Project[] = [
     },
     description:
       "Orchard is a learning tool developed by ASU that enables teachers to create highly customizable assignments for their students. My contributions include integrating Orchard with ASU's LMS using LTI 1.3.",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/orchard.png"],
     topics: ["php", "mysql", "drupal", "bootstrap", "javascript"],
   },
@@ -100,6 +104,7 @@ const workProjects: Project[] = [
     },
     description:
       "A product demo for Airr, a product offered by One Origin to automate the process of consuming transcripts.",
+    imageAlt: "project screenshot or video",
     imageSrc: [
       "/airr/1.png",
       "/airr/2.png",
@@ -139,6 +144,7 @@ const sideProjects: Project[] = [
       lamderaHref,
       "Lamdera"
     )} platform.`,
+    imageAlt: "project screenshot or video",
     imageSrc: ["/gamezilla.png"],
     youTubeVideoId: "VSLpdPvHbD4",
     topics: ["typescript", "react", "postgres", "tailwind", "websocket", "bun"],
@@ -154,6 +160,7 @@ const sideProjects: Project[] = [
       t: "public",
       url: "https://github.com/crvouga/headless-combobox",
     },
+    imageAlt: "project screenshot or video",
     imageSrc: [
       "https://github.com/crvouga/headless-combobox/raw/main/demo.gif",
     ],
@@ -173,6 +180,7 @@ const sideProjects: Project[] = [
     },
     description:
       "Watch trailers, write reviews and make movie lists with your friends.",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/pickflix.png"],
     youTubeVideoId: "-atthbuMFIM",
     topics: [
@@ -203,6 +211,7 @@ const sideProjects: Project[] = [
       url: "https://github.com/crvouga/moviefinder.app",
     },
     description: "A work-in-progress movie search app with a tiktok-like UI.",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/moviefinder-app.png"],
     topics: ["rust", "tailwind", "postgres", "datastar"],
   },
@@ -218,6 +227,7 @@ const sideProjects: Project[] = [
       // url: "https://todo.chrisvouga.dev",
     },
     description: "Fullstack todo app. Sign in and start tracking things todo.",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/todo.png"],
     topics: [
       "typescript",
@@ -242,6 +252,7 @@ const sideProjects: Project[] = [
       // url: "https://screenshotservice.chrisvouga.dev",
     },
     description: `A software-as-a service app that lets developers generate screenshots for their websites. It was used for this website.`,
+    imageAlt: "project screenshot or video",
     imageSrc: ["/screenshot-service.png"],
     youTubeVideoId: "lCEzYGJ0rN8",
     topics: [
@@ -268,6 +279,7 @@ const sideProjects: Project[] = [
       t: "private",
     },
     description: "A marketing website for a hospice courier company.",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/courier.png"],
     youTubeVideoId: "kFwPTJcM6I0",
     topics: ["css", "material-ui", "nextjs", "react", "typescript"],
@@ -284,6 +296,7 @@ const sideProjects: Project[] = [
     },
     description:
       "This app was built to serve as an example of LTI-compatible apps. The app itself is a quiz maker app where instructors can create quizzes and students can take them all inside of a hosting LMS.",
+    imageAlt: "project screenshot or video",
     imageSrc: [],
     topics: ["css", "express", "nodejs", "tailwind", "typescript", "vue"],
   },
@@ -300,6 +313,7 @@ const sideProjects: Project[] = [
     },
     description:
       "The official website and e-commerce store for the band alibi.",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/band.png"],
     youTubeVideoId: "vChYAGXsLuI",
     topics: [
@@ -326,6 +340,7 @@ const sideProjects: Project[] = [
       url: "https://www.imageresizerservice.com/",
     },
     description: `A zero dependency image resizer service. Used to optimize images for web apps. Made to be self-hosted.`,
+    imageAlt: "project screenshot or video",
     imageSrc: [],
     topics: ["go"],
   },
@@ -333,6 +348,7 @@ const sideProjects: Project[] = [
   {
     title: "Anime Blog",
     description: "A jamstack blog about anime.",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/anime.png"],
     topics: [
       "css",
@@ -364,6 +380,7 @@ const sideProjects: Project[] = [
       url: "https://github.com/crvouga/connect-four",
     },
     description: "Play the game Connect Four online with your friends",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/connect-four.png"],
     youTubeVideoId: "9_TbyftkaQw",
     topics: [
@@ -392,6 +409,7 @@ const sideProjects: Project[] = [
     },
     description:
       "Pure functional implementation of the classic game Snake with smooth snake movement",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/snake.png"],
     youTubeVideoId: "7El3RdkzlHs",
     topics: ["css", "javascript", "ramda", "react"],
@@ -408,6 +426,7 @@ const sideProjects: Project[] = [
       url: "https://github.com/crvouga/match-three",
     },
     description: "Match Three is a Candy Crush type game",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/match-three.png"],
     youTubeVideoId: "VBrlDgmXSoA",
     topics: ["css", "javascript", "ramda", "react", "redux", "redux-saga"],
@@ -425,6 +444,7 @@ const sideProjects: Project[] = [
     },
     description:
       "Cheese is an app that lets people make fake GCU ids so they can sneak into GCU events.",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/cheese.png"],
     youTubeVideoId: "hv3tRBHF7w4",
     topics: ["css", "typescript", "material-ui", "react", "firebase"],
@@ -441,6 +461,7 @@ const sideProjects: Project[] = [
       url: "https://github.com/crvouga/simon-says",
     },
     description: "An implementation of the classic memory game Simon Says.",
+    imageAlt: "project screenshot or video",
     imageSrc: ["/simon-says.png"],
     youTubeVideoId: "WrUFzlKL0E0",
     topics: ["css", "javascript", "ramda", "react", "redux", "redux-saga"],
@@ -485,6 +506,7 @@ export type Project = {
   code: Code;
   description: string;
   imageSrc: string[];
+  imageAlt: string;
   youTubeVideoId?: string;
   topics: Topic[];
 };

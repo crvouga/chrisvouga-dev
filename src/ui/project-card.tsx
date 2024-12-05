@@ -72,6 +72,7 @@ export function ProjectCard({ project }: { project: Project }) {
                       component: "img",
                       width: "100%",
                       height: "100%",
+                      alt: project.imageAlt,
                       src: project.imageSrc[0],
                       sx: {
                         position: "absolute",

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "preview": "bun build && bun x serve dist",
+    "preview": "bun run build && bun x serve dist",
     "tc": "tsc -w"
   },
   "dependencies": {
