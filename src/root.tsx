@@ -1,6 +1,5 @@
 import { CssBaseline, CssVarsProvider } from "@mui/joy";
 import InitColorSchemeScript from "@mui/joy/InitColorSchemeScript";
-import { ErrorBoundary } from "react-error-boundary";
 import { App } from "./app";
 
 export function Root() {
@@ -12,9 +11,7 @@ export function Root() {
       disableNestedContext
       defaultColorScheme="dark"
     >
-      <ErrorBoundary onError={console.log} fallback={null}>
-        <InitColorSchemeScript defaultMode="dark" />
-      </ErrorBoundary>
+      <InitColorSchemeScript defaultMode="dark" />
       <CssBaseline />
       <div id="demo_dark-mode-by-default">
         <App />
