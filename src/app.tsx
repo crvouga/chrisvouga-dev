@@ -37,6 +37,7 @@ import { ContactLink } from "./contact-link";
 import theme from "./theme";
 
 const MAX_CARD_COUNT = 9;
+const HIDDEN_CARD_COUNT = data.sideProjects.length - MAX_CARD_COUNT;
 
 export function App() {
   return (
@@ -170,34 +171,36 @@ function SideProjectsSection() {
           ))}
       </Grid>
 
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          pt: 3,
-        }}
-      >
-        {state === "contracted" && (
-          <Button
-            variant="solid"
-            size="lg"
-            onClick={() => setState("expanded")}
-          >
-            See more
-          </Button>
-        )}
+      {HIDDEN_CARD_COUNT > 0 && (
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            pt: 3,
+          }}
+        >
+          {state === "contracted" && (
+            <Button
+              variant="solid"
+              size="lg"
+              onClick={() => setState("expanded")}
+            >
+              {`See ${HIDDEN_CARD_COUNT.toLocaleString()} more`}
+            </Button>
+          )}
 
-        {state === "expanded" && (
-          <Button
-            variant="solid"
-            size="lg"
-            onClick={() => setState("contracted")}
-          >
-            See less
-          </Button>
-        )}
-      </Box>
+          {state === "expanded" && (
+            <Button
+              variant="solid"
+              size="lg"
+              onClick={() => setState("contracted")}
+            >
+              See less
+            </Button>
+          )}
+        </Box>
+      )}
     </Box>
   );
 }
@@ -352,7 +355,7 @@ function ProjectCard({ project }: { project: Project }) {
                   }}
                   width="100%"
                   height="100%"
-                  light={project.imageSrc ?? undefined}
+                  light={project.imageSrc[0]}
                   url={toYouTubeVideoUrl({
                     youTubeVideoId: project.youTubeVideoId!,
                   })}
@@ -371,12 +374,12 @@ function ProjectCard({ project }: { project: Project }) {
                 : {})}
             >
               <Box
-                {...(project.imageSrc
+                {...(project.imageSrc[0]
                   ? {
                       component: "img",
                       width: "100%",
                       height: "100%",
-                      src: project.imageSrc,
+                      src: project.imageSrc[0],
                       sx: {
                         position: "absolute",
                         inset: 0,
