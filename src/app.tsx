@@ -1,11 +1,40 @@
-import { Code, Email, GitHub, InfoOutlined, LinkedIn, Phone, Web } from "@mui/icons-material";
-import { AspectRatio, Avatar, Box, Button, Card, CardActions, CardContent, CardOverflow, Chip, Container, Grid, Stack, Typography } from "@mui/joy";
+import {
+  Code,
+  Email,
+  GitHub,
+  InfoOutlined,
+  LinkedIn,
+  Phone,
+  Web,
+} from "@mui/icons-material";
+import {
+  AspectRatio,
+  Avatar,
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardOverflow,
+  Chip,
+  Container,
+  Grid,
+  Stack,
+  Typography,
+} from "@mui/joy";
 import { useState } from "react";
 import Player from "react-player";
 import { ClientOnly } from "vite-react-ssg/single-page";
-import { Project, Work, data, projectToLinkHref, topicToImageSrc, topicToName } from "../content";
+import {
+  Project,
+  Work,
+  data,
+  projectToLinkHref,
+  topicToImageSrc,
+  topicToName,
+} from "../content";
 import { ContactLink } from "./contact-link";
-import myTheme from "./theme";
+import theme from "./theme";
 
 const MAX_CARD_COUNT = 9;
 
@@ -35,7 +64,7 @@ function Heading() {
         <Typography level="h1" fontWeight={900}>
           Chris Vouga
         </Typography>
-        
+
         <HeadingSoftwareDeveloper />
       </Stack>
 
@@ -73,18 +102,18 @@ function Heading() {
 }
 
 function HeadingSoftwareDeveloper() {
-  const start = myTheme.palette.primary[300];
-  const stop = myTheme.palette.primary[500];
+  const start = theme.palette.primary[300];
+  const stop = theme.palette.primary[500];
   return (
     <Typography
       level="h1"
       sx={{
         backgroundImage: `linear-gradient(to bottom, ${start}, ${stop})`,
-        backgroundClip: 'text',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        color: 'transparent',  
-        paddingBottom: '0.5rem', 
+        backgroundClip: "text",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        color: "transparent",
+        paddingBottom: "0.5rem",
         fontWeight: 1000,
       }}
     >
@@ -132,13 +161,15 @@ function SideProjectsSection() {
       <SectionTitle title="Side Projects" />
 
       <Grid container spacing={3}>
-        {data.sideProjects.slice(0, state === "expanded" ? Infinity : MAX_CARD_COUNT).map((project, index) => (
-          <Grid key={index} xs={12} sm={6} md={4}>
-            <ProjectCard project={project} />
-          </Grid>
-        ))}
+        {data.sideProjects
+          .slice(0, state === "expanded" ? Infinity : MAX_CARD_COUNT)
+          .map((project, index) => (
+            <Grid key={index} xs={12} sm={6} md={4}>
+              <ProjectCard project={project} />
+            </Grid>
+          ))}
       </Grid>
- 
+
       <Box
         sx={{
           display: "flex",
@@ -178,7 +209,7 @@ function AboutMeSection() {
       <Typography
         level="body-md"
         sx={{
-          maxWidth: myTheme.breakpoints.values.md,
+          maxWidth: theme.breakpoints.values.md,
         }}
       >
         <span
@@ -196,7 +227,7 @@ function Contacts() {
     <Box
       sx={{
         display: "flex",
-        maxWidth: myTheme.breakpoints.values.sm,
+        maxWidth: theme.breakpoints.values.sm,
         flexDirection: { xs: "column", md: "row" },
         gap: 4,
       }}
