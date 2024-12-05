@@ -1,4 +1,4 @@
-const bandHref = "https://www.instagram.com/thebandalibi/";
+const bandHref = "https://www.instagram.com/tripolartheband/";
 
 const lamderaHref = "https://lamdera.com/";
 
