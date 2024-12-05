@@ -27,16 +27,17 @@
 
 <body>
   <div id="root">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24"
-      class="animate-spin" width="48" height="48"
-      style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-      <path fill-rule="evenodd"
-        d="M12 19a7 7 0 100-14 7 7 0 000 14zm0 3c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
-        clip-rule="evenodd" opacity="0.2" />
-      <path d="M2 12C2 6.477 6.477 2 12 2v3a7 7 0 00-7 7H2z" />
-    </svg>
+    <div
+      style="position: absolute; top:0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24"
+        class="animate-spin" width="48" height="48" aria-busy="true">
+        <path fill-rule="evenodd"
+          d="M12 19a7 7 0 100-14 7 7 0 000 14zm0 3c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+          clip-rule="evenodd" opacity="0.2" />
+        <path d="M2 12C2 6.477 6.477 2 12 2v3a7 7 0 00-7 7H2z" />
+      </svg>
+    </div>
   </div>
-
   <script type="module" src="/src/main.tsx"></script>
 </body>
 
