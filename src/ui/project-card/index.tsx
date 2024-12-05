@@ -13,6 +13,7 @@ export function ProjectCard({ project }: { project: Project }) {
         height: "100%",
         display: "flex",
         flexDirection: "column",
+        paddingTop: 0,
       }}
     >
       <ProjectCardMedia project={project} linkHref={linkHref} />
