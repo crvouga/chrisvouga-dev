@@ -1,4 +1,3 @@
-import "@fontsource/inter";
 import { ViteReactSSG } from "vite-react-ssg/single-page";
 import { Root } from "./root";
 
