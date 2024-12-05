@@ -1,7 +1,6 @@
-import { Link } from "@mui/joy";
-import { Box } from "@mui/material";
-import { data } from "../../content";
 import { Launch } from "@mui/icons-material";
+import { Box, Link } from "@mui/joy";
+import { data } from "../../content";
 
 export function FooterSection() {
   return (
