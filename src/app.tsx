@@ -106,7 +106,7 @@ function HeadingSoftwareDeveloper() {
   const stop = theme.palette.primary[500];
   return (
     <Typography
-      level="h1"
+      level="h2"
       sx={{
         backgroundImage: `linear-gradient(to bottom, ${start}, ${stop})`,
         backgroundClip: "text",
