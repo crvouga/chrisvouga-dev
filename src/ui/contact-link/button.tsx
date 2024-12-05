@@ -34,3 +34,36 @@ export function ContactLinkButton({
     </Box>
   );
 }
+
+export function viewContactLinkButton({
+  label,
+  value,
+  onClick,
+}: {
+  label: string;
+  value: string;
+  onClick: string;
+}): string {
+  const style = `
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    `;
+
+  const labelStyle = `
+    color: var(--color-neutral);
+    `;
+
+  const valueStyle = `
+      color: black;
+    `;
+
+  return `
+      <button style="${style}" onclick="${onClick}">
+        <span style="${labelStyle}">${label}</span>
+        <br />
+        <span style="${valueStyle}">${value}</span>
+      </button>
+    `;
+}
