@@ -1,6 +1,7 @@
 import { CardContent, Typography } from "@mui/joy";
 import { Project } from "../../../../content";
 import { ProjectCardContentChips } from "./chips";
+import { ProjectCardContentTitle } from "./title";
 
 export function ProjectCardContent({
   project,
@@ -11,21 +12,7 @@ export function ProjectCardContent({
 }) {
   return (
     <CardContent sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
-      <Typography
-        level="h3"
-        {...(linkHref
-          ? {
-              component: "a",
-              target: "_blank",
-              href: linkHref,
-              sx: { mb: 1, textDecoration: "underline" },
-            }
-          : {
-              sx: { mb: 1 },
-            })}
-      >
-        {project.title}
-      </Typography>
+      <ProjectCardContentTitle project={project} linkHref={linkHref} />
 
       <Typography level="body-md" sx={{ mb: 2 }}>
         <span
