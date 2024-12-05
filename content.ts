@@ -517,6 +517,8 @@ export type Work = {
 //
 
 export const data = {
+  siteSourceCodeUrl: "https://github.com/crvouga/chrisvouga.dev",
+
   screenshotServiceProjectId: "3e158ff9-0b37-41d1-84d0-cae1397adf4b",
 
   metaTitle: "Chris Vouga • Web Developer",

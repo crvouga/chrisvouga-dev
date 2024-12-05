@@ -35,6 +35,7 @@ import {
 } from "../content";
 import { ContactLink } from "./contact-link";
 import theme from "./theme";
+import { FooterSection } from "./sections/footer";
 
 const MAX_CARD_COUNT = 9;
 const HIDDEN_CARD_COUNT = data.sideProjects.length - MAX_CARD_COUNT;
@@ -49,7 +50,7 @@ export function App() {
         <SideProjectsSection />
         <AboutMeSection />
         <ContactSection />
-        <Box sx={{ width: "100%", py: 8 }} />
+        <FooterSection />
       </Stack>
     </Container>
   );
