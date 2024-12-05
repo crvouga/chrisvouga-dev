@@ -3,18 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vite-react-ssg dev",
-    "build": "vite-react-ssg build",
-    "preview": "bun build && npx serve dist",
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "bun build && bun x serve dist",
     "tc": "tsc -w"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
     "@mui/icons-material": "^5.4.4",
-    "@mui/joy": "^5.0.0-beta.23",
+    "@mui/joy": "^5.0.0-beta.48",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-error-boundary": "^4.1.2",
     "react-player": "^2.10.1"
   },
   "devDependencies": {

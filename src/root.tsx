@@ -1,21 +1,22 @@
-import {
-  CssBaseline,
-  CssVarsProvider,
-  getInitColorSchemeScript,
-} from "@mui/joy";
+import { CssBaseline, CssVarsProvider } from "@mui/joy";
+import InitColorSchemeScript from "@mui/joy/InitColorSchemeScript";
+import { ErrorBoundary } from "react-error-boundary";
 import { App } from "./app";
 
 export function Root() {
   return (
     <CssVarsProvider
-      colorSchemeSelector="#dark-mode-by-default"
-      modeStorageKey="dark-mode-by-default"
+      defaultMode="dark"
+      colorSchemeSelector="#demo_dark-mode-by-default"
+      modeStorageKey="demo_dark-mode-by-default"
       disableNestedContext
       defaultColorScheme="dark"
     >
-      {getInitColorSchemeScript({ defaultMode: "dark" })}
+      <ErrorBoundary onError={console.log} fallback={null}>
+        <InitColorSchemeScript defaultMode="dark" />
+      </ErrorBoundary>
       <CssBaseline />
-      <div id="dark-mode-by-default">
+      <div id="demo_dark-mode-by-default">
         <App />
       </div>
     </CssVarsProvider>
