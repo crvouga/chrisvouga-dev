@@ -15,9 +15,6 @@ export const viewHeadingSection = () => {
     "header",
     {
       class: "header",
-      style: {
-        "align-items": "center",
-      },
     },
     [
       tag(
@@ -28,6 +25,7 @@ export const viewHeadingSection = () => {
             display: "flex",
             "align-items": "center",
             gap: unit(2),
+            "flex-shrink": 0,
           },
         },
         [
@@ -58,11 +56,9 @@ HEAD.push(
     .header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       margin-bottom: 3rem;
       max-width: 100%;
       flex-direction: column;
-      align-items: flex-start;
       gap: ${unit(2)};
     }
 
@@ -77,6 +73,7 @@ HEAD.push(
     @media (min-width: ${THEME.breakpoints.sm}) {
       .header {
         flex-direction: row;
+        align-items: center;
         gap: ${unit(2)};
       }
     }

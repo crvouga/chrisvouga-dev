@@ -20,7 +20,7 @@ export const viewHeadingContact = () => () => {
       tag(
         "div",
         {
-          class: "heading-contact",
+          class: "heading-contact-button",
         },
         [viewGithubButton({})(), viewLinkedInButton({})()]
       ),
@@ -33,28 +33,30 @@ HEAD.push(
     text(`
     .heading-contact {
       display: flex;
-      flex-direction: column;
-      flex-shrink: 0;
       gap: ${unit(2)};
       height: 100%;
+      flex: 1;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: flex-start;
       align-items: flex-start;
-      justify-content: center;
     }
-    @media (max-width: ${THEME.breakpoints.sm}px) {
+    
+    @media (max-width: ${THEME.breakpoints.sm}) {
       .heading-contact {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
       }
     }
-    @media (min-width: ${THEME.breakpoints.md}px) {
+    @media (min-width: ${THEME.breakpoints.md}) {
       .heading-contact {
         justify-content: flex-end;
         align-items: center;
         flex-direction: row;
       }
     }
-    .heading-contact {
+    .heading-contact-button {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
