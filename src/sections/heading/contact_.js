@@ -39,7 +39,6 @@ HEAD.push(
       height: 100%;
       align-items: flex-start;
       justify-content: center;
-      align-self: stretch;
     }
     @media (max-width: ${THEME.breakpoints.sm}px) {
       .heading-contact {

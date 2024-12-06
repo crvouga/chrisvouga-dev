@@ -15,6 +15,9 @@ export const viewHeadingSection = () => {
     "header",
     {
       class: "header",
+      style: {
+        "align-items": "center",
+      },
     },
     [
       tag(
