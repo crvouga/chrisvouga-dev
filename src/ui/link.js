@@ -1,9 +1,9 @@
 // @ts-check
 
-import { tag } from "../elem";
+import { tag } from "../core/elem";
 
 /**
- * @type {import("../elem").H}
+ * @type {import("../core/elem").View}
  */
 export const viewLink = (attrs, children) => {
   const href = attrs?.href;

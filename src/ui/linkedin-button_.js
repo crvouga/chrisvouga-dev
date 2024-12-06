@@ -4,7 +4,7 @@ import { linkedIn } from "./icons";
 
 /**
  *
- * @type {import("../elem").View<{}>}
+ * @type {import("../core/elem").ViewWithProps<{}>}
  */
 export const viewLinkedInButton = () => () => {
   return viewButton({

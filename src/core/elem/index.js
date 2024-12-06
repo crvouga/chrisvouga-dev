@@ -21,12 +21,12 @@
  */
 
 /**
- * @typedef {(attr?: Attrs, children?: Elem[]) => Elem} H
+ * @typedef {(attr?: Attrs, children?: Elem[]) => Elem} View
  */
 
 /**
  * @template Props
- * @typedef {(props: Props) => H} View
+ * @typedef {(props: Props) => View} ViewWithProps
  */
 
 /**

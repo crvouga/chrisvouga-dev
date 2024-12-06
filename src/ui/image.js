@@ -1,9 +1,9 @@
-import { ensureObject, fragment, tag, text } from "../elem";
+import { ensureObject, fragment, tag, text } from "../core/elem";
 import { HEAD } from "./head";
 import { THEME } from "./theme";
 
 /**
- * @type {import("../elem").View<{src: string, alt:string}>}
+ * @type {import("../core/elem").ViewWithProps<{src: string, alt:string}>}
  */
 export const viewImage = (props) => (attr, _) => {
   return fragment([

@@ -1,4 +1,4 @@
 /**
- * @type {import("../elem").Elem[]}
+ * @type {import("../core/elem").Elem[]}
  */
 export const HEAD = [];

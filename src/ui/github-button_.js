@@ -4,7 +4,7 @@ import { github } from "./icons";
 
 /**
  *
- * @type {import("../elem").View<{}>}
+ * @type {import("../core/elem").ViewWithProps<{}>}
  */
 export const viewGithubButton = () => () => {
   return viewButton({

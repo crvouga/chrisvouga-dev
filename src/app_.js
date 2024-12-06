@@ -1,7 +1,7 @@
 // @ts-check
 
 import { data } from "../content";
-import { tag, text } from "./elem";
+import { tag, text } from "./core/elem";
 import { viewAboutMeSection } from "./sections/about-me_";
 import { viewHeadingSection } from "./sections/heading/index_";
 import { viewSideProjectsSection } from "./sections/side-projects/index_";
@@ -11,7 +11,7 @@ import { HEAD } from "./ui/head";
 import { THEME } from "./ui/theme";
 
 /**
- * @returns {import("./elem").Elem}
+ * @returns {import("./core/elem").Elem}
  */
 export const viewApp = () => {
   return viewDoc({}, [
@@ -43,7 +43,7 @@ HEAD.push(
 );
 
 /**
- * @type {import("./elem").H}
+ * @type {import("./core/elem").View}
  */
 export const viewDoc = (_a, c) => {
   return tag("html", { lang: "en" }, [

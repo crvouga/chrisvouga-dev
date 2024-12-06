@@ -1,7 +1,7 @@
 // @ts-check
 
 import { projectToLinkHref } from "../../../content";
-import { tag } from "../../elem";
+import { tag } from "../../core/elem";
 import { viewCard, viewCardContent } from "../card";
 import { unit } from "../theme";
 import { viewProjectCardActions } from "./actions/index_";

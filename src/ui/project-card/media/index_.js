@@ -1,6 +1,6 @@
 // @ts-check
 
-import { tag, text } from "../../../elem";
+import { tag, text } from "../../../core/elem";
 import { HEAD } from "../../head";
 import { viewImage } from "../../image";
 import { THEME } from "../../theme";

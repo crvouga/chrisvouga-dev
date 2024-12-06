@@ -1,5 +1,5 @@
 import { topicToImageSrc, topicToName } from "../../../../content";
-import { tag, text } from "../../../elem";
+import { tag, text } from "../../../core/elem";
 import { viewAvatar } from "../../avatar";
 import { viewChip } from "../../chip";
 import { HEAD } from "../../head";

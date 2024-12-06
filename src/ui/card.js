@@ -1,11 +1,11 @@
 // @ts-check
 
-import { tag, text } from "../elem";
+import { tag, text } from "../core/elem";
 import { HEAD } from "./head";
 import { THEME, unit } from "./theme";
 
 /**
- * @type {import("../elem").H}
+ * @type {import("../core/elem").View}
  */
 export const viewCard = (attr, children) => {
   return tag("article", { ...attr, class: "card" }, children);
@@ -30,7 +30,7 @@ HEAD.push(
 );
 
 /**
- * @type {import("../elem").H}
+ * @type {import("../core/elem").View}
  */
 export const viewCardContent = (attrs, children) => {
   return tag("div", { ...attrs, class: "card-content" }, children);
@@ -52,7 +52,7 @@ HEAD.push(
 );
 
 /**
- * @type {import("../elem").H}
+ * @type {import("../core/elem").View}
  */
 export const viewCardActions = (attrs, children) => {
   return tag("div", { ...attrs, class: "card-actions" }, children);

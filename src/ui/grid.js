@@ -1,10 +1,10 @@
 // @ts-check
-import { tag, text } from "../elem";
+import { tag, text } from "../core/elem";
 import { HEAD } from "./head";
 import { THEME } from "./theme";
 
 /**
- * @type {import("../elem").H}
+ * @type {import("../core/elem").View}
  */
 export const viewGrid = (attr, children) => {
   return tag(
@@ -18,7 +18,7 @@ export const viewGrid = (attr, children) => {
 };
 
 /**
- * @type {import("../elem").H}
+ * @type {import("../core/elem").View}
  */
 export const viewGridItem = (attr, children) => {
   return tag(
@@ -33,7 +33,7 @@ export const viewGridItem = (attr, children) => {
 
 /**
  *
- * @returns {import("../elem").Elem}
+ * @returns {import("../core/elem").Elem}
  */
 const viewGridStyles = () => {
   return tag("style", {}, [

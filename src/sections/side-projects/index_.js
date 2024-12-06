@@ -6,7 +6,7 @@ import { viewProjectCard } from "../../ui/project-card/index_";
 import { viewSection } from "../../ui/section";
 
 /**
- * @type {import("../../elem").H}
+ * @type {import("../../core/elem").View}
  */
 export const viewSideProjectsSection = () => {
   return viewSection({

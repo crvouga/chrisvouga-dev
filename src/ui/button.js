@@ -1,6 +1,6 @@
 // @ts-check
 
-import { tag, text } from "../elem";
+import { tag, text } from "../core/elem";
 import { HEAD } from "./head";
 import { THEME } from "./theme";
 
@@ -9,7 +9,7 @@ import { THEME } from "./theme";
  */
 
 /**
- * @typedef {{tag:string; startDecorator: import("../elem").H, size: "sm" | "lg"; variant: "soft" | "plain"; disabled: boolean; text: string}} Props
+ * @typedef {{tag:string; startDecorator: import("../core/elem").View, size: "sm" | "lg"; variant: "soft" | "plain"; disabled: boolean; text: string}} Props
  */
 
 /**
@@ -57,7 +57,7 @@ const toClassName = (props) => {
 };
 
 /**
- * @type {import("../elem").View<Props>}
+ * @type {import("../core/elem").ViewWithProps<Props>}
  */
 export const viewButton = (props) => (attrs, children) => {
   const tagName = toTag(props);
@@ -82,7 +82,7 @@ export const viewButton = (props) => (attrs, children) => {
 };
 
 /**
- * @type {import("../elem").View<{}>}
+ * @type {import("../core/elem").ViewWithProps<{}>}
  */
 export const viewButtonStyles = (_props) => (_attrs, _children) => {
   return tag("style", {}, [

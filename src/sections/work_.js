@@ -6,7 +6,7 @@ import { viewSection } from "../ui/section";
 import { viewWorkCard } from "../ui/work-card_";
 
 /**
- * @type {import("../elem").H}
+ * @type {import("../core/elem").View}
  */
 export const viewWorkSection = () => {
   return viewSection({ title: "Work" })({}, [

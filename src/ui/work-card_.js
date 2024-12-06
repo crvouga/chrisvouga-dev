@@ -1,13 +1,13 @@
 // @ts-check
 
-import { tag } from "../elem";
+import { tag } from "../core/elem";
 import { viewCard, viewCardContent } from "./card";
 import { viewLink } from "./link";
 import { unit } from "./theme";
 import { viewTypography } from "./typography";
 
 /**
- * @type {import("../elem").View<{work: import("../../content").Work}>}
+ * @type {import("../core/elem").ViewWithProps<{work: import("../../content").Work}>}
  */
 export const viewWorkCard =
   ({ work }) =>

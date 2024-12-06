@@ -1,9 +1,9 @@
-import { tag, text } from "../../elem";
+import { tag, text } from "../../core/elem";
 import { HEAD } from "../../ui/head";
 import { viewTypography } from "../../ui/typography";
 
 /**
- * @type {import("../../elem").View<{ text: string }>}
+ * @type {import("../../core/elem").ViewWithProps<{ text: string }>}
  */
 export const viewColored =
   ({ text }) =>

@@ -1,4 +1,4 @@
-import { ensureObject, tag } from "../../../elem";
+import { ensureObject, tag } from "../../../core/elem";
 import { unit } from "../../theme";
 import { viewTypography } from "../../typography";
 import { viewProjectCardContentChips } from "./chips_";

@@ -1,17 +1,17 @@
 // @ts-check
 
-import { text } from "../elem";
-import { renderAttrs } from "../elem/render";
+import { text } from "../core/elem";
+import { renderAttrs } from "../core/elem/render";
 
 /**
- * @type {(attrs: import("../elem").Attrs | undefined, svg: string) => import("../elem").Elem}
+ * @type {(attrs: import("../core/elem").Attrs | undefined, svg: string) => import("../core/elem").Elem}
  */
 const icon = (attrs, svg) => {
   return text(svg.replace("<svg ", `<svg ${renderAttrs(attrs ?? {})} `));
 };
 
 /**
- * @type {import("../elem").H}
+ * @type {import("../core/elem").View}
  */
 export const linkedIn = (a, _) => {
   return icon(
@@ -21,7 +21,7 @@ export const linkedIn = (a, _) => {
 };
 
 /**
- * @type {import("../elem").H}
+ * @type {import("../core/elem").View}
  */
 export const github = (a, _) => {
   return icon(
@@ -31,7 +31,7 @@ export const github = (a, _) => {
 };
 
 /**
- * @type {import("../elem").H}
+ * @type {import("../core/elem").View}
  */
 export const infoOutline = (attrs, _) => {
   return icon(
@@ -41,7 +41,7 @@ export const infoOutline = (attrs, _) => {
 };
 
 /**
- * @type {import("../elem").H}
+ * @type {import("../core/elem").View}
  */
 export const web = (attrs, _children) => {
   return icon(
@@ -51,7 +51,7 @@ export const web = (attrs, _children) => {
 };
 
 /**
- * @type {import("../elem").H}
+ * @type {import("../core/elem").View}
  */
 export const _code = (attrs, _children) => {
   return icon(
@@ -61,7 +61,7 @@ export const _code = (attrs, _children) => {
 };
 
 /**
- * @type {import("../elem").H}
+ * @type {import("../core/elem").View}
  */
 export const code = (attrs, _children) => {
   return icon(
