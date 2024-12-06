@@ -29,7 +29,7 @@ export const THEME = {
   breakpoints: {
     xs: "0px",
     sm: "600px",
-    md: "960px",
+    md: "900px",
   },
 };
 

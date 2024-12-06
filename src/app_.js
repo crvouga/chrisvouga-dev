@@ -2,8 +2,9 @@
 
 import { data } from "../content";
 import { tag, text } from "./elem";
+import { viewAboutMeSection } from "./sections/about-me_";
 import { viewHeadingSection } from "./sections/heading/index_";
-import { viewSideProjects } from "./sections/side-projects/index_";
+import { viewSideProjectsSection } from "./sections/side-projects/index_";
 import { viewWorkProjectsSection } from "./sections/work-projects_";
 import { viewWorkSection } from "./sections/work_";
 import { HEAD } from "./ui/head";
@@ -18,7 +19,8 @@ export const viewApp = () => {
       viewHeadingSection(),
       viewWorkSection(),
       viewWorkProjectsSection(),
-      viewSideProjects(),
+      viewSideProjectsSection(),
+      viewAboutMeSection(),
     ]),
   ]);
 };

@@ -8,7 +8,7 @@ import { viewSection } from "../../ui/section";
 /**
  * @type {import("../../elem").H}
  */
-export const viewSideProjects = () => {
+export const viewSideProjectsSection = () => {
   return viewSection({
     title: "Side Projects",
   })({}, [
