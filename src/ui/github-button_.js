@@ -1,22 +1,22 @@
 import { data } from "../../content";
+import { viewButton } from "./button";
 import { github } from "./icons";
 
 /**
  *
- * @returns {string}
+ * @type {import("../elem").View<{}>}
  */
-export function viewGithubButton() {
-  return `
-    <a
-      role="button"
-      data-button-variant="soft"
-      data-button-size="lg"
-      target="_blank"
-      rel="noreferrer noopener"
-      href="${data.Github.url}"
-    >
-      ${github()}
-      LinkedIn
-    </a>
-  `;
-}
+export const viewGithubButton = () => () => {
+  return viewButton({
+    tag: "a",
+    variant: "soft",
+    size: "lg",
+    disabled: false,
+    startDecorator: github,
+    text: "GitHub",
+  })({
+    target: "_blank",
+    rel: "noreferrer noopener",
+    href: data.Github.url,
+  });
+};

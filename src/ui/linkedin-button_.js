@@ -1,22 +1,22 @@
 import { data } from "../../content";
+import { viewButton } from "./button";
 import { linkedIn } from "./icons";
 
 /**
  *
- * @returns {string}
+ * @type {import("../elem").View<{}>}
  */
-export function viewLinkedInButton() {
-  return `
-    <a
-      role="button"
-      data-button-variant="soft"
-      data-button-size="lg"
-      target="_blank"
-      rel="noreferrer noopener"
-      href="${data.Linkedin.url}"
-    >
-      ${linkedIn()}
-      LinkedIn
-    </a>
-  `;
-}
+export const viewLinkedInButton = () => () => {
+  return viewButton({
+    tag: "a",
+    variant: "soft",
+    size: "lg",
+    disabled: false,
+    startDecorator: linkedIn,
+    text: "LinkedIn",
+  })({
+    target: "_blank",
+    rel: "noreferrer noopener",
+    href: data.Linkedin.url,
+  });
+};

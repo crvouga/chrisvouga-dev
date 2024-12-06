@@ -1,6 +1,6 @@
 // @ts-check
 
-import { ensureObject, tag, text } from "../elem";
+import { tag, text } from "../elem";
 import { HEAD } from "./head";
 import { THEME } from "./theme";
 
@@ -9,7 +9,7 @@ import { THEME } from "./theme";
  */
 
 /**
- * @typedef {{tag:string; startDecorator: import("../elem").H, variant: "soft" | "plain"; disabled: boolean; text: string}} Props
+ * @typedef {{tag:string; startDecorator: import("../elem").H, size: "sm" | "lg"; variant: "soft" | "plain"; disabled: boolean; text: string}} Props
  */
 
 /**
@@ -19,21 +19,6 @@ import { THEME } from "./theme";
 const toTag = (input) => {
   return input.tag;
 };
-
-/**
- * @param {Props} input
- * @returns {Record<string, string>}
- */
-const toStyle = (input) => {
-  switch (input.variant) {
-    case "soft":
-      return {};
-    case "plain":
-      return {};
-  }
-};
-
-const BASE_STYLE = {};
 
 /**
  *
@@ -54,6 +39,16 @@ const toClassName = (props) => {
       classNames.push("btn-plain");
       break;
   }
+
+  switch (props.size ?? "sm") {
+    case "sm":
+      classNames.push("btn-sm");
+      break;
+    case "lg":
+      classNames.push("btn-lg");
+      break;
+  }
+
   if (props.disabled) {
     classNames.push("btn-disabled");
   }
@@ -66,7 +61,7 @@ const toClassName = (props) => {
  */
 export const viewButton = (props) => (attrs, children) => {
   const tagName = toTag(props);
-  const style = toStyle(props);
+
   return tag(
     tagName,
     {
@@ -75,21 +70,10 @@ export const viewButton = (props) => (attrs, children) => {
       "aria-disabled": props.disabled ? "true" : "false",
       disabled: props.disabled ? "true" : "false",
       ...attrs,
-      style: {
-        ...BASE_STYLE,
-        ...style,
-        ...ensureObject(attrs?.style),
-      },
     },
     [
       props.startDecorator({
-        style: {
-          width: "20px",
-          height: "20px",
-          "margin-left": "-4px",
-          "margin-right": "8px",
-          "flex-shrink": 0,
-        },
+        class: "btn-start-decorator",
       }),
       text(props.text),
       ...(children ?? []),
@@ -110,10 +94,6 @@ export const viewButtonStyles = (_props) => (_attrs, _children) => {
         align-items: center;
         justify-content: center;
         margin: 0;
-        padding: 6px 16px;
-        font-size: 14px;
-        line-height: 21px;
-        border-radius: 3.5px;
         cursor: pointer;
         text-decoration: none;
         white-space: nowrap;
@@ -122,6 +102,37 @@ export const viewButtonStyles = (_props) => (_attrs, _children) => {
         border: none;
         outline: none;
 
+      }
+
+      .btn-sm {
+        padding: 6px 16px;
+        font-size: 14px;
+        line-height: 21px;
+        border-radius: 3.5px;
+      }
+
+      .btn-start-decorator  {
+        fill: ${THEME.colors.text};
+        flex-shrink: 0;
+        margin-right: 8px;
+        margin-left: -4px;
+      }
+
+      .btn-sm > .btn-start-decorator {
+        width: 20px;
+        height: 20px;
+      }
+
+      .btn-lg {
+        padding: 12px 24px;
+        font-size: 16px;
+        line-height: 24px;
+        border-radius: 6px;
+      }
+
+      .btn-lg > .btn-start-decorator {
+        width: 24px;
+        height: 24px;
       }
 
       .btn.btn-disabled {

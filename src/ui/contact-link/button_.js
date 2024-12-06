@@ -22,6 +22,7 @@ HEAD.push(
             border: none;
             background-color: transparent;
             cursor: pointer;
+            font-size: 14px;
         }
         .contact-link-button-label {
             color: ${THEME.colors.neutralMuted};
