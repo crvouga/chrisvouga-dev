@@ -1,6 +1,5 @@
 // @ts-check
-
-import { fragment, t, text } from "../elem";
+import { fragment, tag, text } from "../elem";
 import { THEME } from "./theme";
 
 /**
@@ -9,7 +8,7 @@ import { THEME } from "./theme";
 export const viewGrid = (attr, children) => {
   return fragment([
     viewGridStyles(),
-    t(
+    tag(
       "div",
       {
         ...attr,
@@ -21,6 +20,7 @@ export const viewGrid = (attr, children) => {
           "box-sizing": "border-box",
           width: "100%",
           "max-width": "100%",
+          "align-items": "stretch",
         },
       },
       children
@@ -32,7 +32,7 @@ export const viewGrid = (attr, children) => {
  * @type {import("../elem").H}
  */
 export const viewGridItem = (attr, children) => {
-  return t(
+  return tag(
     "div",
     {
       ...attr,
@@ -40,7 +40,9 @@ export const viewGridItem = (attr, children) => {
       style: {
         padding: "12px",
         "box-sizing": "border-box",
-        height: "100%",
+        // flex: "1 1 auto", // Allow items to grow and shrink
+        display: "flex", // Make the grid item a flex container
+        "flex-direction": "column", // Stack content vertically
       },
     },
     children
@@ -48,9 +50,13 @@ export const viewGridItem = (attr, children) => {
 };
 
 export const viewGridStyles = () => {
-  return t("style", {}, [
+  return tag("style", {}, [
     text(
       `
+      .grid-item {
+        min-height: 100%; 
+      }
+
       @media (min-width: ${THEME.breakpoints.xs}) {
         .grid-item {
           width: 100%;

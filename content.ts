@@ -26,7 +26,7 @@ const workProjects: Project[] = [
     deployment: { t: "private" },
     code: { t: "private" },
     description:
-      "Triangulator is a product developed by ASU that aims to automate the process of course transfers between universities. My contributions include being one of the leading developers on the project.",
+      "Triangulator is a product developed by ASU that automate the process of course transfers between universities. My contributions include being one of the leading developers on the project.",
     imageAlt: "project screenshot or video",
     imageSrc: ["/triangulator.png"],
     topics: [
@@ -475,6 +475,8 @@ Software development is also a hobby for me. I enjoy consuming technical content
 Right now, I'm primarily doing web development, but I would be interested in other types of development.
 A fun fact about me is that I play the drums in a ${a(bandHref, "band")}.`;
 
+const metaDescription = aboutMe.replace(a(bandHref, "band"), "band");
+
 export function topics(topics: Topic[]): Topic[] {
   return topics;
 }
@@ -543,9 +545,9 @@ export const data = {
 
   screenshotServiceProjectId: "3e158ff9-0b37-41d1-84d0-cae1397adf4b",
 
-  metaTitle: "Chris Vouga • Web Developer",
+  metaTitle: "Chris Vouga • Software Developer",
 
-  metaDescription: aboutMe,
+  metaDescription: metaDescription,
 
   emailAddress: "crvouga@gmail.com",
 

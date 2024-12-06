@@ -1,12 +1,12 @@
 // @ts-check
 
-import { t } from "../elem";
+import { tag } from "../elem";
 
 /**
  * @type {import("../elem").H}
  */
 export function viewLink(attr, children) {
-  return t(
+  return tag(
     "a",
     {
       ...attr,

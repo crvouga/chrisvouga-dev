@@ -1,6 +1,6 @@
 // @ts-check
 
-import { ensureObject, t, text } from "../elem";
+import { ensureObject, tag, text } from "../elem";
 import { THEME } from "./theme";
 
 /**
@@ -39,27 +39,32 @@ const toStyle = (input) => {
     case "h1":
       return {
         "font-size": "36px",
+        "line-height": "48px",
         color: THEME.colors.text,
       };
     case "h2":
       return {
         "font-size": "30px",
+        "line-height": "40px",
         color: THEME.colors.text,
       };
     case "h3":
       return {
         "font-size": "24px",
+        "line-height": "32px",
         color: THEME.colors.text,
       };
     case "title-sm":
       return {
-        "font-size": "18px",
+        "font-size": "14px",
         "font-weight": "normal",
+        "line-height": "20px",
         color: THEME.colors.text,
       };
     case "body-md":
       return {
         "font-size": "16px",
+        "line-height": "24px",
         "font-weight": "normal",
         color: THEME.colors.body,
       };
@@ -72,10 +77,10 @@ const BASE_STYLE = { margin: 0, padding: 0 };
  * @type {import("../elem").View<Props>}
  */
 export const viewTypography = (props) => (attrs, children) => {
-  const tag = toTag(props);
+  const tagName = toTag(props);
   const style = toStyle(props);
-  return t(
-    tag,
+  return tag(
+    tagName,
     { style: { ...BASE_STYLE, ...style, ...ensureObject(attrs?.style) } },
     [text(props.text), ...(children ?? [])]
   );

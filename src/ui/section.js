@@ -1,13 +1,13 @@
 // @ts-check
 
-import { t } from "../elem";
+import { tag } from "../elem";
 import { viewSectionTitle } from "./section-title_";
 
 /**
  * @type {(props: {title:string}) => import("../elem").H}
  */
 export const viewSection = (props) => (attr, c) => {
-  return t(
+  return tag(
     "section",
     {
       ...attr,

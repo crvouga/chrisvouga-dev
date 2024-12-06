@@ -1,13 +1,13 @@
 // @ts-check
 
-import { ensureObject, t } from "../elem";
+import { ensureObject, tag } from "../elem";
 import { THEME } from "./theme";
 
 /**
  * @type {import("../elem").H}
  */
 export const viewCard = (attr, children) => {
-  return t(
+  return tag(
     "article",
     {
       ...attr,
@@ -18,6 +18,7 @@ export const viewCard = (attr, children) => {
         border: `1px solid ${THEME.colors.paperBorder}`,
         "border-radius": "8px",
         overflow: "hidden",
+        height: "100%",
         ...ensureObject(attr?.style),
       },
     },
@@ -29,7 +30,7 @@ export const viewCard = (attr, children) => {
  * @type {import("../elem").H}
  */
 export const viewCardContent = (attrs, children) => {
-  return t(
+  return tag(
     "div",
     {
       ...attrs,

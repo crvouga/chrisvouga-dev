@@ -32,7 +32,7 @@
 /**
  * @type {(tagName:string, attr?: Attrs, children?: Elem[]) => Elem}
  */
-export const t = (tagName, attrs, children) => {
+export const tag = (tagName, attrs, children) => {
   return {
     t: "tag",
     tagName,

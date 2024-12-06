@@ -1,12 +1,13 @@
 // @ts-check
 
-import { t } from "../../../elem";
+import { tag } from "../../../elem";
+import { viewImage } from "../../image";
 
 /**
  * @type {import("../props").ProjectCardView}
  */
 export const viewProjectCardMedia = (props) => (attr, children) => {
-  return t(
+  return tag(
     "div",
     {
       ...attr,
@@ -37,27 +38,25 @@ const viewProjectCardMediaContent = (props) => {
 const viewProjectCardMediaImage = (props) => (attr, _) => {
   const alt = props.project?.imageAlt;
   const src = props.project?.imageSrc?.[0] ?? " ";
-  return t(
-    "img",
+
+  return viewImage({ src, alt })(
     {
       ...attr,
-      src,
-      alt,
       style: {
         width: "100%",
         height: "100%",
         "object-fit": "cover",
+        display: "block",
       },
     },
     []
   );
 };
-
 /**
  * @type {import("../props").ProjectCardView}
  */
 const viewProjectCardMediaGradient = (_) => (attr, _) => {
-  return t(
+  return tag(
     "div",
     {
       ...attr,

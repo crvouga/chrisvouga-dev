@@ -1,4 +1,4 @@
-import { t, text } from ".";
+import { tag, text } from ".";
 import { assertEquals } from "../test";
 
 /**
@@ -7,6 +7,24 @@ import { assertEquals } from "../test";
  * @returns {string}
  */
 export const render = (elem) => {
+  return prependDocType(renderMain(elem));
+};
+
+/**
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+const prependDocType = (html) => {
+  return `<!DOCTYPE html>${html}`;
+};
+
+/**
+ *
+ * @param {import(".").Elem} elem
+ * @returns {string}
+ */
+const renderMain = (elem) => {
   switch (elem.t) {
     case "tag":
       return renderTag(elem);
@@ -23,7 +41,7 @@ export const render = (elem) => {
  */
 const renderTag = (elem) => {
   const attrsString = renderAttrs(elem.attrs);
-  const childrenString = elem.children.map(render).join("");
+  const childrenString = elem.children.map(renderMain).join("");
   const leadingTag = `${elem.tagName} ${attrsString}`.trim();
   return `<${leadingTag}>${childrenString}</${elem.tagName}>`;
 };
@@ -39,7 +57,7 @@ const renderText = (elem) => {
  * @param {import(".").Fragment} elem
  */
 const renderFragment = (elem) => {
-  return elem.children.map(render).join("");
+  return elem.children.map(renderMain).join("");
 };
 
 /**
@@ -89,11 +107,11 @@ const isRecord = (value) => {
   return typeof value === "object" && value !== null;
 };
 
-assertEquals(render(t("div")), "<div></div>", "Test 1");
-assertEquals(render(t("div", {})), "<div></div>", "Test 1");
-assertEquals(render(t("div", {}, [])), "<div></div>", "Test 1");
+assertEquals(renderMain(tag("div")), "<div></div>", "Test 1");
+assertEquals(renderMain(tag("div", {})), "<div></div>", "Test 1");
+assertEquals(renderMain(tag("div", {}, [])), "<div></div>", "Test 1");
 assertEquals(
-  render(t("div", {}, [text("hello")])),
+  renderMain(tag("div", {}, [text("hello")])),
   "<div>hello</div>",
   "Test 1"
 );

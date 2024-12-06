@@ -2,6 +2,7 @@
 
 import { viewCard, viewCardContent } from "./card";
 import { viewLink } from "./link";
+import { unit } from "./theme";
 import { viewTypography } from "./typography";
 
 /**
@@ -12,7 +13,18 @@ export const viewWorkCard =
   () => {
     return viewCard({}, [
       viewCardContent({}, [
-        viewLink({}, [viewTypography({ level: "h3", text: work.name })()]),
+        viewLink(
+          {
+            href: work.infoUrl ?? " ",
+          },
+          [
+            viewTypography({ level: "h3", text: work.name })({
+              style: {
+                "margin-bottom": unit(1),
+              },
+            }),
+          ]
+        ),
 
         viewTypography({
           level: "title-sm",
@@ -22,12 +34,20 @@ export const viewWorkCard =
         viewTypography({
           level: "title-sm",
           text: `${work.yearStart} - ${work.yearEnd}`,
-        })(),
+        })({
+          style: {
+            "margin-bottom": unit(2),
+          },
+        }),
 
         viewTypography({
           level: "body-md",
           text: work.jobDescription,
-        })(),
+        })({
+          style: {
+            "margin-bottom": unit(2),
+          },
+        }),
       ]),
     ]);
   };

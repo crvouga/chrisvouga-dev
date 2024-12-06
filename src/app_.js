@@ -1,6 +1,7 @@
 // @ts-check
 
-import { t, text } from "./elem";
+import { data } from "../content";
+import { tag, text } from "./elem";
 import { viewHeadingSection } from "./sections/heading/index_";
 import { viewSideProjects } from "./sections/side-projects/index_";
 import { viewWorkProjectsSection } from "./sections/work-projects_";
@@ -11,8 +12,8 @@ import { THEME } from "./ui/theme";
  * @returns {import("./elem").Elem}
  */
 export const viewApp = () => {
-  return viewDocoument({}, [
-    t(
+  return viewDoc({}, [
+    tag(
       "main",
       {
         style: {
@@ -39,11 +40,11 @@ export const viewApp = () => {
 /**
  * @type {import("./elem").H}
  */
-export const viewDocoument = (_a, c) => {
-  return t("html", { lang: "en" }, [
-    t("head", {}, [
-      t("meta", { charset: "UTF-8" }, []),
-      t(
+export const viewDoc = (_a, c) => {
+  return tag("html", { lang: "en" }, [
+    tag("head", {}, [
+      tag("meta", { charset: "UTF-8" }, []),
+      tag(
         "meta",
         {
           name: "viewport",
@@ -51,15 +52,16 @@ export const viewDocoument = (_a, c) => {
         },
         []
       ),
-      t("link", { rel: "shortcut icon", href: "/favicon.ico" }, []),
-      t("link", { rel: "icon", href: "/favicon.ico" }, []),
-      t("title", {}, [text("chrisvouga.dev")]),
-      t("style", {}, [
+      tag("title", {}, [text(data.metaTitle)]),
+      tag("meta", { name: "description", content: data.metaDescription }, []),
+      tag("link", { rel: "shortcut icon", href: "/favicon.ico" }, []),
+      tag("link", { rel: "icon", href: "/favicon.ico" }, []),
+      tag("style", {}, [
         text(
           `* { font-family: Inter, -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; color: ${THEME.colors.text};}`
         ),
       ]),
     ]),
-    t("body", { style: { "background-color": "#000" } }, c),
+    tag("body", { style: { "background-color": "#000" } }, c),
   ]);
 };
