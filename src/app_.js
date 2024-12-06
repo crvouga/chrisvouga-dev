@@ -3,6 +3,7 @@
 import { data } from "../content";
 import { tag, text } from "./core/elem";
 import { viewAboutMeSection } from "./sections/about-me_";
+import { viewContactSection } from "./sections/contact_";
 import { viewHeadingSection } from "./sections/heading/index_";
 import { viewSideProjectsSection } from "./sections/side-projects/index_";
 import { viewWorkProjectsSection } from "./sections/work-projects_";
@@ -21,6 +22,7 @@ export const viewApp = () => {
       viewWorkProjectsSection(),
       viewSideProjectsSection(),
       viewAboutMeSection(),
+      viewContactSection(),
     ]),
   ]);
 };
