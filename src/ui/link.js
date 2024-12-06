@@ -1,6 +1,6 @@
 // @ts-check
 
-import { tag } from "../core/elem";
+import { ensureObject, tag } from "../core/elem";
 
 /**
  * @type {import("../core/elem").View}
@@ -15,7 +15,10 @@ export const viewLink = (attrs, children) => {
         ...attrs,
         target: "_blank",
         rel: "noreferrer noopener",
-        style: "text-decoration: underline",
+        style: {
+          ...ensureObject(attrs?.style),
+          "text-decoration": "underline",
+        },
       },
       children
     );
