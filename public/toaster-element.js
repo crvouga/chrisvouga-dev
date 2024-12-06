@@ -1,4 +1,4 @@
-// @ts-check
+// @ts-ignore
 class ToasterElement extends HTMLElement {
   constructor() {
     super();
@@ -10,56 +10,95 @@ class ToasterElement extends HTMLElement {
 
     const style = document.createElement("style");
     style.textContent = `
-            .toast-container {
-                position: fixed;
-                top: 1rem;
-                left: 50%;
-                transform: translateX(-50%);
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-                z-index: 1000;
-            }
+      .toast-container {
+          position: fixed;
+          top: 1rem;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          z-index: 1000;
+      }
 
-            .toast {
-                background-color: #333;
-                color: white;
-                padding: 1rem 2rem;
-                border-radius: 5px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-                transform: translateY(-20px);
-                animation: slide-in 0.3s forwards, slide-out 0.3s 2.5s forwards;
-            }
+      .toast {
+          background-color: var(--toast-bg-color, #333);
+          color: var(--toast-text-color, white);
+          border: 1px solid var(--toast-border-color);
+          padding: 1rem 1rem;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          transform: translateY(-20px);
+          animation: slide-in 0.3s forwards, slide-out 0.3s 2.5s forwards;
+      }
 
-            @keyframes slide-in {
-                from {
-                    transform: translateY(-20px);
-                }
+      @keyframes slide-in {
+          from {
+              transform: translateY(-20px);
+          }
 
-                to {
-                    transform: translateY(0);
-                }
-            }
+          to {
+              transform: translateY(0);
+          }
+      }
 
-            @keyframes slide-out {
-                from {
-                    transform: translateY(0);
-                }
+      @keyframes slide-out {
+          from {
+              transform: translateY(0);
+          }
 
-                to {
-                    transform: translateY(calc(-100% + -20px));
-                }
-            }
-        `;
+          to {
+              transform: translateY(calc(-100% + -20px));
+          }
+      }
+    `;
 
     shadow.appendChild(style);
     shadow.appendChild(container);
 
     this.container = container;
-
     this.currentToast = null;
   }
 
+  connectedCallback() {
+    this.updateCSSVariables();
+  }
+
+  /**
+   *
+   * @param {unknown} name
+   * @param {unknown} _oldValue
+   * @param {unknown} _newValue
+   */
+  attributeChangedCallback(name, _oldValue, _newValue) {
+    if (
+      name === "data-bg-color" ||
+      name === "data-text-color" ||
+      name === "data-border-color"
+    ) {
+      this.updateCSSVariables();
+    }
+  }
+
+  static get observedAttributes() {
+    return ["data-bg-color", "data-text-color", "data-border-color"];
+  }
+
+  updateCSSVariables() {
+    const bgColor = this.getAttribute("data-bg-color");
+    const textColor = this.getAttribute("data-text-color");
+    const borderColor = this.getAttribute("data-border-color");
+
+    if (bgColor) {
+      this.style.setProperty("--toast-bg-color", bgColor);
+    }
+    if (textColor) {
+      this.style.setProperty("--toast-text-color", textColor);
+    }
+    if (borderColor) {
+      this.style.setProperty("--toast-border-color", borderColor);
+    }
+  }
   /**
    * Show a toast message, ensuring only one toast is displayed at a time.
    * @param {string} message - The message to display in the toast.
@@ -72,11 +111,9 @@ class ToasterElement extends HTMLElement {
     if (this.currentToast) {
       this.currentToast.style.animation = "slide-out 0.3s forwards";
       await new Promise((resolve) => {
-        if (this.currentToast) {
-          this.currentToast.addEventListener("animationend", resolve, {
-            once: true,
-          });
-        }
+        this.currentToast?.addEventListener("animationend", resolve, {
+          once: true,
+        });
       });
       this.currentToast.remove();
       this.currentToast = null;
@@ -91,12 +128,16 @@ class ToasterElement extends HTMLElement {
 
     setTimeout(() => {
       if (this.currentToast === toast) {
-        toast.style.animation = "slide-out 0.3s forwards";
-        toast.addEventListener(
+        this.currentToast.style.animation = "none";
+        void this.currentToast.offsetHeight;
+        this.currentToast.style.animation = "slide-out 0.3s forwards";
+
+        this.currentToast.addEventListener(
           "animationend",
           () => {
+            console.log("animationend");
             if (this.currentToast === toast) {
-              toast.remove();
+              this.currentToast.remove();
               this.currentToast = null;
             }
           },

@@ -56,7 +56,6 @@ HEAD.push(
     .header {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 3rem;
       max-width: 100%;
       flex-direction: column;
       gap: ${unit(2)};

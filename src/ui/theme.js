@@ -8,6 +8,8 @@ export const THEME = {
     borderLight: "#32383e",
     skeleton: "#2D333B",
     warning: "#EA9A3E",
+    primary300: "rgb(151, 195, 240)",
+    primary500: "rgb(11, 107, 203)",
     //
     softBackground: "rgb(10, 39, 68)",
     softBackgroundHover: "rgb(18, 70, 123)",

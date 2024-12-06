@@ -69,7 +69,17 @@ export const viewDoc = (_a, c) => {
       ...HEAD,
     ]),
     tag("body", {}, [
-      tag("toaster-element", { id: "toaster" }, []),
+      tag(
+        "toaster-element",
+        {
+          id: "toaster",
+          "data-bg-color": THEME.colors.paper,
+          "data-border-color": THEME.colors.paperBorder,
+          "data-text-color": THEME.colors.text,
+        },
+        []
+      ),
+
       ...(c ?? []),
     ]),
   ]);

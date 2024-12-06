@@ -1,5 +1,6 @@
 import { tag, text } from "../../core/elem";
 import { HEAD } from "../../ui/head";
+import { THEME } from "../../ui/theme";
 import { viewTypography } from "../../ui/typography";
 
 /**
@@ -22,7 +23,7 @@ HEAD.push(
       font-weight: 1000;
       padding-bottom: 0.5rem;
       color: transparent;
-      background-image: linear-gradient(to bottom, #42a5f5, #1565c0);
+      background-image: linear-gradient(${THEME.colors.primary300}, ${THEME.colors.primary500});
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
