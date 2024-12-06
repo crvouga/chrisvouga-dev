@@ -19,7 +19,7 @@ HEAD.push(
         line-height: 18px;
         max-width: max-content;
         border-radius: 24px;
-        color: ${THEME.colors.body};
+        color: ${THEME.colors.neutral};
         display: flex;
         align-items: center;
         justify-content: center;

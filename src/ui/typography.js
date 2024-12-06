@@ -2,6 +2,7 @@
 
 import { tag, text } from "../elem";
 import { HEAD } from "./head";
+import { THEME } from "./theme";
 
 /**
  * @typedef {"h1" | "h2" | "h3" | "title-sm" | "body-md" | "body-xs"} Level
@@ -42,35 +43,35 @@ HEAD.push(
       .typography-h1 {
         font-size: 36px;
         line-height: 48px;
-        color: var(--color-text);
+        color: ${THEME.colors.text};
       }
       .typography-h2 {
         font-size: 30px;
         line-height: 40px;
-        color: var(--color-text);
+        color: ${THEME.colors.text};
       }
       .typography-h3 {
         font-size: 24px;
         line-height: 32px;
-        color: var(--color-text);
+        color: ${THEME.colors.text};
       }
       .typography-title-sm {
         font-size: 14px;
         font-weight: normal;
         line-height: 20px;
-        color: var(--color-text);
+        color: ${THEME.colors.text};
       }
       .typography-body-md {
         font-size: 16px;
         line-height: 24px;
         font-weight: normal;
-        color: var(--color-body);
+        color: ${THEME.colors.neutral};
       }
       .typography-body-xs {
         font-size: 12px;
         line-height: 18px;
         font-weight: normal;
-        color: var(--color-body);
+        color: ${THEME.colors.neutral};
       }
     `),
   ])
@@ -103,7 +104,7 @@ export const viewTypography = (props) => (attrs, children) => {
     .filter(Boolean)
     .join(" ");
 
-  return tag(tagName, { class: className, ...attrs }, [
+  return tag(tagName, { ...attrs, class: className }, [
     text(props.text),
     ...(children ?? []),
   ]);

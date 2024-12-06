@@ -1,9 +1,10 @@
 export const THEME = {
   colors: {
     text: "#F0F4F8",
+    neutralMuted: "rgb(159, 166, 173)",
     paper: "#0B0D0E",
     paperBorder: "#32383e",
-    body: "#CDD7E1",
+    neutral: "#CDD7E1",
     borderLight: "#32383e",
     skeleton: "#2D333B",
     warning: "#EA9A3E",

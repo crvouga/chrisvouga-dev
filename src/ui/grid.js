@@ -45,9 +45,8 @@ const viewGridStyles = () => {
         margin: -12px;
         min-width: 0px;
         box-sizing: border-box;
-        width: 100%;
-        max-width: 100%;
         align-items: stretch;
+        overflow: hidden;
       }
         
       .grid-item {

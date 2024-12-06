@@ -27,7 +27,7 @@ HEAD.push(
   tag("style", {}, [
     text(`
     .main {
-      width: min(100%, 1150px);
+      max-width: 1150px;      
       margin: auto;
       display: flex;
       align-items: items-center;
@@ -76,6 +76,8 @@ HEAD.push(
       margin: 0;
       padding: 0;
       background-color: #000;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
   `),
   ])
