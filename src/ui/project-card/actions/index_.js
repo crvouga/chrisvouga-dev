@@ -17,7 +17,7 @@ export const viewProjectCardActions = (props) => () => {
       href:
         props.project.deployment.t === "public"
           ? props.project.deployment.url
-          : undefined,
+          : " ",
       target: "_blank",
       rel: "noreferrer noopener",
     }),
@@ -28,8 +28,7 @@ export const viewProjectCardActions = (props) => () => {
       disabled: props.project.code.t !== "public",
       text: "Source Code",
     })({
-      href:
-        props.project.code.t === "public" ? props.project.code.url : undefined,
+      href: props.project.code.t === "public" ? props.project.code.url : " ",
       target: "_blank",
       rel: "noreferrer noopener",
     }),

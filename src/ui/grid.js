@@ -1,31 +1,29 @@
 // @ts-check
 import { fragment, tag, text } from "../elem";
+import { HEAD } from "./head";
 import { THEME } from "./theme";
 
 /**
  * @type {import("../elem").H}
  */
 export const viewGrid = (attr, children) => {
-  return fragment([
-    viewGridStyles(),
-    tag(
-      "div",
-      {
-        ...attr,
-        style: {
-          display: "flex",
-          "flex-wrap": "wrap",
-          margin: "-12px",
-          "min-width": "0px",
-          "box-sizing": "border-box",
-          width: "100%",
-          "max-width": "100%",
-          "align-items": "stretch",
-        },
+  return tag(
+    "div",
+    {
+      ...attr,
+      style: {
+        display: "flex",
+        "flex-wrap": "wrap",
+        margin: "-12px",
+        "min-width": "0px",
+        "box-sizing": "border-box",
+        width: "100%",
+        "max-width": "100%",
+        "align-items": "stretch",
       },
-      children
-    ),
-  ]);
+    },
+    children
+  );
 };
 
 /**
@@ -49,7 +47,11 @@ export const viewGridItem = (attr, children) => {
   );
 };
 
-export const viewGridStyles = () => {
+/**
+ *
+ * @returns {import("../elem").Elem}
+ */
+const viewGridStyles = () => {
   return tag("style", {}, [
     text(
       `
@@ -77,3 +79,5 @@ export const viewGridStyles = () => {
     ),
   ]);
 };
+
+HEAD.push(viewGridStyles());

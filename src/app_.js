@@ -6,6 +6,7 @@ import { viewHeadingSection } from "./sections/heading/index_";
 import { viewSideProjects } from "./sections/side-projects/index_";
 import { viewWorkProjectsSection } from "./sections/work-projects_";
 import { viewWorkSection } from "./sections/work_";
+import { HEAD } from "./ui/head";
 import { THEME } from "./ui/theme";
 
 /**
@@ -61,6 +62,7 @@ export const viewDoc = (_a, c) => {
           `* { font-family: Inter, -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; color: ${THEME.colors.text};}`
         ),
       ]),
+      ...HEAD,
     ]),
     tag("body", { style: { "background-color": "#000" } }, c),
   ]);

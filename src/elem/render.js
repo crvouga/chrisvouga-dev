@@ -90,8 +90,14 @@ export const renderAttrs = (attrs) => {
 const renderStyles = (styles) => {
   return Object.entries(styles)
     .flatMap(([key, value]) => {
-      if (typeof value === "string" || typeof value === "number") {
-        return [`${key}: ${value}`];
+      if (key.trim().length === 0) {
+        return [];
+      }
+      if (typeof value === "string" && value.trim().length > 0) {
+        return [`${key.trim()}: ${value.trim()}`];
+      }
+      if (typeof value === "number") {
+        return [`${key.trim()}: ${value}`];
       }
       return [];
     })
@@ -116,6 +122,8 @@ assertEquals(
   "Test 1"
 );
 assertEquals(renderStyles({ padding: "16px" }), "padding: 16px", "Test 2");
+assertEquals(renderStyles({ padding: "" }), "", "Test 2");
+assertEquals(renderStyles({ padding: undefined }), "", "Test 2");
 assertEquals(
   renderStyles({ padding: "16px", color: "blue" }),
   "padding: 16px; color: blue",

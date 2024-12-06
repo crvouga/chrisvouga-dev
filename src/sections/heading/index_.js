@@ -8,7 +8,7 @@ import { viewHeadingContact } from "./contact_";
  * @type {import("../../elem").H}
  */
 export const viewHeadingSection = () => {
-  return tag("div", {}, [
+  return tag("heading", {}, [
     tag("div", { style: { flex: 1 } }, [
       viewTypography({ level: "h1", text: "Chris Vouga" })({
         style: { "font-weight": 900 },

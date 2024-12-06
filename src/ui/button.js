@@ -1,6 +1,7 @@
 // @ts-check
 
-import { ensureObject, fragment, tag, text } from "../elem";
+import { ensureObject, tag, text } from "../elem";
+import { HEAD } from "./head";
 import { THEME } from "./theme";
 
 /**
@@ -40,12 +41,24 @@ const BASE_STYLE = {};
  * @returns {string}
  */
 const toClassName = (props) => {
+  /**
+   * @type {string[]}
+   */
+  const classNames = [];
+  classNames.push("btn");
   switch (props.variant) {
     case "soft":
-      return "btn btn-soft";
+      classNames.push("btn-soft");
+      break;
     case "plain":
-      return "btn btn-plain";
+      classNames.push("btn-plain");
+      break;
   }
+  if (props.disabled) {
+    classNames.push("btn-disabled");
+  }
+
+  return classNames.join(" ");
 };
 
 /**
@@ -54,37 +67,38 @@ const toClassName = (props) => {
 export const viewButton = (props) => (attrs, children) => {
   const tagName = toTag(props);
   const style = toStyle(props);
-  return fragment([
-    viewButtonStyles(props)(),
-    tag(
-      tagName,
-      {
-        class: toClassName(props),
-        "aria-role": "button",
-        style: {
-          ...BASE_STYLE,
-          ...style,
-          ...ensureObject(attrs?.style),
-        },
+  return tag(
+    tagName,
+    {
+      class: toClassName(props),
+      "aria-role": "button",
+      "aria-disabled": props.disabled ? "true" : "false",
+      disabled: props.disabled ? "true" : "false",
+      ...attrs,
+      style: {
+        ...BASE_STYLE,
+        ...style,
+        ...ensureObject(attrs?.style),
       },
-      [
-        props.startDecorator({
-          style: {
-            width: "20px",
-            height: "20px",
-            "margin-left": "-4px",
-            "margin-right": "8px",
-          },
-        }),
-        text(props.text),
-        ...(children ?? []),
-      ]
-    ),
-  ]);
+    },
+    [
+      props.startDecorator({
+        style: {
+          width: "20px",
+          height: "20px",
+          "margin-left": "-4px",
+          "margin-right": "8px",
+          "flex-shrink": 0,
+        },
+      }),
+      text(props.text),
+      ...(children ?? []),
+    ]
+  );
 };
 
 /**
- * @type {import("../elem").View<Props>}
+ * @type {import("../elem").View<{}>}
  */
 export const viewButtonStyles = (_props) => (_attrs, _children) => {
   return tag("style", {}, [
@@ -101,11 +115,30 @@ export const viewButtonStyles = (_props) => (_attrs, _children) => {
         line-height: 21px;
         border-radius: 3.5px;
         cursor: pointer;
+        text-decoration: none;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        border: none;
+        outline: none;
+
       }
+
+      .btn.btn-disabled {
+        cursor: not-allowed;
+        pointer-events: none; 
+      }
+
       .btn-soft {
         background-color: ${THEME.colors.softBackground};
         color: ${THEME.colors.softText};
         fill: ${THEME.colors.softText};
+      }
+
+      .btn-soft.btn-disabled {
+        background-color: ${THEME.colors.softBackgroundDisabled};
+        color: ${THEME.colors.softTextDisabled};
+        fill: ${THEME.colors.softTextDisabled};
       }
 
       .btn-soft:hover {
@@ -126,6 +159,12 @@ export const viewButtonStyles = (_props) => (_attrs, _children) => {
         fill: ${THEME.colors.plainText};
       }
 
+      .btn-plain.btn-disabled {
+        background-color: ${THEME.colors.plainBackground};
+        color: ${THEME.colors.plainTextDisabled};
+        fill: ${THEME.colors.plainTextDisabled};
+      }
+
       .btn-plain:hover {
         background-color: ${THEME.colors.plainBackgroundHover};
         color: ${THEME.colors.plainTextHover};
@@ -142,3 +181,5 @@ export const viewButtonStyles = (_props) => (_attrs, _children) => {
     `),
   ]);
 };
+
+HEAD.push(viewButtonStyles({})());
