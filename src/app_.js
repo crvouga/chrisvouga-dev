@@ -34,7 +34,7 @@ HEAD.push(
       flex-direction: column;
       gap: 72px;
       padding: 72px 12px;
-      overflow: hidden;
+      overflow-x: hidden;
     }
   `),
   ])

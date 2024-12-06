@@ -18,7 +18,7 @@ HEAD.push(
       .card {
         display: flex;
         flex-direction: column;
-        background-Color: THEME.colors.paper;
+        background-color: ${THEME.colors.paper};
         border: 1px solid ${THEME.colors.paperBorder};
         border-radius: 8px;
         overflow: hidden;

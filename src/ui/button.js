@@ -112,7 +112,6 @@ export const viewButtonStyles = (_props) => (_attrs, _children) => {
       }
 
       .btn-start-decorator  {
-        fill: ${THEME.colors.text};
         flex-shrink: 0;
         margin-right: 8px;
         margin-left: -4px;
