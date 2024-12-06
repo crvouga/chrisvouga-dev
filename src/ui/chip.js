@@ -1,48 +1,73 @@
+// @ts-check
+
 import { tag, text } from "../elem";
+import { HEAD } from "./head";
 import { THEME } from "./theme";
+
 /**
- * @typedef {{size: "sm"; startDecorator: import("../elem/index").H; variant: "outlined"; text: string}} ChipProps
+ * @typedef {{size: "sm"; startDecorator: import("../elem/index").H; variant: "outlined" | "basic"; text: string}} ChipProps
  */
+
+/**
+ * Push CSS for the Chip component to the HEAD
+ */
+HEAD.push(
+  tag("style", {}, [
+    text(`
+      .chip {
+        font-size: 12px;
+        line-height: 18px;
+        max-width: max-content;
+        border-radius: 24px;
+        color: ${THEME.colors.body};
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+      }
+
+      .chip-outlined {
+        border: 1px solid ${THEME.colors.borderLight};
+      }
+
+      .chip-basic {
+        border: 1px solid transparent;
+      }
+
+      .chip-decorator {
+        width: 12px;
+        height: 12px;
+        overflow: hidden;
+      }
+
+      .chip-text {
+        padding: 0px 6px;
+      }
+    `),
+  ])
+);
 
 /**
  * @type {import("../elem").View<ChipProps>}
  */
 export const viewChip = (props) => (attr, _children) => {
+  const variantClass =
+    props.variant === "outlined" ? "chip-outlined" : "chip-basic";
+
   return tag(
     "div",
     {
       ...attr,
-      style: {
-        "font-size": "12px",
-        "line-height": "18px",
-        "max-width": "max-content",
-        "border-radius": "24px",
-        color: THEME.colors.body,
-        display: "flex",
-        "align-items": "center",
-        "justify-content": "center",
-        gap: "3px",
-        border: `1px solid ${
-          props.variant === "outlined"
-            ? THEME.colors.borderLight
-            : "transparent"
-        }`,
-      },
+      class: `chip ${variantClass}`,
     },
     [
       props.startDecorator({
-        style: {
-          width: "12px",
-          height: "12px",
-          overflow: "hidden",
-        },
+        class: "chip-decorator",
       }),
       tag(
         "span",
         {
-          style: {
-            padding: "0px 6px",
-          },
+          class: "chip-text",
         },
         [text(props.text)]
       ),

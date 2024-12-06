@@ -1,7 +1,7 @@
 // @ts-check
 
-import { ensureObject, tag, text } from "../elem";
-import { THEME } from "./theme";
+import { tag, text } from "../elem";
+import { HEAD } from "./head";
 
 /**
  * @typedef {"h1" | "h2" | "h3" | "title-sm" | "body-md" | "body-xs"} Level
@@ -15,82 +15,96 @@ import { THEME } from "./theme";
  * @param {Props} input
  * @returns {string}
  */
-const toTag = (input) => {
+const toClassName = (input) => {
   switch (input.level) {
     case "h1":
-      return "h1";
+      return "typography-h1";
     case "h2":
-      return "h2";
+      return "typography-h2";
     case "h3":
-      return "h3";
-    case "body-md":
-      return "p";
+      return "typography-h3";
     case "title-sm":
-      return "h4";
+      return "typography-title-sm";
+    case "body-md":
+      return "typography-body-md";
     case "body-xs":
-      return "p";
+      return "typography-body-xs";
   }
 };
 
-/**
- * @param {Props} input
- * @returns {Record<string, string>}
- */
-const toStyle = (input) => {
-  switch (input.level) {
-    case "h1":
-      return {
-        "font-size": "36px",
-        "line-height": "48px",
-        color: THEME.colors.text,
-      };
-    case "h2":
-      return {
-        "font-size": "30px",
-        "line-height": "40px",
-        color: THEME.colors.text,
-      };
-    case "h3":
-      return {
-        "font-size": "24px",
-        "line-height": "32px",
-        color: THEME.colors.text,
-      };
-    case "title-sm":
-      return {
-        "font-size": "14px",
-        "font-weight": "normal",
-        "line-height": "20px",
-        color: THEME.colors.text,
-      };
-    case "body-md":
-      return {
-        "font-size": "16px",
-        "line-height": "24px",
-        "font-weight": "normal",
-        color: THEME.colors.body,
-      };
-    case "body-xs":
-      return {
-        "font-size": "12px",
-        "line-height": "18px",
-        "font-weight": "normal",
-        color: THEME.colors.body,
-      };
-  }
-};
+HEAD.push(
+  tag("style", {}, [
+    text(`
+      h1, h2, h3, p, h4 {
+        margin: 0;
+        padding: 0;
+      }
+      .typography-h1 {
+        font-size: 36px;
+        line-height: 48px;
+        color: var(--color-text);
+      }
+      .typography-h2 {
+        font-size: 30px;
+        line-height: 40px;
+        color: var(--color-text);
+      }
+      .typography-h3 {
+        font-size: 24px;
+        line-height: 32px;
+        color: var(--color-text);
+      }
+      .typography-title-sm {
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 20px;
+        color: var(--color-text);
+      }
+      .typography-body-md {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: normal;
+        color: var(--color-body);
+      }
+      .typography-body-xs {
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: normal;
+        color: var(--color-body);
+      }
+    `),
+  ])
+);
 
-const BASE_STYLE = { margin: 0, padding: 0 };
+const BASE_CLASS = "typography-base";
 
 /**
  * @type {import("../elem").View<Props>}
  */
 export const viewTypography = (props) => (attrs, children) => {
-  const tagName = toTag(props);
-  const style = toStyle(props);
-  return tag(
-    tagName,
-    { style: { ...BASE_STYLE, ...style, ...ensureObject(attrs?.style) } },
-    [text(props.text), ...(children ?? [])]
-  );
+  const tagName = (() => {
+    switch (props.level) {
+      case "h1":
+        return "h1";
+      case "h2":
+        return "h2";
+      case "h3":
+        return "h3";
+      case "title-sm":
+        return "h4";
+      case "body-md":
+        return "p";
+      case "body-xs":
+        return "p";
+    }
+  })();
+
+  const className = [BASE_CLASS, toClassName(props), attrs?.class]
+    .filter(Boolean)
+    .join(" ");
+
+  return tag(tagName, { class: className, ...attrs }, [
+    text(props.text),
+    ...(children ?? []),
+  ]);
 };

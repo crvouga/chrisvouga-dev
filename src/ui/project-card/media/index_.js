@@ -1,6 +1,7 @@
 // @ts-check
 
-import { tag } from "../../../elem";
+import { tag, text } from "../../../elem";
+import { HEAD } from "../../head";
 import { viewImage } from "../../image";
 import { THEME } from "../../theme";
 
@@ -8,21 +9,24 @@ import { THEME } from "../../theme";
  * @type {import("../props").ProjectCardView}
  */
 export const viewProjectCardMedia = (props) => (attr, children) => {
-  return tag(
-    "div",
-    {
-      ...attr,
-      style: {
-        width: "100%",
-        "aspect-ratio": "16 / 9",
-        overflow: "hidden",
-        "flex-shrink": 0,
-        "border-bottom": `1px solid ${THEME.colors.paperBorder}`,
-      },
-    },
-    [viewProjectCardMediaContent(props)({}, []), ...(children ?? [])]
-  );
+  return tag("div", { ...attr, class: "project-card-media" }, [
+    viewProjectCardMediaContent(props)({}, []),
+    ...(children ?? []),
+  ]);
 };
+
+HEAD.push(
+  tag("style", {}, [
+    text(`
+      .project-card-media {
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        flex-shrink: 0;
+        border-bottom: 1px solid ${THEME.colors.paperBorder};
+      }
+    `),
+  ])
+);
 
 /**
  * @type {import("../props").ProjectCardView}
@@ -43,32 +47,39 @@ const viewProjectCardMediaImage = (props) => (attr, _) => {
   const src = props.project?.imageSrc?.[0] ?? " ";
 
   return viewImage({ src, alt })(
-    {
-      ...attr,
-      style: {
-        width: "100%",
-        height: "100%",
-        "object-fit": "cover",
-        display: "block",
-      },
-    },
+    { ...attr, class: "project-card-media-image" },
     []
   );
 };
+
+HEAD.push(
+  tag("style", {}, [
+    text(`
+      .project-card-media-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    `),
+  ])
+);
+
 /**
  * @type {import("../props").ProjectCardView}
  */
 const viewProjectCardMediaGradient = (_) => (attr, _) => {
-  return tag(
-    "div",
-    {
-      ...attr,
-      style: {
-        width: "100%",
-        height: "100%",
-        background: "linear-gradient(to right bottom, #2196f3, #8e24aa)",
-      },
-    },
-    []
-  );
+  return tag("div", { ...attr, class: "project-card-media-gradient" }, []);
 };
+
+HEAD.push(
+  tag("style", {}, [
+    text(`
+      .project-card-media-gradient {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right bottom, #2196f3, #8e24aa);
+      }
+    `),
+  ])
+);

@@ -14,29 +14,31 @@ import { THEME } from "./ui/theme";
  */
 export const viewApp = () => {
   return viewDoc({}, [
-    tag(
-      "main",
-      {
-        style: {
-          width: "min(100%, 1150px)",
-          margin: "auto",
-          display: "flex",
-          "align-items": "items-center",
-          "flex-direction": "column",
-          gap: "72px",
-          padding: "72px 12px",
-          overflow: "hidden",
-        },
-      },
-      [
-        viewHeadingSection(),
-        viewWorkSection(),
-        viewWorkProjectsSection(),
-        viewSideProjects(),
-      ]
-    ),
+    tag("main", { class: "main" }, [
+      viewHeadingSection(),
+      viewWorkSection(),
+      viewWorkProjectsSection(),
+      viewSideProjects(),
+    ]),
   ]);
 };
+
+HEAD.push(
+  tag("style", {}, [
+    text(`
+    .main {
+      width: min(100%, 1150px);
+      margin: auto;
+      display: flex;
+      align-items: items-center;
+      flex-direction: column;
+      gap: 72px;
+      padding: 72px 12px;
+      overflow: hidden;
+    }
+  `),
+  ])
+);
 
 /**
  * @type {import("./elem").H}
@@ -57,13 +59,24 @@ export const viewDoc = (_a, c) => {
       tag("meta", { name: "description", content: data.metaDescription }, []),
       tag("link", { rel: "shortcut icon", href: "/favicon.ico" }, []),
       tag("link", { rel: "icon", href: "/favicon.ico" }, []),
-      tag("style", {}, [
-        text(
-          `* { font-family: Inter, -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; color: ${THEME.colors.text};}`
-        ),
-      ]),
       ...HEAD,
     ]),
-    tag("body", { style: { "background-color": "#000" } }, c),
+    tag("body", {}, c),
   ]);
 };
+
+HEAD.push(
+  tag("style", {}, [
+    text(`
+    * { 
+      font-family: Inter, -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+      color: ${THEME.colors.text};
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+    }
+  `),
+  ])
+);

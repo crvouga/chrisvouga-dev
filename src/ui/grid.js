@@ -1,5 +1,5 @@
 // @ts-check
-import { fragment, tag, text } from "../elem";
+import { tag, text } from "../elem";
 import { HEAD } from "./head";
 import { THEME } from "./theme";
 
@@ -11,16 +11,7 @@ export const viewGrid = (attr, children) => {
     "div",
     {
       ...attr,
-      style: {
-        display: "flex",
-        "flex-wrap": "wrap",
-        margin: "-12px",
-        "min-width": "0px",
-        "box-sizing": "border-box",
-        width: "100%",
-        "max-width": "100%",
-        "align-items": "stretch",
-      },
+      class: "grid",
     },
     children
   );
@@ -35,13 +26,6 @@ export const viewGridItem = (attr, children) => {
     {
       ...attr,
       class: "grid-item",
-      style: {
-        padding: "12px",
-        "box-sizing": "border-box",
-        // flex: "1 1 auto", // Allow items to grow and shrink
-        display: "flex", // Make the grid item a flex container
-        "flex-direction": "column", // Stack content vertically
-      },
     },
     children
   );
@@ -55,8 +39,23 @@ const viewGridStyles = () => {
   return tag("style", {}, [
     text(
       `
+      .grid {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -12px;
+        min-width: 0px;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        align-items: stretch;
+      }
+        
       .grid-item {
         min-height: 100%; 
+        padding: 12px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
       }
 
       @media (min-width: ${THEME.breakpoints.xs}) {
