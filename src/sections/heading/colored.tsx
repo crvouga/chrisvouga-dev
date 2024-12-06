@@ -21,25 +21,3 @@ export function Colored({ text }: { text: string }) {
     </Typography>
   );
 }
-
-const createGradientStyle = (start: string, stop: string) => `
-  --gradient-start: ${start};
-  --gradient-stop: ${stop};
-`;
-const themeGradient = createGradientStyle("#42a5f5", "#1565c0");
-const style = `
-  ${themeGradient}
-  background-image: linear-gradient(to bottom, var(--gradient-start), var(--gradient-stop));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  padding-bottom: 0.5rem;
-  font-weight: 1000;
-`;
-export function viewColored({ text }: { text: string }) {
-  return `
-    <h2 style="${style}">
-      ${text}
-    </h2>
-  `;
-}
