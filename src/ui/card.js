@@ -8,7 +8,7 @@ import { THEME } from "./theme";
  */
 export function viewCard(input) {
   return `
-    <article style="display: flex; flex-direction: column; background-color: ${THEME.paper}; border: 1px solid ${THEME.paperBorder}; border-radius: 8px">
+    <article style="display: flex; flex-direction: column; background-color: ${THEME.paper}; border: 1px solid ${THEME.paperBorder}; border-radius: 8px; overflow: hidden;">
       ${input.children}
     </article>
   `;

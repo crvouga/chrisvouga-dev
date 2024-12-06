@@ -10,9 +10,9 @@ import { THEME } from "./theme";
 export const viewGrid = (props) => {
   return `
     ${viewGridStyles()}
-    <div style="display: flex; flex-wrap: wrap;">
+    <div style="display: flex; flex-wrap: wrap; margin: -12px; min-width: 0px; box-sizing: border-box;">
         ${props.children}
-    </div>
+    </div> 
   `;
 };
 
