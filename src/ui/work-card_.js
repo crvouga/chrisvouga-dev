@@ -1,5 +1,6 @@
 // @ts-check
 
+import { tag } from "../elem";
 import { viewCard, viewCardContent } from "./card";
 import { viewLink } from "./link";
 import { unit } from "./theme";
@@ -26,19 +27,31 @@ export const viewWorkCard =
           ]
         ),
 
-        viewTypography({
-          level: "title-sm",
-          text: work.jobTitle,
-        })(),
-
-        viewTypography({
-          level: "title-sm",
-          text: `${work.yearStart} - ${work.yearEnd}`,
-        })({
-          style: {
-            "margin-bottom": unit(2),
+        tag(
+          "div",
+          {
+            style: {
+              display: "flex",
+              "flex-direction": "column",
+              gap: unit(0.5),
+            },
           },
-        }),
+          [
+            viewTypography({
+              level: "title-sm",
+              text: work.jobTitle,
+            })(),
+
+            viewTypography({
+              level: "title-sm",
+              text: `${work.yearStart} - ${work.yearEnd}`,
+            })({
+              style: {
+                "margin-bottom": unit(2),
+              },
+            }),
+          ]
+        ),
 
         viewTypography({
           level: "body-md",

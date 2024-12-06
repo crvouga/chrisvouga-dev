@@ -1,7 +1,7 @@
 // @ts-check
 
 /**
- * @typedef {Record<string, string | number | Record<string, unknown>>} Attrs
+ * @typedef {Record<string, string | number | Record<string, unknown> | undefined | null>} Attrs
  */
 
 /**

@@ -64,7 +64,7 @@ const renderFragment = (elem) => {
  * @param {Record<string, unknown>} attrs
  * @returns {string}
  */
-const renderAttrs = (attrs) => {
+export const renderAttrs = (attrs) => {
   return Object.keys(attrs)
     .flatMap((key) => {
       const value = attrs[key];

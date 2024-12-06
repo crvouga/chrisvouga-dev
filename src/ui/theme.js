@@ -6,6 +6,21 @@ export const THEME = {
     body: "#CDD7E1",
     borderLight: "#32383e",
     skeleton: "#2D333B",
+    warning: "#EA9A3E",
+    //
+    softBackground: "rgb(10, 39, 68)",
+    softBackgroundHover: "rgb(18, 70, 123)",
+    softBackgroundActive: "rgb(24, 94, 165)",
+    softText: "rgb(199, 223, 247)",
+    softTextHover: "rgb(199, 223, 247)",
+    softTextActive: "rgb(227, 239, 251)",
+    //
+    plainBackground: "transparent",
+    plainBackgroundHover: "rgb(10, 39, 68)",
+    plainBackgroundActive: "rgb(18, 70, 123)",
+    plainText: "rgb(151, 195, 240)",
+    plainTextHover: "rgb(199, 223, 247)",
+    plainTextActive: "rgb(227, 239, 251)",
   },
   breakpoints: {
     xs: "0px",

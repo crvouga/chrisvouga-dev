@@ -1,5 +1,4 @@
-import { ensureObject } from "../../../elem";
-import { viewCardContent } from "../../card";
+import { ensureObject, tag } from "../../../elem";
 import { unit } from "../../theme";
 import { viewTypography } from "../../typography";
 import { viewProjectCardContentChips } from "./chips_";
@@ -8,8 +7,9 @@ import { viewProjectCardContentTitle } from "./title_";
 /**
  * @type {import("../props").ProjectCardView}
  */
-export const viewProjectCardContent = (props) => (a, _c) => {
-  return viewCardContent(
+export const viewProjectCardContentMain = (props) => (a, _c) => {
+  return tag(
+    "div",
     {
       ...a,
       style: {

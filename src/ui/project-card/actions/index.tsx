@@ -1,6 +1,6 @@
 import { Code, Web } from "@mui/icons-material";
 import { Button, CardActions } from "@mui/joy";
-import { Project } from "../../../content";
+import { Project } from "../../../../content";
 
 export function ProjectCardActions({ project }: { project: Project }) {
   return (

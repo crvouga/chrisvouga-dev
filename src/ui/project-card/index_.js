@@ -2,9 +2,12 @@
 
 import { projectToLinkHref } from "../../../content";
 import { tag } from "../../elem";
-import { viewCard } from "../card";
-import { viewProjectCardContent } from "./content/index_";
+import { viewCard, viewCardContent } from "../card";
+import { unit } from "../theme";
+import { viewProjectCardActions } from "./actions/index_";
+import { viewProjectCardContentMain } from "./content/index_";
 import { viewProjectCardMedia } from "./media/index_";
+import { viewProjectCardStatus } from "./status/index_";
 
 /**
  * @type {import("./props").ProjectCardView}
@@ -19,7 +22,18 @@ export const viewProjectCard = (props) => (a, _c) => {
   };
   return viewCard(a, [
     viewProjectCardMedia(propsNew)({}),
-    viewProjectCardContent(propsNew)({}),
-    tag("div", { style: { flex: 1, width: "100%" } }, []),
+    viewCardContent(
+      {
+        style: {
+          gap: unit(2),
+        },
+      },
+      [
+        viewProjectCardContentMain(propsNew)({}),
+        tag("div", { style: { flex: 1, width: "100%", "flex-shrink": 0 } }, []),
+        viewProjectCardStatus(propsNew)({}),
+        viewProjectCardActions(propsNew)({}),
+      ]
+    ),
   ]);
 };

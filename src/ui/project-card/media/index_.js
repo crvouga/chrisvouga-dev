@@ -2,6 +2,7 @@
 
 import { tag } from "../../../elem";
 import { viewImage } from "../../image";
+import { THEME } from "../../theme";
 
 /**
  * @type {import("../props").ProjectCardView}
@@ -15,6 +16,8 @@ export const viewProjectCardMedia = (props) => (attr, children) => {
         width: "100%",
         "aspect-ratio": "16 / 9",
         overflow: "hidden",
+        "flex-shrink": 0,
+        "border-bottom": `1px solid ${THEME.colors.paperBorder}`,
       },
     },
     [viewProjectCardMediaContent(props)({}, []), ...(children ?? [])]

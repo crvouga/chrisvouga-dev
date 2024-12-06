@@ -4,7 +4,7 @@ import { ensureObject, tag, text } from "../elem";
 import { THEME } from "./theme";
 
 /**
- * @typedef {"h1" | "h2" | "h3" | "title-sm" | "body-md"} Level
+ * @typedef {"h1" | "h2" | "h3" | "title-sm" | "body-md" | "body-xs"} Level
  */
 
 /**
@@ -27,6 +27,8 @@ const toTag = (input) => {
       return "p";
     case "title-sm":
       return "h4";
+    case "body-xs":
+      return "p";
   }
 };
 
@@ -65,6 +67,13 @@ const toStyle = (input) => {
       return {
         "font-size": "16px",
         "line-height": "24px",
+        "font-weight": "normal",
+        color: THEME.colors.body,
+      };
+    case "body-xs":
+      return {
+        "font-size": "12px",
+        "line-height": "18px",
         "font-weight": "normal",
         color: THEME.colors.body,
       };

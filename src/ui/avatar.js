@@ -1,4 +1,4 @@
-import { ensureObject, tag } from "../elem";
+import { ensureObject } from "../elem";
 import { viewImage } from "./image";
 
 /**

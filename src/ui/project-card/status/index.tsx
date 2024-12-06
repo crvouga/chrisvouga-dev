@@ -1,6 +1,6 @@
 import { InfoOutlined } from "@mui/icons-material";
 import { Box, Stack, Typography } from "@mui/joy";
-import { Project } from "../../../content";
+import { Project } from "../../../../content";
 
 export function ProjectCardStatus({ project }: { project: Project }) {
   return (
