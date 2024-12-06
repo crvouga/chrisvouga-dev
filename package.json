@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "bun --hot ./src/main_.js",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "bun run build && bun x serve dist",
@@ -18,6 +19,7 @@
     "react-player": "^2.10.1"
   },
   "devDependencies": {
+    "@types/bun": "^1.1.14",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.2.1",
