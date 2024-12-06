@@ -40,7 +40,7 @@ const toClassName = (props) => {
       break;
   }
 
-  switch (props.size ?? "sm") {
+  switch (props.size) {
     case "sm":
       classNames.push("btn-sm");
       break;

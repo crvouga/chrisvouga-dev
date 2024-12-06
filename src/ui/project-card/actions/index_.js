@@ -13,6 +13,7 @@ export const viewProjectCardActions = (props) => () => {
       variant: "soft",
       disabled: props.project.deployment.t !== "public",
       text: "Deployment",
+      size: "sm",
     })({
       href:
         props.project.deployment.t === "public"
@@ -27,6 +28,7 @@ export const viewProjectCardActions = (props) => () => {
       variant: "plain",
       disabled: props.project.code.t !== "public",
       text: "Source Code",
+      size: "sm",
     })({
       href: props.project.code.t === "public" ? props.project.code.url : " ",
       target: "_blank",

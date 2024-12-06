@@ -1,4 +1,4 @@
-import { ensureObject, fragment, tag, text } from "../core/elem";
+import { fragment, tag, text } from "../core/elem";
 import { HEAD } from "./head";
 import { THEME } from "./theme";
 
