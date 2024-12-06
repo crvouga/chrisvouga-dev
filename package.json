@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "bun --hot ./src/main_.js",
+    "server": "bun --hot ./src/server.js",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "bun run build && bun x serve dist",

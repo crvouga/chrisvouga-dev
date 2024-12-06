@@ -1,13 +1,15 @@
 // @ts-check
 
+import { viewTypography } from "./typography";
+
 /**
  * @param {{title:string}} param0
  * @returns {string}
  */
 export function viewSectionTitle({ title }) {
-  return `
-    <h2 style="font-weight: 900; padding-bottom: 3rem; text-align: left">
-      ${title}
-    </h2>
-  `;
+  return viewTypography({
+    level: "h2",
+    style: "padding-bottom: 3rem; text-align: left; font-weight: 900;",
+    children: title,
+  });
 }
