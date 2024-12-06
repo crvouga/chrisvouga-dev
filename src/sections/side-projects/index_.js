@@ -5,17 +5,18 @@ import { viewGrid, viewGridItem } from "../../ui/grid";
 import { viewProjectCard } from "../../ui/project-card/index_";
 import { viewSection } from "../../ui/section";
 
+/**
+ * @type {import("../../elem").H}
+ */
 export const viewSideProjects = () => {
   return viewSection({
     title: "Side Projects",
-    children: viewGrid({
-      children: data.sideProjects
-        .map((project) =>
-          viewGridItem({
-            children: viewProjectCard({ project }),
-          })
-        )
-        .join(" "),
-    }),
-  });
+  })({}, [
+    viewGrid(
+      {},
+      data.sideProjects.map((project) =>
+        viewGridItem({}, [viewProjectCard({ project })()])
+      )
+    ),
+  ]);
 };

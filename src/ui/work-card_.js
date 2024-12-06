@@ -1,29 +1,33 @@
 // @ts-check
 
 import { viewCard, viewCardContent } from "./card";
+import { viewLink } from "./link";
 import { viewTypography } from "./typography";
 
 /**
- * @param {{work: import("../../content").Work}} input
- * @returns {string}
+ * @type {import("../elem").View<{work: import("../../content").Work}>}
  */
-export function viewWorkCard({ work }) {
-  return viewCard({
-    children: viewCardContent({
-      children: [
-        `<a target="_blank" rel="noreferrer noopener">
-        ${viewTypography({ level: "h3", children: work.name })}
-      </a>`,
-
-        viewTypography({ level: "title-sm", children: work.jobTitle }),
+export const viewWorkCard =
+  ({ work }) =>
+  () => {
+    return viewCard({}, [
+      viewCardContent({}, [
+        viewLink({}, [viewTypography({ level: "h3", text: work.name })()]),
 
         viewTypography({
           level: "title-sm",
-          children: `${work.yearStart} - ${work.yearEnd}`,
-        }),
+          text: work.jobTitle,
+        })(),
 
-        viewTypography({ level: "body-md", children: work.jobDescription }),
-      ].join(""),
-    }),
-  });
-}
+        viewTypography({
+          level: "title-sm",
+          text: `${work.yearStart} - ${work.yearEnd}`,
+        })(),
+
+        viewTypography({
+          level: "body-md",
+          text: work.jobDescription,
+        })(),
+      ]),
+    ]);
+  };

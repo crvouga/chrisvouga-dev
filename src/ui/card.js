@@ -1,28 +1,42 @@
 // @ts-check
 
+import { ensureObject, t } from "../elem";
 import { THEME } from "./theme";
 
 /**
- * @param {{children:string}} input
- * @returns {string}
+ * @type {import("../elem").H}
  */
-export function viewCard(input) {
-  return `
-    <article style="display: flex; flex-direction: column; background-color: ${THEME.paper}; border: 1px solid ${THEME.paperBorder}; border-radius: 8px; overflow: hidden;">
-      ${input.children}
-    </article>
-  `;
-}
+export const viewCard = (attr, children) => {
+  return t(
+    "article",
+    {
+      ...attr,
+      style: {
+        display: "flex",
+        "flex-direction": "column",
+        "background-Color": THEME.colors.paper,
+        border: `1px solid ${THEME.colors.paperBorder}`,
+        "border-radius": "8px",
+        overflow: "hidden",
+        ...ensureObject(attr?.style),
+      },
+    },
+    children
+  );
+};
 
 /**
- *
- * @param {{children:string}} props
- * @returns
+ * @type {import("../elem").H}
  */
-export const viewCardContent = (props) => {
-  return `
-        <div style="padding: 16px;">
-            ${props.children}
-        </div>
-    `;
+export const viewCardContent = (attrs, children) => {
+  return t(
+    "div",
+    {
+      ...attrs,
+      style: {
+        padding: "16px",
+      },
+    },
+    children
+  );
 };

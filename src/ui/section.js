@@ -1,16 +1,23 @@
 // @ts-check
 
+import { t } from "../elem";
 import { viewSectionTitle } from "./section-title_";
 
 /**
- * @param {{title:string; children:string}} input
- * @returns {string}
+ * @type {(props: {title:string}) => import("../elem").H}
  */
-export function viewSection(input) {
-  return `
-    <section style="width: 100%; display: flex; flex-direction: column; gap: 24px;">
-      ${viewSectionTitle(input)}
-      ${input.children}
-    </section>
-  `;
-}
+export const viewSection = (props) => (attr, c) => {
+  return t(
+    "section",
+    {
+      ...attr,
+      style: {
+        width: "100%",
+        display: "flex",
+        "flex-direction": "column",
+        gap: "24px",
+      },
+    },
+    [viewSectionTitle(props)(), ...(c ?? [])]
+  );
+};

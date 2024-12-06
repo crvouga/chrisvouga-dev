@@ -4,12 +4,8 @@ import { viewCard } from "../card";
 import { viewProjectCardMedia } from "./media/index_";
 
 /**
- *
- * @param {{project: import("../../../content").Project}} input
- * @returns {string}
+ * @type {import("./props").ProjectCardView}
  */
-export const viewProjectCard = (input) => {
-  return viewCard({
-    children: [viewProjectCardMedia(input)].join(""),
-  });
+export const viewProjectCard = (props) => (attr, children) => {
+  return viewCard(attr, [viewProjectCardMedia(props)(), ...(children ?? [])]);
 };

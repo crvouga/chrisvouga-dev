@@ -1,11 +1,14 @@
 // @ts-check
 
+import { ensureObject, t, text } from "../elem";
+import { THEME } from "./theme";
+
 /**
  * @typedef {"h1" | "h2" | "h3" | "title-sm" | "body-md"} Level
  */
 
 /**
- * @typedef {{level: Level; children:string; style?:string}} Props
+ * @typedef {{level: Level; text: string}} Props
  */
 
 /**
@@ -29,37 +32,51 @@ const toTag = (input) => {
 
 /**
  * @param {Props} input
- * @returns {string}
+ * @returns {Record<string, string>}
  */
 const toStyle = (input) => {
   switch (input.level) {
     case "h1":
-      return `font-size: 36px;`;
+      return {
+        "font-size": "36px",
+        color: THEME.colors.text,
+      };
     case "h2":
-      return `font-size: 30px`;
+      return {
+        "font-size": "30px",
+        color: THEME.colors.text,
+      };
     case "h3":
-      return `font-size: 24px;`;
+      return {
+        "font-size": "24px",
+        color: THEME.colors.text,
+      };
     case "title-sm":
-      return `font-size: 14px;`;
+      return {
+        "font-size": "18px",
+        "font-weight": "normal",
+        color: THEME.colors.text,
+      };
     case "body-md":
-      return `font-size: 16px;`;
+      return {
+        "font-size": "16px",
+        "font-weight": "normal",
+        color: THEME.colors.body,
+      };
   }
 };
 
-const BASE_STYLE = `margin: 0; padding: 0;`;
+const BASE_STYLE = { margin: 0, padding: 0 };
 
 /**
- *
- * @param {Props} input
- * @returns {string}
+ * @type {import("../elem").View<Props>}
  */
-export const viewTypography = (input) => {
-  const tag = toTag(input);
-  const style = toStyle(input);
-  const styleFinal = `${BASE_STYLE} ${style} ${input.style || ""}`;
-  return `
-        <${tag} style="${styleFinal}">
-            ${input.children}
-        </${tag}>
-    `;
+export const viewTypography = (props) => (attrs, children) => {
+  const tag = toTag(props);
+  const style = toStyle(props);
+  return t(
+    tag,
+    { style: { ...BASE_STYLE, ...style, ...ensureObject(attrs?.style) } },
+    [text(props.text), ...(children ?? [])]
+  );
 };

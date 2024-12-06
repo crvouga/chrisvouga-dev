@@ -1,48 +1,72 @@
 // @ts-check
+
+import { t } from "../../../elem";
+
 /**
- *
- * @param {import("../props").ProjectCardProps} input
- * @returns {string}
+ * @type {import("../props").ProjectCardView}
  */
-export const viewProjectCardMedia = (input) => {
-  return `
-    <div style="width: 100%; aspect-ratio: 16 / 9; overflow: hidden">  
-        ${viewProjectCardMediaContent(input)}
-    </div>
-`;
+export const viewProjectCardMedia = (props) => (attr, children) => {
+  return t(
+    "div",
+    {
+      ...attr,
+      style: {
+        width: "100%",
+        "aspect-ratio": "16 / 9",
+        overflow: "hidden",
+      },
+    },
+    [viewProjectCardMediaContent(props)({}, []), ...(children ?? [])]
+  );
 };
 
 /**
- *
- * @param {import("../props").ProjectCardProps} input
- * @returns {string}
+ * @type {import("../props").ProjectCardView}
  */
-const viewProjectCardMediaContent = (input) => {
-  const src = input.project?.imageSrc?.[0];
+const viewProjectCardMediaContent = (props) => {
+  const src = props.project?.imageSrc?.[0];
   if (src) {
-    return viewProjectCardMediaImage(input);
+    return viewProjectCardMediaImage(props);
   }
-  return viewProjectCardMediaGradient(input);
+  return viewProjectCardMediaGradient(props);
 };
 
 /**
- *
- * @param {import("../props").ProjectCardProps} input
- * @returns {string}
+ * @type {import("../props").ProjectCardView}
  */
-const viewProjectCardMediaImage = (input) => {
-  const alt = input.project?.imageAlt;
-  const src = input.project?.imageSrc?.[0] ?? " ";
-  return `<img src="${src}" alt="${alt}" style="width: 100%; height: 100%" style="object-fit: cover" />`;
+const viewProjectCardMediaImage = (props) => (attr, _) => {
+  const alt = props.project?.imageAlt;
+  const src = props.project?.imageSrc?.[0] ?? " ";
+  return t(
+    "img",
+    {
+      ...attr,
+      src,
+      alt,
+      style: {
+        width: "100%",
+        height: "100%",
+        "object-fit": "cover",
+      },
+    },
+    []
+  );
 };
 
 /**
- *
- * @param {import("../props").ProjectCardProps} input
- * @returns {string}
+ * @type {import("../props").ProjectCardView}
  */
-const viewProjectCardMediaGradient = (input) => {
-  return `
-    <div style="width: 100%; height: 100%; background: linear-gradient(to right bottom, #2196f3, #8e24aa)"/> 
-    `;
+const viewProjectCardMediaGradient = (_) => (attr, _) => {
+  return t(
+    "div",
+    {
+      ...attr,
+      style: {
+        width: "100%",
+        height: "100%",
+        background: "linear-gradient(to right bottom, #2196f3, #8e24aa)",
+      },
+    },
+    []
+  );
 };

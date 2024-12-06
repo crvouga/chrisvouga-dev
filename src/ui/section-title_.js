@@ -3,13 +3,13 @@
 import { viewTypography } from "./typography";
 
 /**
- * @param {{title:string}} param0
- * @returns {string}
+ * @type {import("../elem").View<{ title: string }>}
  */
-export function viewSectionTitle({ title }) {
-  return viewTypography({
-    level: "h2",
-    style: "padding-bottom: 3rem; text-align: left; font-weight: 900;",
-    children: title,
+export const viewSectionTitle = (p) => (_a, _c) => {
+  return viewTypography({ level: "h2", text: p.title })({
+    style: {
+      margin: 0,
+      padding: 0,
+    },
   });
-}
+};
