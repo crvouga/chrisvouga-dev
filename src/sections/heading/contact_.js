@@ -33,7 +33,7 @@ HEAD.push(
     text(`
     .heading-contact {
       display: flex;
-      gap: ${unit(2)};
+      gap: ${unit(3)};
       height: 100%;
       flex: 1;
       flex-wrap: wrap;

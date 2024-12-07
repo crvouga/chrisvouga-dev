@@ -37,6 +37,8 @@ HEAD.push(
       flex-direction: column;
       gap: ${unit(4)};
       max-width: ${THEME.breakpoints.sm};
+      flex-wrap: wrap;
+      overflow: hidden;
     }
     @media (min-width: ${THEME.breakpoints.xs}) {
       .contact-section-content {
