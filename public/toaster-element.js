@@ -27,6 +27,7 @@ class ToasterElement extends HTMLElement {
           border: 1px solid var(--toast-border-color);
           padding: 1rem 1rem;
           border-radius: 5px;
+          width: fit-content;
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
           transform: translateY(-20px);
           animation: slide-in 0.3s forwards, slide-out 0.3s 2.5s forwards;
