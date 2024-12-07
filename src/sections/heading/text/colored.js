@@ -21,7 +21,6 @@ HEAD.push(
     
     .colored {
       font-weight: 1000;
-      padding-bottom: 0.5rem;
       color: transparent;
       background-image: linear-gradient(${THEME.colors.primary300}, ${THEME.colors.primary500});
       -webkit-background-clip: text;

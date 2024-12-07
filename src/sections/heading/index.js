@@ -1,11 +1,9 @@
 // @ts-check
 import { tag, text } from "src/library/html";
 import { HEAD } from "src/ui/head";
-import { code } from "src/ui/icons";
 import { THEME, unit } from "src/ui/theme";
-import { viewTypography } from "src/ui/typography";
-import { viewColored } from "./colored";
 import { viewHeadingContact } from "./contact";
+import { viewHeadingSectionText } from "./text";
 
 /**
  * @type {import("src/library/html").View}
@@ -16,37 +14,7 @@ export const viewHeadingSection = () => {
     {
       class: "header",
     },
-    [
-      tag(
-        "div",
-        {
-          style: {
-            flex: 1,
-            display: "flex",
-            "align-items": "center",
-            gap: unit(2),
-            "flex-shrink": 0,
-          },
-        },
-        [
-          code({
-            style: {
-              width: "4rem",
-              height: "4rem",
-              fill: THEME.colors.text,
-              "flex-shrink": 0,
-            },
-          }),
-          tag("div", {}, [
-            viewTypography({ level: "h1", text: "Chris Vouga" })({
-              style: { "font-weight": 900 },
-            }),
-            viewColored({ text: "Software Developer" })(),
-          ]),
-        ]
-      ),
-      viewHeadingContact({})(),
-    ]
+    [viewHeadingSectionText(), viewHeadingContact({})()]
   );
 };
 
@@ -72,7 +40,7 @@ HEAD.push(
     @media (min-width: ${THEME.breakpoints.sm}) {
       .header {
         flex-direction: row;
-        align-items: center;
+        align-items: flex-end;
         gap: ${unit(2)};
       }
     }
