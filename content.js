@@ -1,8 +1,20 @@
+/**
+ * @param {string} href
+ * @param {string} text
+ * @returns {string}
+ */
+const a = (href, text) => {
+  return `<a style="color: white;" target="_blank" rel="noreferrer noopener" href="${href}">${text}</a>`;
+};
+
 const bandHref = "https://www.instagram.com/tripolartheband/";
 
 const lamderaHref = "https://lamdera.com/";
 
-const work: Work[] = [
+/**
+ * @type {Work[]}
+ */
+const work = [
   {
     name: "One Origin",
     infoUrl: "https://oneorigin.us/",
@@ -20,7 +32,10 @@ const work: Work[] = [
   },
 ];
 
-const workProjects: Project[] = [
+/**
+ * @type {Project[]}
+ */
+const workProjects = [
   {
     title: "Triangulator",
     deployment: { t: "private" },
@@ -127,7 +142,10 @@ const workProjects: Project[] = [
 ];
 
 const gamezillaHref = "https://gamezilla.app/";
-const sideProjects: Project[] = [
+/**
+ * @type {Project[]}
+ */
+const sideProjects = [
   {
     title: "gamezilla.app",
     deployment: {
@@ -477,43 +495,42 @@ A fun fact about me is that I play the drums in a ${a(bandHref, "band")}.`;
 
 const metaDescription = aboutMe.replace(a(bandHref, "band"), "band");
 
-export function topics(topics: Topic[]): Topic[] {
+/**
+ *
+ * @param {Topic[]} topics
+ * @returns {Topic[]}
+ */
+export function topics(topics) {
   return topics;
 }
 
-type Code =
-  | {
-      t: "private";
-    }
-  | {
-      t: "public";
-      url: string;
-    };
+/**
+ * @typedef {{t: "private";} | {t: "public"; url: string;}} Code
+ */
 
-type Deployment =
-  | {
-      t: "public";
-      url: string;
-    }
-  | {
-      t: "not-deployed-anymore";
-    }
-  | {
-      t: "private";
-    };
+/**
+ * @typedef {{t: "public",  url: string,} | { t: "not-deployed-anymore",} | {t: "private"}} Deployment
+ */
 
-export type Project = {
-  title: string;
-  deployment: Deployment;
-  code: Code;
-  description: string;
-  imageSrc: string[];
-  imageAlt: string;
-  youTubeVideoId?: string;
-  topics: Topic[];
-};
+/**
+ * @typedef {{
+ * title: string;
+ * deployment: Deployment;
+ * code: Code;
+ * description: string;
+ * imageSrc: string[];
+ * imageAlt: string;
+ * youTubeVideoId?: string;
+ * topics: Topic[];
+ * }} Project
+ */
 
-export const projectToLinkHref = (project: Project) => {
+/**
+ *
+ * @param {Project} project
+ * @returns {string | null}
+ */
+export const projectToLinkHref = (project) => {
   if (project.deployment.t === "public") {
     return project.deployment.url;
   }
@@ -523,14 +540,16 @@ export const projectToLinkHref = (project: Project) => {
   return null;
 };
 
-export type Work = {
-  name: string;
-  infoUrl?: string;
-  jobTitle: string;
-  jobDescription: string;
-  yearStart: number;
-  yearEnd: number | "Present";
-};
+/**
+ * @typedef {{
+ * name: string;
+ * infoUrl?: string;
+ * jobTitle: string;
+ * jobDescription: string;
+ * yearStart: number;
+ * yearEnd: number | "Present";
+ * }} Work
+ */
 
 //
 //
@@ -569,10 +588,6 @@ export const data = {
 
   work,
 };
-
-function a(href: string, text: string) {
-  return `<a style="color: white;" target="_blank" rel="noreferrer noopener" href="${href}">${text}</a>`;
-}
 
 //
 //
@@ -639,11 +654,14 @@ export const topicToImageSrc = {
   vercel: "/vercel-icon.svg",
 };
 
-export type Topic = keyof typeof topicToImageSrc;
+/**
+ * @typedef {keyof typeof topicToImageSrc} Topic
+ */
 
-export const topicToName: {
-  [key in Topic]: string;
-} = {
+/**
+ * @type {{ [key in Topic]: string; }}
+ */
+export const topicToName = {
   neo4j: "Neo4j",
   flask: "Flask",
   graphene: "Graphene",
