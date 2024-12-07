@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "server": "bun --hot ./src/server.js",
+    "start": "bun --hot ./src/start.js",
     "build": "bun ./src/build.js",
     "preview": "bun run build && bun x serve dist",
     "tc": "tsc -w"
