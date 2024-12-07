@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "server": "bun --hot ./src/server.js",
-    "dev": "vite dev",
-    "build": "vite build",
+    "build": "bun ./src/build.js",
     "preview": "bun run build && bun x serve dist",
     "tc": "tsc -w"
   },

@@ -39,8 +39,6 @@ export const viewProjectCardStatus = (props) => (_a, _c) => {
     );
   }
 
-  console.log("viewProjectCardStatus", children, "props", props);
-
   return tag(
     "div",
     {

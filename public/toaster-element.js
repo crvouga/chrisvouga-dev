@@ -135,7 +135,6 @@ class ToasterElement extends HTMLElement {
         this.currentToast.addEventListener(
           "animationend",
           () => {
-            console.log("animationend");
             if (this.currentToast === toast) {
               this.currentToast.remove();
               this.currentToast = null;
