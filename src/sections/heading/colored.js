@@ -1,10 +1,10 @@
-import { tag, text } from "../../library/html";
-import { HEAD } from "../../ui/head";
-import { THEME } from "../../ui/theme";
-import { viewTypography } from "../../ui/typography";
+import { tag, text } from "src/library/html";
+import { HEAD } from "src/ui/head";
+import { THEME } from "src/ui/theme";
+import { viewTypography } from "src/ui/typography";
 
 /**
- * @type {import("../../library/html").ViewWithProps<{ text: string }>}
+ * @type {import("src/library/html").ViewWithProps<{ text: string }>}
  */
 export const viewColored =
   ({ text }) =>

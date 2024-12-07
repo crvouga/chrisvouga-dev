@@ -1,9 +1,9 @@
 // @ts-check
 
-import { tag } from "../../library/html";
-import { projectToLinkHref } from "../../content/project";
-import { viewCard, viewCardContent } from "../../ui/card";
-import { unit } from "../../ui/theme";
+import { tag } from "src/library/html";
+import { projectToLinkHref } from "src/content/project";
+import { viewCard, viewCardContent } from "src/ui/card";
+import { unit } from "src/ui/theme";
 import { viewProjectCardActions } from "./actions";
 import { viewProjectCardContentMain } from "./content";
 import { viewProjectCardMedia } from "./media";

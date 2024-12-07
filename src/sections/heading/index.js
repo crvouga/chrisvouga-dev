@@ -1,14 +1,14 @@
 // @ts-check
-import { tag, text } from "../../library/html";
-import { HEAD } from "../../ui/head";
-import { code } from "../../ui/icons";
-import { THEME, unit } from "../../ui/theme";
-import { viewTypography } from "../../ui/typography";
+import { tag, text } from "src/library/html";
+import { HEAD } from "src/ui/head";
+import { code } from "src/ui/icons";
+import { THEME, unit } from "src/ui/theme";
+import { viewTypography } from "src/ui/typography";
 import { viewColored } from "./colored";
 import { viewHeadingContact } from "./contact";
 
 /**
- * @type {import("../../library/html").View}
+ * @type {import("src/library/html").View}
  */
 export const viewHeadingSection = () => {
   return tag(

@@ -1,17 +1,17 @@
-import { data } from "../../content";
-import { tag, text } from "../../library/html";
-import { viewButton } from "../../ui/button";
-import { viewGrid, viewGridItem } from "../../ui/grid";
-import { HEAD } from "../../ui/head";
-import { viewProjectCard } from "../../shared/project-card";
-import { viewSection } from "../../shared/section";
-import { unit } from "../../ui/theme";
+import { data } from "src/content";
+import { tag, text } from "src/library/html";
+import { viewButton } from "src/ui/button";
+import { viewGrid, viewGridItem } from "src/ui/grid";
+import { HEAD } from "src/ui/head";
+import { viewProjectCard } from "src/shared/project-card";
+import { viewSection } from "src/shared/section";
+import { unit } from "src/ui/theme";
 
 const MAX_CARD_COUNT = 9;
 const HIDDEN_CARD_COUNT = data.sideProjects.length - MAX_CARD_COUNT;
 
 /**
- * @type {import("../../library/html").View}
+ * @type {import("src/library/html").View}
  */
 export const viewSideProjectsSection = () => {
   const namespace = "toggle-see-more--";

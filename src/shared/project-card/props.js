@@ -1,11 +1,11 @@
 // @ts-check
 
 /**
- * @typedef {{project: import("../../content/project").Project; linkHref?: string | null}} ProjectCardProps
+ * @typedef {{project: import("src/content/project").Project; linkHref?: string | null}} ProjectCardProps
  */
 
 /**
- * @typedef {import("../../library/html").ViewWithProps<import("./props").ProjectCardProps>} ProjectCardView
+ * @typedef {import("src/library/html").ViewWithProps<import("./props").ProjectCardProps>} ProjectCardView
  */
 
 export default {};
