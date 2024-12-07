@@ -22,6 +22,6 @@
     "noEmit": true,
     "strict": true
   },
-  "include": ["src", "public/**/*.jsØ", "**/*.js"],
+  "include": ["src", "public/**/*.jsØ", "**/*.js", "bun/types"],
   "exclude": ["node_modules", "dist"]
 }

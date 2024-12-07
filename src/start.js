@@ -1,6 +1,6 @@
 // @ts-check
 import { viewApp } from "./app";
-import { join } from "path";
+import { join } from "node:path";
 import { render } from "./core/elem/render";
 
 const PUBLIC_PATH = "./public";
