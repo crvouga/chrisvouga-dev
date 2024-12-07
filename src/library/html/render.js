@@ -1,6 +1,6 @@
+import { isRecord } from "src/library/is-record";
+import { assertEquals } from "src/library/test";
 import { tag, text } from ".";
-import { isRecord } from "../is-record";
-import { assertEquals } from "../test";
 
 /**
  *

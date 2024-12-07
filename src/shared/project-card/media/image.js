@@ -5,7 +5,7 @@ import { HEAD } from "src/ui/head";
 import { viewImage } from "src/ui/image";
 
 /**
- * @type {import("../props").ProjectCardView}
+ * @type {import("src/shared/project-card/props").ProjectCardView}
  */
 export const viewProjectCardMediaImage = (props) => {
   const src = props.project?.imageSrc?.[0];
@@ -16,7 +16,7 @@ export const viewProjectCardMediaImage = (props) => {
 };
 
 /**
- * @type {import("../props").ProjectCardView}
+ * @type {import("src/shared/project-card/props").ProjectCardView}
  */
 const viewProjectCardMediaImageMain = (props) => (attr, _) => {
   const alt = props.project?.imageAlt;
@@ -42,7 +42,7 @@ HEAD.push(
 );
 
 /**
- * @type {import("../props").ProjectCardView}
+ * @type {import("src/shared/project-card/props").ProjectCardView}
  */
 const viewProjectCardMediaGradient = (_) => (attr, _) => {
   return tag("div", { ...attr, class: "project-card-media-gradient" }, []);

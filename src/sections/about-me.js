@@ -1,12 +1,12 @@
 // @ts-check
 
-import { data } from "../content";
-import { viewSection } from "../shared/section";
-import { THEME } from "../ui/theme";
-import { viewTypography } from "../ui/typography";
+import { data } from "src/content";
+import { viewSection } from "src/shared/section";
+import { THEME } from "src/ui/theme";
+import { viewTypography } from "src/ui/typography";
 
 /**
- * @type {import("../library/html").View}
+ * @type {import("src/library/html").View}
  */
 export const viewAboutMeSection = (a, _) => {
   return viewSection({

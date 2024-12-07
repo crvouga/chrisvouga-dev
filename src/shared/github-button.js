@@ -1,10 +1,10 @@
-import { data } from "../content";
-import { viewButton } from "../ui/button";
-import { github } from "../ui/icons";
+import { data } from "src/content";
+import { viewButton } from "src/ui/button";
+import { github } from "src/ui/icons";
 
 /**
  *
- * @type {import("../library/html").ViewWithProps<{}>}
+ * @type {import("src/library/html").ViewWithProps<{}>}
  */
 export const viewGithubButton = () => () => {
   return viewButton({

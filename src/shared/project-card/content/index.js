@@ -6,7 +6,7 @@ import { viewProjectCardContentChips } from "./chips";
 import { viewProjectCardContentTitle } from "./title";
 
 /**
- * @type {import("../props").ProjectCardView}
+ * @type {import("src/shared/project-card/props").ProjectCardView}
  */
 export const viewProjectCardContentMain = (props) => (a, _c) => {
   return tag(

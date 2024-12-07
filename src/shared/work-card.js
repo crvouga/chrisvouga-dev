@@ -1,13 +1,13 @@
 // @ts-check
 
-import { tag } from "../library/html";
-import { viewCard, viewCardContent } from "../ui/card";
-import { viewLink } from "../ui/link";
-import { unit } from "../ui/theme";
-import { viewTypography } from "../ui/typography";
+import { tag } from "src/library/html";
+import { viewCard, viewCardContent } from "src/ui/card";
+import { viewLink } from "src/ui/link";
+import { unit } from "src/ui/theme";
+import { viewTypography } from "src/ui/typography";
 
 /**
- * @type {import("../library/html").ViewWithProps<{work: Work}>}
+ * @type {import("src/library/html").ViewWithProps<{work: Work}>}
  */
 export const viewWorkCard =
   ({ work }) =>

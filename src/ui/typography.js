@@ -1,6 +1,6 @@
 // @ts-check
 
-import { tag, text } from "../library/html";
+import { tag, text } from "src/library/html";
 import { HEAD } from "./head";
 import { THEME } from "./theme";
 
@@ -80,7 +80,7 @@ HEAD.push(
 const BASE_CLASS = "typography-base";
 
 /**
- * @type {import("../library/html").ViewWithProps<Props>}
+ * @type {import("src/library/html").ViewWithProps<Props>}
  */
 export const viewTypography = (props) => (attrs, children) => {
   const tagName = (() => {

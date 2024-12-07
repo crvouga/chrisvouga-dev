@@ -4,7 +4,7 @@ import { THEME, unit } from "src/ui/theme";
 import { viewTypography } from "src/ui/typography";
 
 /**
- * @type {import("../props").ProjectCardView}
+ * @type {import("src/shared/project-card/props").ProjectCardView}
  */
 export const viewProjectCardStatus = (props) => (_a, _c) => {
   /**
@@ -55,7 +55,7 @@ export const viewProjectCardStatus = (props) => (_a, _c) => {
 };
 
 /**
- * @type {import("src/library/html").ViewWithProps<import("../props").ProjectCardProps & {text:string}>}
+ * @type {import("src/library/html").ViewWithProps<import("src/shared/project-card/props").ProjectCardProps & {text:string}>}
  */
 export const viewProjectCardStatusSingle = (props) => (_a, _c) => {
   return tag(

@@ -5,7 +5,7 @@ import { unit } from "src/ui/theme";
 import { viewTypography } from "src/ui/typography";
 
 /**
- * @type {import("../props").ProjectCardView}
+ * @type {import("src/shared/project-card/props").ProjectCardView}
  */
 export const viewProjectCardContentTitle = (props) => (a, _c) => {
   const inner = viewTypography({

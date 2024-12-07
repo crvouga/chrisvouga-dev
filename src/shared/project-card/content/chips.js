@@ -6,7 +6,7 @@ import { HEAD } from "src/ui/head";
 import { unit } from "src/ui/theme";
 
 /**
- * @type {import("../props").ProjectCardView}
+ * @type {import("src/shared/project-card/props").ProjectCardView}
  */
 export const viewProjectCardContentChips = (props) => () => {
   return tag("div", { class: "project-card-content-chips" }, [

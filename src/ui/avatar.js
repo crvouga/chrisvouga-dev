@@ -1,9 +1,9 @@
-import { tag, text } from "../library/html";
+import { tag, text } from "src/library/html";
 import { HEAD } from "./head";
 import { viewImage } from "./image";
 
 /**
- * @type {import("../library/html").ViewWithProps<{src:string; alt: string}>}
+ * @type {import("src/library/html").ViewWithProps<{src:string; alt: string}>}
  */
 export const viewAvatar = (props) => (attr, children) => {
   const className = ["avatar", attr?.class].filter(Boolean).join(" ");

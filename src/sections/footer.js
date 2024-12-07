@@ -1,10 +1,10 @@
-import { data } from "../content";
-import { tag, text } from "../library/html";
-import { viewLink } from "../ui/link";
-import { THEME, unit } from "../ui/theme";
+import { data } from "src/content";
+import { tag, text } from "src/library/html";
+import { viewLink } from "src/ui/link";
+import { THEME, unit } from "src/ui/theme";
 
 /**
- * @type {import("../library/html").View}
+ * @type {import("src/library/html").View}
  */
 export const viewFooterSection = () => {
   return tag(

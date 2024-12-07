@@ -1,17 +1,17 @@
 // @ts-check
 
-import { text } from "../library/html";
-import { renderAttrs } from "../library/html/render";
+import { text } from "src/library/html";
+import { renderAttrs } from "src/library/html/render";
 
 /**
- * @type {(attrs: import("../library/html").Attrs | undefined, svg: string) => import("../library/html").Html}
+ * @type {(attrs: import("src/library/html").Attrs | undefined, svg: string) => import("src/library/html").Html}
  */
 const icon = (attrs, svg) => {
   return text(svg.replace("<svg ", `<svg ${renderAttrs(attrs ?? {})} `));
 };
 
 /**
- * @type {import("../library/html").View}
+ * @type {import("src/library/html").View}
  */
 export const linkedIn = (a, _) => {
   return icon(
@@ -21,7 +21,7 @@ export const linkedIn = (a, _) => {
 };
 
 /**
- * @type {import("../library/html").View}
+ * @type {import("src/library/html").View}
  */
 export const github = (a, _) => {
   return icon(
@@ -31,7 +31,7 @@ export const github = (a, _) => {
 };
 
 /**
- * @type {import("../library/html").View}
+ * @type {import("src/library/html").View}
  */
 export const infoOutline = (attrs, _) => {
   return icon(
@@ -41,7 +41,7 @@ export const infoOutline = (attrs, _) => {
 };
 
 /**
- * @type {import("../library/html").View}
+ * @type {import("src/library/html").View}
  */
 export const web = (attrs, _children) => {
   return icon(
@@ -51,7 +51,7 @@ export const web = (attrs, _children) => {
 };
 
 /**
- * @type {import("../library/html").View}
+ * @type {import("src/library/html").View}
  */
 export const _code = (attrs, _children) => {
   return icon(
@@ -61,7 +61,7 @@ export const _code = (attrs, _children) => {
 };
 
 /**
- * @type {import("../library/html").View}
+ * @type {import("src/library/html").View}
  */
 export const code = (attrs, _children) => {
   return icon(
@@ -71,7 +71,7 @@ export const code = (attrs, _children) => {
 };
 
 /**
- * @type {import("../library/html").View}
+ * @type {import("src/library/html").View}
  */
 export const launch = (attrs, _children) => {
   return icon(

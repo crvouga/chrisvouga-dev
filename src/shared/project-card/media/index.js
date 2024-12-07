@@ -7,7 +7,7 @@ import { viewProjectCardMediaImage } from "./image";
 import { viewProjectCardMediaVideo } from "./video";
 
 /**
- * @type {import("../props").ProjectCardView}
+ * @type {import("src/shared/project-card/props").ProjectCardView}
  */
 export const viewProjectCardMedia = (props) => (attr, children) => {
   return tag("div", { ...attr, class: "project-card-media" }, [

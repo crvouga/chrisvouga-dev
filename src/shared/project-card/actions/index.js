@@ -3,7 +3,7 @@ import { viewCardActions } from "src/ui/card";
 import { code, web } from "src/ui/icons";
 
 /**
- * @type {import("../props").ProjectCardView}
+ * @type {import("src/shared/project-card/props").ProjectCardView}
  */
 export const viewProjectCardActions = (props) => () => {
   return viewCardActions({}, [
