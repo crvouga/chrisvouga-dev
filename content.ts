@@ -435,8 +435,8 @@ const sideProjects: Project[] = [
   {
     title: "Cheese",
     deployment: {
-      t: "public",
-      url: "https://cheese.chrisvouga.dev/",
+      t: "not-deployed-anymore",
+      // url: "https://cheese.chrisvouga.dev/",
     },
     code: {
       t: "public",
