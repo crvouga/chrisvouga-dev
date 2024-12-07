@@ -9,7 +9,7 @@ import { THEME } from "./theme";
  */
 
 /**
- * @typedef {{tag:string; startDecorator: import("../core/elem").View | null, size: "sm" | "lg"; variant: "soft" | "plain"; disabled: boolean; text: string}} Props
+ * @typedef {{tag:string; startDecorator: import("../core/elem").View | null, size: "sm" | "lg"; variant: "soft" | "plain" | "contained"; disabled: boolean; text: string}} Props
  */
 
 /**
@@ -37,6 +37,9 @@ const toClassName = (props) => {
       break;
     case "plain":
       classNames.push("btn-plain");
+      break;
+    case "contained":
+      classNames.push("btn-contained");
       break;
   }
 
@@ -188,6 +191,33 @@ export const viewButtonStyles = (_props) => (_attrs, _children) => {
         background-color: ${THEME.colors.plainBackgroundActive};
         color: ${THEME.colors.plainTextActive};
         fill: ${THEME.colors.plainTextActive};
+      }
+
+
+
+
+      .btn-contained {
+        background-color: ${THEME.colors.containedBackground};
+        color: ${THEME.colors.containedText};
+        fill: ${THEME.colors.containedText};
+      }
+
+      .btn-contained.btn-disabled {
+        background-color: ${THEME.colors.containedBackground};
+        color: ${THEME.colors.containedTextDisabled};
+        fill: ${THEME.colors.containedTextDisabled};
+      }
+
+      .btn-contained:hover {
+        background-color: ${THEME.colors.containedBackgroundHover};
+        color: ${THEME.colors.containedTextHover};
+        fill: ${THEME.colors.containedTextHover};
+      }
+
+      .btn-contained:active {
+        background-color: ${THEME.colors.containedBackgroundActive};
+        color: ${THEME.colors.containedTextActive};
+        fill: ${THEME.colors.containedTextActive};
       }
 
 

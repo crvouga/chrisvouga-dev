@@ -27,6 +27,14 @@ export const THEME = {
     plainTextHover: "rgb(199, 223, 247)",
     plainTextActive: "rgb(227, 239, 251)",
     plainTextDisabled: "rgb(99, 107, 116)",
+    //
+    containedBackground: "rgb(11, 107, 203)",
+    containedBackgroundHover: "rgb(18, 70, 123)",
+    containedBackgroundActive: "rgb(18, 70, 123)",
+    containedText: "rgb(255, 255, 255)",
+    containedTextHover: "rgb(255, 255, 255)",
+    containedTextActive: "rgb(255, 255, 255)",
+    containedTextDisabled: "rgb(99, 107, 116)",
   },
   breakpoints: {
     xs: "0px",

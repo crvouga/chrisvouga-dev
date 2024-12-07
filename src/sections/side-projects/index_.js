@@ -83,7 +83,7 @@ export const viewSideProjectsSection = () => {
           startDecorator: null,
           tag: "button",
           text: `See ${HIDDEN_CARD_COUNT.toLocaleString()} more`,
-          variant: "soft",
+          variant: "contained",
         })({
           style: {
             width: "fit-content",
@@ -98,7 +98,7 @@ export const viewSideProjectsSection = () => {
           startDecorator: null,
           tag: "button",
           text: "See less",
-          variant: "soft",
+          variant: "contained",
         })({
           style: {
             width: "fit-content",
