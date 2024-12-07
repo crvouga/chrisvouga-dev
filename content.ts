@@ -103,7 +103,7 @@ const workProjects: Project[] = [
       url: "https://experience-airr.heysia.ai/",
     },
     description:
-      "A product demo for Airr, a product offered by One Origin to automate the process of consuming transcripts.",
+      "A product demo for Airr. A product offered by One Origin to automate the process of consuming transcripts.",
     imageAlt: "project screenshot or video",
     imageSrc: [
       "/airr/1.png",
