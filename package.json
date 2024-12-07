@@ -8,21 +8,8 @@
     "preview": "bun run build && bun x serve dist",
     "tc": "tsc -w"
   },
-  "dependencies": {
-    "@emotion/react": "^11.13.5",
-    "@emotion/styled": "^11.13.5",
-    "@mui/icons-material": "^6.1.10",
-    "@mui/joy": "^5.0.0-beta.48",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-player": "^2.10.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/bun": "^1.1.14",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "@vitejs/plugin-react": "^4.2.1",
-    "typescript": "^5.2.2",
-    "vite": "^6.0.3"
+    "@types/bun": "^1.1.14"
   }
 }
