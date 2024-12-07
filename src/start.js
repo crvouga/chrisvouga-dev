@@ -1,5 +1,5 @@
 // @ts-check
-import { viewApp } from "./app_";
+import { viewApp } from "./app";
 import { join } from "path";
 import { render } from "./core/elem/render";
 
