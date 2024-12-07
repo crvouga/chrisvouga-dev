@@ -20,14 +20,14 @@ export const viewGrid = (attr, children) => {
 /**
  * @type {import("../core/elem").View}
  */
-export const viewGridItem = (attr, children) => {
+export const viewGridItem = (a, c) => {
   return tag(
     "div",
     {
-      ...attr,
-      class: "grid-item",
+      ...a,
+      class: ["grid-item", a?.class].filter(Boolean).join(" "),
     },
-    children
+    c
   );
 };
 

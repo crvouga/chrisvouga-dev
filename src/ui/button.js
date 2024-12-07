@@ -9,7 +9,7 @@ import { THEME } from "./theme";
  */
 
 /**
- * @typedef {{tag:string; startDecorator: import("../core/elem").View, size: "sm" | "lg"; variant: "soft" | "plain"; disabled: boolean; text: string}} Props
+ * @typedef {{tag:string; startDecorator: import("../core/elem").View | null, size: "sm" | "lg"; variant: "soft" | "plain"; disabled: boolean; text: string}} Props
  */
 
 /**
@@ -67,14 +67,17 @@ export const viewButton = (props) => (attrs, children) => {
     {
       class: toClassName(props),
       "aria-role": "button",
-      "aria-disabled": props.disabled ? "true" : "false",
-      disabled: props.disabled ? "true" : "false",
+      ...(props.disabled ? { disabled: "true", "aria-disabled": "true" } : {}),
       ...attrs,
     },
     [
-      props.startDecorator({
-        class: "btn-start-decorator",
-      }),
+      ...(props.startDecorator
+        ? [
+            props.startDecorator({
+              class: "btn-start-decorator",
+            }),
+          ]
+        : []),
       text(props.text),
       ...(children ?? []),
     ]
