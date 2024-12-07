@@ -20,7 +20,9 @@
     "allowJs": true,
     "checkJs": true,
     "noEmit": true,
-    "strict": true
+    "strict": true,
+
+    "baseUrl": "./"
   },
   "include": ["src", "public/**/*.jsØ", "**/*.js", "bun/types"],
   "exclude": ["node_modules", "dist"]

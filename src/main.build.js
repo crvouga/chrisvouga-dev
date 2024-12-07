@@ -1,6 +1,6 @@
 // @ts-check
 import { viewApp } from "./app";
-import { render } from "./core/elem/render";
+import { render } from "./library/html/render";
 import { promises as fs } from "fs";
 import { join } from "path";
 import { readdir, rm, copyFile, mkdir } from "fs/promises";

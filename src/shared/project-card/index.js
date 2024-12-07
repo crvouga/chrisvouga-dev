@@ -1,6 +1,6 @@
 // @ts-check
 
-import { tag } from "../../core/elem";
+import { tag } from "../../library/html";
 import { projectToLinkHref } from "../../content/project";
 import { viewCard, viewCardContent } from "../../ui/card";
 import { unit } from "../../ui/theme";

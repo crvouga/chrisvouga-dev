@@ -1,5 +1,5 @@
 import { data } from "../../content";
-import { tag, text } from "../../core/elem";
+import { tag, text } from "../../library/html";
 import { viewButton } from "../../ui/button";
 import { viewGrid, viewGridItem } from "../../ui/grid";
 import { HEAD } from "../../ui/head";
@@ -11,7 +11,7 @@ const MAX_CARD_COUNT = 9;
 const HIDDEN_CARD_COUNT = data.sideProjects.length - MAX_CARD_COUNT;
 
 /**
- * @type {import("../../core/elem").View}
+ * @type {import("../../library/html").View}
  */
 export const viewSideProjectsSection = () => {
   const namespace = "toggle-see-more--";

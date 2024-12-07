@@ -1,11 +1,11 @@
 // @ts-check
 
-import { tag, text } from "../core/elem";
+import { tag, text } from "../library/html";
 import { HEAD } from "./head";
 import { THEME } from "./theme";
 
 /**
- * @typedef {{size: "sm"; startDecorator: import("../core/elem/index").View; variant: "outlined" | "basic"; text: string}} ChipProps
+ * @typedef {{size: "sm"; startDecorator: import("../library/html/index").View; variant: "outlined" | "basic"; text: string}} ChipProps
  */
 
 /**
@@ -48,7 +48,7 @@ HEAD.push(
 );
 
 /**
- * @type {import("../core/elem").ViewWithProps<ChipProps>}
+ * @type {import("../library/html").ViewWithProps<ChipProps>}
  */
 export const viewChip = (props) => (attr, _children) => {
   const variantClass =

@@ -2,7 +2,7 @@
 import { viewContactLinkButton } from "./button";
 
 /**
- * @type {import("../../core/elem").ViewWithProps<{label:string, value:string}>}
+ * @type {import("../../library/html").ViewWithProps<{label:string, value:string}>}
  */
 export const viewContactLink = (props) => (a, c) => {
   return viewContactLinkButton(props)(a, c);

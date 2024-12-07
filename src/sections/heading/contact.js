@@ -1,5 +1,5 @@
 import { data } from "../../content";
-import { tag, text } from "../../core/elem";
+import { tag, text } from "../../library/html";
 import { viewContactLink } from "../../shared/contact-link";
 import { viewGithubButton } from "../../shared/github-button";
 import { HEAD } from "../../ui/head";
@@ -7,7 +7,7 @@ import { viewLinkedInButton } from "../../shared/linkedin-button";
 import { THEME, unit } from "../../ui/theme";
 
 /**
- * @type {import("../../core/elem").ViewWithProps<{}>}
+ * @type {import("../../library/html").ViewWithProps<{}>}
  */
 export const viewHeadingContact = () => () => {
   return tag(

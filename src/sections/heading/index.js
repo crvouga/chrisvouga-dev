@@ -1,5 +1,5 @@
 // @ts-check
-import { tag, text } from "../../core/elem";
+import { tag, text } from "../../library/html";
 import { HEAD } from "../../ui/head";
 import { code } from "../../ui/icons";
 import { THEME, unit } from "../../ui/theme";
@@ -8,7 +8,7 @@ import { viewColored } from "./colored";
 import { viewHeadingContact } from "./contact";
 
 /**
- * @type {import("../../core/elem").View}
+ * @type {import("../../library/html").View}
  */
 export const viewHeadingSection = () => {
   return tag(

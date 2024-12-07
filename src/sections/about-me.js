@@ -6,7 +6,7 @@ import { THEME } from "../ui/theme";
 import { viewTypography } from "../ui/typography";
 
 /**
- * @type {import("../core/elem").View}
+ * @type {import("../library/html").View}
  */
 export const viewAboutMeSection = (a, _) => {
   return viewSection({

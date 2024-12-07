@@ -6,7 +6,7 @@ import { viewProjectCard } from "../shared/project-card";
 import { viewSection } from "../shared/section";
 
 /**
- * @type {import("../core/elem").View}
+ * @type {import("../library/html").View}
  */
 export const viewWorkProjectsSection = (a, _) => {
   return viewSection({

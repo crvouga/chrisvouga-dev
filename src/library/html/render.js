@@ -1,9 +1,10 @@
 import { tag, text } from ".";
+import { isRecord } from "../is-record";
 import { assertEquals } from "../test";
 
 /**
  *
- * @param {import(".").Elem} elem
+ * @param {import(".").Html} elem
  * @returns {string}
  */
 export const render = (elem) => {
@@ -21,7 +22,7 @@ const prependDocType = (html) => {
 
 /**
  *
- * @param {import(".").Elem} elem
+ * @param {import(".").Html} elem
  * @returns {string}
  */
 const renderMain = (elem) => {
@@ -102,15 +103,6 @@ const renderStyles = (styles) => {
       return [];
     })
     .join("; ");
-};
-
-/**
- *
- * @param {unknown} value
- * @returns {value is Record<string, unknown>}
- */
-const isRecord = (value) => {
-  return typeof value === "object" && value !== null;
 };
 
 assertEquals(renderMain(tag("div")), "<div></div>", "Test 1");

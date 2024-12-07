@@ -5,7 +5,7 @@
  */
 
 /**
- * @typedef {import("../../core/elem").ViewWithProps<import("./props").ProjectCardProps>} ProjectCardView
+ * @typedef {import("../../library/html").ViewWithProps<import("./props").ProjectCardProps>} ProjectCardView
  */
 
 export default {};

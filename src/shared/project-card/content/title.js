@@ -2,7 +2,7 @@
 import { viewTypography } from "../../../ui/typography";
 import { viewLink } from "../../../ui/link";
 import { unit } from "../../../ui/theme";
-import { ensureObject } from "../../../core/elem";
+import { ensureObject } from "../../../library/html";
 
 /**
  * @type {import("../props").ProjectCardView}

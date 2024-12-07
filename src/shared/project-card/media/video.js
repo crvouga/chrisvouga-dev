@@ -1,6 +1,6 @@
 // @ts-check
 
-import { tag, text } from "../../../core/elem";
+import { tag, text } from "../../../library/html";
 import { HEAD } from "../../../ui/head";
 
 /**

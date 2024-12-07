@@ -1,9 +1,9 @@
-import { tag, text } from "../../core/elem";
+import { tag, text } from "../../library/html";
 import { HEAD } from "../../ui/head";
 import { THEME } from "../../ui/theme";
 
 /**
- * @type {import("../../core/elem").ViewWithProps<{label:string, value:string}>}
+ * @type {import("../../library/html").ViewWithProps<{label:string, value:string}>}
  */
 export const viewContactLinkButton = (props) => (attrs, _children) => {
   return tag(

@@ -1,4 +1,4 @@
-import { tag, text } from "../../../core/elem";
+import { tag, text } from "../../../library/html";
 import { topicToImageSrc, topicToName } from "../../../content/topic";
 import { viewAvatar } from "../../../ui/avatar";
 import { viewChip } from "../../../ui/chip";

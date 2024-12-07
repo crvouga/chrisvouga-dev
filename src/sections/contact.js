@@ -1,5 +1,5 @@
 import { data } from "../content";
-import { tag, text } from "../core/elem";
+import { tag, text } from "../library/html";
 import { viewContactLink } from "../shared/contact-link";
 import { viewGithubButton } from "../shared/github-button";
 import { HEAD } from "../ui/head";
@@ -8,7 +8,7 @@ import { viewSection } from "../shared/section";
 import { THEME, unit } from "../ui/theme";
 
 /**
- * @type {import("../core/elem").View}
+ * @type {import("../library/html").View}
  */
 export const viewContactSection = (_a, _c) => {
   return viewSection({
@@ -17,7 +17,7 @@ export const viewContactSection = (_a, _c) => {
 };
 
 /**
- * @type {import("../core/elem").View}
+ * @type {import("../library/html").View}
  */
 const viewContacts = (_a, _c) => {
   return tag(
@@ -56,7 +56,7 @@ HEAD.push(
 );
 
 /**
- * @type {import("../core/elem").View}
+ * @type {import("../library/html").View}
  */
 const viewContactLinks = (_a, _c) => {
   return tag("div", { class: "contact-section-links" }, [
@@ -80,7 +80,7 @@ HEAD.push(
 );
 
 /**
- * @type {import("../core/elem").View}
+ * @type {import("../library/html").View}
  */
 const viewContactButtons = (_a, _c) => {
   return tag("div", { class: "contact-section-buttons" }, [
