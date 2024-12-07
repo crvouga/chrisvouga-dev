@@ -6,7 +6,7 @@
     "start": "bun --hot ./src/start.js",
     "build": "bun ./src/build.js",
     "preview": "bun run build && bun x serve dist",
-    "tc": "tsc -w"
+    "tc": "bun x tsc -w"
   },
   "dependencies": {},
   "devDependencies": {

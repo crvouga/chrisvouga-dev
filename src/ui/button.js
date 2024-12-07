@@ -69,7 +69,6 @@ export const viewButton = (props) => (attrs, children) => {
     tagName,
     {
       class: toClassName(props),
-      "aria-role": "button",
       ...(props.disabled ? { disabled: "true", "aria-disabled": "true" } : {}),
       ...attrs,
     },
