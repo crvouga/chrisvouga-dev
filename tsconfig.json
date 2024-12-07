@@ -22,6 +22,6 @@
     "noEmit": true,
     "strict": true
   },
-  "include": ["src", "vite.config.ts", "public/snackbar.js", "**/*.js"],
+  "include": ["src", "public/**/*.jsØ", "**/*.js"],
   "exclude": ["node_modules", "dist"]
 }
