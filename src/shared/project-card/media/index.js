@@ -1,8 +1,8 @@
 // @ts-check
 
-import { tag, text } from "../../../library/html";
-import { HEAD } from "../../../ui/head";
-import { THEME } from "../../../ui/theme";
+import { tag, text } from "src/library/html";
+import { HEAD } from "src/ui/head";
+import { THEME } from "src/ui/theme";
 import { viewProjectCardMediaImage } from "./image";
 import { viewProjectCardMediaVideo } from "./video";
 

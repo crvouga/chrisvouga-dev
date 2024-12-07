@@ -1,14 +1,14 @@
-import { tag } from "../../../library/html";
-import { infoOutline } from "../../../ui/icons";
-import { THEME, unit } from "../../../ui/theme";
-import { viewTypography } from "../../../ui/typography";
+import { tag } from "src/library/html";
+import { infoOutline } from "src/ui/icons";
+import { THEME, unit } from "src/ui/theme";
+import { viewTypography } from "src/ui/typography";
 
 /**
  * @type {import("../props").ProjectCardView}
  */
 export const viewProjectCardStatus = (props) => (_a, _c) => {
   /**
-   * @type {import("../../../library/html").Html[]}
+   * @type {import("src/library/html").Html[]}
    */
   const children = [];
 
@@ -55,7 +55,7 @@ export const viewProjectCardStatus = (props) => (_a, _c) => {
 };
 
 /**
- * @type {import("../../../library/html").ViewWithProps<import("../props").ProjectCardProps & {text:string}>}
+ * @type {import("src/library/html").ViewWithProps<import("../props").ProjectCardProps & {text:string}>}
  */
 export const viewProjectCardStatusSingle = (props) => (_a, _c) => {
   return tag(

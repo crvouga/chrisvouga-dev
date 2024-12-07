@@ -1,6 +1,6 @@
-import { viewButton } from "../../../ui/button";
-import { viewCardActions } from "../../../ui/card";
-import { code, web } from "../../../ui/icons";
+import { viewButton } from "src/ui/button";
+import { viewCardActions } from "src/ui/card";
+import { code, web } from "src/ui/icons";
 
 /**
  * @type {import("../props").ProjectCardView}

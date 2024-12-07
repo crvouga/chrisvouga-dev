@@ -1,6 +1,7 @@
 // @ts-check
 
-import { ensureObject, tag } from "../library/html";
+import { ensureObject } from "src/library/ensure-object";
+import { tag } from "../library/html";
 
 /**
  * @type {import("../library/html").View}

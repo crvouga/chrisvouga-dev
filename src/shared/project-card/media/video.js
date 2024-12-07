@@ -1,7 +1,7 @@
 // @ts-check
 
-import { tag, text } from "../../../library/html";
-import { HEAD } from "../../../ui/head";
+import { tag, text } from "src/library/html";
+import { HEAD } from "src/ui/head";
 
 /**
  * @type {import("../props").ProjectCardView}

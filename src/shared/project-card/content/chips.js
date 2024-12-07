@@ -1,9 +1,9 @@
-import { tag, text } from "../../../library/html";
-import { topicToImageSrc, topicToName } from "../../../content/topic";
-import { viewAvatar } from "../../../ui/avatar";
-import { viewChip } from "../../../ui/chip";
-import { HEAD } from "../../../ui/head";
-import { unit } from "../../../ui/theme";
+import { tag, text } from "src/library/html";
+import { topicToImageSrc, topicToName } from "src/content/topic";
+import { viewAvatar } from "src/ui/avatar";
+import { viewChip } from "src/ui/chip";
+import { HEAD } from "src/ui/head";
+import { unit } from "src/ui/theme";
 
 /**
  * @type {import("../props").ProjectCardView}

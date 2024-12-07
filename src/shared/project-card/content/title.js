@@ -1,8 +1,8 @@
 // @ts-check
-import { viewTypography } from "../../../ui/typography";
-import { viewLink } from "../../../ui/link";
-import { unit } from "../../../ui/theme";
-import { ensureObject } from "../../../library/html";
+import { ensureObject } from "src/library/ensure-object";
+import { viewLink } from "src/ui/link";
+import { unit } from "src/ui/theme";
+import { viewTypography } from "src/ui/typography";
 
 /**
  * @type {import("../props").ProjectCardView}

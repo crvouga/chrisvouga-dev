@@ -1,6 +1,7 @@
-import { ensureObject, tag } from "../../../library/html";
-import { unit } from "../../../ui/theme";
-import { viewTypography } from "../../../ui/typography";
+import { ensureObject } from "src/library/ensure-object";
+import { tag } from "src/library/html";
+import { unit } from "src/ui/theme";
+import { viewTypography } from "src/ui/typography";
 import { viewProjectCardContentChips } from "./chips";
 import { viewProjectCardContentTitle } from "./title";
 

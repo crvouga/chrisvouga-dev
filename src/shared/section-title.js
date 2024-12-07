@@ -1,6 +1,6 @@
 // @ts-check
 
-import { viewTypography } from "../ui/typography";
+import { viewTypography } from "src/ui/typography";
 
 /**
  * @type {import("../library/html").ViewWithProps<{ title: string }>}
