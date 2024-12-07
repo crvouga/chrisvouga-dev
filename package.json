@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "bun --hot ./src/start.js",
-    "build": "bun ./src/build.js",
+    "start": "bun --hot ./src/main.start.js",
+    "build": "bun ./src/main.build.js",
     "preview": "bun run build && bun x serve dist",
     "tc": "bun x tsc -w"
   },
