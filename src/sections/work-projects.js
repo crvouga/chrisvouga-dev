@@ -1,6 +1,6 @@
 // @ts-check
 
-import { data } from "../../content";
+import { data } from "../content";
 import { viewGrid, viewGridItem } from "../ui/grid";
 import { viewProjectCard } from "../shared/project-card";
 import { viewSection } from "../shared/section";

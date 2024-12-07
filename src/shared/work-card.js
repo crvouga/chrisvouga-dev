@@ -7,7 +7,7 @@ import { unit } from "../ui/theme";
 import { viewTypography } from "../ui/typography";
 
 /**
- * @type {import("../core/elem").ViewWithProps<{work: import("../../content").Work}>}
+ * @type {import("../core/elem").ViewWithProps<{work: import("../content").Work}>}
  */
 export const viewWorkCard =
   ({ work }) =>

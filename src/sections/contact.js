@@ -1,4 +1,4 @@
-import { data } from "../../content";
+import { data } from "../content";
 import { tag, text } from "../core/elem";
 import { viewContactLink } from "../shared/contact-link";
 import { viewGithubButton } from "../shared/github-button";

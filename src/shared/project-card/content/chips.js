@@ -1,4 +1,4 @@
-import { topicToImageSrc, topicToName } from "../../../../content";
+import { topicToImageSrc, topicToName } from "../../../content";
 import { tag, text } from "../../../core/elem";
 import { viewAvatar } from "../../../ui/avatar";
 import { viewChip } from "../../../ui/chip";

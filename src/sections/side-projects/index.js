@@ -1,4 +1,4 @@
-import { data } from "../../../content";
+import { data } from "../../content";
 import { tag, text } from "../../core/elem";
 import { viewButton } from "../../ui/button";
 import { viewGrid, viewGridItem } from "../../ui/grid";

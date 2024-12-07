@@ -1,4 +1,4 @@
-import { data } from "../../content";
+import { data } from "../content";
 import { viewButton } from "../ui/button";
 import { github } from "../ui/icons";
 

@@ -1,4 +1,4 @@
-import { data } from "../../content";
+import { data } from "../content";
 import { tag, text } from "../core/elem";
 import { viewLink } from "../ui/link";
 import { THEME, unit } from "../ui/theme";

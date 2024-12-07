@@ -1,6 +1,6 @@
 // @ts-check
 
-import { data } from "../../content";
+import { data } from "../content";
 import { viewSection } from "../shared/section";
 import { THEME } from "../ui/theme";
 import { viewTypography } from "../ui/typography";

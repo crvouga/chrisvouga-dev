@@ -1,6 +1,6 @@
 // @ts-check
 
-import { data } from "../content";
+import { data } from "./content";
 import { tag, text } from "./core/elem";
 import { viewAboutMeSection } from "./sections/about-me";
 import { viewContactSection } from "./sections/contact";
