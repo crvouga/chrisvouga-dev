@@ -12,7 +12,7 @@ const bandHref = "https://www.instagram.com/tripolartheband/";
 const lamderaHref = "https://lamdera.com/";
 
 /**
- * @type {Work[]}
+ * @type {import("./work").Work[]}
  */
 const work = [
   {
