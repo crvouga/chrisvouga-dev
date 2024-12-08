@@ -3,13 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "bun --hot ./src/main.start.js",
-    "build": "bun ./src/main.build.js",
-    "preview": "bun run build && bun x serve dist",
+    "start": "bun --watch ./src/main.js",
+    "serve": "bun x serve dist",
+    "build": "bun ./src/main.js",
     "tc": "bun x tsc -w"
   },
   "dependencies": {},
-  "devDependencies": {
-    "@types/bun": "^1.1.14"
-  }
+  "devDependencies": {}
 }

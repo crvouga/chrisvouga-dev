@@ -23,6 +23,6 @@
 
     "baseUrl": "./"
   },
-  "include": ["src", "public/**/*.jsØ", "**/*.js", "bun/types"],
+  "include": ["**/*.js"],
   "exclude": ["node_modules", "dist"]
 }
