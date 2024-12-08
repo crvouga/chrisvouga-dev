@@ -1,7 +1,6 @@
 {
   "scripts": {
     "start": "bun x concurrently \"bun --watch ./src/main.js\" \"bun x serve dist\"",
-    "serve": "bun x serve dist",
     "build": "bun ./src/main.js",
     "tc": "bun x tsc -w"
   }
