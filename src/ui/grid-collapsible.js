@@ -4,7 +4,7 @@ import { viewGrid, viewGridItem } from "./grid.js";
 import { HEAD } from "./head.js";
 import { unit } from "./theme.js";
 
-const MAX_VISIBLE_CARD_COUNT = 1;
+const MAX_VISIBLE_CARD_COUNT = 6;
 
 /**
  * @type {import("../library/html/index.js").ViewWithProps<{jsVarSafeNamespace: string, children: import("../library/html/index.js").Html[]}>}
