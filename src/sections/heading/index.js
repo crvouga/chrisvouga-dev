@@ -26,7 +26,7 @@ HEAD.push(
       justify-content: space-between;
       max-width: 100%;
       flex-direction: column;
-      gap: ${unit(2)};
+      gap: ${unit(4)};
     }
 
     @media (max-width: ${THEME.breakpoints.xs}) {

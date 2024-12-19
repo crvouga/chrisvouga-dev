@@ -12,11 +12,15 @@ class ToasterElement extends HTMLElement {
     style.textContent = `
       .toast-container {
           position: fixed;
-          top: 1rem;
-          left: 50%;
-          transform: translateX(-50%);
+          top: 0;
+          left: 0;
+          right: 0;
+          padding-top: 1rem;
+          width: 100vw;
           display: flex;
           flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
           gap: 0.5rem;
           z-index: 1000;
       }
@@ -27,7 +31,8 @@ class ToasterElement extends HTMLElement {
           border: 1px solid var(--toast-border-color);
           padding: 1rem 1rem;
           border-radius: 5px;
-          width: fit-content;
+          width: 100%;
+          max-width: 300px;
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
           transform: translateY(-20px);
           animation: slide-in 0.3s forwards, slide-out 0.3s 2.5s forwards;
