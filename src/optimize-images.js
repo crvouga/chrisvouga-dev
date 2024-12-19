@@ -47,8 +47,17 @@ function getAllFiles(dirPath) {
  */
 const allFiles = getAllFiles(dir);
 
+const IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp"]);
+
+/**
+ *
+ * @param {string} file
+ * @returns {boolean}
+ */
+const isOptimized = (file) => file.includes(".optimized");
+
 allFiles.forEach((file) => {
-  if (path.extname(file) === ".png") {
+  if (IMAGE_EXTENSIONS.has(path.extname(file)) && !isOptimized(file)) {
     /**
      * The input PNG file path.
      * @type {string}
@@ -59,7 +68,7 @@ allFiles.forEach((file) => {
      * The base name of the file without extension.
      * @type {string}
      */
-    const baseName = path.basename(file, ".png");
+    const baseName = path.basename(file, path.extname(file));
 
     /**
      * The output file path with the `.optimized.webp` suffix.
