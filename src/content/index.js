@@ -33,6 +33,21 @@ const work = [
 ];
 
 /**
+ * @type {import("./education.js").Education[]}
+ */
+const education = [
+  {
+    degree: "Bachelor of Science in Mathematics & Statistics",
+    institutionName: "Arizona State University",
+    yearEnd: 2020,
+    yearStart: 2016,
+    infoUrl: "https://www.asu.edu/",
+    imageAlt: "Diploma",
+    imageSrc: "/diploma.optimized.webp",
+  },
+];
+
+/**
  * @type {import("./project.js").Project[]}
  */
 const workProjects = [
@@ -489,8 +504,8 @@ const sideProjects = [
 const aboutMe = `
 I'm a software developer living in the Phoenix Valley.
 I graduated from ASU with a bachelor's degree in mathematics and statistics.
-Software development is also a hobby for me. I enjoy consuming technical content and developing apps in my free time.
-Right now, I'm primarily doing web development, but I would be interested in other types of development.
+Software development is also a hobby for me. I enjoy consuming technical content regularly and developing apps in my free time.
+Right now, I'm primarily doing web development, but I would be interested in other types of development like native or embedded.
 A fun fact about me is that I play the drums in a ${a(bandHref, "band")}.`;
 
 const metaDescription = aboutMe.replace(a(bandHref, "band"), "band");
@@ -531,4 +546,6 @@ export const data = {
   workProjects,
 
   work,
+
+  education,
 };
