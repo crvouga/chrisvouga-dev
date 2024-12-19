@@ -1,19 +1,19 @@
 // @ts-check
 
-import { data } from "./content";
-import { tag, text } from "./library/html";
-import { viewAboutMeSection } from "./sections/about-me";
-import { viewContactSection } from "./sections/contact";
-import { viewFooterSection } from "./sections/footer";
-import { viewHeadingSection } from "./sections/heading";
-import { viewSideProjectsSection } from "./sections/side-projects";
-import { viewWorkSection } from "./sections/work";
-import { viewWorkProjectsSection } from "./sections/work-projects";
-import { HEAD } from "./ui/head";
-import { THEME } from "./ui/theme";
+import { data } from "./content/index.js";
+import { tag, text } from "./library/html/index.js";
+import { viewAboutMeSection } from "./sections/about-me.js";
+import { viewContactSection } from "./sections/contact.js";
+import { viewFooterSection } from "./sections/footer.js";
+import { viewHeadingSection } from "./sections/heading/index.js";
+import { viewSideProjectsSection } from "./sections/side-projects/index.js";
+import { viewWorkProjectsSection } from "./sections/work-projects.js";
+import { viewWorkSection } from "./sections/work.js";
+import { HEAD } from "./ui/head.js";
+import { THEME } from "./ui/theme.js";
 
 /**
- * @returns {import("./library/html").Html}
+ * @returns {import("./library/html/index.js").Html}
  */
 export const viewApp = () => {
   return viewDoc({}, [
@@ -47,7 +47,7 @@ HEAD.push(
 );
 
 /**
- * @type {import("./library/html").View}
+ * @type {import("./library/html/index.js").View}
  */
 export const viewDoc = (_a, c) => {
   return tag("html", { lang: "en" }, [

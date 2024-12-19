@@ -1,6 +1,6 @@
 // @ts-check
-import { viewApp } from "./app";
-import { render } from "./library/html/render";
+import { viewApp } from "./app.js";
+import { render } from "./library/html/render.js";
 import { promises as fs } from "fs";
 import { join } from "path";
 import { readdir, rm, copyFile, mkdir } from "fs/promises";

@@ -1,7 +1,8 @@
 {
+  "type": "module",
   "scripts": {
     "start": "bun x concurrently \"bun --watch ./src/main.js\" \"bun x serve dist\"",
-    "build": "bun ./src/main.js",
+    "build": "node ./src/main.js",
     "tc": "bun x tsc -w"
   },
   "devDependencies": {

@@ -1,11 +1,11 @@
 // @ts-check
 
-import { tag, text } from "src/library/html";
-import { HEAD } from "src/ui/head";
-import { viewSectionTitle } from "./section-title";
+import { tag, text } from "src/library/html/index.js";
+import { HEAD } from "src/ui/head.js";
+import { viewSectionTitle } from "src/shared/section-title.js";
 
 /**
- * @type {(props: {title:string}) => import("src/library/html").View}
+ * @type {(props: {title:string}) => import("src/library/html/index.js").View}
  */
 export const viewSection = (props) => (attr, c) => {
   return tag(

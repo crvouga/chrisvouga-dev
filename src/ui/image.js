@@ -1,9 +1,9 @@
-import { fragment, tag, text } from "src/library/html";
-import { HEAD } from "./head";
-import { THEME } from "./theme";
+import { fragment, tag, text } from "src/library/html/index.js";
+import { HEAD } from "./head.js";
+import { THEME } from "./theme.js";
 
 /**
- * @type {import("src/library/html").ViewWithProps<{src: string, alt:string}>}
+ * @type {import("src/library/html/index.js").ViewWithProps<{src: string, alt:string}>}
  */
 export const viewImage = (props) => (attr, _) => {
   return fragment([

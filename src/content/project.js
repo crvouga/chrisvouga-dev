@@ -15,7 +15,7 @@
  * imageSrc: string[];
  * imageAlt: string;
  * youTubeVideoId?: string;
- * topics: import("./topic").Topic[];
+ * topics: import("./topic.js").Topic[];
  * }} Project
  */
 

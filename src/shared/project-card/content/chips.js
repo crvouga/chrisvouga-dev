@@ -1,12 +1,12 @@
-import { tag, text } from "src/library/html";
-import { topicToImageSrc, topicToName } from "src/content/topic";
-import { viewAvatar } from "src/ui/avatar";
-import { viewChip } from "src/ui/chip";
-import { HEAD } from "src/ui/head";
-import { unit } from "src/ui/theme";
+import { topicToImageSrc, topicToName } from "src/content/topic.js";
+import { tag, text } from "src/library/html/index.js";
+import { viewAvatar } from "src/ui/avatar.js";
+import { viewChip } from "src/ui/chip.js";
+import { HEAD } from "src/ui/head.js";
+import { unit } from "src/ui/theme.js";
 
 /**
- * @type {import("src/shared/project-card/props").ProjectCardView}
+ * @type {import("src/shared/project-card/props.js").ProjectCardView}
  */
 export const viewProjectCardContentChips = (props) => () => {
   return tag("div", { class: "project-card-content-chips" }, [

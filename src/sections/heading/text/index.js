@@ -1,12 +1,12 @@
 // @ts-check
-import { tag } from "src/library/html";
-import { code } from "src/ui/icons";
-import { THEME, unit } from "src/ui/theme";
-import { viewTypography } from "src/ui/typography";
-import { viewColored } from "./colored";
+import { tag } from "src/library/html/index.js";
+import { code } from "src/ui/icons.js";
+import { THEME, unit } from "src/ui/theme.js";
+import { viewTypography } from "src/ui/typography.js";
+import { viewColored } from "./colored.js";
 
 /**
- * @type {import("src/library/html").View}
+ * @type {import("src/library/html/index.js").View}
  */
 export const viewHeadingSectionText = () => {
   return tag(

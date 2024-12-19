@@ -1,10 +1,10 @@
-import { data } from "src/content";
-import { viewButton } from "src/ui/button";
-import { linkedIn } from "src/ui/icons";
+import { data } from "src/content/index.js";
+import { viewButton } from "src/ui/button.js";
+import { linkedIn } from "src/ui/icons.js";
 
 /**
  *
- * @type {import("src/library/html").ViewWithProps<{}>}
+ * @type {import("src/library/html/index.js").ViewWithProps<{}>}
  */
 export const viewLinkedInButton = () => () => {
   return viewButton({

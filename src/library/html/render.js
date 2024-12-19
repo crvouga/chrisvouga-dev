@@ -1,10 +1,10 @@
-import { isRecord } from "src/library/is-record";
-import { assertEquals } from "src/library/test";
-import { tag, text } from ".";
+import { tag, text } from "./index.js";
+import { isRecord } from "../is-record.js";
+import { assertEquals } from "../test.js";
 
 /**
  *
- * @param {import(".").Html} elem
+ * @param {import("./index.js").Html} elem
  * @returns {string}
  */
 export const render = (elem) => {
@@ -22,7 +22,7 @@ const prependDocType = (html) => {
 
 /**
  *
- * @param {import(".").Html} elem
+ * @param {import("./index.js").Html} elem
  * @returns {string}
  */
 const renderMain = (elem) => {
@@ -38,7 +38,7 @@ const renderMain = (elem) => {
 
 /**
  *
- * @param {import(".").Tag} elem
+ * @param {import("./index.js").Tag} elem
  */
 const renderTag = (elem) => {
   const attrsString = renderAttrs(elem.attrs);
@@ -48,14 +48,14 @@ const renderTag = (elem) => {
 };
 
 /**
- * @param {import(".").Text} elem
+ * @param {import("./index.js").Text} elem
  */
 const renderText = (elem) => {
   return elem.text;
 };
 
 /**
- * @param {import(".").Fragment} elem
+ * @param {import("./index.js").Fragment} elem
  */
 const renderFragment = (elem) => {
   return elem.children.map(renderMain).join("");

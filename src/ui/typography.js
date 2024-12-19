@@ -1,8 +1,8 @@
 // @ts-check
 
-import { tag, text } from "src/library/html";
-import { HEAD } from "./head";
-import { THEME } from "./theme";
+import { tag, text } from "src/library/html/index.js";
+import { HEAD } from "src/ui/head.js";
+import { THEME } from "src/ui/theme.js";
 
 /**
  * @typedef {"h1" | "h2" | "h3" | "title-sm" | "body-md" | "body-xs"} Level
@@ -80,7 +80,7 @@ HEAD.push(
 const BASE_CLASS = "typography-base";
 
 /**
- * @type {import("src/library/html").ViewWithProps<Props>}
+ * @type {import("src/library/html/index.js").ViewWithProps<Props>}
  */
 export const viewTypography = (props) => (attrs, children) => {
   const tagName = (() => {

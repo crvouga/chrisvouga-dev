@@ -1,10 +1,10 @@
 // @ts-check
 
-import { ensureObject } from "src/library/ensure-object";
-import { tag } from "src/library/html";
+import { ensureObject } from "src/library/ensure-object.js";
+import { tag } from "src/library/html/index.js";
 
 /**
- * @type {import("src/library/html").View}
+ * @type {import("src/library/html/index.js").View}
  */
 export const viewLink = (attrs, children) => {
   const href = attrs?.href;

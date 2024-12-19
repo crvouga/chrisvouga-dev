@@ -1,12 +1,12 @@
-import { ensureObject } from "src/library/ensure-object";
-import { tag } from "src/library/html";
-import { unit } from "src/ui/theme";
-import { viewTypography } from "src/ui/typography";
-import { viewProjectCardContentChips } from "./chips";
-import { viewProjectCardContentTitle } from "./title";
+import { ensureObject } from "src/library/ensure-object.js";
+import { tag } from "src/library/html/index.js";
+import { unit } from "src/ui/theme.js";
+import { viewTypography } from "src/ui/typography.js";
+import { viewProjectCardContentChips } from "./chips.js";
+import { viewProjectCardContentTitle } from "./title.js";
 
 /**
- * @type {import("src/shared/project-card/props").ProjectCardView}
+ * @type {import("src/shared/project-card/props.js").ProjectCardView}
  */
 export const viewProjectCardContentMain = (props) => (a, _c) => {
   return tag(

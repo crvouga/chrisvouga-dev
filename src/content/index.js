@@ -12,7 +12,7 @@ const bandHref = "https://www.instagram.com/tripolartheband/";
 const lamderaHref = "https://lamdera.com/";
 
 /**
- * @type {import("./work").Work[]}
+ * @type {import("./work.js").Work[]}
  */
 const work = [
   {
@@ -33,7 +33,7 @@ const work = [
 ];
 
 /**
- * @type {import("./project").Project[]}
+ * @type {import("./project.js").Project[]}
  */
 const workProjects = [
   {
@@ -143,7 +143,7 @@ const workProjects = [
 
 const gamezillaHref = "https://gamezilla.app/";
 /**
- * @type {import("./project").Project[]}
+ * @type {import("./project.js").Project[]}
  */
 const sideProjects = [
   {

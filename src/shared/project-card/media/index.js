@@ -1,13 +1,13 @@
 // @ts-check
 
-import { tag, text } from "src/library/html";
-import { HEAD } from "src/ui/head";
-import { THEME } from "src/ui/theme";
-import { viewProjectCardMediaImage } from "./image";
-import { viewProjectCardMediaVideo } from "./video";
+import { tag, text } from "src/library/html/index.js";
+import { HEAD } from "src/ui/head.js";
+import { THEME } from "src/ui/theme.js";
+import { viewProjectCardMediaImage } from "./image.js";
+import { viewProjectCardMediaVideo } from "./video.js";
 
 /**
- * @type {import("src/shared/project-card/props").ProjectCardView}
+ * @type {import("src/shared/project-card/props.js").ProjectCardView}
  */
 export const viewProjectCardMedia = (props) => (attr, children) => {
   return tag("div", { ...attr, class: "project-card-media" }, [

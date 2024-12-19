@@ -1,9 +1,9 @@
-import { viewButton } from "src/ui/button";
-import { viewCardActions } from "src/ui/card";
-import { code, web } from "src/ui/icons";
+import { viewButton } from "src/ui/button.js";
+import { viewCardActions } from "src/ui/card.js";
+import { code, web } from "src/ui/icons.js";
 
 /**
- * @type {import("src/shared/project-card/props").ProjectCardView}
+ * @type {import("src/shared/project-card/props.js").ProjectCardView}
  */
 export const viewProjectCardActions = (props) => () => {
   return viewCardActions({}, [

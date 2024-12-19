@@ -1,12 +1,12 @@
 // @ts-check
 
-import { data } from "src/content";
-import { viewSection } from "src/shared/section";
-import { viewWorkCard } from "src/shared/work-card";
-import { viewGridCollapsible } from "src/ui/grid-collapsible";
+import { data } from "src/content/index.js";
+import { viewSection } from "src/shared/section.js";
+import { viewWorkCard } from "src/shared/work-card.js";
+import { viewGridCollapsible } from "src/ui/grid-collapsible.js";
 
 /**
- * @type {import("src/library/html").View}
+ * @type {import("src/library/html/index.js").View}
  */
 export const viewWorkSection = () => {
   return viewSection({ title: "Work" })({}, [

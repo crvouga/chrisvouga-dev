@@ -1,12 +1,12 @@
 // @ts-check
 
-import { data } from "src/content";
-import { viewProjectCard } from "src/shared/project-card";
-import { viewSection } from "src/shared/section";
-import { viewGridCollapsible } from "src/ui/grid-collapsible";
+import { data } from "src/content/index.js";
+import { viewProjectCard } from "src/shared/project-card/index.js";
+import { viewSection } from "src/shared/section.js";
+import { viewGridCollapsible } from "src/ui/grid-collapsible.js";
 
 /**
- * @type {import("src/library/html").View}
+ * @type {import("src/library/html/index.js").View}
  */
 export const viewWorkProjectsSection = (a, _) => {
   return viewSection({

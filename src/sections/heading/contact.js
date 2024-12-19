@@ -1,13 +1,13 @@
-import { data } from "src/content";
-import { tag, text } from "src/library/html";
-import { viewContactLink } from "src/shared/contact-link";
-import { viewGithubButton } from "src/shared/github-button";
-import { HEAD } from "src/ui/head";
-import { viewLinkedInButton } from "src/shared/linkedin-button";
-import { THEME, unit } from "src/ui/theme";
+import { data } from "src/content/index.js";
+import { tag, text } from "src/library/html/index.js";
+import { viewContactLink } from "src/shared/contact-link/index.js";
+import { viewGithubButton } from "src/shared/github-button.js";
+import { HEAD } from "src/ui/head.js";
+import { viewLinkedInButton } from "src/shared/linkedin-button.js";
+import { THEME, unit } from "src/ui/theme.js";
 
 /**
- * @type {import("src/library/html").ViewWithProps<{}>}
+ * @type {import("src/library/html/index.js").ViewWithProps<{}>}
  */
 export const viewHeadingContact = () => () => {
   return tag(
