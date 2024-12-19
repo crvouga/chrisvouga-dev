@@ -4,7 +4,7 @@ import { viewGrid, viewGridItem } from "src/ui/grid";
 import { HEAD } from "src/ui/head";
 import { unit } from "src/ui/theme";
 
-const MAX_VISIBLE_CARD_COUNT = 3;
+const MAX_VISIBLE_CARD_COUNT = 6;
 
 /**
  * @type {import("src/library/html").ViewWithProps<{jsVarSafeNamespace: string, children: import("src/library/html").Html[]}>}
@@ -83,6 +83,7 @@ export const viewGridCollapsible = (props) => () => {
         "div",
         {
           class: "grid-collapsible-buttons",
+          style: hiddenCardCount === 0 ? { display: "none" } : {},
         },
         [
           viewButton({
