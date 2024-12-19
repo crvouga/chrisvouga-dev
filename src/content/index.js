@@ -43,7 +43,7 @@ const workProjects = [
     description:
       "Triangulator is a product developed by ASU that automate the process of course transfers between universities. My contributions include being one of the leading developers on the project.",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/triangulator.png"],
+    imageSrc: ["/triangulator.optimized.webp"],
     topics: [
       "typescript",
       "vue",
@@ -70,7 +70,7 @@ const workProjects = [
     description:
       "Study Hall is an education platform created by the Study Hall YouTube channel and ASU. My contributions include refactoring the payment system to increase reliability.",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/studyhall.png"],
+    imageSrc: ["/studyhall.optimized.webp"],
     topics: [
       "javascript",
       "vue",
@@ -90,7 +90,7 @@ const workProjects = [
     description:
       "The official website for the ASU Sun Devils. My contributions include developing interactive react components like a upcoming game feed and news feed",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/sun-devils.png"],
+    imageSrc: ["/sun-devils.optimized.webp"],
     topics: ["bootstrap", "drupal", "javascript", "react", "css", "php"],
   },
   {
@@ -105,7 +105,7 @@ const workProjects = [
     description:
       "Orchard is a learning tool developed by ASU that enables teachers to create highly customizable assignments for their students. My contributions include integrating Orchard with ASU's LMS using LTI 1.3.",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/orchard.png"],
+    imageSrc: ["/orchard.optimized.webp"],
     topics: ["php", "mysql", "drupal", "bootstrap", "javascript"],
   },
   {
@@ -121,13 +121,13 @@ const workProjects = [
       "A product demo for Airr. A product offered by One Origin to automate the process of consuming transcripts.",
     imageAlt: "project screenshot or video",
     imageSrc: [
-      "/airr/1.png",
-      "/airr/2.png",
-      "/airr/3.png",
-      "/airr/4.png",
-      "/airr/5.png",
-      "/airr/6.png",
-      "/airr/7.png",
+      "/airr/1.optimized.webp",
+      "/airr/2.optimized.webp",
+      "/airr/3.optimized.webp",
+      "/airr/4.optimized.webp",
+      "/airr/5.optimized.webp",
+      "/airr/6.optimized.webp",
+      "/airr/7.optimized.webp",
     ],
     topics: [
       "typescript",
@@ -163,7 +163,7 @@ const sideProjects = [
       "Lamdera"
     )} platform.`,
     imageAlt: "project screenshot or video",
-    imageSrc: ["/gamezilla.png"],
+    imageSrc: ["/gamezilla.optimized.webp"],
     youTubeVideoId: "VSLpdPvHbD4",
     topics: ["typescript", "react", "postgres", "tailwind", "websocket", "bun"],
   },
@@ -199,7 +199,7 @@ const sideProjects = [
     description:
       "Watch trailers, write reviews and make movie lists with your friends.",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/pickflix.png"],
+    imageSrc: ["/pickflix.optimized.webp"],
     youTubeVideoId: "-atthbuMFIM",
     topics: [
       "express",
@@ -230,7 +230,7 @@ const sideProjects = [
     },
     description: "A work-in-progress movie search app with a tiktok-like UI.",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/moviefinder-app.png"],
+    imageSrc: ["/moviefinder-app.optimized.webp"],
     topics: ["rust", "tailwind", "postgres", "datastar"],
   },
 
@@ -246,7 +246,7 @@ const sideProjects = [
     },
     description: "Fullstack todo app. Sign in and start tracking things todo.",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/todo.png"],
+    imageSrc: ["/todo.optimized.webp"],
     topics: [
       "typescript",
       "vue",
@@ -271,7 +271,7 @@ const sideProjects = [
     },
     description: `A software-as-a service app that lets developers generate screenshots for their websites. It was used for this website.`,
     imageAlt: "project screenshot or video",
-    imageSrc: ["/screenshot-service.png"],
+    imageSrc: ["/screenshot-service.optimized.webp"],
     youTubeVideoId: "lCEzYGJ0rN8",
     topics: [
       "css",
@@ -298,7 +298,7 @@ const sideProjects = [
     },
     description: "A marketing website for a hospice courier company.",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/courier.png"],
+    imageSrc: ["/courier.optimized.webp"],
     youTubeVideoId: "kFwPTJcM6I0",
     topics: ["css", "material-ui", "nextjs", "react", "typescript"],
   },
@@ -332,7 +332,7 @@ const sideProjects = [
     description:
       "The official website and e-commerce store for the band alibi.",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/band.png"],
+    imageSrc: ["/band.optimized.webp"],
     youTubeVideoId: "vChYAGXsLuI",
     topics: [
       "css",
@@ -367,7 +367,7 @@ const sideProjects = [
     title: "Anime Blog",
     description: "A jamstack blog about anime.",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/anime.png"],
+    imageSrc: ["/anime.optimized.webp"],
     topics: [
       "css",
       "javascript",
@@ -399,7 +399,7 @@ const sideProjects = [
     },
     description: "Play the game Connect Four online with your friends",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/connect-four.png"],
+    imageSrc: ["/connect-four.optimized.webp"],
     youTubeVideoId: "9_TbyftkaQw",
     topics: [
       "css",
@@ -428,7 +428,7 @@ const sideProjects = [
     description:
       "Pure functional implementation of the classic game Snake with smooth snake movement",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/snake.png"],
+    imageSrc: ["/snake.optimized.webp"],
     youTubeVideoId: "7El3RdkzlHs",
     topics: ["css", "javascript", "ramda", "react"],
   },
@@ -445,7 +445,7 @@ const sideProjects = [
     },
     description: "Match Three is a Candy Crush type game",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/match-three.png"],
+    imageSrc: ["/match-three.optimized.webp"],
     youTubeVideoId: "VBrlDgmXSoA",
     topics: ["css", "javascript", "ramda", "react", "redux", "redux-saga"],
   },
@@ -463,7 +463,7 @@ const sideProjects = [
     description:
       "Cheese is an app that lets people make fake GCU ids so they can sneak into GCU events.",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/cheese.png"],
+    imageSrc: ["/cheese.optimized.webp"],
     youTubeVideoId: "hv3tRBHF7w4",
     topics: ["css", "typescript", "material-ui", "react", "firebase"],
   },
@@ -480,7 +480,7 @@ const sideProjects = [
     },
     description: "An implementation of the classic memory game Simon Says.",
     imageAlt: "project screenshot or video",
-    imageSrc: ["/simon-says.png"],
+    imageSrc: ["/simon-says.optimized.webp"],
     youTubeVideoId: "WrUFzlKL0E0",
     topics: ["css", "javascript", "ramda", "react", "redux", "redux-saga"],
   },
