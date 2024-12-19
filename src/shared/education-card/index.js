@@ -5,6 +5,7 @@ import { viewCard, viewCardContent } from "../../ui/card.js";
 import { viewLink } from "../../ui/link.js";
 import { unit } from "../../ui/theme.js";
 import { viewTypography } from "../../ui/typography.js";
+import { viewEducationCardImage } from "./image.js";
 
 /**
  * @type {import("../../library/html/index.js").ViewWithProps<{education: import("../../content/education.js").Education}>}
@@ -13,6 +14,7 @@ export const viewEducationCard =
   ({ education }) =>
   () => {
     return viewCard({}, [
+      viewEducationCardImage({ education })(),
       viewCardContent({}, [
         viewLink(
           {
