@@ -1,18 +1,16 @@
-import { data } from "src/content";
 import { tag, text } from "src/library/html";
 import { viewButton } from "src/ui/button";
 import { viewGrid, viewGridItem } from "src/ui/grid";
 import { HEAD } from "src/ui/head";
 import { unit } from "src/ui/theme";
 
-const MAX_VISIBLE_CARD_COUNT = 6;
-const HIDDEN_CARD_COUNT = data.sideProjects.length - MAX_VISIBLE_CARD_COUNT;
+const MAX_VISIBLE_CARD_COUNT = 3;
 
 /**
- * @type {import("src/library/html").ViewWithProps<{namespace: string, children: import("src/library/html").Html[]}>}
+ * @type {import("src/library/html").ViewWithProps<{jsVarSafeNamespace: string, children: import("src/library/html").Html[]}>}
  */
 export const viewGridCollapsible = (props) => () => {
-  const namespace = `${props.namespace}--toggle-see-more--`;
+  const namespace = `${props.jsVarSafeNamespace}--toggle-see-more--`;
   const rootId = `${namespace}root`;
   const hiddenCardClass = `${namespace}item-hidden`;
   const seeMoreButtonId = `${namespace}see-more-button`;
@@ -21,6 +19,13 @@ export const viewGridCollapsible = (props) => () => {
   const hiddenCardSelector = `.${hiddenCardClass}`;
   const seeMoreSelector = `#${seeMoreButtonId}`;
   const seeLessSelector = `#${seeLessButtonId}`;
+  //
+  const hiddenCardCount = Math.max(
+    props.children.length - MAX_VISIBLE_CARD_COUNT,
+    0
+  );
+
+  const onClickToggleName = `${props.jsVarSafeNamespace}OnClickToggle`;
 
   return tag(
     "div",
@@ -30,7 +35,7 @@ export const viewGridCollapsible = (props) => () => {
     [
       tag("script", {}, [
         text(`       
-        function onClickedToggle(event) {
+        function ${onClickToggleName}(event) {
           const root = document.querySelector('#${rootId}');
           const isExpandedCurrent = root.getAttribute('data-expanded') === 'true';
           const isExpandedNew = !isExpandedCurrent;
@@ -85,13 +90,13 @@ export const viewGridCollapsible = (props) => () => {
             size: "lg",
             startDecorator: null,
             tag: "button",
-            text: `See ${HIDDEN_CARD_COUNT.toLocaleString()} more`,
+            text: `See ${hiddenCardCount.toLocaleString()} more`,
             variant: "contained",
           })({
             style: {
               width: "fit-content",
             },
-            onclick: "onClickedToggle(event)",
+            onclick: `${onClickToggleName}(event)`,
             id: seeMoreButtonId,
           }),
 
@@ -108,7 +113,7 @@ export const viewGridCollapsible = (props) => () => {
               display: "none",
             },
             id: seeLessButtonId,
-            onclick: "onClickedToggle(event)",
+            onclick: `${onClickToggleName}(event)`,
           }),
         ]
       ),
