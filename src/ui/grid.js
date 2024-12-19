@@ -1,10 +1,11 @@
 // @ts-check
-import { tag, text } from "src/library/html/index.js";
-import { HEAD } from "src/ui/head.js";
-import { THEME } from "src/ui/theme.js";
+
+import { tag, text } from "../library/html/index.js";
+import { HEAD } from "./head.js";
+import { THEME } from "./theme.js";
 
 /**
- * @type {import("src/library/html/index.js").View}
+ * @type {import("../library/html/index.js").View}
  */
 export const viewGrid = (attr, children) => {
   return tag(
@@ -18,7 +19,7 @@ export const viewGrid = (attr, children) => {
 };
 
 /**
- * @type {import("src/library/html/index.js").View}
+ * @type {import("../library/html/index.js").View}
  */
 export const viewGridItem = (a, c) => {
   return tag(
@@ -33,7 +34,7 @@ export const viewGridItem = (a, c) => {
 
 /**
  *
- * @returns {import("src/library/html/index.js").Html}
+ * @returns {import("../library/html/index.js").Html}
  */
 const viewGridStyles = () => {
   return tag("style", {}, [

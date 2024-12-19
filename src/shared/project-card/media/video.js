@@ -1,10 +1,10 @@
 // @ts-check
 
-import { tag, text } from "src/library/html/index.js";
-import { HEAD } from "src/ui/head.js";
+import { tag, text } from "../../../library/html/index.js";
+import { HEAD } from "../../../ui/head.js";
 
 /**
- * @type {import("src/shared/project-card/props.js").ProjectCardView}
+ * @type {import("../props.js").ProjectCardView}
  */
 export const viewProjectCardMediaVideo = (props) => (attr, _) => {
   if (!props.project?.youTubeVideoId) {

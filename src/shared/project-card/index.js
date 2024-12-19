@@ -1,9 +1,9 @@
 // @ts-check
 
-import { projectToLinkHref } from "src/content/project.js";
-import { tag } from "src/library/html/index.js";
-import { viewCard, viewCardContent } from "src/ui/card.js";
-import { unit } from "src/ui/theme.js";
+import { projectToLinkHref } from "../../content/project.js";
+import { tag } from "../../library/html/index.js";
+import { viewCard, viewCardContent } from "../../ui/card.js";
+import { unit } from "../../ui/theme.js";
 import { viewProjectCardActions } from "./actions/index.js";
 import { viewProjectCardContentMain } from "./content/index.js";
 import { viewProjectCardMedia } from "./media/index.js";

@@ -1,11 +1,11 @@
 // @ts-check
 
-import { tag, text } from "src/library/html/index.js";
-import { HEAD } from "src/ui/head.js";
-import { viewImage } from "src/ui/image.js";
+import { tag, text } from "../../../library/html/index.js";
+import { HEAD } from "../../../ui/head.js";
+import { viewImage } from "../../../ui/image.js";
 
 /**
- * @type {import("src/shared/project-card/props.js").ProjectCardView}
+ * @type {import("../props.js").ProjectCardView}
  */
 export const viewProjectCardMediaImage = (props) => {
   const src = props.project?.imageSrc?.[0];
@@ -16,7 +16,7 @@ export const viewProjectCardMediaImage = (props) => {
 };
 
 /**
- * @type {import("src/shared/project-card/props.js").ProjectCardView}
+ * @type {import("../props.js").ProjectCardView}
  */
 const viewProjectCardMediaImageMain = (props) => (attr, _) => {
   const alt = props.project?.imageAlt;
@@ -42,7 +42,7 @@ HEAD.push(
 );
 
 /**
- * @type {import("src/shared/project-card/props.js").ProjectCardView}
+ * @type {import("../props.js").ProjectCardView}
  */
 const viewProjectCardMediaGradient = (_) => (attr, _) => {
   return tag("div", { ...attr, class: "project-card-media-gradient" }, []);

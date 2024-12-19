@@ -1,11 +1,12 @@
 // @ts-check
-import { ensureObject } from "src/library/ensure-object.js";
-import { viewLink } from "src/ui/link.js";
-import { unit } from "src/ui/theme.js";
-import { viewTypography } from "src/ui/typography.js";
+
+import { ensureObject } from "../../../library/ensure-object.js";
+import { viewLink } from "../../../ui/link.js";
+import { unit } from "../../../ui/theme.js";
+import { viewTypography } from "../../../ui/typography.js";
 
 /**
- * @type {import("src/shared/project-card/props.js").ProjectCardView}
+ * @type {import("../props.js").ProjectCardView}
  */
 export const viewProjectCardContentTitle = (props) => (a, _c) => {
   const inner = viewTypography({

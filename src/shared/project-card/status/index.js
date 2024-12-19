@@ -1,14 +1,14 @@
-import { tag } from "src/library/html/index.js";
-import { infoOutline } from "src/ui/icons.js";
-import { THEME, unit } from "src/ui/theme.js";
-import { viewTypography } from "src/ui/typography.js";
+import { tag } from "../../../library/html/index.js";
+import { infoOutline } from "../../../ui/icons.js";
+import { unit, THEME } from "../../../ui/theme.js";
+import { viewTypography } from "../../../ui/typography.js";
 
 /**
- * @type {import("src/shared/project-card/props.js").ProjectCardView}
+ * @type {import("../props.js").ProjectCardView}
  */
 export const viewProjectCardStatus = (props) => (_a, _c) => {
   /**
-   * @type {import("src/library/html/index.js").Html[]}
+   * @type {import("../../../library/html/index.js").Html[]}
    */
   const children = [];
 
@@ -55,7 +55,7 @@ export const viewProjectCardStatus = (props) => (_a, _c) => {
 };
 
 /**
- * @type {import("src/library/html/index.js").ViewWithProps<import("src/shared/project-card/props.js").ProjectCardProps & {text:string}>}
+ * @type {import("../../../library/html/index.js").ViewWithProps<import("../props.js").ProjectCardProps & {text:string}>}
  */
 export const viewProjectCardStatusSingle = (props) => (_a, _c) => {
   return tag(

@@ -1,15 +1,15 @@
 // @ts-check
 
-import { tag, text } from "src/library/html/index.js";
-import { HEAD } from "src/ui/head.js";
-import { THEME } from "src/ui/theme.js";
+import { tag, text } from "../library/html/index.js";
+import { HEAD } from "./head.js";
+import { THEME } from "./theme.js";
 
 /**
  * @typedef {"h1" | "h2" | "h3" | "title-sm" | "body-md" | "body-xs"} Level
  */
 
 /**
- * @typedef {{tag:string; startDecorator: import("src/library/html/index.js").View | null, size: "sm" | "lg"; variant: "soft" | "plain" | "contained"; disabled: boolean; text: string}} Props
+ * @typedef {{tag:string; startDecorator: import("../library/html/index.js").View | null, size: "sm" | "lg"; variant: "soft" | "plain" | "contained"; disabled: boolean; text: string}} Props
  */
 
 /**
@@ -60,7 +60,7 @@ const toClassName = (props) => {
 };
 
 /**
- * @type {import("src/library/html/index.js").ViewWithProps<Props>}
+ * @type {import("../library/html/index.js").ViewWithProps<Props>}
  */
 export const viewButton = (props) => (attrs, children) => {
   const tagName = toTag(props);
@@ -87,7 +87,7 @@ export const viewButton = (props) => (attrs, children) => {
 };
 
 /**
- * @type {import("src/library/html/index.js").ViewWithProps<{}>}
+ * @type {import("../library/html/index.js").ViewWithProps<{}>}
  */
 export const viewButtonStyles = (_props) => (_attrs, _children) => {
   return tag("style", {}, [

@@ -1,14 +1,14 @@
-import { data } from "src/content/index.js";
-import { tag, text } from "src/library/html/index.js";
-import { viewContactLink } from "src/shared/contact-link/index.js";
-import { viewGithubButton } from "src/shared/github-button.js";
-import { viewLinkedInButton } from "src/shared/linkedin-button.js";
-import { viewSection } from "src/shared/section.js";
-import { HEAD } from "src/ui/head.js";
-import { THEME, unit } from "src/ui/theme.js";
+import { data } from "../content/index.js";
+import { tag, text } from "../library/html/index.js";
+import { viewContactLink } from "../shared/contact-link/index.js";
+import { viewGithubButton } from "../shared/github-button.js";
+import { viewLinkedInButton } from "../shared/linkedin-button.js";
+import { viewSection } from "../shared/section.js";
+import { HEAD } from "../ui/head.js";
+import { THEME, unit } from "../ui/theme.js";
 
 /**
- * @type {import("src/library/html/index.js").View}
+ * @type {import("../library/html/index.js").View}
  */
 export const viewContactSection = (_a, _c) => {
   return viewSection({
@@ -17,7 +17,7 @@ export const viewContactSection = (_a, _c) => {
 };
 
 /**
- * @type {import("src/library/html/index.js").View}
+ * @type {import("../library/html/index.js").View}
  */
 const viewContacts = (_a, _c) => {
   return tag(
@@ -56,7 +56,7 @@ HEAD.push(
 );
 
 /**
- * @type {import("src/library/html/index.js").View}
+ * @type {import("../library/html/index.js").View}
  */
 const viewContactLinks = (_a, _c) => {
   return tag("div", { class: "contact-section-links" }, [
@@ -80,7 +80,7 @@ HEAD.push(
 );
 
 /**
- * @type {import("src/library/html/index.js").View}
+ * @type {import("../library/html/index.js").View}
  */
 const viewContactButtons = (_a, _c) => {
   return tag("div", { class: "contact-section-buttons" }, [

@@ -1,17 +1,17 @@
 // @ts-check
 
-import { text } from "src/library/html/index.js";
-import { renderAttrs } from "src/library/html/render.js";
+import { text } from "../library/html/index.js";
+import { renderAttrs } from "../library/html/render.js";
 
 /**
- * @type {(attrs: import("src/library/html/index.js").Attrs | undefined, svg: string) => import("src/library/html/index.js").Html}
+ * @type {(attrs: import("../library/html/index.js").Attrs | undefined, svg: string) => import("../library/html/index.js").Html}
  */
 const icon = (attrs, svg) => {
   return text(svg.replace("<svg ", `<svg ${renderAttrs(attrs ?? {})} `));
 };
 
 /**
- * @type {import("src/library/html/index.js").View}
+ * @type {import("../library/html/index.js").View}
  */
 export const linkedIn = (a, _) => {
   return icon(
@@ -21,7 +21,7 @@ export const linkedIn = (a, _) => {
 };
 
 /**
- * @type {import("src/library/html/index.js").View}
+ * @type {import("../library/html/index.js").View}
  */
 export const github = (a, _) => {
   return icon(
@@ -31,7 +31,7 @@ export const github = (a, _) => {
 };
 
 /**
- * @type {import("src/library/html/index.js").View}
+ * @type {import("../library/html/index.js").View}
  */
 export const infoOutline = (attrs, _) => {
   return icon(
@@ -41,7 +41,7 @@ export const infoOutline = (attrs, _) => {
 };
 
 /**
- * @type {import("src/library/html/index.js").View}
+ * @type {import("../library/html/index.js").View}
  */
 export const web = (attrs, _children) => {
   return icon(
@@ -51,7 +51,7 @@ export const web = (attrs, _children) => {
 };
 
 /**
- * @type {import("src/library/html/index.js").View}
+ * @type {import("../library/html/index.js").View}
  */
 export const _code = (attrs, _children) => {
   return icon(
@@ -61,7 +61,7 @@ export const _code = (attrs, _children) => {
 };
 
 /**
- * @type {import("src/library/html/index.js").View}
+ * @type {import("../library/html/index.js").View}
  */
 export const code = (attrs, _children) => {
   return icon(
@@ -71,7 +71,7 @@ export const code = (attrs, _children) => {
 };
 
 /**
- * @type {import("src/library/html/index.js").View}
+ * @type {import("../library/html/index.js").View}
  */
 export const launch = (attrs, _children) => {
   return icon(

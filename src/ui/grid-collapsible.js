@@ -1,13 +1,13 @@
-import { tag, text } from "src/library/html/index.js";
-import { viewButton } from "src/ui/button.js";
-import { viewGrid, viewGridItem } from "src/ui/grid.js";
-import { HEAD } from "src/ui/head.js";
-import { unit } from "src/ui/theme.js";
+import { tag, text } from "../library/html/index.js";
+import { viewButton } from "./button.js";
+import { viewGrid, viewGridItem } from "./grid.js";
+import { HEAD } from "./head.js";
+import { unit } from "./theme.js";
 
 const MAX_VISIBLE_CARD_COUNT = 1;
 
 /**
- * @type {import("src/library/html/index.js").ViewWithProps<{jsVarSafeNamespace: string, children: import("src/library/html/index.js").Html[]}>}
+ * @type {import("../library/html/index.js").ViewWithProps<{jsVarSafeNamespace: string, children: import("../library/html/index.js").Html[]}>}
  */
 export const viewGridCollapsible = (props) => () => {
   const namespace = `${props.jsVarSafeNamespace}--toggle-see-more--`;
