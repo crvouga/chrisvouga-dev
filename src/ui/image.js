@@ -13,7 +13,9 @@ export const viewImage = (props) => (attr, _) => {
         ...attr,
         src: props.src,
         alt: props.alt,
-        class: ["image animate-pulse", attr?.class].filter(Boolean).join(" "),
+        class: ["image animate-pulse", attr?.["class"]]
+          .filter(Boolean)
+          .join(" "),
         onload: "onImageLoad(event)",
       },
       []

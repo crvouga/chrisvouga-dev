@@ -26,7 +26,7 @@ export const viewGridItem = (a, c) => {
     "div",
     {
       ...a,
-      class: ["grid-item", a?.class].filter(Boolean).join(" "),
+      class: ["grid-item", a?.["class"]].filter(Boolean).join(" "),
     },
     c
   );

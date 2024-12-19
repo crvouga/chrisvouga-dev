@@ -100,7 +100,7 @@ export const viewTypography = (props) => (attrs, children) => {
     }
   })();
 
-  const className = [BASE_CLASS, toClassName(props), attrs?.class]
+  const className = [BASE_CLASS, toClassName(props), attrs?.["class"]]
     .filter(Boolean)
     .join(" ");
 

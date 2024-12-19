@@ -6,7 +6,7 @@ import { viewImage } from "./image.js";
  * @type {import("../library/html/index.js").ViewWithProps<{src:string; alt: string}>}
  */
 export const viewAvatar = (props) => (attr, children) => {
-  const className = ["avatar", attr?.class].filter(Boolean).join(" ");
+  const className = ["avatar", attr?.["class"]].filter(Boolean).join(" ");
 
   return viewImage(props)(
     {

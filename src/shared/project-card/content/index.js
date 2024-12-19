@@ -14,7 +14,7 @@ export const viewProjectCardContentMain = (props) => (a, _c) => {
     {
       ...a,
       style: {
-        ...ensureObject(a?.style),
+        ...ensureObject(a?.["style"]),
         flex: 1,
         display: "flex",
         "flex-direction": "column",

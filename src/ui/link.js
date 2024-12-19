@@ -7,7 +7,7 @@ import { tag } from "../library/html/index.js";
  * @type {import("../library/html/index.js").View}
  */
 export const viewLink = (attrs, children) => {
-  const href = attrs?.href;
+  const href = attrs?.["href"];
 
   if (typeof href === "string" && href.trim().length > 0) {
     return tag(
@@ -17,7 +17,7 @@ export const viewLink = (attrs, children) => {
         target: "_blank",
         rel: "noreferrer noopener",
         style: {
-          ...ensureObject(attrs?.style),
+          ...ensureObject(attrs?.["style"]),
           "text-decoration": "underline",
         },
       },

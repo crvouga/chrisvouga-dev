@@ -1,25 +1,23 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "NodeNext",
+    "lib": ["ES2020", "DOM"],
+    "strict": true,
+    "useDefineForClassFields": true,
+    "checkJs": true,
+    "allowJs": true,
+    "noEmit": true,
     "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "nodenext",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx",
-
-    /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "allowJs": true,
-    "checkJs": true,
-    "noEmit": true,
-    "strict": true
+    "noImplicitReturns": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true
   },
   "include": ["**/*.js"],
   "exclude": ["node_modules", "dist"]

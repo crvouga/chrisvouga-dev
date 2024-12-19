@@ -15,7 +15,7 @@ export const viewProjectCardContentTitle = (props) => (a, _c) => {
   })({
     ...a,
     style: {
-      ...ensureObject(a?.style),
+      ...ensureObject(a?.["style"]),
       "margin-bottom": unit(1),
     },
   });
