@@ -17,10 +17,11 @@ HEAD.push(
   tag("style", {}, [
     text(`
       .education-card-image {
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 4 / 3;
         overflow: hidden;
         flex-shrink: 0;
         width: 100%;
+        object-fit: cover;
         border-bottom: 1px solid ${THEME.colors.paperBorder};
       }
     `),

@@ -12,7 +12,7 @@ export const viewContactLinkButton = (props) => (attrs, _children) => {
       ...attrs,
       class: "contact-link-button",
       title: "Click to copy to clipboard",
-      onclick: `navigator.clipboard.writeText('${props.value}'); document.getElementById('toaster').showToast('Copied ${props.value} to clipboard')`,
+      onclick: `navigator.clipboard.writeText('${props.value}'); document.getElementById('toaster').showToast('Copied \\'${props.value}\\' to clipboard')`,
     },
     [
       tag("span", { class: "contact-link-button-label" }, [text(props.label)]),
