@@ -7,8 +7,8 @@ import { viewProjectCard } from "src/shared/project-card";
 import { viewSection } from "src/shared/section";
 import { unit } from "src/ui/theme";
 
-const MAX_CARD_COUNT = 9;
-const HIDDEN_CARD_COUNT = data.sideProjects.length - MAX_CARD_COUNT;
+const MAX_VISIBLE_CARD_COUNT = 6;
+const HIDDEN_CARD_COUNT = data.sideProjects.length - MAX_VISIBLE_CARD_COUNT;
 
 /**
  * @type {import("src/library/html").View}
@@ -58,7 +58,7 @@ export const viewSideProjectsSection = () => {
       },
       data.sideProjects.map((project, index) =>
         viewGridItem(
-          index >= MAX_CARD_COUNT
+          index >= MAX_VISIBLE_CARD_COUNT
             ? {
                 class: hiddenCardClass,
                 style: {
