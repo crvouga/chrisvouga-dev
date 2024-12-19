@@ -3,7 +3,8 @@
   "scripts": {
     "start": "bun x concurrently \"bun --watch ./src/main.js\" \"bun x serve dist\"",
     "build": "bun ./src/main.js",
-    "tc": "bun x tsc -w"
+    "tc": "bun x tsc -w",
+    "optimize-images": "bun ./src/optimize-images.js"
   },
   "devDependencies": {
     "@types/bun": "^1.1.14"
