@@ -6,6 +6,7 @@ import { HEAD } from "src/ui/head";
 import { viewProjectCard } from "src/shared/project-card";
 import { viewSection } from "src/shared/section";
 import { unit } from "src/ui/theme";
+import { viewGridCollapsible } from "src/ui/grid-collapsible";
 
 const MAX_VISIBLE_CARD_COUNT = 6;
 const HIDDEN_CARD_COUNT = data.sideProjects.length - MAX_VISIBLE_CARD_COUNT;
@@ -14,6 +15,16 @@ const HIDDEN_CARD_COUNT = data.sideProjects.length - MAX_VISIBLE_CARD_COUNT;
  * @type {import("src/library/html").View}
  */
 export const viewSideProjectsSection = () => {
+  return viewSection({
+    title: "Side Projects",
+  })({}, [
+    viewGridCollapsible({
+      children: data.sideProjects.map((project) =>
+        viewProjectCard({ project })()
+      ),
+      namespace: "side-projects-section",
+    })(),
+  ]);
   const namespace = "toggle-see-more--";
   const hiddenCardClass = `${namespace}item-hidden`;
   const seeMoreButtonId = `${namespace}see-more-button`;
