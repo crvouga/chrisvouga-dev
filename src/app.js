@@ -62,7 +62,16 @@ export const viewDoc = (_a, c) => {
         []
       ),
       tag("title", {}, [text(data.metaTitle)]),
-      tag("meta", { name: "description", content: data.metaDescription }, []),
+      tag(
+        "meta",
+        {
+          name: "description",
+          content: data.metaDescription
+            .replaceAll("\n", "")
+            .replaceAll("\t", ""),
+        },
+        []
+      ),
       tag("link", { rel: "shortcut icon", href: "/favicon.ico" }, []),
       tag("link", { rel: "icon", href: "/favicon.ico" }, []),
       tag("script", { src: "./toaster-element.js" }, []),
