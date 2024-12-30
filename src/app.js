@@ -112,7 +112,7 @@ HEAD.push(
     }
     
     ::-webkit-scrollbar {
-        width: 12px; /* Width of the scrollbar */
+        width: 12px;
     }
 
     ::-webkit-scrollbar-track {
