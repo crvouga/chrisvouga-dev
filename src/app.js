@@ -106,9 +106,36 @@ HEAD.push(
     body {
       margin: 0;
       padding: 0;
-      background-color: #000;
+      background-color: ${THEME.colors.background};
       overflow-x: hidden;
       overflow-y: auto;
+    }
+    
+    ::-webkit-scrollbar {
+        width: 12px; /* Width of the scrollbar */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: ${THEME.colors.background};
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: ${THEME.colors.paperBorder};
+        border-radius: 6px;
+        border: 3px solid ${THEME.colors.background};
+    }
+
+    body {
+        scrollbar-width: thin;           
+        scrollbar-color: ${THEME.colors.paperBorder} ${THEME.colors.background};  
+    }
+
+    body {
+        -ms-overflow-style: none; 
+    }
+    
+    body::-webkit-scrollbar {
+        display: none;
     }
   `),
   ])

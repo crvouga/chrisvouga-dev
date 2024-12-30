@@ -1,5 +1,6 @@
 export const THEME = {
   colors: {
+    background: "#000",
     text: "#F0F4F8",
     neutralMuted: "rgb(159, 166, 173)",
     paper: "#0B0D0E",
