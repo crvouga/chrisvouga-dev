@@ -184,6 +184,22 @@ const sideProjects = [
   },
 
   {
+    title: "moviefinder.app",
+    deployment: {
+      t: "public",
+      url: "https://www.moviefinder.app/",
+    },
+    code: {
+      t: "public",
+      url: "https://github.com/crvouga/moviefinder.app",
+    },
+    description: "A work-in-progress movie search app with a tiktok-like UI.",
+    imageAlt: "project screenshot or video",
+    imageSrc: ["/moviefinder-app.optimized.webp"],
+    topics: ["rust", "tailwind", "postgres", "datastar"],
+  },
+
+  {
     title: "headless-combobox",
     deployment: {
       t: "public",
@@ -231,22 +247,6 @@ const sideProjects = [
       "css",
       "react-query",
     ],
-  },
-
-  {
-    title: "moviefinder.app",
-    deployment: {
-      t: "public",
-      url: "https://www.moviefinder.app/",
-    },
-    code: {
-      t: "public",
-      url: "https://github.com/crvouga/moviefinder.app",
-    },
-    description: "A work-in-progress movie search app with a tiktok-like UI.",
-    imageAlt: "project screenshot or video",
-    imageSrc: ["/moviefinder-app.optimized.webp"],
-    topics: ["rust", "tailwind", "postgres", "datastar"],
   },
 
   {
