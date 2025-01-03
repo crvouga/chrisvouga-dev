@@ -156,7 +156,7 @@ const workProjects = [
   },
 ];
 
-const gamezillaHref = "https://gamezilla.app/";
+const gamezillaHref = "https://www.gamezilla.app/";
 /**
  * @type {import("./project.js").Project[]}
  */
